@@ -18,7 +18,7 @@ def generate_toc_and_add_links(markdown_content):
         link = re.sub(r'\s+', '-', title)
         return f"{level} {title} <a id=\"{link}\"></a>"
 
-    updated_content = re.sub(r'^(#{3,6})\s+(.+)', add_id_link, markdown_content, flags=re.MULTILINE)
+    updated_content = re.sub(r'^(###)\s+(.+)', add_id_link, markdown_content, flags=re.MULTILINE)
 
     # پیدا کردن موقعیت اولین تگ ##
     toc_insert_pos = re.search(r'^(##)\s+(.+)', updated_content, flags=re.MULTILINE)
