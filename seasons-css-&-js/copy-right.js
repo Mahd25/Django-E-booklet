@@ -1,5 +1,6 @@
 const startYear = 2024;
 const currentYear = new Date().getFullYear();
+
 // Set the start year
 document.getElementById('start-year').textContent = startYear;
 
