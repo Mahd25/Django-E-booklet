@@ -1,1171 +1,750 @@
+
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
-
 <head>
-    <title>Season zero</title>
+    <title>Season </title>    
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Django e-booklet">
     <meta name="keywords" content="django, django learning">
     <meta name="author" content="Mahdi Rezaie, Ali Ebrahimian">
     <link rel="icon" href="../Images/favicon.ico" type="image/ico">
-
+    
     <link rel="stylesheet" type="text/css" href="../seasons-css-&-js/seasons-style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
-        integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
-
 <body>
     <main>
         <div class="container">
             <div class="content">
-                <h2 id="_1">فصل صفرم: مفاهیم برنامه نویسی وب</h2>
-                <h4 id="_2">فهرست مطالب</h4>
-                <ul>
-                    <li><a href="#1-معرفی-دوره-متخصص-جنگو">معرفی دوره متخصص جنگو</a></li>
-                    <li><a href="#2-نکاتی-مهم-قبل-از-شروع-دوره">نکاتی مهم قبل از شروع دوره</a></li>
-                    <li><a href="#3-مفهوم-شبکه">مفهوم شبکه</a></li>
-                    <li><a href="#4-ip-internet-protocol-address">IP (Internet Protocol Address)</a></li>
-                    <li><a href="#5-dns-domain-name-server">DNS (Domain Name Server)</a></li>
-                    <li><a href="#6-اجزای-url">اجزای URL</a></li>
-                    <li><a href="#7-مفهوم-دامنه">مفهوم دامنه</a></li>
-                    <li><a href="#8-مفهوم-پورت">مفهوم پورت</a></li>
-                    <li><a href="#9-مفهوم-سرور-هاست-و-لوکال-هاست">مفهوم سرور، هاست و لوکال هاست</a></li>
-                    <li><a href="#10-مفهوم-کلاینت-client">مفهوم کلاینت (Client)</a></li>
-                    <li><a href="#11-مفهوم-پروتکل">مفهوم پروتکل</a></li>
-                    <li><a href="#12-مفهوم-وب">مفهوم وب</a></li>
-                    <li><a href="#13-مفهوم-request-و-response-مهم">مفهوم Request و Response (مهم)</a></li>
-                    <li><a href="#14-کوکی‌ها-و-سشن‌ها">کوکی‌ها و سشن‌ها</a></li>
-                    <li><a href="#15-مفهوم-فریم‌ورک">مفهوم فریم‌ورک</a></li>
-                    <li><a href="#16-تفاوت-فرانت‌اند-و-بک‌اند">تفاوت فرانت‌اند و بک‌اند</a></li>
-                    <li><a href="#17-جنگو-چیست">جنگو چیست؟</a></li>
-                    <li><a href="#18-معماری-mvt-و-ساختار-جنگو-مهم">معماری MVT و ساختار جنگو (مهم)</a></li>
-                </ul>
-                <h3 id="1">1. معرفی دوره متخصص جنگو</h3>
-                <p>این دوره شامل آموزش کامل جنگو از پایه تا پیشرفته می‌باشد و برای افرادی که قصد دارند به صورت حرفه‌ای
-                    در
-                    زمینه توسعه وب با استفاده از فریم‌ورک جنگو فعالیت کنند، طراحی شده است.</p>
-                <h3 id="2">2. نکاتی مهم قبل از شروع دوره</h3>
-                <p><strong>پیش نیازهای دوره</strong>:</p>
-                <ul>
-                    <li>
-                        <p>آشنایی اولیه با زبان برنامه‌نویسی پایتون</p>
-                    </li>
-                    <li>
-                        <p>آشنایی با مفاهیم پایه‌ای وب</p>
-                    </li>
-                </ul>
-                <p><strong>ابزارهای مورد نیاز</strong>:</p>
-                <ul>
-                    <li>
-                        <p>نصب پایتون و جنگو</p>
-                    </li>
-                    <li>
-                        <p>ویرایشگر متن مناسب (مثل Visual Studio Code یا PyCharm)</p>
-                    </li>
-                    <li>
-                        <p>مرورگر وب (مثل گوگل کروم)</p>
-                    </li>
-                </ul>
-                <h3 id="3">3. مفهوم شبکه</h3>
-                <p>شبکه مجموعه‌ای از کامپیوترها و دستگاه‌های متصل به هم است که امکان تبادل اطلاعات را فراهم می‌کنند. به
-                    عنوان مثال، اینترنت بزرگترین شبکه‌ای است که شامل میلیون‌ها شبکه کوچک‌تر است.
-                    <img alt="local area network"
-                        src="https://static.packt-cdn.com/products/9781838643508/graphics/assets/1f08f6e9-2d91-497f-8aa6-4ad2afccbb33.png" />
-                </p>
-                <ul>
-                    <li><strong>PAN</strong>: Personal Area Network</li>
-                    <li>keyboard</li>
-                    <li>Headphone</li>
-                    <li>Wifi</li>
-                    <li>Mouse</li>
-                    <li>Bluetooth</li>
-                    <li><strong>LAN</strong>: Local Area Network
-                        برای اتصال سیستم ها و ابزار ها در مسافت های کوتاه</li>
-                    <li><strong>CAN</strong>: Campus Area Network
-                        ارتباط سیستم های دانشگاه با سیستم های سایر بخش های دانشگاه</li>
-                    <li><strong>MAN</strong>: Metropolitan Area Network
-                        آنها شبکه های شهری و مجتمع را به هم متصل می کنند</li>
-                    <li><strong>WAN</strong>: Wide Area Network
-                        اتصال پوششی سیستم ها در فواصل بسیار دور</li>
-                </ul>
-                <h4 id="_3">نوع شبکه از نظر معماری</h4>
-                <ul>
-                    <li><strong>Client-Server</strong>
-                        یک سیستم قدرتمندتر به عنوان نقطه مرکزی عمل می کند و بقیه سیستم ها به نام (کلاینت) به این سیستم
-                        بزرگتر متصل می شوند.</li>
-                    <li><strong>Peer-to-Peer</strong>
-                        در اتصال همتا به همتا و هر سیستمی می تواند سرور یا مشتری باشد.</li>
-                    <li><strong>Hybrid</strong>
-                        ترکیبی از دو معماری قبلی</li>
-                </ul>
-                <h4 id="_4">انواع توپولوژی شبکه</h4>
-                <p><img alt="types of  network topologies"
-                        src="https://techiereader.com/wp-content/uploads/2016/08/Network-Topology.png" /></p>
-                <ul>
-                    <li>
-                        <p><strong>Star Topology (توپولوژی ستاره)</strong>:
-                            در این توپولوژی، هر دستگاه به یک نقطه مرکزی متصل می‌شود که معمولاً یک سوئیچ یا هاب است. این
-                            نقطه
-                            مرکزی مسئول اداره ترافیک شبکه است و ارتباطات بین دستگاه‌ها از طریق آن صورت می‌گیرد.</p>
-                    </li>
-                    <li>
-                        <p><strong>Ring Topology (توپولوژی حلقه‌ای)</strong>:
-                            در این توپولوژی، هر دستگاه به دو دستگاه مجاور خود متصل است تا یک حلقه ایجاد شود. اطلاعات از
-                            طریق
-                            حلقه به گردش درمی‌آیند و به ترتیب به هر دستگاه منتقل می‌شوند. این توپولوژی به طور خاص در
-                            شبکه‌های لوکال استفاده می‌شود.</p>
-                    </li>
-                    <li>
-                        <p><strong>Mesh Topology (توپولوژی شبکه)</strong>:
-                            در این توپولوژی، هر دستگاه با همه دستگاه‌های دیگر متصل است. این اتصالات ممکن است مستقیم یا
-                            از
-                            طریق تجهیزات میانی مثل روترها باشند. این توپولوژی بسیار انعطاف‌پذیر و قابل اعتماد است، اما
-                            نیاز
-                            به مدیریت پیچیده‌تری دارد.</p>
-                    </li>
-                    <li>
-                        <p><strong>Bus Topology (توپولوژی پرتوی)</strong>:
-                            در این توپولوژی، تمام دستگاه‌ها به یک لینی که به عنوان خط اصلی یا "پرتو" شناخته می‌شود، متصل
-                            هستند. اطلاعات از یک طرف به سمت دیگر ارسال می‌شوند و توسط دستگاه‌ها در مسیر درست شده، تشخیص
-                            داده
-                            می‌شود.</p>
-                    </li>
-                    <li>
-                        <p><strong>Tree Topology (توپولوژی درختی)</strong>:
-                            این توپولوژی از ترکیب توپولوژی ستاره و شبکه تشکیل شده است. دستگاه‌ها در این توپولوژی به شکل
-                            یک
-                            ساختار درختی سلسله مراتبی به هم متصل هستند، که یک یا چند دستگاه به عنوان ریشه عمل می‌کنند و
-                            به
-                            دستگاه‌های دیگر متصل می‌شوند.</p>
-                    </li>
-                    <li>
-                        <p><strong>Mesh Topology (توپولوژی پوششی)</strong>:
-                            این توپولوژی شبیه به توپولوژی شبکه است، با این تفاوت که تمام دستگاه‌ها به صورت مستقیم به
-                            یکدیگر
-                            متصل هستند، بدون نیاز به دستگاه‌های میانی. این توپولوژی برای حل مشکلات ردیابی و پیکربندی
-                            داده‌ها
-                            بسیار موثر است.</p>
-                    </li>
-                </ul>
-                <h4 id="_5">نوع‌های شبکه‌های ارتباطی</h4>
-                <p><img alt="نوع‌های شبکه‌های ارتباطی"
-                        src="https://www.talkfreely.com/hs-fs/hubfs/20220322%20intrant%20extrante.png?width=1280&amp;name=20220322%20intrant%20extrante.png" />
-                </p>
-                <ul>
-                    <li><strong>Internet (اتصالات اینترنتی جهانی)</strong>
-                        این نوع اتصالات بیانگر ارتباطاتی است که از طریق اینترنت بین افراد، سازمان‌ها، و شبکه‌های مختلف
-                        در
-                        سراسر جهان برقرار می‌شود. این اتصالات از طریق ارائه‌دهندگان خدمات اینترنت و شبکه‌های عمومی
-                        برقرار
-                        می‌شود و به کاربران امکان ارتباط با یکدیگر را فراهم می‌کند.</li>
-                    <li><strong>Extranet (اتصالات برون‌سازمانی)</strong>
-                        این نوع اتصالات به ارتباطاتی اشاره دارد که برون از مرزها و محدوده‌های یک سازمان برقرار می‌کنند.
-                        این
-                        ارتباطات معمولاً بین یک سازمان و موجودیت‌های دیگر مانند شرکای تجاری، مشتریان، تأمین‌کنندگان، یا
-                        حتی
-                        مخاطبین خدمات است. این نوع ارتباطات ممکن است از طریق اینترنت یا اتصالات خصوصی بین شرکت‌ها برقرار
-                        شود.</li>
-                    <li><strong>Intranet (اتصالات درون‌سازمانی)</strong>
-                        این نوع اتصالات به ارتباطات داخلی یک سازمان یا سازمان‌های مرتبط با یکدیگر اشاره دارد. این
-                        ارتباطات
-                        از طریق شبکه‌های داخلی یا محدوده محلی (LAN) درون سازمان برقرار می‌شوند و برای ارتباطات داخلی،
-                        انتقال
-                        داده‌ها، به اشتراک گذاری منابع، و هماهنگی فعالیت‌ها درون سازمانی مورد استفاده قرار می‌گیرند.
-                    </li>
-                </ul>
-                <h3 id="4-ip-internet-protocol-address">4. IP (Internet Protocol Address)</h3>
-                <p>آدرس IP یک شناسه منحصر به فرد است که به هر دستگاهی در شبکه داده می‌شود تا بتواند با دیگر دستگاه‌ها
-                    ارتباط
-                    برقرار کند. آدرس IP به دو نوع تقسیم می‌شود:</p>
-                <ul>
-                    <li>
-                        <p><strong>IPv4</strong>: شامل ۴ بخش عددی بین ۰ تا ۲۵۵ که با نقطه از هم جدا می‌شوند، مثل
-                            192.168.1.1
-                        </p>
-                    </li>
-                    <li>
-                        <p><strong>IPv6</strong>: شامل ۸ بخش هگزادسیمال که با کولون از هم جدا می‌شوند، مثل
-                            2001:0db8:85a3:0000:0000:8a2e:0370:7334</p>
-                    </li>
-                </ul>
-                <h3 id="5-dns-domain-name-server">5. DNS (Domain Name Server)</h3>
-                <p>سیستم نام دامنه (DNS) سرویسی است که نام‌های دامنه قابل خواندن برای انسان (مثل <www.example.com>) را
-                        به
-                        آدرس‌های IP عددی تبدیل می‌کند. DNS مانند دفترچه تلفن اینترنت عمل می‌کند.</p>
-                <div class="code-box">
-                    <pre><span></span>           Root Domain
+                <h2 id="fsl-sfrm-mfhym-brnmh-nwysy-wb">فصل صفرم: مفاهیم برنامه نویسی وب</h2>
+<h3 id="1-m-rfy-dwrh-mtkhss-jngw">1. معرفی دوره متخصص جنگو</h3>
+<p>این دوره شامل آموزش کامل جنگو از پایه تا پیشرفته می‌باشد و برای افرادی که قصد دارند به صورت حرفه‌ای در زمینه توسعه وب با استفاده از فریم‌ورک جنگو فعالیت کنند، طراحی شده است.</p>
+<h3 id="2-nkhty-mhm-qbl-z-shrw-dwrh">2. نکاتی مهم قبل از شروع دوره</h3>
+<p><strong>پیش نیازهای دوره</strong>:</p>
+<ul>
+<li>
+<p>آشنایی اولیه با زبان برنامه‌نویسی پایتون</p>
+</li>
+<li>
+<p>آشنایی با مفاهیم پایه‌ای وب</p>
+</li>
+</ul>
+<p><strong>ابزارهای مورد نیاز</strong>:</p>
+<ul>
+<li>
+<p>نصب پایتون و جنگو</p>
+</li>
+<li>
+<p>ویرایشگر متن مناسب (مثل Visual Studio Code یا PyCharm)</p>
+</li>
+<li>
+<p>مرورگر وب (مثل گوگل کروم)</p>
+</li>
+</ul>
+<h3 id="3-mfhwm-shbkhh">3. مفهوم شبکه</h3>
+<p>شبکه مجموعه‌ای از کامپیوترها و دستگاه‌های متصل به هم است که امکان تبادل اطلاعات را فراهم می‌کنند. به عنوان مثال، اینترنت بزرگترین شبکه‌ای است که شامل میلیون‌ها شبکه کوچک‌تر است.
+<img alt="local area network" src="https://static.packt-cdn.com/products/9781838643508/graphics/assets/1f08f6e9-2d91-497f-8aa6-4ad2afccbb33.png" /></p>
+<ul>
+<li><strong>PAN</strong>: Personal Area Network</li>
+<li>keyboard</li>
+<li>Headphone</li>
+<li>Wifi</li>
+<li>Mouse</li>
+<li>Bluetooth</li>
+<li><strong>LAN</strong>: Local Area Network
+برای اتصال سیستم ها و ابزار ها در مسافت های کوتاه</li>
+<li><strong>CAN</strong>: Campus Area Network
+ارتباط سیستم های دانشگاه با سیستم های سایر بخش های دانشگاه</li>
+<li><strong>MAN</strong>: Metropolitan Area Network
+آنها شبکه های شهری و مجتمع را به هم متصل می کنند</li>
+<li><strong>WAN</strong>: Wide Area Network
+اتصال پوششی سیستم ها در فواصل بسیار دور</li>
+</ul>
+<h4 id="nw-shbkhh-z-nzr-m-mry">نوع شبکه از نظر معماری</h4>
+<ul>
+<li><strong>Client-Server</strong>
+یک سیستم قدرتمندتر به عنوان نقطه مرکزی عمل می کند و بقیه سیستم ها به نام (کلاینت) به این سیستم بزرگتر متصل می شوند.</li>
+<li><strong>Peer-to-Peer</strong>
+در اتصال همتا به همتا و هر سیستمی می تواند سرور یا مشتری باشد.</li>
+<li><strong>Hybrid</strong>
+ترکیبی از دو معماری قبلی</li>
+</ul>
+<h4 id="nw-twpwlwjy-shbkhh">انواع توپولوژی شبکه</h4>
+<p><img alt="types of  network topologies" src="https://techiereader.com/wp-content/uploads/2016/08/Network-Topology.png" /></p>
+<ul>
+<li>
+<p><strong>Star Topology (توپولوژی ستاره)</strong>:
+در این توپولوژی، هر دستگاه به یک نقطه مرکزی متصل می‌شود که معمولاً یک سوئیچ یا هاب است. این نقطه مرکزی مسئول اداره ترافیک شبکه است و ارتباطات بین دستگاه‌ها از طریق آن صورت می‌گیرد.</p>
+</li>
+<li>
+<p><strong>Ring Topology (توپولوژی حلقه‌ای)</strong>:
+در این توپولوژی، هر دستگاه به دو دستگاه مجاور خود متصل است تا یک حلقه ایجاد شود. اطلاعات از طریق حلقه به گردش درمی‌آیند و به ترتیب به هر دستگاه منتقل می‌شوند. این توپولوژی به طور خاص در شبکه‌های لوکال استفاده می‌شود.</p>
+</li>
+<li>
+<p><strong>Mesh Topology (توپولوژی شبکه)</strong>:
+در این توپولوژی، هر دستگاه با همه دستگاه‌های دیگر متصل است. این اتصالات ممکن است مستقیم یا از طریق تجهیزات میانی مثل روترها باشند. این توپولوژی بسیار انعطاف‌پذیر و قابل اعتماد است، اما نیاز به مدیریت پیچیده‌تری دارد.</p>
+</li>
+<li>
+<p><strong>Bus Topology (توپولوژی پرتوی)</strong>:
+در این توپولوژی، تمام دستگاه‌ها به یک لینی که به عنوان خط اصلی یا "پرتو" شناخته می‌شود، متصل هستند. اطلاعات از یک طرف به سمت دیگر ارسال می‌شوند و توسط دستگاه‌ها در مسیر درست شده، تشخیص داده می‌شود.</p>
+</li>
+<li>
+<p><strong>Tree Topology (توپولوژی درختی)</strong>:
+این توپولوژی از ترکیب توپولوژی ستاره و شبکه تشکیل شده است. دستگاه‌ها در این توپولوژی به شکل یک ساختار درختی سلسله مراتبی به هم متصل هستند، که یک یا چند دستگاه به عنوان ریشه عمل می‌کنند و به دستگاه‌های دیگر متصل می‌شوند.</p>
+</li>
+<li>
+<p><strong>Mesh Topology (توپولوژی پوششی)</strong>:
+این توپولوژی شبیه به توپولوژی شبکه است، با این تفاوت که تمام دستگاه‌ها به صورت مستقیم به یکدیگر متصل هستند، بدون نیاز به دستگاه‌های میانی. این توپولوژی برای حل مشکلات ردیابی و پیکربندی داده‌ها بسیار موثر است.</p>
+</li>
+</ul>
+<h4 id="nw-hy-shbkhh-hy-rtbty">نوع‌های شبکه‌های ارتباطی</h4>
+<p><img alt="نوع‌های شبکه‌های ارتباطی" src="https://www.talkfreely.com/hs-fs/hubfs/20220322%20intrant%20extrante.png?width=1280&amp;name=20220322%20intrant%20extrante.png" /></p>
+<ul>
+<li><strong>Internet (اتصالات اینترنتی جهانی)</strong>
+این نوع اتصالات بیانگر ارتباطاتی است که از طریق اینترنت بین افراد، سازمان‌ها، و شبکه‌های مختلف در سراسر جهان برقرار می‌شود. این اتصالات از طریق ارائه‌دهندگان خدمات اینترنت و شبکه‌های عمومی برقرار می‌شود و به کاربران امکان ارتباط با یکدیگر را فراهم می‌کند.</li>
+<li><strong>Extranet (اتصالات برون‌سازمانی)</strong>
+ این نوع اتصالات به ارتباطاتی اشاره دارد که برون از مرزها و محدوده‌های یک سازمان برقرار می‌کنند. این ارتباطات معمولاً بین یک سازمان و موجودیت‌های دیگر مانند شرکای تجاری، مشتریان، تأمین‌کنندگان، یا حتی مخاطبین خدمات است. این نوع ارتباطات ممکن است از طریق اینترنت یا اتصالات خصوصی بین شرکت‌ها برقرار شود.</li>
+<li><strong>Intranet (اتصالات درون‌سازمانی)</strong>
+این نوع اتصالات به ارتباطات داخلی یک سازمان یا سازمان‌های مرتبط با یکدیگر اشاره دارد. این ارتباطات از طریق شبکه‌های داخلی یا محدوده محلی (LAN) درون سازمان برقرار می‌شوند و برای ارتباطات داخلی، انتقال داده‌ها، به اشتراک گذاری منابع، و هماهنگی فعالیت‌ها درون سازمانی مورد استفاده قرار می‌گیرند.</li>
+</ul>
+<h3 id="4-ip-internet-protocol-address">4. IP (Internet Protocol Address)</h3>
+<p>آدرس IP یک شناسه منحصر به فرد است که به هر دستگاهی در شبکه داده می‌شود تا بتواند با دیگر دستگاه‌ها ارتباط برقرار کند. آدرس IP به دو نوع تقسیم می‌شود:</p>
+<ul>
+<li>
+<p><strong>IPv4</strong>: شامل ۴ بخش عددی بین ۰ تا ۲۵۵ که با نقطه از هم جدا می‌شوند، مثل 192.168.1.1</p>
+</li>
+<li>
+<p><strong>IPv6</strong>: شامل ۸ بخش هگزادسیمال که با کولون از هم جدا می‌شوند، مثل 2001:0db8:85a3:0000:0000:8a2e:0370:7334</p>
+</li>
+</ul>
+<h3 id="5-dns-domain-name-server">5. DNS (Domain Name Server)</h3>
+<p>سیستم نام دامنه (DNS) سرویسی است که نام‌های دامنه قابل خواندن برای انسان (مثل <www.example.com>) را به آدرس‌های IP عددی تبدیل می‌کند. DNS مانند دفترچه تلفن اینترنت عمل می‌کند.</p>
+<div class="code-box">
+        <div class="code-info">
+            <button class="copy-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" class="icon-sm"><path fill="currentColor" fill-rule="evenodd" d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z" clip-rule="evenodd"></path></svg>
+                <span>Copy code</span>
+            </button>
+            <span class="language">plaintext</span>
+        </div>
+    <pre><span></span>Root Domain
            -----------------
 Protocol   Domain Name
 --------   -------------
 https://www.exampledomain.com
         -----             ---
         Subdomain         Top Level Domain
-</pre>
-                </div>
+</pre></div>
 
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Component</th>
-                            <th>example</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Protocol</td>
-                            <td>https</td>
-                        </tr>
-                        <tr>
-                            <td>Domain Name</td>
-                            <td>
-                                <www.example.com>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Subdomain</td>
-                            <td>www</td>
-                        </tr>
-                        <tr>
-                            <td>Top Level Domain</td>
-                            <td>.com</td>
-                        </tr>
-                        <tr>
-                            <td>Second Level Domain</td>
-                            <td>example</td>
-                        </tr>
-                        <tr>
-                            <td>Root Domain</td>
-                            <td>example.com</td>
-                        </tr>
-                    </tbody>
-                </table>
-                <h3 id="6-url">6. اجزای url</h3>
-                <p><strong>URL کامل</strong>:
-                    <code>https://username:password@www.example.com:8080/directory/page?key1=value1&amp;key2=value2#section</code>
-                </p>
-                <div class="code-box">
-                    <pre><span></span><span class="c">Username   Password  Protocol Subdomain Second Level Domain  Top Level Domain  Port Number Path           Query String           Fragment</span>
-<span class="nb">---------</span><span class="c">  </span><span class="nb">--------</span><span class="c">  </span><span class="nb">--------</span><span class="c"> </span><span class="nb">---------</span><span class="c"> </span><span class="nb">--------------------</span><span class="c"> </span><span class="nb">----------------</span><span class="c">  </span><span class="nb">-----------</span><span class="c"> </span><span class="nb">--------------</span><span class="c"> </span><span class="nb">----------------------</span><span class="c"> </span><span class="nb">-------------</span>
-<span class="c">username   password  https:// www</span><span class="nt">.</span><span class="c">      example              </span><span class="nt">.</span><span class="c">com              :8080       /directory/page?key1=value1&amp;key2=value2#section</span>
-</pre>
-                </div>
+<p>|     Component       |       example       |
+| --- | --- |
+|      Protocol       |        https        |
+|     Domain Name     |    <www.example.com>  |
+|      Subdomain      |        www          |
+|   Top Level Domain  |        .com         |
+| Second Level Domain |     example         |
+|     Root Domain     |     example.com     |</p>
+<h3 id="6-jzy-url">6. اجزای url</h3>
+<p><strong>URL کامل</strong>:
+<code>https://username:password@www.example.com:8080/directory/page?key1=value1&amp;key2=value2#section</code></p>
+<div class="code-box">
+        <div class="code-info">
+            <button class="copy-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" class="icon-sm"><path fill="currentColor" fill-rule="evenodd" d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z" clip-rule="evenodd"></path></svg>
+                <span>Copy code</span>
+            </button>
+            <span class="language">plaintext</span>
+        </div>
+    <pre><span></span>Username   Password  Protocol Subdomain Second Level Domain  Top Level Domain  Port Number Path           Query String           Fragment
+---------  --------  -------- --------- -------------------- ----------------  ----------- -------------- ---------------------- -------------
+username   password  https:// www.      example              .com              :8080       /directory/page?key1=value1&amp;key2=value2#section
+</pre></div>
 
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Component</th>
-                            <th>Example</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Protocol</td>
-                            <td>https</td>
-                        </tr>
-                        <tr>
-                            <td>Domain Name</td>
-                            <td>
-                                <www.example.com>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Subdomain</td>
-                            <td>www</td>
-                        </tr>
-                        <tr>
-                            <td>Top Level Domain</td>
-                            <td>com</td>
-                        </tr>
-                        <tr>
-                            <td>Second Level Domain</td>
-                            <td>example</td>
-                        </tr>
-                        <tr>
-                            <td>Root Domain</td>
-                            <td>example.com</td>
-                        </tr>
-                        <tr>
-                            <td>Path</td>
-                            <td>directory/page</td>
-                        </tr>
-                        <tr>
-                            <td>Parameters</td>
-                            <td>key1=value1&amp;key2=value2</td>
-                        </tr>
-                        <tr>
-                            <td>Fragment</td>
-                            <td>section</td>
-                        </tr>
-                        <tr>
-                            <td>Port Number</td>
-                            <td>8080</td>
-                        </tr>
-                        <tr>
-                            <td>Username</td>
-                            <td>username</td>
-                        </tr>
-                        <tr>
-                            <td>Password</td>
-                            <td>password</td>
-                        </tr>
-                        <tr>
-                            <td>Query String</td>
-                            <td>?query_parameter</td>
-                        </tr>
-                    </tbody>
-                </table>
-                <ul>
-                    <li>
-                        <p><strong>توضیحات اجزا</strong>:</p>
-                    </li>
-                    <li>
-                        <p><strong>Protocol (پروتکل): https://</strong>
-                            پروتکل مشخص می‌کند که چگونه داده‌ها بین سرور و کلاینت انتقال پیدا می‌کنند. در این مثال،
-                            پروتکل
-                            https است.</p>
-                    </li>
-                    <li><strong>Username (نام کاربری): username</strong>
-                        این بخش از URL شامل نام کاربری است که برای احراز هویت به کار می‌رود.</li>
-                    <li><strong>Password (رمز عبور): password</strong>
-                        این بخش از URL شامل رمز عبور است که برای احراز هویت به کار می‌رود.</li>
-                    <li><strong>Subdomain (زیر دامنه): www</strong>
-                        زیر دامنه بخشی از دامنه است که معمولاً قبل از نام دامنه اصلی می‌آید. در این مثال، زیر دامنه www
-                        است.
-                    </li>
-                    <li><strong>Second Level Domain (دامنه سطح دوم): example</strong>
-                        دامنه سطح دوم، نام اصلی دامنه است که کاربران برای دسترسی به سایت استفاده می‌کنند. در این مثال،
-                        دامنه
-                        سطح دوم example است.</li>
-                    <li><strong>Top Level Domain (دامنه سطح بالا): .com</strong>
-                        دامنه سطح بالا، پسوند دامنه است که نوع سازمان یا کشور را مشخص می‌کند. در این مثال، دامنه سطح
-                        بالا
-                        .com است.</li>
-                    <li><strong>Port Number (شماره پورت): :8080</strong>
-                        شماره پورت مشخص می‌کند که درخواست‌ها به کدام پورت سرور ارسال شوند. در این مثال، شماره پورت 8080
-                        است.
-                    </li>
-                    <li><strong>Path (مسیر): /directory/page</strong>
-                        مسیر، محل فایل یا منبعی خاص را در سرور مشخص می‌کند. در این مثال، مسیر /directory/page است.</li>
-                    <li><strong>Query String (رشته پرس و جو): ?key1=value1&amp;key2=value2</strong>
-                        رشته پرس و جو شامل پارامترهایی است که به سرور ارسال می‌شوند تا اطلاعات خاصی بازیابی یا عملیاتی
-                        خاص
-                        انجام شود. در این مثال، رشته پرس و جو ?key1=value1&amp;key2=value2 است.</li>
-                    <li><strong>Fragment (قطعه): #section</strong>
-                        قطعه به قسمتی از صفحه اشاره دارد که کاربر باید به آن هدایت شود. در این مثال، قطعه #section است.
-                    </li>
-                </ul>
-                <p><strong>اتصال اجزا در یک URL کامل</strong>:
-                    <code>https://username:password@www.example.com:8080/directory/page?key1=value1&amp;key2=value2#section</code>
-                </p>
-                <h3 id="7">7. مفهوم دامنه</h3>
-                <p>دامنه نامی است که برای شناسایی یک وب‌سایت در اینترنت استفاده می‌شود، مانند <www.example.com>.
-                        دامنه‌ها به
-                        سطوح مختلف تقسیم می‌شوند:</p>
-                <h4 id="domain-extensions">انواع پسوند دامنه (Domain Extensions)</h4>
-                <p>در دنیای اینترنت، پسوندهای دامنه (TLD) به دسته‌های مختلفی تقسیم می‌شوند. این پسوندها به انتهای نام
-                    دامنه‌ها اضافه می‌شوند و به دسته‌بندی‌های مختلفی تعلق دارند. در زیر، سه نوع اصلی پسوند دامنه معرفی
-                    شده
-                    است:</p>
-                <ul>
-                    <li><strong>gTLD (generic Top-Level Domain)</strong>:
-                        این پسوندها عمومی هستند و به دسته‌های خاصی تعلق ندارند. برخی از معروف‌ترین gTLDها شامل موارد زیر
-                        هستند:</li>
-                    <li><code>.com</code> (تجاری)</li>
-                    <li><code>.org</code> (سازمان‌ها)</li>
-                    <li><code>.net</code> (شبکه)</li>
-                    <li><code>.info</code> (اطلاعات)</li>
-                    <li><code>.biz</code> (تجارت)</li>
-                    <li><strong>ccTLD (country code Top-Level Domain)</strong>:
-                        این پسوندها بر اساس کدهای کشورها تعیین می‌شوند و به هر کشور یا منطقه جغرافیایی یک ccTLD منحصر به
-                        فرد
-                        تعلق می‌گیرد. برخی از معروف‌ترین ccTLDها شامل موارد زیر هستند:</li>
-                    <li><code>.us</code> (ایالات متحده)</li>
-                    <li><code>.uk</code> (انگلستان)</li>
-                    <li><code>.ca</code> (کانادا)</li>
-                    <li><code>.de</code> (آلمان)</li>
-                    <li><code>.cn</code> (چین)</li>
-                    <li><strong>sTLD (sponsored Top-Level Domain)</strong>:
-                        این پسوندها به دسته‌ها یا جوامع خاصی تعلق دارند و تحت حمایت و مدیریت سازمان‌ها یا جوامع خاصی
-                        قرار
-                        دارند. برخی از معروف‌ترین sTLDها شامل موارد زیر هستند:</li>
-                    <li><code>.edu</code> (آموزشی)</li>
-                    <li><code>.gov</code> (دولت‌ها)</li>
-                    <li><code>.mil</code> (نظامی)</li>
-                    <li><code>.aero</code> (صنعت هواپیمایی)</li>
-                    <li>
-                        <p><code>.museum</code> (موزه‌ها)</p>
-                    </li>
-                    <li>
-                        <p><strong>انواع پسوندهای دامنه ایرانی (ccTLDs for Iran)</strong></p>
-                    </li>
-                    <li>
-                        <p><code>.ir</code> (عمومی)</p>
-                    </li>
-                    <li><code>.co.ir</code> (شرکت‌ها)</li>
-                    <li><code>.ac.ir</code> (موسسات آموزشی)</li>
-                    <li><code>.gov.ir</code> (نهادهای دولتی)</li>
-                    <li><code>.org.ir</code> (سازمان‌های غیرانتفاعی)</li>
-                    <li><code>.net.ir</code> (شرکت‌های شبکه و اینترنت)</li>
-                    <li><code>.sch.ir</code> (مدارس)</li>
-                    <li><code>.id.ir</code> (افراد حقیقی)</li>
-                </ul>
-                <h3 id="8">8. مفهوم پورت</h3>
-                <p>پورت‌ها در شبکه‌های کامپیوتری، نقاط انتهایی ارتباطی برای ارسال و دریافت داده‌ها هستند. هر پورت به یک
-                    شماره منحصر به فرد بین 0 تا 65535 اختصاص داده می‌شود.</p>
-                <ul>
-                    <li><strong>شماره پورت:</strong> 0-65535</li>
-                    <li><strong>پورت‌های شناخته شده (Well Known Ports):</strong> 0-1023</li>
-                    <li><strong>پورت‌های ثبت شده (Registered Ports):</strong> 1024-49151</li>
-                    <li><strong>پورت‌های دینامیک (پورت‌های خصوصی):</strong> 49152-65535</li>
-                </ul>
-                <h4 id="_6">جدول شماره پورت‌های مهم</h4>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Port</th>
-                            <th>توضیحات</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>20</td>
-                            <td>FTP (انتقال فایل - Data Transfer)</td>
-                        </tr>
-                        <tr>
-                            <td>21</td>
-                            <td>FTP (انتقال فایل - Control)</td>
-                        </tr>
-                        <tr>
-                            <td>22</td>
-                            <td>SSH (دسترسی امن به شل)</td>
-                        </tr>
-                        <tr>
-                            <td>25</td>
-                            <td>SMTP (ارسال ایمیل)</td>
-                        </tr>
-                        <tr>
-                            <td>53</td>
-                            <td>DNS (سیستم نام دامنه)</td>
-                        </tr>
-                        <tr>
-                            <td>80</td>
-                            <td>HTTP (پروتکل انتقال ابرمتن)</td>
-                        </tr>
-                        <tr>
-                            <td>110</td>
-                            <td>POP3 (دریافت ایمیل)</td>
-                        </tr>
-                        <tr>
-                            <td>123</td>
-                            <td>NTP (پروتکل زمان شبکه)</td>
-                        </tr>
-                        <tr>
-                            <td>143</td>
-                            <td>IMAP (پروتکل دسترسی به پیام اینترنتی)</td>
-                        </tr>
-                        <tr>
-                            <td>179</td>
-                            <td>BGP (پروتکل دروازه مرزی)</td>
-                        </tr>
-                        <tr>
-                            <td>443</td>
-                            <td>HTTPS (HTTP امن)</td>
-                        </tr>
-                        <tr>
-                            <td>465</td>
-                            <td>SMTPS (ارسال امن ایمیل با SSL)</td>
-                        </tr>
-                        <tr>
-                            <td>993</td>
-                            <td>IMAPS (IMAP امن با SSL)</td>
-                        </tr>
-                        <tr>
-                            <td>995</td>
-                            <td>POP3S (POP3 امن با SSL)</td>
-                        </tr>
-                        <tr>
-                            <td>3306</td>
-                            <td>MySQL (پایگاه داده)</td>
-                        </tr>
-                        <tr>
-                            <td>3389</td>
-                            <td>RDP (پروتکل دسکتاپ از راه دور)</td>
-                        </tr>
-                        <tr>
-                            <td>5432</td>
-                            <td>PostgreSQL (پایگاه داده)</td>
-                        </tr>
-                        <tr>
-                            <td>5900</td>
-                            <td>VNC (کنترل از راه دور دسکتاپ)</td>
-                        </tr>
-                        <tr>
-                            <td>6379</td>
-                            <td>Redis (پایگاه داده در حافظه)</td>
-                        </tr>
-                        <tr>
-                            <td>8080</td>
-                            <td>HTTP پروکسی/آزمایشگاهی</td>
-                        </tr>
-                    </tbody>
-                </table>
-                <p>این جدول برخی از پورت‌های مهم و کاربردی را شامل می‌شود که در بسیاری از سرویس‌ها و پروتکل‌های شبکه
-                    استفاده
-                    می‌شوند.</p>
-                <h3 id="9">9. مفهوم سرور، هاست و لوکال هاست</h3>
-                <h4 id="server">سرور (Server)</h4>
-                <p>سرور یک کامپیوتر یا سیستمی است که منابع، داده‌ها، خدمات یا برنامه‌ها را به سایر کامپیوترها
-                    (کلاینت‌ها) در
-                    شبکه ارائه می‌دهد. انواع مختلفی از سرورها وجود دارند که هر کدام وظایف خاصی را انجام می‌دهند:</p>
-                <ul>
-                    <li><strong>وب سرور (Web Server):</strong> سرویس‌دهی به صفحات وب و محتواهای مربوط به آن.</li>
-                    <li><strong>سرور کاربردی (Application Server):</strong> اجرای برنامه‌های کاربردی و ارائه سرویس‌های
-                        مرتبط.</li>
-                    <li><strong>سرور ایمیل (Email Server):</strong> مدیریت ارسال و دریافت ایمیل‌ها.</li>
-                    <li><strong>سرور فکس (Fax Server):</strong> ارسال و دریافت فکس‌ها از طریق شبکه.</li>
-                    <li><strong>سرور FTP (FTP Server):</strong> انتقال فایل‌ها از طریق پروتکل FTP.</li>
-                    <li><strong>سرور اخبار (News Server):</strong> مدیریت و توزیع اخبار و مطالب.</li>
-                    <li><strong>سرور استریمینگ (Streaming Server):</strong> پخش محتوای چندرسانه‌ای به صورت زنده یا بر
-                        تقاضا.
-                    </li>
-                    <li><strong>سرور IRC (Internet Relay Chat Server):</strong> ارائه خدمات چت آنلاین.</li>
-                    <li><strong>سرور گروه‌افزار (Groupware Server):</strong> ارائه ابزارهای همکاری و مدیریت پروژه.</li>
-                    <li><strong>سرور لیست (List Server):</strong> مدیریت لیست‌های ایمیل و ارسال اخبار و اطلاعیه‌ها.</li>
-                    <li><strong>سرور فایل (File Server):</strong> ذخیره و مدیریت فایل‌ها.</li>
-                    <li><strong>سرور تلنت (Telnet Server):</strong> دسترسی از راه دور به سیستم‌ها.</li>
-                    <li><strong>سرور پایگاه داده (Database Server):</strong> مدیریت و ارائه دسترسی به پایگاه داده‌ها.
-                    </li>
-                    <li><strong>سرور پروکسی (Proxy Server):</strong> واسطه‌گری بین کلاینت و سرورهای دیگر برای افزایش
-                        امنیت و
-                        کارایی.</li>
-                </ul>
-                <h4 id="host">هاست (Host)</h4>
-                <p>هاست یا میزبان به سروری اشاره دارد که منابع و خدماتی مانند وبسایت‌ها، پایگاه داده‌ها، پنل‌های کنترل و
-                    حساب‌های ایمیل را ارائه می‌دهد. انواع هاست شامل:</p>
-                <ul>
-                    <li><strong>پایگاه داده (Database):</strong> ارائه فضای ذخیره‌سازی و مدیریت پایگاه داده‌ها.</li>
-                    <li><strong>پنل کنترل (Control Panel):</strong> ابزار مدیریتی برای کنترل تنظیمات هاست.</li>
-                    <li><strong>وبسایت (Website):</strong> میزبانی وبسایت‌ها و ارائه خدمات مربوط به آن‌ها.</li>
-                    <li><strong>سازنده وبسایت (Website Builder):</strong> ابزارهایی برای ایجاد و مدیریت وبسایت‌ها بدون
-                        نیاز
-                        به کدنویسی.</li>
-                    <li><strong>حساب‌های ایمیل (Email Accounts):</strong> ارائه فضای ذخیره‌سازی و مدیریت ایمیل‌ها.</li>
-                </ul>
-                <h5 id="_7">انواع هاست</h5>
-                <ul>
-                    <li><strong>هاست اشتراکی (Shared Hosting):</strong> منابع سرور بین چندین کاربر مشترک می‌شود.</li>
-                    <li><strong>هاست VPS (VPS Hosting):</strong> سرور مجازی خصوصی با منابع اختصاصی اما به اشتراک‌گذاشته
-                        شده.
-                    </li>
-                    <li><strong>هاست اختصاصی (Dedicated Hosting):</strong> سرور اختصاصی برای یک کاربر خاص با منابع کامل.
-                    </li>
-                    <li><strong>هاست ابری (Cloud Hosting):</strong> منابع سرور از طریق چندین سرور فیزیکی به صورت ابری
-                        ارائه
-                        می‌شود.</li>
-                </ul>
-                <h4 id="localhost">لوکال هاست (Localhost)</h4>
-                <p>لوکال هاست به کامپیوتری اشاره دارد که در حال حاضر در حال استفاده است و از طریق آدرس IP 127.0.0.1 یا
-                    نام
-                    "localhost" قابل دسترسی است. معمولاً برای توسعه و تست برنامه‌ها به صورت محلی استفاده می‌شود.</p>
-                <h4 id="data-center">دیتاسنتر (Data Center)</h4>
-                <p>دیتاسنتر محلی است که تعداد زیادی سرور و تجهیزات شبکه در آن قرار دارد و به منظور ذخیره‌سازی، مدیریت و
-                    توزیع داده‌ها و اطلاعات به صورت متمرکز استفاده می‌شود. دیتاسنترها معمولاً دارای امکانات پیشرفته‌ای
-                    برای
-                    تأمین برق، خنک‌سازی و امنیت فیزیکی هستند.</p>
-                <h3 id="10-client">10. مفهوم کلاینت (Client)</h3>
-                <p>کلاینت دستگاه یا نرم‌افزاری است که درخواست‌هایی را به سرور ارسال می‌کند و پاسخ‌هایی را دریافت می‌کند.
-                    به
-                    عنوان مثال، مرورگر وب شما یک کلاینت است که صفحات وب را درخواست و نمایش می‌دهد.</p>
-                <h3 id="11">11. مفهوم پروتکل</h3>
-                <ul>
-                    <li><strong>HTTP (Hypertext Transfer Protocol)</strong>: پروتکل انتقال ابرمتن برای وب (پورت 80)</li>
-                    <li><strong>HTTPS (Hypertext Transfer Protocol Secure)</strong>: نسخه امن HTTP با استفاده از SSL/TLS
-                        (پورت 443)</li>
-                    <li><strong>FTP (File Transfer Protocol)</strong>: پروتکل انتقال فایل (پورت‌های 21 و 20)</li>
-                    <li><strong>SFTP (Secure File Transfer Protocol)</strong>: پروتکل انتقال فایل امن از طریق SSH (پورت
-                        22)
-                    </li>
-                    <li><strong>TCP/IP (Transmission Control Protocol/Internet Protocol)</strong>: پروتکل اصلی اینترنت
-                        برای
-                        انتقال داده‌ها</li>
-                    <li><strong>IPX/SPX (Internetwork Packet Exchange/Sequenced Packet Exchange)</strong>: پروتکل‌های
-                        قدیمی
-                        شبکه‌های Novell</li>
-                    <li><strong>NetBEUI (NetBIOS Extended User Interface)</strong>: پروتکل شبکه‌های محلی کوچک</li>
-                    <li><strong>Telnet (Telecommunication Network)</strong>: پروتکل دسترسی از راه دور به خط فرمان (پورت
-                        23)
-                    </li>
-                    <li><strong>SMTP (Simple Mail Transfer Protocol)</strong>: پروتکل ارسال ایمیل (پورت 25)</li>
-                    <li><strong>POP3 (Post Office Protocol version 3)</strong>: پروتکل دسترسی به ایمیل (پورت 110)</li>
-                    <li><strong>IMAP (Internet Message Access Protocol)</strong>: پروتکل دسترسی به ایمیل (پورت 143)</li>
-                    <li><strong>SSH (Secure Shell)</strong>: پروتکل دسترسی امن از راه دور (پورت 22)</li>
-                    <li><strong>AppleTalk</strong>: مجموعه پروتکل‌های شبکه‌های اپل</li>
-                    <li><strong>DHCP (Dynamic Host Configuration Protocol)</strong>: پروتکل اختصاص خودکار آدرس‌های IP
-                        (پورت‌های 67 و 68)</li>
-                    <li><strong>DNS (Domain Name System)</strong>: پروتکل تبدیل نام دامنه به آدرس IP (پورت 53)</li>
-                    <li><strong>ICMP (Internet Control Message Protocol)</strong>: پروتکل ارسال پیام‌های کنترل و خطا
-                    </li>
-                    <li><strong>UDP (User Datagram Protocol)</strong>: پروتکل ارسال بسته‌های داده بدون اتصال</li>
-                    <li><strong>FTAM (File Transfer, Access, and Management)</strong>: پروتکل انتقال و مدیریت فایل‌ها در
-                        شبکه‌های OSI</li>
-                    <li><strong>RTP (Real-time Transport Protocol)</strong>: پروتکل انتقال داده‌های چندرسانه‌ای در زمان
-                        واقعی</li>
-                    <li><strong>LCP (Link Control Protocol)</strong>: پروتکل کنترل و مدیریت ارتباطات لینک در PPP</li>
-                    <li><strong>SNMP (Simple Network Management Protocol)</strong>: پروتکل مدیریت و نظارت بر دستگاه‌های
-                        شبکه
-                        (پورت 161)</li>
-                    <li><strong>NCP (NetWare Core Protocol)</strong>: پروتکل دسترسی به سرویس‌های شبکه در NetWare</li>
-                    <li><strong>LDAP (Lightweight Directory Access Protocol)</strong>: پروتکل دسترسی و مدیریت اطلاعات
-                        دایرکتوری (پورت 389)</li>
-                    <li><strong>NFS (Network File System)</strong>: پروتکل دسترسی به فایل‌ها در شبکه</li>
-                    <li><strong>SIP (Session Initiation Protocol)</strong>: پروتکل مدیریت جلسات صوتی و ویدیویی (پورت
-                        5060)
-                    </li>
-                    <li><strong>RDP (Remote Desktop Protocol)</strong>: پروتکل دسترسی از راه دور به دسکتاپ ویندوز (پورت
-                        3389)</li>
-                    <li><strong>SMB (Server Message Block)</strong>: پروتکل اشتراک‌گذاری فایل و منابع در شبکه‌های ویندوز
-                        (پورت 445)</li>
-                    <li><strong>TFTP (Trivial File Transfer Protocol)</strong>: پروتکل ساده انتقال فایل (پورت 69)</li>
-                    <li><strong>NNTP (Network News Transfer Protocol)</strong>: پروتکل انتقال اخبار شبکه (پورت 119)</li>
-                    <li><strong>BGP (Border Gateway Protocol)</strong>: پروتکل مسیریابی بین شبکه‌های بزرگ (پورت 179)
-                    </li>
-                    <li><strong>RIP (Routing Information Protocol)</strong>: پروتکل مسیریابی در شبکه‌های محلی و گسترده
-                        (پورت
-                        520)</li>
-                    <li><strong>OSPF (Open Shortest Path First)</strong>: پروتکل مسیریابی داخلی برای شبکه‌های IP</li>
-                </ul>
-                <h3 id="12">12. مفهوم وب</h3>
-                <p>وب به مجموعه‌ای از صفحات متصل به هم در اینترنت اشاره دارد که از طریق مرورگرهای وب قابل دسترسی هستند.
-                    وب
-                    در طی چند دهه گذشته به سه نسل اصلی تقسیم شده است که هر کدام ویژگی‌ها و امکانات خاص خود را دارند. این
-                    نسل‌ها به عنوان Web 1.0، Web 2.0 و Web 3.0 شناخته می‌شوند.</p>
-                <h4 id="web-10-1990-2005">Web 1.0 (1990-2005)</h4>
-                <p>Web 1.0 به اولین نسل وب اشاره دارد که از اواخر دهه 1980 تا اوایل دهه 2000 میلادی رواج داشت. ویژگی‌های
-                    اصلی Web 1.0 شامل موارد زیر است:</p>
-                <ul>
-                    <li><strong>Basic Web Page</strong>: صفحات وب ساده و استاتیک که تنها شامل متن و تصاویر پایه‌ای
-                        بودند.
-                    </li>
-                    <li><strong>HTML</strong>: استفاده از زبان نشانه‌گذاری ابرمتن (HTML) برای ایجاد و ساختاردهی صفحات
-                        وب.
-                    </li>
-                    <li><strong>E-commerce</strong>: آغاز تجارت الکترونیک با سایت‌هایی مانند Amazon و eBay.</li>
-                    <li><strong>Java &amp; JavaScript</strong>: معرفی زبان‌های برنامه‌نویسی جاوا و جاوااسکریپت برای
-                        ایجاد
-                        عملکردهای تعاملی در وب‌سایت‌ها.</li>
-                </ul>
-                <h4 id="web-20-2006">Web 2.0 (از 2006)</h4>
-                <p>Web 2.0 به نسل دوم وب اشاره دارد که از اوایل دهه 2000 شروع شد و تا کنون ادامه دارد. Web 2.0 به وب
-                    تعاملی
-                    و اجتماعی معروف است. ویژگی‌های اصلی Web 2.0 شامل موارد زیر است:</p>
-                <ul>
-                    <li><strong>Social Media</strong>: پیدایش و رشد شبکه‌های اجتماعی مانند فیس‌بوک، توییتر و اینستاگرام.
-                    </li>
-                    <li><strong>User Generated Content</strong>: کاربران قادر به ایجاد و به اشتراک‌گذاری محتواهای خود
-                        شدند
-                        (مانند وبلاگ‌ها و ویکی‌ها).</li>
-                    <li><strong>Mobile Access</strong>: دسترسی به وب از طریق دستگاه‌های موبایل.</li>
-                    <li><strong>High-quality Camera &amp; Video</strong>: کیفیت بالای دوربین‌ها و ویدیوها در دستگاه‌های
-                        موبایل و به اشتراک‌گذاری آسان آن‌ها.</li>
-                    <li><strong>Apps</strong>: ظهور و گسترش برنامه‌های کاربردی تحت وب و موبایل.</li>
-                    <li><strong>Corps Monetizing Your Data</strong>: شرکت‌ها شروع به درآمدزایی از داده‌های کاربران
-                        کردند.
-                    </li>
-                    <li><strong>High Speed Communication</strong>: ارتباطات با سرعت بالا، مانند باند پهن و فیبر نوری.
-                    </li>
-                    <li><strong>Global Internet Access</strong>: دسترسی جهانی به اینترنت.</li>
-                </ul>
-                <h4 id="web-30">Web 3.0 (در حال ظهور)</h4>
-                <p>Web 3.0 به نسل سوم وب اشاره دارد که هنوز در حال توسعه است و به عنوان وب معنایی نیز شناخته می‌شود.
-                    ویژگی‌های اصلی Web 3.0 شامل موارد زیر است:</p>
-                <ul>
-                    <li><strong>Semantic Web</strong>: هدف از وب معنایی ایجاد داده‌های ساختاریافته‌ای است که ماشین‌ها
-                        بتوانند به راحتی آن‌ها را پردازش و تحلیل کنند.</li>
-                    <li><strong>Dapps (Decentralized Applications)</strong>: برنامه‌های غیرمتمرکز که بر روی بلاک‌چین‌ها
-                        اجرا
-                        می‌شوند.</li>
-                    <li><strong>User Monetize Their Data</strong>: کاربران می‌توانند از داده‌های خود کسب درآمد کنند.
-                    </li>
-                    <li><strong>NFTs (Non-Fungible Tokens)</strong>: توکن‌های غیرقابل تعویض که مالکیت دیجیتالی اشیاء را
-                        نشان
-                        می‌دهند.</li>
-                    <li><strong>VR &amp; AR (Metaverse)</strong>: واقعیت مجازی و افزوده که به دنیای مجازی و متاورس مرتبط
-                        است.</li>
-                    <li><strong>Permissionless Blockchains</strong>: بلاک‌چین‌های بدون نیاز به مجوز که برای همه قابل
-                        دسترسی
-                        هستند.</li>
-                    <li><strong>Artificial Intelligence</strong>: استفاده گسترده از هوش مصنوعی برای بهبود تجربه کاربری و
-                        ارائه خدمات هوشمند.</li>
-                    <li><strong>Interoperability</strong>: توانایی سیستم‌ها و برنامه‌ها برای همکاری و تبادل داده با
-                        یکدیگر.
-                    </li>
-                </ul>
-                <h3 id="13-request-response">13. مفهوم Request و Response (مهم)</h3>
-                <p>در پروتکل HTTP، ارتباط بین کلاینت (معمولاً مرورگر وب) و سرور به وسیله درخواست‌ها (Requests) و پاسخ‌ها
-                    (Responses) صورت می‌گیرد.</p>
-                <h4 id="request">Request (درخواست)</h4>
-                <p>درخواست HTTP شامل چندین بخش است:</p>
-                <ol>
-                    <li><strong>Start-Line</strong>: شامل خط درخواست (Request-Line) است.</li>
-                    <li><strong>Headers</strong>: اطلاعات اضافی در مورد درخواست.</li>
-                    <li><strong>Empty-Line</strong>: خط خالی که بین هدرها و بدنه قرار می‌گیرد.</li>
-                    <li><strong>Body</strong>: داده‌ای که ارسال می‌شود (در صورت وجود).</li>
-                </ol>
-                <h5 id="request-line">Request-Line</h5>
-                <p>شامل سه بخش است:</p>
-                <ul>
-                    <li><strong>Method</strong>: روش HTTP (مانند GET، POST).</li>
-                    <li><strong>Request-URI</strong>: آدرس مورد نظر (مانند /api/testfully.html).</li>
-                    <li><strong>HTTP Version</strong>: نسخه پروتکل HTTP.</li>
-                </ul>
-                <div class="code-box">
-                    <pre><span></span><span class="nf">GET</span> <span class="nn">/api/testfully.html</span> <span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span>
-</pre>
-                </div>
+<p>| Component           | Example                 |
+| ---- | --- |
+| Protocol            | https                   |
+| Domain Name         | <www.example.com>         |
+| Subdomain           | www                     |
+| Top Level Domain    | com                     |
+| Second Level Domain | example                 |
+| Root Domain         | example.com             |
+| Path                | directory/page          |
+| Parameters          | key1=value1&amp;key2=value2 |
+| Fragment            | section                 |
+| Port Number         | 8080                    |
+| Username            | username                |
+| Password            | password                |
+| Query String        | ?query_parameter        |</p>
+<ul>
+<li>
+<p><strong>توضیحات اجزا</strong>:</p>
+</li>
+<li>
+<p><strong>Protocol (پروتکل): https://</strong>
+    پروتکل مشخص می‌کند که چگونه داده‌ها بین سرور و کلاینت انتقال پیدا می‌کنند. در این مثال، پروتکل https است.</p>
+</li>
+<li><strong>Username (نام کاربری): username</strong>
+    این بخش از URL شامل نام کاربری است که برای احراز هویت به کار می‌رود.</li>
+<li><strong>Password (رمز عبور): password</strong>
+    این بخش از URL شامل رمز عبور است که برای احراز هویت به کار می‌رود.</li>
+<li><strong>Subdomain (زیر دامنه): www</strong>
+    زیر دامنه بخشی از دامنه است که معمولاً قبل از نام دامنه اصلی می‌آید. در این مثال، زیر دامنه www است.</li>
+<li><strong>Second Level Domain (دامنه سطح دوم): example</strong>
+    دامنه سطح دوم، نام اصلی دامنه است که کاربران برای دسترسی به سایت استفاده می‌کنند. در این مثال، دامنه سطح دوم example است.</li>
+<li><strong>Top Level Domain (دامنه سطح بالا): .com</strong>
+    دامنه سطح بالا، پسوند دامنه است که نوع سازمان یا کشور را مشخص می‌کند. در این مثال، دامنه سطح بالا .com است.</li>
+<li><strong>Port Number (شماره پورت): :8080</strong>
+    شماره پورت مشخص می‌کند که درخواست‌ها به کدام پورت سرور ارسال شوند. در این مثال، شماره پورت 8080 است.</li>
+<li><strong>Path (مسیر): /directory/page</strong>
+    مسیر، محل فایل یا منبعی خاص را در سرور مشخص می‌کند. در این مثال، مسیر /directory/page است.</li>
+<li><strong>Query String (رشته پرس و جو): ?key1=value1&amp;key2=value2</strong>
+    رشته پرس و جو شامل پارامترهایی است که به سرور ارسال می‌شوند تا اطلاعات خاصی بازیابی یا عملیاتی خاص انجام شود. در این مثال، رشته پرس و جو ?key1=value1&amp;key2=value2 است.</li>
+<li><strong>Fragment (قطعه): #section</strong>
+    قطعه به قسمتی از صفحه اشاره دارد که کاربر باید به آن هدایت شود. در این مثال، قطعه #section است.</li>
+</ul>
+<p><strong>اتصال اجزا در یک URL کامل</strong>:
+<code>https://username:password@www.example.com:8080/directory/page?key1=value1&amp;key2=value2#section</code></p>
+<h3 id="7-mfhwm-dmnh">7. مفهوم دامنه</h3>
+<p>دامنه نامی است که برای شناسایی یک وب‌سایت در اینترنت استفاده می‌شود، مانند <www.example.com>. دامنه‌ها به سطوح مختلف تقسیم می‌شوند:</p>
+<h4 id="nw-pswnd-dmnh-domain-extensions">انواع پسوند دامنه (Domain Extensions)</h4>
+<p>در دنیای اینترنت، پسوندهای دامنه (TLD) به دسته‌های مختلفی تقسیم می‌شوند. این پسوندها به انتهای نام دامنه‌ها اضافه می‌شوند و به دسته‌بندی‌های مختلفی تعلق دارند. در زیر، سه نوع اصلی پسوند دامنه معرفی شده است:</p>
+<ul>
+<li><strong>gTLD (generic Top-Level Domain)</strong>:
+این پسوندها عمومی هستند و به دسته‌های خاصی تعلق ندارند. برخی از معروف‌ترین gTLDها شامل موارد زیر هستند:</li>
+<li><code>.com</code> (تجاری)</li>
+<li><code>.org</code> (سازمان‌ها)</li>
+<li><code>.net</code> (شبکه)</li>
+<li><code>.info</code> (اطلاعات)</li>
+<li><code>.biz</code> (تجارت)</li>
+<li><strong>ccTLD (country code Top-Level Domain)</strong>:
+این پسوندها بر اساس کدهای کشورها تعیین می‌شوند و به هر کشور یا منطقه جغرافیایی یک ccTLD منحصر به فرد تعلق می‌گیرد. برخی از معروف‌ترین ccTLDها شامل موارد زیر هستند:</li>
+<li><code>.us</code> (ایالات متحده)</li>
+<li><code>.uk</code> (انگلستان)</li>
+<li><code>.ca</code> (کانادا)</li>
+<li><code>.de</code> (آلمان)</li>
+<li><code>.cn</code> (چین)</li>
+<li><strong>sTLD (sponsored Top-Level Domain)</strong>:
+این پسوندها به دسته‌ها یا جوامع خاصی تعلق دارند و تحت حمایت و مدیریت سازمان‌ها یا جوامع خاصی قرار دارند. برخی از معروف‌ترین sTLDها شامل موارد زیر هستند:</li>
+<li><code>.edu</code> (آموزشی)</li>
+<li><code>.gov</code> (دولت‌ها)</li>
+<li><code>.mil</code> (نظامی)</li>
+<li><code>.aero</code> (صنعت هواپیمایی)</li>
+<li>
+<p><code>.museum</code> (موزه‌ها)</p>
+</li>
+<li>
+<p><strong>انواع پسوندهای دامنه ایرانی (ccTLDs for Iran)</strong></p>
+</li>
+<li>
+<p><code>.ir</code> (عمومی)</p>
+</li>
+<li><code>.co.ir</code> (شرکت‌ها)</li>
+<li><code>.ac.ir</code> (موسسات آموزشی)</li>
+<li><code>.gov.ir</code> (نهادهای دولتی)</li>
+<li><code>.org.ir</code> (سازمان‌های غیرانتفاعی)</li>
+<li><code>.net.ir</code> (شرکت‌های شبکه و اینترنت)</li>
+<li><code>.sch.ir</code> (مدارس)</li>
+<li><code>.id.ir</code> (افراد حقیقی)</li>
+</ul>
+<h3 id="8-mfhwm-pwrt">8. مفهوم پورت</h3>
+<p>پورت‌ها در شبکه‌های کامپیوتری، نقاط انتهایی ارتباطی برای ارسال و دریافت داده‌ها هستند. هر پورت به یک شماره منحصر به فرد بین 0 تا 65535 اختصاص داده می‌شود.</p>
+<ul>
+<li><strong>شماره پورت:</strong> 0-65535</li>
+<li><strong>پورت‌های شناخته شده (Well Known Ports):</strong> 0-1023</li>
+<li><strong>پورت‌های ثبت شده (Registered Ports):</strong> 1024-49151</li>
+<li><strong>پورت‌های دینامیک (پورت‌های خصوصی):</strong> 49152-65535</li>
+</ul>
+<h4 id="jdwl-shmrh-pwrt-hy-mhm">جدول شماره پورت‌های مهم</h4>
+<p>| Port |   توضیحات              |
+| ---  | ---                    |
+| 20   | FTP (انتقال فایل - Data Transfer) |
+| 21   | FTP (انتقال فایل - Control)       |
+| 22   | SSH (دسترسی امن به شل)            |
+| 25   | SMTP (ارسال ایمیل)                |
+| 53   | DNS (سیستم نام دامنه)             |
+| 80   | HTTP (پروتکل انتقال ابرمتن)       |
+| 110  | POP3 (دریافت ایمیل)               |
+| 123  | NTP (پروتکل زمان شبکه)            |
+| 143  | IMAP (پروتکل دسترسی به پیام اینترنتی) |
+| 179  | BGP (پروتکل دروازه مرزی)          |
+| 443  | HTTPS (HTTP امن)                  |
+| 465  | SMTPS (ارسال امن ایمیل با SSL)    |
+| 993  | IMAPS (IMAP امن با SSL)           |
+| 995  | POP3S (POP3 امن با SSL)           |
+| 3306 | MySQL (پایگاه داده)               |
+| 3389 | RDP (پروتکل دسکتاپ از راه دور)   |
+| 5432 | PostgreSQL (پایگاه داده)          |
+| 5900 | VNC (کنترل از راه دور دسکتاپ)    |
+| 6379 | Redis (پایگاه داده در حافظه)      |
+| 8080 | HTTP پروکسی/آزمایشگاهی           |</p>
+<p>این جدول برخی از پورت‌های مهم و کاربردی را شامل می‌شود که در بسیاری از سرویس‌ها و پروتکل‌های شبکه استفاده می‌شوند.</p>
+<h3 id="9-mfhwm-srwr-hst-w-lwkhl-hst">9. مفهوم سرور، هاست و لوکال هاست</h3>
+<h4 id="srwr-server">سرور (Server)</h4>
+<p>سرور یک کامپیوتر یا سیستمی است که منابع، داده‌ها، خدمات یا برنامه‌ها را به سایر کامپیوترها (کلاینت‌ها) در شبکه ارائه می‌دهد. انواع مختلفی از سرورها وجود دارند که هر کدام وظایف خاصی را انجام می‌دهند:</p>
+<ul>
+<li><strong>وب سرور (Web Server):</strong> سرویس‌دهی به صفحات وب و محتواهای مربوط به آن.</li>
+<li><strong>سرور کاربردی (Application Server):</strong> اجرای برنامه‌های کاربردی و ارائه سرویس‌های مرتبط.</li>
+<li><strong>سرور ایمیل (Email Server):</strong> مدیریت ارسال و دریافت ایمیل‌ها.</li>
+<li><strong>سرور فکس (Fax Server):</strong> ارسال و دریافت فکس‌ها از طریق شبکه.</li>
+<li><strong>سرور FTP (FTP Server):</strong> انتقال فایل‌ها از طریق پروتکل FTP.</li>
+<li><strong>سرور اخبار (News Server):</strong> مدیریت و توزیع اخبار و مطالب.</li>
+<li><strong>سرور استریمینگ (Streaming Server):</strong> پخش محتوای چندرسانه‌ای به صورت زنده یا بر تقاضا.</li>
+<li><strong>سرور IRC (Internet Relay Chat Server):</strong> ارائه خدمات چت آنلاین.</li>
+<li><strong>سرور گروه‌افزار (Groupware Server):</strong> ارائه ابزارهای همکاری و مدیریت پروژه.</li>
+<li><strong>سرور لیست (List Server):</strong> مدیریت لیست‌های ایمیل و ارسال اخبار و اطلاعیه‌ها.</li>
+<li><strong>سرور فایل (File Server):</strong> ذخیره و مدیریت فایل‌ها.</li>
+<li><strong>سرور تلنت (Telnet Server):</strong> دسترسی از راه دور به سیستم‌ها.</li>
+<li><strong>سرور پایگاه داده (Database Server):</strong> مدیریت و ارائه دسترسی به پایگاه داده‌ها.</li>
+<li><strong>سرور پروکسی (Proxy Server):</strong> واسطه‌گری بین کلاینت و سرورهای دیگر برای افزایش امنیت و کارایی.</li>
+</ul>
+<h4 id="hst-host">هاست (Host)</h4>
+<p>هاست یا میزبان به سروری اشاره دارد که منابع و خدماتی مانند وبسایت‌ها، پایگاه داده‌ها، پنل‌های کنترل و حساب‌های ایمیل را ارائه می‌دهد. انواع هاست شامل:</p>
+<ul>
+<li><strong>پایگاه داده (Database):</strong> ارائه فضای ذخیره‌سازی و مدیریت پایگاه داده‌ها.</li>
+<li><strong>پنل کنترل (Control Panel):</strong> ابزار مدیریتی برای کنترل تنظیمات هاست.</li>
+<li><strong>وبسایت (Website):</strong> میزبانی وبسایت‌ها و ارائه خدمات مربوط به آن‌ها.</li>
+<li><strong>سازنده وبسایت (Website Builder):</strong> ابزارهایی برای ایجاد و مدیریت وبسایت‌ها بدون نیاز به کدنویسی.</li>
+<li><strong>حساب‌های ایمیل (Email Accounts):</strong> ارائه فضای ذخیره‌سازی و مدیریت ایمیل‌ها.</li>
+</ul>
+<h5 id="nw-hst">انواع هاست</h5>
+<ul>
+<li><strong>هاست اشتراکی (Shared Hosting):</strong> منابع سرور بین چندین کاربر مشترک می‌شود.</li>
+<li><strong>هاست VPS (VPS Hosting):</strong> سرور مجازی خصوصی با منابع اختصاصی اما به اشتراک‌گذاشته شده.</li>
+<li><strong>هاست اختصاصی (Dedicated Hosting):</strong> سرور اختصاصی برای یک کاربر خاص با منابع کامل.</li>
+<li><strong>هاست ابری (Cloud Hosting):</strong> منابع سرور از طریق چندین سرور فیزیکی به صورت ابری ارائه می‌شود.</li>
+</ul>
+<h4 id="lwkhl-hst-localhost">لوکال هاست (Localhost)</h4>
+<p>لوکال هاست به کامپیوتری اشاره دارد که در حال حاضر در حال استفاده است و از طریق آدرس IP 127.0.0.1 یا نام "localhost" قابل دسترسی است. معمولاً برای توسعه و تست برنامه‌ها به صورت محلی استفاده می‌شود.</p>
+<h4 id="dytsntr-data-center">دیتاسنتر (Data Center)</h4>
+<p>دیتاسنتر محلی است که تعداد زیادی سرور و تجهیزات شبکه در آن قرار دارد و به منظور ذخیره‌سازی، مدیریت و توزیع داده‌ها و اطلاعات به صورت متمرکز استفاده می‌شود. دیتاسنترها معمولاً دارای امکانات پیشرفته‌ای برای تأمین برق، خنک‌سازی و امنیت فیزیکی هستند.</p>
+<h3 id="10-mfhwm-khlynt-client">10. مفهوم کلاینت (Client)</h3>
+<p>کلاینت دستگاه یا نرم‌افزاری است که درخواست‌هایی را به سرور ارسال می‌کند و پاسخ‌هایی را دریافت می‌کند. به عنوان مثال، مرورگر وب شما یک کلاینت است که صفحات وب را درخواست و نمایش می‌دهد.</p>
+<h3 id="11-mfhwm-prwtkhl">11. مفهوم پروتکل</h3>
+<ul>
+<li><strong>HTTP (Hypertext Transfer Protocol)</strong>: پروتکل انتقال ابرمتن برای وب (پورت 80)</li>
+<li><strong>HTTPS (Hypertext Transfer Protocol Secure)</strong>: نسخه امن HTTP با استفاده از SSL/TLS (پورت 443)</li>
+<li><strong>FTP (File Transfer Protocol)</strong>: پروتکل انتقال فایل (پورت‌های 21 و 20)</li>
+<li><strong>SFTP (Secure File Transfer Protocol)</strong>: پروتکل انتقال فایل امن از طریق SSH (پورت 22)</li>
+<li><strong>TCP/IP (Transmission Control Protocol/Internet Protocol)</strong>: پروتکل اصلی اینترنت برای انتقال داده‌ها</li>
+<li><strong>IPX/SPX (Internetwork Packet Exchange/Sequenced Packet Exchange)</strong>: پروتکل‌های قدیمی شبکه‌های Novell</li>
+<li><strong>NetBEUI (NetBIOS Extended User Interface)</strong>: پروتکل شبکه‌های محلی کوچک</li>
+<li><strong>Telnet (Telecommunication Network)</strong>: پروتکل دسترسی از راه دور به خط فرمان (پورت 23)</li>
+<li><strong>SMTP (Simple Mail Transfer Protocol)</strong>: پروتکل ارسال ایمیل (پورت 25)</li>
+<li><strong>POP3 (Post Office Protocol version 3)</strong>: پروتکل دسترسی به ایمیل (پورت 110)</li>
+<li><strong>IMAP (Internet Message Access Protocol)</strong>: پروتکل دسترسی به ایمیل (پورت 143)</li>
+<li><strong>SSH (Secure Shell)</strong>: پروتکل دسترسی امن از راه دور (پورت 22)</li>
+<li><strong>AppleTalk</strong>: مجموعه پروتکل‌های شبکه‌های اپل</li>
+<li><strong>DHCP (Dynamic Host Configuration Protocol)</strong>: پروتکل اختصاص خودکار آدرس‌های IP (پورت‌های 67 و 68)</li>
+<li><strong>DNS (Domain Name System)</strong>: پروتکل تبدیل نام دامنه به آدرس IP (پورت 53)</li>
+<li><strong>ICMP (Internet Control Message Protocol)</strong>: پروتکل ارسال پیام‌های کنترل و خطا</li>
+<li><strong>UDP (User Datagram Protocol)</strong>: پروتکل ارسال بسته‌های داده بدون اتصال</li>
+<li><strong>FTAM (File Transfer, Access, and Management)</strong>: پروتکل انتقال و مدیریت فایل‌ها در شبکه‌های OSI</li>
+<li><strong>RTP (Real-time Transport Protocol)</strong>: پروتکل انتقال داده‌های چندرسانه‌ای در زمان واقعی</li>
+<li><strong>LCP (Link Control Protocol)</strong>: پروتکل کنترل و مدیریت ارتباطات لینک در PPP</li>
+<li><strong>SNMP (Simple Network Management Protocol)</strong>: پروتکل مدیریت و نظارت بر دستگاه‌های شبکه (پورت 161)</li>
+<li><strong>NCP (NetWare Core Protocol)</strong>: پروتکل دسترسی به سرویس‌های شبکه در NetWare</li>
+<li><strong>LDAP (Lightweight Directory Access Protocol)</strong>: پروتکل دسترسی و مدیریت اطلاعات دایرکتوری (پورت 389)</li>
+<li><strong>NFS (Network File System)</strong>: پروتکل دسترسی به فایل‌ها در شبکه</li>
+<li><strong>SIP (Session Initiation Protocol)</strong>: پروتکل مدیریت جلسات صوتی و ویدیویی (پورت 5060)</li>
+<li><strong>RDP (Remote Desktop Protocol)</strong>: پروتکل دسترسی از راه دور به دسکتاپ ویندوز (پورت 3389)</li>
+<li><strong>SMB (Server Message Block)</strong>: پروتکل اشتراک‌گذاری فایل و منابع در شبکه‌های ویندوز (پورت 445)</li>
+<li><strong>TFTP (Trivial File Transfer Protocol)</strong>: پروتکل ساده انتقال فایل (پورت 69)</li>
+<li><strong>NNTP (Network News Transfer Protocol)</strong>: پروتکل انتقال اخبار شبکه (پورت 119)</li>
+<li><strong>BGP (Border Gateway Protocol)</strong>: پروتکل مسیریابی بین شبکه‌های بزرگ (پورت 179)</li>
+<li><strong>RIP (Routing Information Protocol)</strong>: پروتکل مسیریابی در شبکه‌های محلی و گسترده (پورت 520)</li>
+<li><strong>OSPF (Open Shortest Path First)</strong>: پروتکل مسیریابی داخلی برای شبکه‌های IP</li>
+</ul>
+<h3 id="12-mfhwm-wb">12. مفهوم وب</h3>
+<p>وب به مجموعه‌ای از صفحات متصل به هم در اینترنت اشاره دارد که از طریق مرورگرهای وب قابل دسترسی هستند. وب در طی چند دهه گذشته به سه نسل اصلی تقسیم شده است که هر کدام ویژگی‌ها و امکانات خاص خود را دارند. این نسل‌ها به عنوان Web 1.0، Web 2.0 و Web 3.0 شناخته می‌شوند.</p>
+<h4 id="web-1-0-1990-2005">Web 1.0 (1990-2005)</h4>
+<p>Web 1.0 به اولین نسل وب اشاره دارد که از اواخر دهه 1980 تا اوایل دهه 2000 میلادی رواج داشت. ویژگی‌های اصلی Web 1.0 شامل موارد زیر است:</p>
+<ul>
+<li><strong>Basic Web Page</strong>: صفحات وب ساده و استاتیک که تنها شامل متن و تصاویر پایه‌ای بودند.</li>
+<li><strong>HTML</strong>: استفاده از زبان نشانه‌گذاری ابرمتن (HTML) برای ایجاد و ساختاردهی صفحات وب.</li>
+<li><strong>E-commerce</strong>: آغاز تجارت الکترونیک با سایت‌هایی مانند Amazon و eBay.</li>
+<li><strong>Java &amp; JavaScript</strong>: معرفی زبان‌های برنامه‌نویسی جاوا و جاوااسکریپت برای ایجاد عملکردهای تعاملی در وب‌سایت‌ها.</li>
+</ul>
+<h4 id="web-2-0-z-2006">Web 2.0 (از 2006)</h4>
+<p>Web 2.0 به نسل دوم وب اشاره دارد که از اوایل دهه 2000 شروع شد و تا کنون ادامه دارد. Web 2.0 به وب تعاملی و اجتماعی معروف است. ویژگی‌های اصلی Web 2.0 شامل موارد زیر است:</p>
+<ul>
+<li><strong>Social Media</strong>: پیدایش و رشد شبکه‌های اجتماعی مانند فیس‌بوک، توییتر و اینستاگرام.</li>
+<li><strong>User Generated Content</strong>: کاربران قادر به ایجاد و به اشتراک‌گذاری محتواهای خود شدند (مانند وبلاگ‌ها و ویکی‌ها).</li>
+<li><strong>Mobile Access</strong>: دسترسی به وب از طریق دستگاه‌های موبایل.</li>
+<li><strong>High-quality Camera &amp; Video</strong>: کیفیت بالای دوربین‌ها و ویدیوها در دستگاه‌های موبایل و به اشتراک‌گذاری آسان آن‌ها.</li>
+<li><strong>Apps</strong>: ظهور و گسترش برنامه‌های کاربردی تحت وب و موبایل.</li>
+<li><strong>Corps Monetizing Your Data</strong>: شرکت‌ها شروع به درآمدزایی از داده‌های کاربران کردند.</li>
+<li><strong>High Speed Communication</strong>: ارتباطات با سرعت بالا، مانند باند پهن و فیبر نوری.</li>
+<li><strong>Global Internet Access</strong>: دسترسی جهانی به اینترنت.</li>
+</ul>
+<h4 id="web-3-0-dr-hl-zhwr">Web 3.0 (در حال ظهور)</h4>
+<p>Web 3.0 به نسل سوم وب اشاره دارد که هنوز در حال توسعه است و به عنوان وب معنایی نیز شناخته می‌شود. ویژگی‌های اصلی Web 3.0 شامل موارد زیر است:</p>
+<ul>
+<li><strong>Semantic Web</strong>: هدف از وب معنایی ایجاد داده‌های ساختاریافته‌ای است که ماشین‌ها بتوانند به راحتی آن‌ها را پردازش و تحلیل کنند.</li>
+<li><strong>Dapps (Decentralized Applications)</strong>: برنامه‌های غیرمتمرکز که بر روی بلاک‌چین‌ها اجرا می‌شوند.</li>
+<li><strong>User Monetize Their Data</strong>: کاربران می‌توانند از داده‌های خود کسب درآمد کنند.</li>
+<li><strong>NFTs (Non-Fungible Tokens)</strong>: توکن‌های غیرقابل تعویض که مالکیت دیجیتالی اشیاء را نشان می‌دهند.</li>
+<li><strong>VR &amp; AR (Metaverse)</strong>: واقعیت مجازی و افزوده که به دنیای مجازی و متاورس مرتبط است.</li>
+<li><strong>Permissionless Blockchains</strong>: بلاک‌چین‌های بدون نیاز به مجوز که برای همه قابل دسترسی هستند.</li>
+<li><strong>Artificial Intelligence</strong>: استفاده گسترده از هوش مصنوعی برای بهبود تجربه کاربری و ارائه خدمات هوشمند.</li>
+<li><strong>Interoperability</strong>: توانایی سیستم‌ها و برنامه‌ها برای همکاری و تبادل داده با یکدیگر.</li>
+</ul>
+<h3 id="13-mfhwm-request-w-response-mhm">13. مفهوم Request و Response (مهم)</h3>
+<p>در پروتکل HTTP، ارتباط بین کلاینت (معمولاً مرورگر وب) و سرور به وسیله درخواست‌ها (Requests) و پاسخ‌ها (Responses) صورت می‌گیرد.</p>
+<h4 id="request-drkhwst">Request (درخواست)</h4>
+<p>درخواست HTTP شامل چندین بخش است:</p>
+<ol>
+<li><strong>Start-Line</strong>: شامل خط درخواست (Request-Line) است.</li>
+<li><strong>Headers</strong>: اطلاعات اضافی در مورد درخواست.</li>
+<li><strong>Empty-Line</strong>: خط خالی که بین هدرها و بدنه قرار می‌گیرد.</li>
+<li><strong>Body</strong>: داده‌ای که ارسال می‌شود (در صورت وجود).</li>
+</ol>
+<h5 id="request-line">Request-Line</h5>
+<p>شامل سه بخش است:</p>
+<ul>
+<li><strong>Method</strong>: روش HTTP (مانند GET، POST).</li>
+<li><strong>Request-URI</strong>: آدرس مورد نظر (مانند /api/testfully.html).</li>
+<li><strong>HTTP Version</strong>: نسخه پروتکل HTTP.</li>
+</ul>
+<div class="code-box">
+        <div class="code-info">
+            <button class="copy-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" class="icon-sm"><path fill="currentColor" fill-rule="evenodd" d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z" clip-rule="evenodd"></path></svg>
+                <span>Copy code</span>
+            </button>
+            <span class="language">plaintext</span>
+        </div>
+    <pre><span></span>GET /api/testfully.html HTTP/1.1
+</pre></div>
 
-                <h5 id="headers">Headers</h5>
-                <p>هدرهای درخواست شامل اطلاعات اضافی هستند مانند نوع محتوا، زبان پذیرفته‌شده و غیره.</p>
-                <div class="code-box">
-                    <pre><span></span><span class="n">Host</span><span class="o">:</span><span class="w"> </span><span class="n">example</span><span class="o">.</span><span class="na">com</span>
-<span class="n">Accept</span><span class="o">:</span><span class="w"> </span><span class="n">image</span><span class="sr">/gif, image/jpeg, */</span><span class="o">*</span>
-<span class="n">Accept</span><span class="o">-</span><span class="n">Language</span><span class="o">:</span><span class="w"> </span><span class="n">en</span><span class="o">-</span><span class="n">us</span>
-<span class="n">Accept</span><span class="o">-</span><span class="n">Encoding</span><span class="o">:</span><span class="w"> </span><span class="n">gzip</span><span class="o">,</span><span class="w"> </span><span class="n">deflate</span>
-<span class="n">User</span><span class="o">-</span><span class="n">Agent</span><span class="o">:</span><span class="w"> </span><span class="n">Mozilla</span>
-<span class="n">Content</span><span class="o">-</span><span class="n">Language</span><span class="o">:</span><span class="w"> </span><span class="n">en</span>
-</pre>
-                </div>
+<h5 id="headers">Headers</h5>
+<p>هدرهای درخواست شامل اطلاعات اضافی هستند مانند نوع محتوا، زبان پذیرفته‌شده و غیره.</p>
+<div class="code-box">
+        <div class="code-info">
+            <button class="copy-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" class="icon-sm"><path fill="currentColor" fill-rule="evenodd" d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z" clip-rule="evenodd"></path></svg>
+                <span>Copy code</span>
+            </button>
+            <span class="language">plaintext</span>
+        </div>
+    <pre><span></span>Host: example.com
+Accept: image/gif, image/jpeg, */*
+Accept-Language: en-us
+Accept-Encoding: gzip, deflate
+User-Agent: Mozilla
+Content-Language: en
+</pre></div>
 
-                <h5 id="a-blank-line">A Blank Line</h5>
-                <p>خط خالی که بین هدرها و بدنه درخواست قرار دارد.</p>
-                <h5 id="body">Body</h5>
-                <p>بدنه درخواست شامل داده‌ای است که در درخواست ارسال می‌شود (در صورت وجود).</p>
-                <div class="code-box">
-                    <pre><span></span>testId=12345&amp;testName=test+number+one
-</pre>
-                </div>
+<h5 id="a-blank-line">A Blank Line</h5>
+<p>خط خالی که بین هدرها و بدنه درخواست قرار دارد.</p>
+<h5 id="body">Body</h5>
+<p>بدنه درخواست شامل داده‌ای است که در درخواست ارسال می‌شود (در صورت وجود).</p>
+<div class="code-box">
+        <div class="code-info">
+            <button class="copy-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" class="icon-sm"><path fill="currentColor" fill-rule="evenodd" d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z" clip-rule="evenodd"></path></svg>
+                <span>Copy code</span>
+            </button>
+            <span class="language">plaintext</span>
+        </div>
+    <pre><span></span>testId=12345&amp;testName=test+number+one
+</pre></div>
 
-                <h4 id="structure-of-requests">Structure of Requests</h4>
-                <div class="code-box">
-                    <pre><span></span><span class="n">GET</span><span class="w"> </span><span class="o">/</span><span class="n">api</span><span class="o">/</span><span class="n">testfully</span><span class="p">.</span><span class="n">html</span><span class="w"> </span><span class="n">HTTP</span><span class="o">/</span><span class="mf">1.1</span><span class="w">           </span><span class="o">|-&gt;</span><span class="w"> </span><span class="n">request</span><span class="o">-</span><span class="n">line</span>
-<span class="n">Host</span><span class="o">:</span><span class="w"> </span><span class="n">example</span><span class="p">.</span><span class="n">com</span><span class="w">                          </span><span class="o">|</span>
-<span class="n">Accept</span><span class="o">:</span><span class="w"> </span><span class="n">image</span><span class="o">/</span><span class="n">gif</span><span class="p">,</span><span class="w"> </span><span class="n">image</span><span class="o">/</span><span class="n">jpeg</span><span class="p">,</span><span class="w"> </span><span class="o">*/*</span><span class="w">         </span><span class="o">|</span>
-<span class="n">Accept</span><span class="o">-</span><span class="n">Language</span><span class="o">:</span><span class="w"> </span><span class="n">en</span><span class="o">-</span><span class="n">us</span><span class="w">                     </span><span class="o">|</span>
-<span class="n">Accept</span><span class="o">-</span><span class="n">Encoding</span><span class="o">:</span><span class="w"> </span><span class="n">gzip</span><span class="p">,</span><span class="w"> </span><span class="n">deflate</span><span class="w">             </span><span class="o">|-&gt;</span><span class="w"> </span><span class="n">request</span><span class="w"> </span><span class="kr">header</span>
-<span class="n">User</span><span class="o">-</span><span class="n">Agent</span><span class="o">:</span><span class="w"> </span><span class="n">Mozilla</span><span class="w">                        </span><span class="o">|</span>
-<span class="n">Content</span><span class="o">-</span><span class="n">Language</span><span class="o">:</span><span class="w"> </span><span class="n">en</span><span class="w">                       </span><span class="o">|</span>
+<h4 id="structure-of-requests">Structure of Requests</h4>
+<div class="code-box">
+        <div class="code-info">
+            <button class="copy-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" class="icon-sm"><path fill="currentColor" fill-rule="evenodd" d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z" clip-rule="evenodd"></path></svg>
+                <span>Copy code</span>
+            </button>
+            <span class="language">plaintext</span>
+        </div>
+    <pre><span></span>GET /api/testfully.html HTTP/1.1           |-&gt; request-line
+Host: example.com                          |
+Accept: image/gif, image/jpeg, */*         |
+Accept-Language: en-us                     |
+Accept-Encoding: gzip, deflate             |-&gt; request header
+User-Agent: Mozilla                        |
+Content-Language: en                       |
 
-<span class="w">                                           </span><span class="o">|-&gt;</span><span class="w"> </span><span class="n">A</span><span class="w"> </span><span class="n">Blank</span><span class="w"> </span><span class="n">Line</span>
-<span class="n">testId</span><span class="o">=</span><span class="mi">12345</span><span class="o">&amp;</span><span class="n">testName</span><span class="o">=</span><span class="n">test</span><span class="o">+</span><span class="n">number</span><span class="o">+</span><span class="n">one</span><span class="w">      </span><span class="o">|-&gt;</span><span class="w"> </span><span class="n">request</span><span class="w"> </span><span class="n">message</span><span class="w"> </span><span class="n">body</span>
-</pre>
-                </div>
+                                           |-&gt; A Blank Line
+testId=12345&amp;testName=test+number+one      |-&gt; request message body
+</pre></div>
 
-                <h4 id="response">Response (پاسخ)</h4>
-                <p>پاسخ HTTP نیز شامل چندین بخش است:</p>
-                <ol>
-                    <li><strong>Start-Line</strong>: شامل خط وضعیت (Status-Line) است.</li>
-                    <li><strong>Headers</strong>: اطلاعات اضافی در مورد پاسخ.</li>
-                    <li><strong>Empty-Line</strong>: خط خالی که بین هدرها و بدنه قرار می‌گیرد.</li>
-                    <li><strong>Body</strong>: داده‌ای که به کلاینت ارسال می‌شود.</li>
-                </ol>
-                <h5 id="status-line">Status-Line</h5>
-                <p>شامل سه بخش است:</p>
-                <ul>
-                    <li><strong>HTTP Version</strong>: نسخه پروتکل HTTP.</li>
-                    <li><strong>Status Code</strong>: کد وضعیت HTTP.</li>
-                    <li><strong>Reason Phrase</strong>: توضیح کوتاهی در مورد وضعیت.</li>
-                </ul>
-                <div class="code-box">
-                    <pre><span></span><span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
-</pre>
-                </div>
+<h4 id="response-pskh">Response (پاسخ)</h4>
+<p>پاسخ HTTP نیز شامل چندین بخش است:</p>
+<ol>
+<li><strong>Start-Line</strong>: شامل خط وضعیت (Status-Line) است.</li>
+<li><strong>Headers</strong>: اطلاعات اضافی در مورد پاسخ.</li>
+<li><strong>Empty-Line</strong>: خط خالی که بین هدرها و بدنه قرار می‌گیرد.</li>
+<li><strong>Body</strong>: داده‌ای که به کلاینت ارسال می‌شود.</li>
+</ol>
+<h5 id="status-line">Status-Line</h5>
+<p>شامل سه بخش است:</p>
+<ul>
+<li><strong>HTTP Version</strong>: نسخه پروتکل HTTP.</li>
+<li><strong>Status Code</strong>: کد وضعیت HTTP.</li>
+<li><strong>Reason Phrase</strong>: توضیح کوتاهی در مورد وضعیت.</li>
+</ul>
+<div class="code-box">
+        <div class="code-info">
+            <button class="copy-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" class="icon-sm"><path fill="currentColor" fill-rule="evenodd" d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z" clip-rule="evenodd"></path></svg>
+                <span>Copy code</span>
+            </button>
+            <span class="language">plaintext</span>
+        </div>
+    <pre><span></span>HTTP/1.1 200 OK
+</pre></div>
 
-                <h5 id="headers_1">Headers</h5>
-                <p>هدرهای پاسخ شامل اطلاعات اضافی هستند مانند نوع محتوا، تاریخ آخرین تغییر و غیره.</p>
-                <div class="code-box">
-                    <pre><span></span><span class="n">Date</span><span class="o">:</span><span class="w"> </span><span class="n">Mon</span><span class="o">,</span><span class="w"> </span><span class="mi">27</span><span class="w"> </span><span class="n">Jul</span><span class="w"> </span><span class="mi">2009</span><span class="w"> </span><span class="mi">12</span><span class="o">:</span><span class="mi">28</span><span class="o">:</span><span class="mi">53</span><span class="w"> </span><span class="n">GMT</span>
-<span class="n">Server</span><span class="o">:</span><span class="w"> </span><span class="n">Apache</span><span class="o">/</span><span class="mf">2.2</span><span class="o">.</span><span class="mi">14</span><span class="w"> </span><span class="o">(</span><span class="n">Win32</span><span class="o">)</span>
-<span class="n">Last</span><span class="o">-</span><span class="n">Modified</span><span class="o">:</span><span class="w"> </span><span class="n">Wed</span><span class="o">,</span><span class="w"> </span><span class="mi">22</span><span class="w"> </span><span class="n">Jul</span><span class="w"> </span><span class="mi">2009</span><span class="w"> </span><span class="mi">19</span><span class="o">:</span><span class="mi">15</span><span class="o">:</span><span class="mi">56</span><span class="w"> </span><span class="n">GMT</span>
-<span class="n">Content</span><span class="o">-</span><span class="n">Length</span><span class="o">:</span><span class="w"> </span><span class="mi">88</span>
-<span class="n">Content</span><span class="o">-</span><span class="n">Type</span><span class="o">:</span><span class="w"> </span><span class="n">text</span><span class="o">/</span><span class="n">html</span>
-<span class="n">Connection</span><span class="o">:</span><span class="w"> </span><span class="n">Closed</span>
-</pre>
-                </div>
+<h5 id="headers">Headers</h5>
+<p>هدرهای پاسخ شامل اطلاعات اضافی هستند مانند نوع محتوا، تاریخ آخرین تغییر و غیره.</p>
+<div class="code-box">
+        <div class="code-info">
+            <button class="copy-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" class="icon-sm"><path fill="currentColor" fill-rule="evenodd" d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z" clip-rule="evenodd"></path></svg>
+                <span>Copy code</span>
+            </button>
+            <span class="language">plaintext</span>
+        </div>
+    <pre><span></span>Date: Mon, 27 Jul 2009 12:28:53 GMT
+Server: Apache/2.2.14 (Win32)
+Last-Modified: Wed, 22 Jul 2009 19:15:56 GMT
+Content-Length: 88
+Content-Type: text/html
+Connection: Closed
+</pre></div>
 
-                <h5 id="a-blank-line_1">A Blank Line</h5>
-                <p>خط خالی که بین هدرها و بدنه پاسخ قرار دارد.</p>
-                <h5 id="body_1">Body</h5>
-                <p>بدنه پاسخ شامل داده‌ای است که به کلاینت ارسال می‌شود.</p>
-                <div class="code-box">
-                    <pre><span></span><span class="nt">&lt;html&gt;</span>
-<span class="nt">&lt;body&gt;</span>
-<span class="nt">&lt;h1&gt;</span>Hello,<span class="w"> </span>world!<span class="nt">&lt;/h1&gt;</span>
-<span class="nt">&lt;/body&gt;</span>
-<span class="nt">&lt;/html&gt;</span>
-</pre>
-                </div>
+<h5 id="a-blank-line">A Blank Line</h5>
+<p>خط خالی که بین هدرها و بدنه پاسخ قرار دارد.</p>
+<h5 id="body">Body</h5>
+<p>بدنه پاسخ شامل داده‌ای است که به کلاینت ارسال می‌شود.</p>
+<div class="code-box">
+        <div class="code-info">
+            <button class="copy-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" class="icon-sm"><path fill="currentColor" fill-rule="evenodd" d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z" clip-rule="evenodd"></path></svg>
+                <span>Copy code</span>
+            </button>
+            <span class="language">plaintext</span>
+        </div>
+    <pre><span></span>&lt;html&gt;
+&lt;body&gt;
+&lt;h1&gt;Hello, world!&lt;/h1&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</pre></div>
 
-                <h4 id="structure-of-responses">Structure of Responses</h4>
-                <div class="code-box">
-                    <pre><span></span><span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK                           |-&gt; status line</span>
-<span class="na">Date</span><span class="o">:</span> <span class="l">Mon, 27 Jul 2009 12:28:53 GMT       |</span>
-<span class="na">Server</span><span class="o">:</span> <span class="l">Apache/2.2.14 (Win32)             |</span>
-<span class="na">Last-Modified</span><span class="o">:</span> <span class="l">Wed, 22 Jul 2009 19:15:56 GMT |-&gt; header</span>
-<span class="na">Content-Length</span><span class="o">:</span> <span class="l">88                        |</span>
-<span class="na">Content-Type</span><span class="o">:</span> <span class="l">text/html                   |</span>
-<span class="na">Connection</span><span class="o">:</span> <span class="l">Closed                        |</span>
+<h4 id="structure-of-responses">Structure of Responses</h4>
+<div class="code-box">
+        <div class="code-info">
+            <button class="copy-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" class="icon-sm"><path fill="currentColor" fill-rule="evenodd" d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z" clip-rule="evenodd"></path></svg>
+                <span>Copy code</span>
+            </button>
+            <span class="language">plaintext</span>
+        </div>
+    <pre><span></span>HTTP/1.1 200 OK                                |-&gt; status line
+Date: Mon, 27 Jul 2009 12:28:53 GMT            |
+Server: Apache/2.2.14 (Win32)                  |
+Last-Modified: Wed, 22 Jul 2009 19:15:56 GMT   |-&gt; header
+Content-Length: 88                             |
+Content-Type: text/html                        |
+Connection: Closed                             |
+&lt;html&gt;                                         |
+&lt;body&gt;                                         |
+&lt;h1&gt;Hello, world!&lt;/h1&gt;                         |-&gt; Body
+&lt;/body&gt;                                        |
+&lt;/html&gt;                                        |
+</pre></div>
 
-&lt;html&gt;                                    |
-&lt;body&gt;                                    |
-&lt;h1&gt;Hello, world!&lt;/h1&gt;                    |-&gt; Body
-&lt;/body&gt;                                   |
-&lt;/html&gt;                                   |
-</pre>
-                </div>
+<h4 id="http-status-codes">HTTP Status Codes</h4>
+<h4 id="1xx-informational">1xx (Informational)</h4>
+<ul>
+<li>اطلاعاتی که نشان‌دهنده ادامه پردازش درخواست است.</li>
+</ul>
+<h4 id="2xx-success">2xx (Success)</h4>
+<ul>
+<li>موفقیت‌آمیز بودن درخواست.</li>
+</ul>
+<p>| Status Code | Reason Phrase        |
+|-------------|----------------------|
+| 200         | OK                   |</p>
+<h4 id="3xx-redirection">3xx (Redirection)</h4>
+<ul>
+<li>نیاز به اقدامات بیشتری توسط کاربر.</li>
+</ul>
+<p>| Status Code | Reason Phrase        |
+|-------------|----------------------|
+| 301         | Permanent Redirect   |
+| 302         | Temporary Redirect   |
+| 303         | Not Modified         |</p>
+<h4 id="4xx-client-error">4xx (Client Error)</h4>
+<ul>
+<li>خطاهایی که به دلیل درخواست‌های نادرست کلاینت رخ می‌دهند.</li>
+</ul>
+<p>| Status Code | Reason Phrase        |
+|-------------|----------------------|
+| 401         | Unauthorized         |
+| 403         | Forbidden            |
+| 404         | Not Found            |
+| 405         | Method Not Allowed   |</p>
+<h4 id="5xx-server-error">5xx (Server Error)</h4>
+<ul>
+<li>خطاهایی که به دلیل مشکلات سرور رخ می‌دهند.</li>
+</ul>
+<p>| Status Code | Reason Phrase        |
+|-------------|----------------------|
+| 501         | Not Implemented      |
+| 502         | Bad Gateway          |
+| 503         | Service Unavailable  |
+| 504         | Gateway Timeout      |</p>
+<h3 id="14-khwkhy-h-w-sshn-h">14. کوکی‌ها و سشن‌ها</h3>
+<h4 id="khwkhy-h-cookies">کوکی‌ها (Cookies)</h4>
+<p>کوکی‌ها قطعه‌های کوچکی از داده هستند که توسط سرور به مرورگر ارسال و در دستگاه کاربر ذخیره می‌شوند.</p>
+<p><strong>ویژگی‌های کوکی‌ها:</strong></p>
+<ul>
+<li><strong>ذخیره‌سازی در سمت کاربر</strong>: کوکی‌ها در مرورگر ذخیره می‌شوند.</li>
+<li><strong>طول عمر</strong>: می‌تواند موقت (session cookies) یا دائمی (persistent cookies) باشد.</li>
+<li><strong>محدودیت حجم</strong>: حدود 4KB.</li>
+<li><strong>ارسال خودکار</strong>: در هر درخواست HTTP ارسال می‌شوند.</li>
+</ul>
+<p><strong>نمونه کاربردهای کوکی‌ها:</strong></p>
+<ul>
+<li>ذخیره اطلاعات ورود.</li>
+<li>نگه‌داری تنظیمات کاربر.</li>
+<li>پیگیری فعالیت‌ها برای اهداف تبلیغاتی.</li>
+</ul>
+<div class="code-box">
+        <div class="code-info">
+            <button class="copy-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" class="icon-sm"><path fill="currentColor" fill-rule="evenodd" d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z" clip-rule="evenodd"></path></svg>
+                <span>Copy code</span>
+            </button>
+            <span class="language">plaintext</span>
+        </div>
+    <pre><span></span>Set-Cookie: sessionId=abc123; Expires=Wed, 09 Jun 2023 10:18:14 GMT; Path=/; HttpOnly
+</pre></div>
 
-                <h4 id="http-status-codes">HTTP Status Codes</h4>
-                <h4 id="1xx-informational">1xx (Informational)</h4>
-                <ul>
-                    <li>اطلاعاتی که نشان‌دهنده ادامه پردازش درخواست است.</li>
-                </ul>
-                <h4 id="2xx-success">2xx (Success)</h4>
-                <ul>
-                    <li>موفقیت‌آمیز بودن درخواست.</li>
-                </ul>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Status Code</th>
-                            <th>Reason Phrase</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>200</td>
-                            <td>OK</td>
-                        </tr>
-                    </tbody>
-                </table>
-                <h4 id="3xx-redirection">3xx (Redirection)</h4>
-                <ul>
-                    <li>نیاز به اقدامات بیشتری توسط کاربر.</li>
-                </ul>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Status Code</th>
-                            <th>Reason Phrase</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>301</td>
-                            <td>Permanent Redirect</td>
-                        </tr>
-                        <tr>
-                            <td>302</td>
-                            <td>Temporary Redirect</td>
-                        </tr>
-                        <tr>
-                            <td>303</td>
-                            <td>Not Modified</td>
-                        </tr>
-                    </tbody>
-                </table>
-                <h4 id="4xx-client-error">4xx (Client Error)</h4>
-                <ul>
-                    <li>خطاهایی که به دلیل درخواست‌های نادرست کلاینت رخ می‌دهند.</li>
-                </ul>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Status Code</th>
-                            <th>Reason Phrase</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>401</td>
-                            <td>Unauthorized</td>
-                        </tr>
-                        <tr>
-                            <td>403</td>
-                            <td>Forbidden</td>
-                        </tr>
-                        <tr>
-                            <td>404</td>
-                            <td>Not Found</td>
-                        </tr>
-                        <tr>
-                            <td>405</td>
-                            <td>Method Not Allowed</td>
-                        </tr>
-                    </tbody>
-                </table>
-                <h4 id="5xx-server-error">5xx (Server Error)</h4>
-                <ul>
-                    <li>خطاهایی که به دلیل مشکلات سرور رخ می‌دهند.</li>
-                </ul>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Status Code</th>
-                            <th>Reason Phrase</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>501</td>
-                            <td>Not Implemented</td>
-                        </tr>
-                        <tr>
-                            <td>502</td>
-                            <td>Bad Gateway</td>
-                        </tr>
-                        <tr>
-                            <td>503</td>
-                            <td>Service Unavailable</td>
-                        </tr>
-                        <tr>
-                            <td>504</td>
-                            <td>Gateway Timeout</td>
-                        </tr>
-                    </tbody>
-                </table>
-                <h3 id="14">14. کوکی‌ها و سشن‌ها</h3>
-                <h4 id="cookies">کوکی‌ها (Cookies)</h4>
-                <p>کوکی‌ها قطعه‌های کوچکی از داده هستند که توسط سرور به مرورگر ارسال و در دستگاه کاربر ذخیره می‌شوند.
-                </p>
-                <p><strong>ویژگی‌های کوکی‌ها:</strong></p>
-                <ul>
-                    <li><strong>ذخیره‌سازی در سمت کاربر</strong>: کوکی‌ها در مرورگر ذخیره می‌شوند.</li>
-                    <li><strong>طول عمر</strong>: می‌تواند موقت (session cookies) یا دائمی (persistent cookies) باشد.
-                    </li>
-                    <li><strong>محدودیت حجم</strong>: حدود 4KB.</li>
-                    <li><strong>ارسال خودکار</strong>: در هر درخواست HTTP ارسال می‌شوند.</li>
-                </ul>
-                <p><strong>نمونه کاربردهای کوکی‌ها:</strong></p>
-                <ul>
-                    <li>ذخیره اطلاعات ورود.</li>
-                    <li>نگه‌داری تنظیمات کاربر.</li>
-                    <li>پیگیری فعالیت‌ها برای اهداف تبلیغاتی.</li>
-                </ul>
-                <div class="code-box">
-                    <pre><span></span><span class="nt">Set-Cookie</span><span class="o">:</span><span class="w"> </span><span class="nt">sessionId</span><span class="o">=</span><span class="nt">abc123</span><span class="o">;</span><span class="w"> </span><span class="nt">Expires</span><span class="o">=</span><span class="nt">Wed</span><span class="o">,</span><span class="w"> </span><span class="nt">09</span><span class="w"> </span><span class="nt">Jun</span><span class="w"> </span><span class="nt">2023</span><span class="w"> </span><span class="nt">10</span><span class="p">:</span><span class="nd">18</span><span class="p">:</span><span class="nd">14</span><span class="w"> </span><span class="nt">GMT</span><span class="o">;</span><span class="w"> </span><span class="nt">Path</span><span class="o">=/;</span><span class="w"> </span><span class="nt">HttpOnly</span>
-</pre>
-                </div>
-
-                <h4 id="sessions">سشن‌ها (Sessions)</h4>
-                <p>سشن‌ها مکانیزمی هستند که اطلاعات وضعیت را در سمت سرور ذخیره می‌کنند و هر سشن با یک شناسه منحصر به فرد
-                    (Session ID) شناسایی می‌شود.</p>
-                <p><strong>ویژگی‌های سشن‌ها:</strong></p>
-                <ul>
-                    <li><strong>ذخیره‌سازی در سمت سرور</strong>: داده‌ها در سرور ذخیره می‌شوند.</li>
-                    <li><strong>شناسه سشن</strong>: هر سشن یک شناسه منحصر به فرد دارد.</li>
-                    <li><strong>امنیت بیشتر</strong>: داده‌ها در سمت سرور ذخیره می‌شوند.</li>
-                    <li><strong>طول عمر کوتاه‌تر</strong>: معمولاً کوتاه‌تر و وابسته به مدت زمان فعالیت کاربر.</li>
-                </ul>
-                <p><strong>نمونه کاربردهای سشن‌ها:</strong></p>
-                <ul>
-                    <li>نگه‌داری اطلاعات ورود.</li>
-                    <li>ذخیره موقت اطلاعات سبد خرید.</li>
-                    <li>پیگیری وضعیت کاربر در فرم‌های چند مرحله‌ای.</li>
-                </ul>
-                <div class="code-box">
-                    <pre><span></span>session[&#39;user_id&#39;] = 42
+<h4 id="sshn-h-sessions">سشن‌ها (Sessions)</h4>
+<p>سشن‌ها مکانیزمی هستند که اطلاعات وضعیت را در سمت سرور ذخیره می‌کنند و هر سشن با یک شناسه منحصر به فرد (Session ID) شناسایی می‌شود.</p>
+<p><strong>ویژگی‌های سشن‌ها:</strong></p>
+<ul>
+<li><strong>ذخیره‌سازی در سمت سرور</strong>: داده‌ها در سرور ذخیره می‌شوند.</li>
+<li><strong>شناسه سشن</strong>: هر سشن یک شناسه منحصر به فرد دارد.</li>
+<li><strong>امنیت بیشتر</strong>: داده‌ها در سمت سرور ذخیره می‌شوند.</li>
+<li><strong>طول عمر کوتاه‌تر</strong>: معمولاً کوتاه‌تر و وابسته به مدت زمان فعالیت کاربر.</li>
+</ul>
+<p><strong>نمونه کاربردهای سشن‌ها:</strong></p>
+<ul>
+<li>نگه‌داری اطلاعات ورود.</li>
+<li>ذخیره موقت اطلاعات سبد خرید.</li>
+<li>پیگیری وضعیت کاربر در فرم‌های چند مرحله‌ای.</li>
+</ul>
+<div class="code-box">
+        <div class="code-info">
+            <button class="copy-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" class="icon-sm"><path fill="currentColor" fill-rule="evenodd" d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z" clip-rule="evenodd"></path></svg>
+                <span>Copy code</span>
+            </button>
+            <span class="language">plaintext</span>
+        </div>
+    <pre><span></span>session[&#39;user_id&#39;] = 42
 session[&#39;cart&#39;] = [&#39;item1&#39;, &#39;item2&#39;]
-</pre>
-                </div>
+</pre></div>
 
-                <h4 id="_8">مقایسه کوکی‌ها و سشن‌ها</h4>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>ویژگی</th>
-                            <th>کوکی‌ها</th>
-                            <th>سشن‌ها</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>مکان ذخیره‌سازی</td>
-                            <td>سمت کاربر (مرورگر)</td>
-                            <td>سمت سرور</td>
-                        </tr>
-                        <tr>
-                            <td>طول عمر</td>
-                            <td>موقت یا دائمی</td>
-                            <td>کوتاه‌تر، وابسته به مدت فعالیت</td>
-                        </tr>
-                        <tr>
-                            <td>امنیت</td>
-                            <td>کمتر (قابل دستکاری)</td>
-                            <td>بیشتر (در سمت سرور ذخیره می‌شود)</td>
-                        </tr>
-                        <tr>
-                            <td>حجم</td>
-                            <td>حدود 4KB</td>
-                            <td>محدودیت کمتر (وابسته به سرور)</td>
-                        </tr>
-                        <tr>
-                            <td>استفاده رایج</td>
-                            <td>نگه‌داری تنظیمات، پیگیری‌ها</td>
-                            <td>ذخیره اطلاعات ورود، سبد خرید</td>
-                        </tr>
-                    </tbody>
-                </table>
-                <h4 id="_9">ترکیب کوکی‌ها و سشن‌ها</h4>
-                <p>در بسیاری از موارد، کوکی‌ها و سشن‌ها به صورت ترکیبی استفاده می‌شوند. به عنوان مثال، یک کوکی برای
-                    ذخیره
-                    شناسه سشن (Session ID) استفاده می‌شود و داده‌های مربوط به سشن در سرور ذخیره می‌شوند. این روش به
-                    امنیت
-                    بیشتر و کارایی بهتر کمک می‌کند.</p>
-                <h3 id="15">15. مفهوم فریم‌ورک</h3>
-                <p>فریم‌ورک (Framework) مجموعه‌ای از ابزارها، کتابخانه‌ها و قوانین است که برای توسعه نرم‌افزارها استفاده
-                    می‌شود. فریم‌ورک‌ها به توسعه‌دهندگان کمک می‌کنند تا با ارائه ساختارها و الگوهای استاندارد، کار خود
-                    را
-                    ساده‌تر و سریع‌تر انجام دهند.</p>
-                <p><strong>ویژگی‌های اصلی فریم‌ورک‌ها:</strong></p>
-                <ul>
-                    <li><strong>سازمان‌دهی کد</strong>: فریم‌ورک‌ها الگوهایی برای سازمان‌دهی کد فراهم می‌کنند، که باعث
-                        می‌شود توسعه و نگهداری کد آسان‌تر شود.</li>
-                    <li><strong>ابزارها و کتابخانه‌های آماده</strong>: فریم‌ورک‌ها شامل مجموعه‌ای از ابزارها و
-                        کتابخانه‌های
-                        پیش‌ساخته هستند که نیاز به نوشتن کد از صفر را کاهش می‌دهند.</li>
-                    <li><strong>قابلیت توسعه و انعطاف‌پذیری</strong>: بیشتر فریم‌ورک‌ها قابل توسعه و انعطاف‌پذیر هستند،
-                        به
-                        طوری که توسعه‌دهندگان می‌توانند آن‌ها را مطابق با نیازهای خاص پروژه خود تنظیم کنند.</li>
-                    <li><strong>مدیریت خطا و استثنا</strong>: فریم‌ورک‌ها اغلب شامل سازوکارهای پیشرفته برای مدیریت خطاها
-                        و
-                        استثناها هستند.</li>
-                    <li><strong>توسعه سریع‌تر</strong>: استفاده از فریم‌ورک‌ها باعث می‌شود فرآیند توسعه سریع‌تر و مؤثرتر
-                        باشد، زیرا بسیاری از وظایف رایج توسط فریم‌ورک‌ها مدیریت می‌شود.</li>
-                </ul>
-                <p><strong>نمونه‌هایی از فریم‌ورک‌ها:</strong></p>
-                <ul>
-                    <li><strong>فریم‌ورک‌های وب</strong>: مانند Django برای پایتون، Laravel برای PHP، و Ruby on Rails
-                        برای
-                        روبی.</li>
-                    <li><strong>فریم‌ورک‌های رابط کاربری</strong>: مانند React و Angular برای جاوااسکریپت.</li>
-                    <li><strong>فریم‌ورک‌های موبایل</strong>: مانند React Native و Flutter.</li>
-                </ul>
-                <p>در کل، فریم‌ورک‌ها به توسعه‌دهندگان کمک می‌کنند تا با استفاده از الگوها و ساختارهای استاندارد،
-                    پروژه‌های
-                    خود را به صورت کارآمدتر و با کیفیت بالاتر توسعه دهند.</p>
-                <h3 id="16">16. تفاوت فرانت‌اند و بک‌اند</h3>
-                <p><strong>فرانت‌اند (Front-End) و بک‌اند (Back-End)</strong> دو بخش اصلی توسعه وب هستند که هر کدام
-                    وظایف و
-                    تکنولوژی‌های متفاوتی دارند:</p>
-                <h4 id="front-end">فرانت‌اند (Front-End)</h4>
-                <ul>
-                    <li><strong>تعریف</strong>: بخش قابل مشاهده و تعامل کاربران با وب‌سایت یا برنامه وب.</li>
-                    <li><strong>وظایف اصلی</strong>: طراحی و ایجاد رابط کاربری، اطمینان از تجربه کاربری (UX) خوب و
-                        پاسخگویی
-                        (responsive) سایت برای دستگاه‌های مختلف.</li>
-                    <li><strong>تکنولوژی‌ها</strong>: HTML (برای ساختار صفحات)، CSS (برای طراحی و ظاهر)، جاوااسکریپت
-                        (برای
-                        تعاملات و دینامیک بودن صفحات).</li>
-                    <li><strong>ابزارها و فریم‌ورک‌ها</strong>: React، Angular، Vue.js، Bootstrap، SASS.</li>
-                </ul>
-                <h4 id="back-end">بک‌اند (Back-End)</h4>
-                <ul>
-                    <li><strong>تعریف</strong>: بخش سروری و پشت صحنه که کاربران به طور مستقیم با آن تعامل ندارند.</li>
-                    <li><strong>وظایف اصلی</strong>: مدیریت منطق سرور، تعامل با پایگاه داده، مدیریت احراز هویت و
-                        ذخیره‌سازی
-                        داده‌ها.</li>
-                    <li><strong>تکنولوژی‌ها</strong>: زبان‌های برنامه‌نویسی مانند Python، Java، Ruby، PHP، Node.js.</li>
-                    <li><strong>پایگاه‌های داده</strong>: MySQL، PostgreSQL، MongoDB، SQLite.</li>
-                    <li><strong>فریم‌ورک‌ها و کتابخانه‌ها</strong>: Django، Flask، Spring Boot، Express.js، Laravel.
-                    </li>
-                </ul>
-                <h4 id="_10">تفاوت‌ها</h4>
-                <ul>
-                    <li><strong>هدف</strong>: فرانت‌اند بر روی تجربه کاربری و ظاهر سایت تمرکز دارد، در حالی که بک‌اند
-                        مسئول
-                        منطق، عملکرد و ذخیره‌سازی داده‌های سایت است.</li>
-                    <li><strong>زبان‌ها و تکنولوژی‌ها</strong>: فرانت‌اند از زبان‌ها و تکنولوژی‌هایی استفاده می‌کند که
-                        به
-                        ایجاد و استایل‌دهی صفحات وب کمک می‌کنند، در حالی که بک‌اند از زبان‌ها و تکنولوژی‌هایی استفاده
-                        می‌کند
-                        که برای پردازش داده‌ها و تعامل با پایگاه داده مناسب هستند.</li>
-                    <li><strong>تعامل با کاربر</strong>: فرانت‌اند به طور مستقیم با کاربران در تعامل است و بر روی مرورگر
-                        کاربر اجرا می‌شود، در حالی که بک‌اند در سرور اجرا می‌شود و با پایگاه داده و منطق تجاری سروکار
-                        دارد.
-                    </li>
-                </ul>
-                <h3 id="17">17. جنگو چیست؟</h3>
-                <p><strong>جنگو (Django)</strong> یک فریم‌ورک وب سطح بالا برای زبان برنامه‌نویسی پایتون است که طراحی شده
-                    است
-                    تا توسعه وب را سریع‌تر، ساده‌تر و امن‌تر کند. جنگو با پیروی از فلسفه "باتری‌ها گنجانده شده‌اند"
-                    (batteries included)، بسیاری از امکانات و ابزارهای مورد نیاز برای توسعه وب را به صورت پیش‌فرض فراهم
-                    می‌کند.</p>
-                <h4 id="_11">ویژگی‌های کلیدی جنگو</h4>
-                <ol>
-                    <li><strong>توسعه سریع</strong>: جنگو با فراهم کردن ابزارها و الگوهای رایج، توسعه وب را سریع‌تر
-                        می‌کند.
-                    </li>
-                    <li><strong>امنیت</strong>: جنگو با تمرکز بر امنیت، از مشکلات رایج امنیتی مانند تزریق SQL، حملات XSS
-                        و
-                        CSRF جلوگیری می‌کند.</li>
-                    <li><strong>مقیاس‌پذیری</strong>: جنگو به گونه‌ای طراحی شده است که می‌تواند بار سنگین ترافیک و
-                        داده‌ها
-                        را مدیریت کند.</li>
-                    <li><strong>انعطاف‌پذیری</strong>: جنگو به توسعه‌دهندگان اجازه می‌دهد تا با استفاده از افزونه‌ها و
-                        برنامه‌های سفارشی، پروژه‌های خود را به دلخواه گسترش دهند.</li>
-                    <li><strong>پشتیبانی از ORM</strong>: جنگو یک سیستم مدیریت پایگاه داده به نام ORM (Object-Relational
-                        Mapping) ارائه می‌دهد که به توسعه‌دهندگان اجازه می‌دهد تا با پایگاه داده‌ها به روشی شی‌گرا کار
-                        کنند.
-                    </li>
-                    <li><strong>مدیریت آسان</strong>: جنگو یک رابط کاربری مدیریتی داخلی دارد که به توسعه‌دهندگان اجازه
-                        می‌دهد تا به راحتی محتوا و داده‌ها را مدیریت کنند.</li>
-                </ol>
-                <h4 id="_12">کاربردهای جنگو</h4>
-                <ul>
-                    <li><strong>سایت‌های محتوایی</strong>: جنگو برای سایت‌هایی که نیاز به مدیریت محتوا دارند، بسیار
-                        مناسب
-                        است.</li>
-                    <li><strong>تجارت الکترونیک</strong>: جنگو به دلیل قابلیت‌های امنیتی و مقیاس‌پذیری، برای توسعه
-                        فروشگاه‌های آنلاین ایده‌آل است.</li>
-                    <li><strong>شبکه‌های اجتماعی</strong>: جنگو می‌تواند برای ایجاد پلتفرم‌های اجتماعی و سایت‌های انجمن
-                        استفاده شود.</li>
-                    <li><strong>برنامه‌های سازمانی</strong>: جنگو به دلیل ساختار و انعطاف‌پذیری، برای توسعه برنامه‌های
-                        بزرگ
-                        سازمانی مناسب است.</li>
-                </ul>
-                <h4 id="_13">نمونه‌هایی از پروژه‌های معروف با جنگو</h4>
-                <ul>
-                    <li><strong>Instagram</strong>: یکی از بزرگترین شبکه‌های اجتماعی دنیا.</li>
-                    <li><strong>Pinterest</strong>: یک پلتفرم به اشتراک‌گذاری تصاویر و ایده‌ها.</li>
-                    <li><strong>Disqus</strong>: یک سرویس مدیریت نظرات برای وب‌سایت‌ها.</li>
-                </ul>
-                <h3 id="18-mvt">18. معماری MVT و ساختار جنگو (مهم)</h3>
-                <ul>
-                    <li>
-                        <p><strong>Model-View-Template (MVT)</strong>: الگوی معماری مورد استفاده در جنگو که شامل سه جزء
-                            است:
-                        </p>
-                    </li>
-                    <li>
-                        <p><strong>Model</strong>: مدیریت داده‌ها و تعامل با پایگاه داده. مثال: یک مدل کاربر که اطلاعات
-                            کاربر را ذخیره می‌کند.</p>
-                    </li>
-                    <li><strong>View</strong>: منطق تجاری و پردازش درخواست‌ها. مثال: تابعی که درخواست‌های کاربر را
-                        پردازش و
-                        داده‌ها را به قالب‌ها ارسال می‌کند.</li>
-                    <li><strong>Template</strong>: قالب‌های HTML که نحوه نمایش داده‌ها به کاربر را تعیین می‌کند. مثال:
-                        فایل
-                        HTML که داده‌های کاربران را به صورت جدولی نمایش می‌دهد.</li>
-                </ul>
+<h4 id="mqysh-khwkhy-h-w-sshn-h">مقایسه کوکی‌ها و سشن‌ها</h4>
+<p>| ویژگی                | کوکی‌ها                     | سشن‌ها                           |
+|----------------------|-----------------------------|----------------------------------|
+| مکان ذخیره‌سازی      | سمت کاربر (مرورگر)          | سمت سرور                         |
+| طول عمر              | موقت یا دائمی               | کوتاه‌تر، وابسته به مدت فعالیت |
+| امنیت               | کمتر (قابل دستکاری)         | بیشتر (در سمت سرور ذخیره می‌شود)|
+| حجم                 | حدود 4KB                     | محدودیت کمتر (وابسته به سرور)  |
+| استفاده رایج         | نگه‌داری تنظیمات، پیگیری‌ها | ذخیره اطلاعات ورود، سبد خرید    |</p>
+<h4 id="trkhyb-khwkhy-h-w-sshn-h">ترکیب کوکی‌ها و سشن‌ها</h4>
+<p>در بسیاری از موارد، کوکی‌ها و سشن‌ها به صورت ترکیبی استفاده می‌شوند. به عنوان مثال، یک کوکی برای ذخیره شناسه سشن (Session ID) استفاده می‌شود و داده‌های مربوط به سشن در سرور ذخیره می‌شوند. این روش به امنیت بیشتر و کارایی بهتر کمک می‌کند.</p>
+<h3 id="15-mfhwm-frym-wrkh">15. مفهوم فریم‌ورک</h3>
+<p>فریم‌ورک (Framework) مجموعه‌ای از ابزارها، کتابخانه‌ها و قوانین است که برای توسعه نرم‌افزارها استفاده می‌شود. فریم‌ورک‌ها به توسعه‌دهندگان کمک می‌کنند تا با ارائه ساختارها و الگوهای استاندارد، کار خود را ساده‌تر و سریع‌تر انجام دهند.</p>
+<p><strong>ویژگی‌های اصلی فریم‌ورک‌ها:</strong></p>
+<ul>
+<li><strong>سازمان‌دهی کد</strong>: فریم‌ورک‌ها الگوهایی برای سازمان‌دهی کد فراهم می‌کنند، که باعث می‌شود توسعه و نگهداری کد آسان‌تر شود.</li>
+<li><strong>ابزارها و کتابخانه‌های آماده</strong>: فریم‌ورک‌ها شامل مجموعه‌ای از ابزارها و کتابخانه‌های پیش‌ساخته هستند که نیاز به نوشتن کد از صفر را کاهش می‌دهند.</li>
+<li><strong>قابلیت توسعه و انعطاف‌پذیری</strong>: بیشتر فریم‌ورک‌ها قابل توسعه و انعطاف‌پذیر هستند، به طوری که توسعه‌دهندگان می‌توانند آن‌ها را مطابق با نیازهای خاص پروژه خود تنظیم کنند.</li>
+<li><strong>مدیریت خطا و استثنا</strong>: فریم‌ورک‌ها اغلب شامل سازوکارهای پیشرفته برای مدیریت خطاها و استثناها هستند.</li>
+<li><strong>توسعه سریع‌تر</strong>: استفاده از فریم‌ورک‌ها باعث می‌شود فرآیند توسعه سریع‌تر و مؤثرتر باشد، زیرا بسیاری از وظایف رایج توسط فریم‌ورک‌ها مدیریت می‌شود.</li>
+</ul>
+<p><strong>نمونه‌هایی از فریم‌ورک‌ها:</strong></p>
+<ul>
+<li><strong>فریم‌ورک‌های وب</strong>: مانند Django برای پایتون، Laravel برای PHP، و Ruby on Rails برای روبی.</li>
+<li><strong>فریم‌ورک‌های رابط کاربری</strong>: مانند React و Angular برای جاوااسکریپت.</li>
+<li><strong>فریم‌ورک‌های موبایل</strong>: مانند React Native و Flutter.</li>
+</ul>
+<p>در کل، فریم‌ورک‌ها به توسعه‌دهندگان کمک می‌کنند تا با استفاده از الگوها و ساختارهای استاندارد، پروژه‌های خود را به صورت کارآمدتر و با کیفیت بالاتر توسعه دهند.</p>
+<h3 id="16-tfwt-frnt-nd-w-bkh-nd">16. تفاوت فرانت‌اند و بک‌اند</h3>
+<p><strong>فرانت‌اند (Front-End) و بک‌اند (Back-End)</strong> دو بخش اصلی توسعه وب هستند که هر کدام وظایف و تکنولوژی‌های متفاوتی دارند:</p>
+<h4 id="frnt-nd-front-end">فرانت‌اند (Front-End)</h4>
+<ul>
+<li><strong>تعریف</strong>: بخش قابل مشاهده و تعامل کاربران با وب‌سایت یا برنامه وب.</li>
+<li><strong>وظایف اصلی</strong>: طراحی و ایجاد رابط کاربری، اطمینان از تجربه کاربری (UX) خوب و پاسخگویی (responsive) سایت برای دستگاه‌های مختلف.</li>
+<li><strong>تکنولوژی‌ها</strong>: HTML (برای ساختار صفحات)، CSS (برای طراحی و ظاهر)، جاوااسکریپت (برای تعاملات و دینامیک بودن صفحات).</li>
+<li><strong>ابزارها و فریم‌ورک‌ها</strong>: React، Angular، Vue.js، Bootstrap، SASS.</li>
+</ul>
+<h4 id="bkh-nd-back-end">بک‌اند (Back-End)</h4>
+<ul>
+<li><strong>تعریف</strong>: بخش سروری و پشت صحنه که کاربران به طور مستقیم با آن تعامل ندارند.</li>
+<li><strong>وظایف اصلی</strong>: مدیریت منطق سرور، تعامل با پایگاه داده، مدیریت احراز هویت و ذخیره‌سازی داده‌ها.</li>
+<li><strong>تکنولوژی‌ها</strong>: زبان‌های برنامه‌نویسی مانند Python، Java، Ruby، PHP، Node.js.</li>
+<li><strong>پایگاه‌های داده</strong>: MySQL، PostgreSQL، MongoDB، SQLite.</li>
+<li><strong>فریم‌ورک‌ها و کتابخانه‌ها</strong>: Django، Flask، Spring Boot، Express.js، Laravel.</li>
+</ul>
+<h4 id="tfwt-h">تفاوت‌ها</h4>
+<ul>
+<li><strong>هدف</strong>: فرانت‌اند بر روی تجربه کاربری و ظاهر سایت تمرکز دارد، در حالی که بک‌اند مسئول منطق، عملکرد و ذخیره‌سازی داده‌های سایت است.</li>
+<li><strong>زبان‌ها و تکنولوژی‌ها</strong>: فرانت‌اند از زبان‌ها و تکنولوژی‌هایی استفاده می‌کند که به ایجاد و استایل‌دهی صفحات وب کمک می‌کنند، در حالی که بک‌اند از زبان‌ها و تکنولوژی‌هایی استفاده می‌کند که برای پردازش داده‌ها و تعامل با پایگاه داده مناسب هستند.</li>
+<li><strong>تعامل با کاربر</strong>: فرانت‌اند به طور مستقیم با کاربران در تعامل است و بر روی مرورگر کاربر اجرا می‌شود، در حالی که بک‌اند در سرور اجرا می‌شود و با پایگاه داده و منطق تجاری سروکار دارد.</li>
+</ul>
+<h3 id="17-jngw-chyst">17. جنگو چیست؟</h3>
+<p><strong>جنگو (Django)</strong> یک فریم‌ورک وب سطح بالا برای زبان برنامه‌نویسی پایتون است که طراحی شده است تا توسعه وب را سریع‌تر، ساده‌تر و امن‌تر کند. جنگو با پیروی از فلسفه "باتری‌ها گنجانده شده‌اند" (batteries included)، بسیاری از امکانات و ابزارهای مورد نیاز برای توسعه وب را به صورت پیش‌فرض فراهم می‌کند.</p>
+<h4 id="wyjgy-hy-khlydy-jngw">ویژگی‌های کلیدی جنگو</h4>
+<ol>
+<li><strong>توسعه سریع</strong>: جنگو با فراهم کردن ابزارها و الگوهای رایج، توسعه وب را سریع‌تر می‌کند.</li>
+<li><strong>امنیت</strong>: جنگو با تمرکز بر امنیت، از مشکلات رایج امنیتی مانند تزریق SQL، حملات XSS و CSRF جلوگیری می‌کند.</li>
+<li><strong>مقیاس‌پذیری</strong>: جنگو به گونه‌ای طراحی شده است که می‌تواند بار سنگین ترافیک و داده‌ها را مدیریت کند.</li>
+<li><strong>انعطاف‌پذیری</strong>: جنگو به توسعه‌دهندگان اجازه می‌دهد تا با استفاده از افزونه‌ها و برنامه‌های سفارشی، پروژه‌های خود را به دلخواه گسترش دهند.</li>
+<li><strong>پشتیبانی از ORM</strong>: جنگو یک سیستم مدیریت پایگاه داده به نام ORM (Object-Relational Mapping) ارائه می‌دهد که به توسعه‌دهندگان اجازه می‌دهد تا با پایگاه داده‌ها به روشی شی‌گرا کار کنند.</li>
+<li><strong>مدیریت آسان</strong>: جنگو یک رابط کاربری مدیریتی داخلی دارد که به توسعه‌دهندگان اجازه می‌دهد تا به راحتی محتوا و داده‌ها را مدیریت کنند.</li>
+</ol>
+<h4 id="khrbrdhy-jngw">کاربردهای جنگو</h4>
+<ul>
+<li><strong>سایت‌های محتوایی</strong>: جنگو برای سایت‌هایی که نیاز به مدیریت محتوا دارند، بسیار مناسب است.</li>
+<li><strong>تجارت الکترونیک</strong>: جنگو به دلیل قابلیت‌های امنیتی و مقیاس‌پذیری، برای توسعه فروشگاه‌های آنلاین ایده‌آل است.</li>
+<li><strong>شبکه‌های اجتماعی</strong>: جنگو می‌تواند برای ایجاد پلتفرم‌های اجتماعی و سایت‌های انجمن استفاده شود.</li>
+<li><strong>برنامه‌های سازمانی</strong>: جنگو به دلیل ساختار و انعطاف‌پذیری، برای توسعه برنامه‌های بزرگ سازمانی مناسب است.</li>
+</ul>
+<h4 id="nmwnh-hyy-z-prwjh-hy-m-rwf-b-jngw">نمونه‌هایی از پروژه‌های معروف با جنگو</h4>
+<ul>
+<li><strong>Instagram</strong>: یکی از بزرگترین شبکه‌های اجتماعی دنیا.</li>
+<li><strong>Pinterest</strong>: یک پلتفرم به اشتراک‌گذاری تصاویر و ایده‌ها.</li>
+<li><strong>Disqus</strong>: یک سرویس مدیریت نظرات برای وب‌سایت‌ها.</li>
+</ul>
+<h3 id="18-m-mry-mvt-w-skhtr-jngw-mhm">18. معماری MVT و ساختار جنگو (مهم)</h3>
+<ul>
+<li>
+<p><strong>Model-View-Template (MVT)</strong>: الگوی معماری مورد استفاده در جنگو که شامل سه جزء است:</p>
+</li>
+<li>
+<p><strong>Model</strong>: مدیریت داده‌ها و تعامل با پایگاه داده. مثال: یک مدل کاربر که اطلاعات کاربر را ذخیره می‌کند.</p>
+</li>
+<li><strong>View</strong>: منطق تجاری و پردازش درخواست‌ها. مثال: تابعی که درخواست‌های کاربر را پردازش و داده‌ها را به قالب‌ها ارسال می‌کند.</li>
+<li><strong>Template</strong>: قالب‌های HTML که نحوه نمایش داده‌ها به کاربر را تعیین می‌کند. مثال: فایل HTML که داده‌های کاربران را به صورت جدولی نمایش می‌دهد.</li>
+</ul>
             </div>
         </div>
     </main>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
-        integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
-        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="../seasons-css-&-js/Django-seasons.js"></script>
     <script src="../seasons-css-&-js/copy-icon.js"></script>
     <script src="../seasons-css-&-js/copy-right.js"></script>
 </body>
-
 </html>
+    
