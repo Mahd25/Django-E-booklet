@@ -54,24 +54,24 @@ $(document).ready(function() {
         success: function(response) {
             // اضافه کردن محتوای فوتر به صفحه اصلی
             $('body').append(response);
-        },
-        const startYear = 2024;
-        const currentYear = new Date().getFullYear();
-
-        // Set the start year
-        $('#start-year').text(startYear);
-
-        // Check and set the current year only if it's different from start year
-        if (startYear !== currentYear) {
-            $('#current-year').text('-' + currentYear);
-        } else {
-            // Optionally, you can hide the current year span if they are the same
-            $('#current-year').hide();
-        },    
+        },   
         error: function(error) {
             console.error('Error loading footer:', error);
         }
     });
+
+    const startYear = 2024;
+    const currentYear = new Date().getFullYear();
+    // Set the start year
+    $('#start-year').text(startYear);
+
+    // Check and set the current year only if it's different from start year
+    if (startYear !== currentYear) {
+        $('#current-year').text('-' + currentYear);
+    } else {
+        // Optionally, you can hide the current year span if they are the same
+        $('#current-year').hide();
+    }
 
     // 3. پیاده‌سازی اسکریپت جاوااسکریپت
     $(document).on('click', '.open', function() {
