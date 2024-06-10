@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+
+<head>
+    <title>Season three</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Django e-booklet">
+    <meta name="keywords" content="django, django learning">
+    <meta name="author" content="Mahdi Rezaie, Ali Ebrahimian">
+    <link rel="icon" href="../Images/favicon.ico" type="image/ico">
+
+    <link rel="stylesheet" type="text/css" href="../seasons-css-&-js/seasons-style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+        integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+    <main>
+        <div class="container">
+            <div class="content">
+                <h1>فصل ۳: فارسی‌سازی اپلیکیشن جنگو</h1>
+                <p>در این فصل، با روش‌های فارسی‌سازی پنل مدیریت جنگو و تاریخ و زمان آشنا خواهیم شد.</p>
+                <h2>۱. فارسی‌سازی پنل مدیریت</h2>
+                <p>برای فارسی‌سازی پنل مدیریت، باید تنظیمات و تغییرات زیر را در فایل‌های مختلف پروژه انجام دهیم.</p>
+                <h3>۱.۱ تغییرات در فایل <code>admin.py</code></h3>
+                <p>ابتدا باید متغیرهای عنوان و سربرگ پنل مدیریت را به فارسی تغییر دهیم و سپس مدل‌ها را ثبت کنیم:</p>
+                <div class="code-box">
+                    <div class="code-info">
+                        <button class="copy-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none"
+                                viewBox="0 0 24 24" class="icon-sm">
+                                <path fill="currentColor" fill-rule="evenodd"
+                                    d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z"
+                                    clip-rule="evenodd"></path>
+                            </svg>
+                            <span>Copy code</span>
+                        </button>
+                        <span class="language">python</span>
+                    </div>
+                    <pre><span></span><span class="c1"># blog/admin.py</span>
+
+<span class="kn">from</span> <span class="nn">django.contrib</span> <span class="kn">import</span> <span class="n">admin</span>
+<span class="kn">from</span> <span class="nn">.models</span> <span class="kn">import</span> <span class="o">*</span>
+
+<span class="c1"># Register your models here.</span>
+
+<span class="n">admin</span><span class="o">.</span><span class="n">sites</span><span class="o">.</span><span class="n">AdminSite</span><span class="o">.</span><span class="n">site_header</span> <span class="o">=</span> <span class="s2">&quot;پنل مدیریت جنگو&quot;</span>
+<span class="n">admin</span><span class="o">.</span><span class="n">sites</span><span class="o">.</span><span class="n">AdminSite</span><span class="o">.</span><span class="n">site_title</span> <span class="o">=</span> <span class="s2">&quot;پنل &quot;</span>
+<span class="n">admin</span><span class="o">.</span><span class="n">sites</span><span class="o">.</span><span class="n">AdminSite</span><span class="o">.</span><span class="n">index_title</span> <span class="o">=</span> <span class="s2">&quot;پنل مدیریت&quot;</span>
+
+<span class="nd">@admin</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="n">Post</span><span class="p">)</span>
+<span class="k">class</span> <span class="nc">PostAdmin</span><span class="p">(</span><span class="n">admin</span><span class="o">.</span><span class="n">ModelAdmin</span><span class="p">):</span>
+    <span class="n">list_display</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;title&#39;</span><span class="p">,</span> <span class="s1">&#39;author&#39;</span><span class="p">,</span> <span class="s1">&#39;publish&#39;</span><span class="p">,</span> <span class="s1">&#39;status&#39;</span><span class="p">]</span>
+    <span class="n">ordering</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;title&#39;</span><span class="p">,</span> <span class="s1">&#39;publish&#39;</span><span class="p">]</span>
+    <span class="n">list_filter</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;status&#39;</span><span class="p">,</span> <span class="s1">&#39;author&#39;</span><span class="p">,</span> <span class="s1">&#39;publish&#39;</span><span class="p">]</span>
+    <span class="n">search_fields</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;title&#39;</span><span class="p">,</span> <span class="s1">&#39;description&#39;</span><span class="p">]</span>
+    <span class="n">raw_id_fields</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;author&#39;</span><span class="p">]</span>
+    <span class="n">date_hierarchy</span> <span class="o">=</span> <span class="s1">&#39;publish&#39;</span>
+    <span class="n">prepopulated_fields</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;slug&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;title&#39;</span><span class="p">]}</span>
+    <span class="n">list_editable</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;status&#39;</span><span class="p">]</span>
+    <span class="n">list_display_links</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;author&#39;</span><span class="p">]</span>
+</pre>
+                </div>
+
+                <h3>۱.۲ تغییرات در فایل <code>apps.py</code></h3>
+                <p>برای فارسی‌سازی نام اپلیکیشن در پنل مدیریت:</p>
+                <div class="code-box">
+                    <div class="code-info">
+                        <button class="copy-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none"
+                                viewBox="0 0 24 24" class="icon-sm">
+                                <path fill="currentColor" fill-rule="evenodd"
+                                    d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z"
+                                    clip-rule="evenodd"></path>
+                            </svg>
+                            <span>Copy code</span>
+                        </button>
+                        <span class="language">python</span>
+                    </div>
+                    <pre><span></span><span class="c1"># blog/apps.py</span>
+
+<span class="kn">from</span> <span class="nn">django.apps</span> <span class="kn">import</span> <span class="n">AppConfig</span>
+
+<span class="k">class</span> <span class="nc">BlogConfig</span><span class="p">(</span><span class="n">AppConfig</span><span class="p">):</span>
+    <span class="n">default_auto_field</span> <span class="o">=</span> <span class="s1">&#39;django.db.models.BigAutoField&#39;</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;blog&#39;</span>
+    <span class="n">verbose_name</span> <span class="o">=</span> <span class="s2">&quot;وبلاگ&quot;</span>
+</pre>
+                </div>
+
+                <h3>۱.۳ تغییرات در فایل <code>models.py</code></h3>
+                <p>برای فارسی‌سازی فیلدهای مدل‌ها و استفاده از تاریخ جلالی:</p>
+                <div class="code-box">
+                    <div class="code-info">
+                        <button class="copy-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none"
+                                viewBox="0 0 24 24" class="icon-sm">
+                                <path fill="currentColor" fill-rule="evenodd"
+                                    d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z"
+                                    clip-rule="evenodd"></path>
+                            </svg>
+                            <span>Copy code</span>
+                        </button>
+                        <span class="language">python</span>
+                    </div>
+                    <pre><span></span><span class="c1"># blog/models.py</span>
+
+<span class="kn">from</span> <span class="nn">django.db</span> <span class="kn">import</span> <span class="n">models</span>
+<span class="kn">from</span> <span class="nn">django.utils</span> <span class="kn">import</span> <span class="n">timezone</span>
+<span class="kn">from</span> <span class="nn">django.contrib.auth.models</span> <span class="kn">import</span> <span class="n">User</span>
+<span class="kn">from</span> <span class="nn">django_jalali.db</span> <span class="kn">import</span> <span class="n">models</span> <span class="k">as</span> <span class="n">jmodels</span>
+
+<span class="k">class</span> <span class="nc">PublishedManager</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Manager</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">get_queryset</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">get_queryset</span><span class="p">()</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">status</span><span class="o">=</span><span class="n">Post</span><span class="o">.</span><span class="n">Status</span><span class="o">.</span><span class="n">PUBLISHED</span><span class="p">)</span>
+
+<span class="k">class</span> <span class="nc">Post</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
+
+    <span class="k">class</span> <span class="nc">Status</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">TextChoices</span><span class="p">):</span>
+        <span class="n">DRAFT</span> <span class="o">=</span> <span class="s1">&#39;DF&#39;</span><span class="p">,</span> <span class="s1">&#39;Draft&#39;</span>
+        <span class="n">PUBLISHED</span> <span class="o">=</span> <span class="s1">&#39;PB&#39;</span><span class="p">,</span> <span class="s1">&#39;Published&#39;</span>
+        <span class="n">REJECTED</span> <span class="o">=</span> <span class="s1">&#39;RJ&#39;</span><span class="p">,</span> <span class="s1">&#39;Rejected&#39;</span>
+
+    <span class="n">author</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">ForeignKey</span><span class="p">(</span><span class="n">User</span><span class="p">,</span> <span class="n">on_delete</span><span class="o">=</span><span class="n">models</span><span class="o">.</span><span class="n">CASCADE</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s2">&quot;user_posts&quot;</span><span class="p">,</span> <span class="n">verbose_name</span><span class="o">=</span><span class="s2">&quot;نویسنده&quot;</span><span class="p">)</span>
+    <span class="n">title</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">250</span><span class="p">,</span> <span class="n">verbose_name</span><span class="o">=</span><span class="s2">&quot;عنوان&quot;</span><span class="p">)</span>
+    <span class="n">description</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">TextField</span><span class="p">(</span><span class="n">verbose_name</span><span class="o">=</span><span class="s2">&quot;توضیحات&quot;</span><span class="p">)</span>
+    <span class="n">slug</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">SlugField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">250</span><span class="p">,</span> <span class="n">verbose_name</span><span class="o">=</span><span class="s2">&quot;اسلاگ&quot;</span><span class="p">)</span>
+    <span class="n">publish</span> <span class="o">=</span> <span class="n">jmodels</span><span class="o">.</span><span class="n">jDateTimeField</span><span class="p">(</span><span class="n">default</span><span class="o">=</span><span class="n">timezone</span><span class="o">.</span><span class="n">now</span><span class="p">,</span> <span class="n">verbose_name</span><span class="o">=</span><span class="s2">&quot;تاریخ انتشار&quot;</span><span class="p">)</span>
+    <span class="n">create</span> <span class="o">=</span> <span class="n">jmodels</span><span class="o">.</span><span class="n">jDateTimeField</span><span class="p">(</span><span class="n">auto_now_add</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">update</span> <span class="o">=</span> <span class="n">jmodels</span><span class="o">.</span><span class="n">jDateTimeField</span><span class="p">(</span><span class="n">auto_now</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">status</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">choices</span><span class="o">=</span><span class="n">Status</span><span class="o">.</span><span class="n">choices</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="n">Status</span><span class="o">.</span><span class="n">DRAFT</span><span class="p">,</span> <span class="n">verbose_name</span><span class="o">=</span><span class="s2">&quot;وضعیت&quot;</span><span class="p">)</span>
+
+    <span class="n">objects</span> <span class="o">=</span> <span class="n">jmodels</span><span class="o">.</span><span class="n">jManager</span><span class="p">()</span>
+    <span class="n">published</span> <span class="o">=</span> <span class="n">PublishedManager</span><span class="p">()</span>
+
+    <span class="k">class</span> <span class="nc">Meta</span><span class="p">:</span>
+        <span class="n">ordering</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;-publish&#39;</span><span class="p">]</span>
+        <span class="n">indexes</span> <span class="o">=</span> <span class="p">[</span>
+            <span class="n">models</span><span class="o">.</span><span class="n">Index</span><span class="p">(</span><span class="n">fields</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;-publish&#39;</span><span class="p">])</span>
+        <span class="p">]</span>
+        <span class="n">verbose_name</span> <span class="o">=</span> <span class="s2">&quot;پست&quot;</span>
+        <span class="n">verbose_name_plural</span> <span class="o">=</span> <span class="s2">&quot;پست‌ها&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">title</span>
+
+    <span class="k">def</span> <span class="nf">get_absolute_url</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">reverse</span><span class="p">(</span><span class="s1">&#39;blog:post_detail&#39;</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">id</span><span class="p">])</span>
+</pre>
+                </div>
+
+                <h3>۱.۴ تنظیمات زبان و منطقه زمانی در <code>settings.py</code></h3>
+                <div class="code-box">
+                    <div class="code-info">
+                        <button class="copy-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none"
+                                viewBox="0 0 24 24" class="icon-sm">
+                                <path fill="currentColor" fill-rule="evenodd"
+                                    d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z"
+                                    clip-rule="evenodd"></path>
+                            </svg>
+                            <span>Copy code</span>
+                        </button>
+                        <span class="language">python</span>
+                    </div>
+                    <pre><span></span><span class="c1"># SabzWeb/settings.py</span>
+
+<span class="n">LANGUAGE_CODE</span> <span class="o">=</span> <span class="s1">&#39;fa-ir&#39;</span>
+<span class="n">TIME_ZONE</span> <span class="o">=</span> <span class="s1">&#39;Asia/Tehran&#39;</span>
+
+<span class="n">INSTALLED_APPS</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="o">...</span>
+    <span class="s1">&#39;blog.apps.BlogConfig&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;django_jalali&#39;</span><span class="p">,</span>
+    <span class="o">...</span>
+<span class="p">]</span>
+</pre>
+                </div>
+
+                <h2>۲. فارسی‌سازی تاریخ و زمان</h2>
+                <h3>۲.۱ نصب و پیکربندی <code>django-jalali</code></h3>
+                <p>برای استفاده از تاریخ جلالی:</p>
+                <div class="code-box">
+                    <div class="code-info">
+                        <button class="copy-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none"
+                                viewBox="0 0 24 24" class="icon-sm">
+                                <path fill="currentColor" fill-rule="evenodd"
+                                    d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z"
+                                    clip-rule="evenodd"></path>
+                            </svg>
+                            <span>Copy code</span>
+                        </button>
+                        <span class="language">bash</span>
+                    </div>
+                    <pre><span></span>$<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>django-jalali
+</pre>
+                </div>
+
+                <h3>۲.۲ تنظیمات تاریخ جلالی در فایل‌های مدل و ادمین</h3>
+                <div class="code-box">
+                    <div class="code-info">
+                        <button class="copy-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none"
+                                viewBox="0 0 24 24" class="icon-sm">
+                                <path fill="currentColor" fill-rule="evenodd"
+                                    d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z"
+                                    clip-rule="evenodd"></path>
+                            </svg>
+                            <span>Copy code</span>
+                        </button>
+                        <span class="language">python</span>
+                    </div>
+                    <pre><span></span><span class="c1"># blog/admin.py</span>
+
+<span class="kn">from</span> <span class="nn">django.contrib</span> <span class="kn">import</span> <span class="n">admin</span>
+<span class="kn">from</span> <span class="nn">.models</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">django_jalali.admin.filters</span> <span class="kn">import</span> <span class="n">JDateFieldListFilter</span>
+<span class="kn">import</span> <span class="nn">django_jalali.admin</span> <span class="k">as</span> <span class="nn">jadmin</span>
+
+<span class="n">admin</span><span class="o">.</span><span class="n">sites</span><span class="o">.</span><span class="n">AdminSite</span><span class="o">.</span><span class="n">site_header</span> <span class="o">=</span> <span class="s2">&quot;پنل مدیریت جنگو&quot;</span>
+<span class="n">admin</span><span class="o">.</span><span class="n">sites</span><span class="o">.</span><span class="n">AdminSite</span><span class="o">.</span><span class="n">site_title</span> <span class="o">=</span> <span class="s2">&quot;پنل&quot;</span>
+<span class="n">admin</span><span class="o">.</span><span class="n">sites</span><span class="o">.</span><span class="n">AdminSite</span><span class="o">.</span><span class="n">index_title</span> <span class="o">=</span> <span class="s2">&quot;پنل مدیریت&quot;</span>
+
+<span class="nd">@admin</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="n">Post</span><span class="p">)</span>
+<span class="k">class</span> <span class="nc">PostAdmin</span><span class="p">(</span><span class="n">admin</span><span class="o">.</span><span class="n">ModelAdmin</span><span class="p">):</span>
+    <span class="n">list_display</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;title&#39;</span><span class="p">,</span> <span class="s1">&#39;author&#39;</span><span class="p">,</span> <span class="s1">&#39;publish&#39;</span><span class="p">,</span> <span class="s1">&#39;status&#39;</span><span class="p">]</span>
+    <span class="n">ordering</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;title&#39;</span><span class="p">,</span> <span class="s1">&#39;publish&#39;</span><span class="p">]</span>
+    <span class="n">list_filter</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;status&#39;</span><span class="p">,</span> <span class="p">(</span><span class="s1">&#39;publish&#39;</span><span class="p">,</span> <span class="n">JDateFieldListFilter</span><span class="p">),</span> <span class="s1">&#39;author&#39;</span><span class="p">]</span>
+    <span class="n">search_fields</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;title&#39;</span><span class="p">,</span> <span class="s1">&#39;description&#39;</span><span class="p">]</span>
+    <span class="n">raw_id_fields</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;author&#39;</span><span class="p">]</span>
+    <span class="n">date_hierarchy</span> <span class="o">=</span> <span class="s2">&quot;publish&quot;</span>
+    <span class="n">prepopulated_fields</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;slug&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;title&#39;</span><span class="p">]}</span>
+    <span class="n">list_editable</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;status&#39;</span><span class="p">]</span>
+    <span class="n">list_display_links</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;title&#39;</span><span class="p">,</span> <span class="s1">&#39;author&#39;</span><span class="p">]</span>
+</pre>
+                </div>
+
+                <div class="code-box">
+                    <div class="code-info">
+                        <button class="copy-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none"
+                                viewBox="0 0 24 24" class="icon-sm">
+                                <path fill="currentColor" fill-rule="evenodd"
+                                    d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z"
+                                    clip-rule="evenodd"></path>
+                            </svg>
+                            <span>Copy code</span>
+                        </button>
+                        <span class="language">python</span>
+                    </div>
+                    <pre><span></span><span class="c1"># blog/models.py</span>
+
+<span class="kn">from</span> <span class="nn">django.db</span> <span class="kn">import</span> <span class="n">models</span>
+<span class="kn">from</span> <span class="nn">django.utils</span> <span class="kn">import</span> <span class="n">timezone</span>
+<span class="kn">from</span> <span class="nn">django.contrib.auth.models</span> <span class="kn">import</span> <span class="n">User</span>
+<span class="kn">from</span> <span class="nn">django_jalali.db</span> <span class="kn">import</span> <span class="n">models</span> <span class="k">as</span> <span class="n">jmodels</span>
+
+<span class="k">class</span> <span class="nc">PublishedManager</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Manager</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">get_queryset</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">get_queryset</span><span class="p">()</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">status</span><span class="o">=</span><span class="n">Post</span><span class="o">.</span><span class="n">Status</span><span class="o">.</span><span class="n">PUBLISHED</span><span class="p">)</span>
+
+<span class="k">class</span> <span class="nc">Post</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
+
+    <span class="k">class</span> <span class="nc">Status</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">TextChoices</span><span class="p">):</span>
+        <span class="n">DRAFT</span> <span class="o">=</span> <span class="s1">&#39;DF&#39;</span><span class="p">,</span> <span class="s1">&#39;Draft&#39;</span>
+        <span class="n">PUBLISHED</span> <span class="o">=</span> <span class="s1">&#39;PB&#39;</span><span class="p">,</span> <span class="s1">&#39;Published&#39;</span>
+        <span class="n">REJECTED</span> <span class="o">=</span> <span class="s1">&#39;RJ&#39;</span><span class="p">,</span> <span class="s1">&#39;Rejected&#39;</span>
+
+    <span class="n">author</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">ForeignKey</span><span class="p">(</span><span class="n">User</span><span class="p">,</span> <span class="n">on_delete</span><span class="o">=</span><span class="n">models</span><span class="o">.</span><span class="n">CASCADE</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s2">&quot;user_posts&quot;</span><span class="p">,</span> <span class="n">verbose_name</span><span class="o">=</span><span class="s2">&quot;نویسنده&quot;</span><span class="p">)</span>
+    <span class="n">title</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">250</span><span class="p">,</span> <span class="n">verbose_name</span><span class="o">=</span><span class="s2">&quot;عنوان&quot;</span><span class="p">)</span>
+    <span class="n">description</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">TextField</span><span class="p">(</span><span class="n">verbose_name</span><span class="o">=</span><span class="s2">&quot;توضیحات&quot;</span><span class="p">)</span>
+    <span class="n">slug</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">SlugField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">250</span><span class="p">,</span> <span class="n">verbose_name</span><span class="o">=</span><span class="s2">&quot;اسلاگ&quot;</span><span class="p">)</span>
+    <span class="n">publish</span> <span class="o">=</span> <span class="n">jmodels</span><span class="o">.</span><span class="n">jDateTimeField</span><span class="p">(</span><span class="n">default</span><span class="o">=</span><span class="n">timezone</span><span class="o">.</span><span class="n">now</span><span class="p">,</span> <span class="n">verbose_name</span><span class="o">=</span><span class="s2">&quot;تاریخ انتشار&quot;</span><span class="p">)</span>
+    <span class="n">create</span> <span class="o">=</span> <span class="n">jmodels</span><span class="o">.</span><span class="n">jDateTimeField</span><span class="p">(</span><span class="n">auto_now_add</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">update</span> <span class="o">=</span> <span class="n">jmodels</span><span class="o">.</span><span class="n">jDateTimeField</span><span class="p">(</span><span class="n">auto_now</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">status</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">choices</span><span class="o">=</span><span class="n">Status</span><span class="o">.</span><span class="n">choices</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="n">Status</span><span class="o">.</span><span class="n">DRAFT</span><span class="p">,</span> <span class="n">verbose_name</span><span class="o">=</span><span class="s2">&quot;وضعیت&quot;</span><span class="p">)</span>
+
+    <span class="n">objects</span> <span class="o">=</span> <span class="n">jmodels</span><span class="o">.</span><span class="n">jManager</span><span class="p">()</span>
+    <span class="n">published</span> <span class="o">=</span> <span class="n">PublishedManager</span><span class="p">()</span>
+
+    <span class="k">class</span> <span class="nc">Meta</span><span class="p">:</span>
+        <span class="n">ordering</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;-publish&#39;</span><span class="p">]</span>
+        <span class="n">indexes</span> <span class="o">=</span> <span class="p">[</span>
+            <span class="n">models</span><span class="o">.</span><span class="n">Index</span><span class="p">(</span><span class="n">fields</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;-publish&#39;</span><span class="p">])</span>
+        <span class="p">]</span>
+        <span class="n">verbose_name</span> <span class="o">=</span> <span class="s2">&quot;پست&quot;</span>
+        <span class="n">verbose_name_plural</span> <span class="o">=</span> <span class="s2">&quot;پست‌ها&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">title</span>
+
+    <span class="k">def</span> <span class="nf">get_absolute_url</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">reverse</span><span class="p">(</span><span class="s1">&#39;blog:post_detail&#39;</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">id</span><span class="p">])</span>
+</pre>
+                </div>
+
+                <h3>۲.۳ تغییرات در قالب‌ها برای استفاده از تاریخ جلالی</h3>
+                <div class="code-box">
+                    <div class="code-info">
+                        <button class="copy-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none"
+                                viewBox="0 0 24 24" class="icon-sm">
+                                <path fill="currentColor" fill-rule="evenodd"
+                                    d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z"
+                                    clip-rule="evenodd"></path>
+                            </svg>
+                            <span>Copy code</span>
+                        </button>
+                        <span class="language">html</span>
+                    </div>
+                    <pre><span></span><span class="cm">&lt;!-- blog/templates/blog/detail.html --&gt;</span>
+
+{% extends &#39;parent/base.html&#39; %}
+{% load jformat %}
+{% block title %} جزئیات پست {% endblock %}
+{% block content %}
+    <span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span>جزئیات پست<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">h3</span><span class="p">&gt;</span>{{ post.title }} توسط {{ post.author }}<span class="p">&lt;/</span><span class="nt">h3</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>{{ post.description | linebreaks }}<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">hr</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>{{ post.publish | jformat }}<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+{% endblock %}
+</pre>
+                </div>
+
+                <h2>۳. صفحه‌بندی (Pagination)</h2>
+                <p>برای افزودن قابلیت صفحه‌بندی به لیست پست‌ها، ابتدا تغییرات زیر را در ویوها و قالب‌ها اعمال می‌کنیم.
+                </p>
+                <h3>۳.۱ تغییرات در ویوها</h3>
+                <div class="code-box">
+                    <div class="code-info">
+                        <button class="copy-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none"
+                                viewBox="0 0 24 24" class="icon-sm">
+                                <path fill="currentColor" fill-rule="evenodd"
+                                    d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z"
+                                    clip-rule="evenodd"></path>
+                            </svg>
+                            <span>Copy code</span>
+                        </button>
+                        <span class="language">python</span>
+                    </div>
+                    <pre><span></span><span class="c1"># blog/views.py</span>
+
+<span class="kn">from</span> <span class="nn">django.shortcuts</span> <span class="kn">import</span> <span class="n">render</span><span class="p">,</span> <span class="n">get_object_or_404</span>
+<span class="kn">from</span> <span class="nn">.models</span> <span class="kn">import</span> <span class="n">Post</span>
+<span class="kn">from</span> <span class="nn">django.core.paginator</span> <span class="kn">import</span> <span class="n">Paginator</span><span class="p">,</span> <span class="n">EmptyPage</span><span class="p">,</span> <span class="n">PageNotAnInteger</span>
+<span class="kn">from</span> <span class="nn">django.views.generic</span> <span class="kn">import</span> <span class="n">ListView</span><span class="p">,</span> <span class="n">DetailView</span>
+
+<span class="k">def</span> <span class="nf">index</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">HttpResponse</span><span class="p">(</span><span class="s2">&quot;index&quot;</span><span class="p">)</span>
+
+<span class="k">class</span> <span class="nc">PostListView</span><span class="p">(</span><span class="n">ListView</span><span class="p">):</span>
+    <span class="n">queryset</span> <span class="o">=</span> <span class="n">Post</span><span class="o">.</span><span class="n">published</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
+    <span class="n">context_object_name</span> <span class="o">=</span> <span class="s2">&quot;posts&quot;</span>
+    <span class="n">paginate_by</span> <span class="o">=</span> <span class="mi">3</span>
+    <span class="n">template_name</span> <span class="o">=</span> <span class="s2">&quot;blog/list.html&quot;</span>
+
+<span class="k">class</span> <span class="nc">PostDetailView</span><span class="p">(</span><span class="n">DetailView</span><span class="p">):</span>
+    <span class="n">model</span> <span class="o">=</span> <span class="n">Post</span>
+    <span class="n">template_name</span> <span class="o">=</span> <span class="s2">&quot;blog/detail.html&quot;</span>
+</pre>
+                </div>
+
+                <h3>۳.۲ تغییرات در قالب‌ها</h3>
+                <div class="code-box">
+                    <div class="code-info">
+                        <button class="copy-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none"
+                                viewBox="0 0 24 24" class="icon-sm">
+                                <path fill="currentColor" fill-rule="evenodd"
+                                    d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z"
+                                    clip-rule="evenodd"></path>
+                            </svg>
+                            <span>Copy code</span>
+                        </button>
+                        <span class="language">html</span>
+                    </div>
+                    <pre><span></span><span class="cm">&lt;!-- blog/templates/partials/pagination.html --&gt;</span>
+
+<span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;pagination&quot;</span><span class="p">&gt;</span>
+    {% if page.has_previous %}
+        <span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;?page={{ page.previous_page_number }}&quot;</span><span class="p">&gt;</span>« قبلی<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+        {% if page.number &gt; 3 %}
+            <span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;?page=1&quot;</span><span class="p">&gt;</span>1<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+            {% if page.number &gt; 4 %}
+                <span class="p">&lt;</span><span class="nt">span</span><span class="p">&gt;</span>...<span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
+            {% endif %}
+        {% endif %}
+    {% endif %}
+
+    {% for num in page.paginator.page_range %}
+        {% if page.number == num %}
+            <span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;?page={{ num }}&quot;</span><span class="p">&gt;</span>{{ num }}<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+        {% elif num &gt; page.number|add:&#39;-3&#39; and num <span class="p">&lt;</span> <span class="nt">page.number</span><span class="err">|</span><span class="na">add:</span><span class="err">&#39;</span><span class="na">3</span><span class="err">&#39;</span> <span class="err">%}</span>
+            <span class="err">&lt;</span><span class="na">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;?page={{ num }}&quot;</span><span class="p">&gt;</span>{{ num }}<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+        {% endif %}
+    {% endfor %}
+
+    {% if page.has_next %}
+        {% if page.number <span class="p">&lt;</span> <span class="nt">page.paginator.num_pages</span><span class="err">|</span><span class="na">add:</span><span class="err">&#39;</span><span class="na">-3</span><span class="err">&#39;</span> <span class="err">%}</span>
+            <span class="err">&lt;</span><span class="na">span</span><span class="p">&gt;</span>...<span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
+            <span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;?page={{ page.paginator.num_pages }}&quot;</span><span class="p">&gt;</span>{{ page.paginator.num_pages }}<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+        {% elif page.number <span class="p">&lt;</span> <span class="nt">page.paginator.num_pages</span><span class="err">|</span><span class="na">add:</span><span class="err">&#39;</span><span class="na">-2</span><span class="err">&#39;</span> <span class="err">%}</span>
+            <span class="err">&lt;</span><span class="na">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;?page={{ page.paginator.num_pages }}&quot;</span><span class="p">&gt;</span>{{ page.paginator.num_pages }}<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+        {% endif %}
+        <span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;?page={{ page.next_page_number }}&quot;</span><span class="p">&gt;</span>بعدی »
+
+<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+    {% endif %}
+<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</pre>
+                </div>
+
+                <div class="code-box">
+                    <div class="code-info">
+                        <button class="copy-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none"
+                                viewBox="0 0 24 24" class="icon-sm">
+                                <path fill="currentColor" fill-rule="evenodd"
+                                    d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z"
+                                    clip-rule="evenodd"></path>
+                            </svg>
+                            <span>Copy code</span>
+                        </button>
+                        <span class="language">html</span>
+                    </div>
+                    <pre><span></span><span class="cm">&lt;!-- blog/templates/blog/list.html --&gt;</span>
+
+{% extends &#39;parent/base.html&#39; %}
+{% block title %}لیست پست‌ها{% endblock %}
+{% block content %}
+    <span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span>لیست پست‌ها<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+    {% for post in posts %}
+        <span class="p">&lt;</span><span class="nt">h3</span><span class="p">&gt;</span>
+            <span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;{{ post.get_absolute_url }}&quot;</span><span class="p">&gt;</span>
+                {{ post.title }}
+            <span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+            توسط {{ post.author }}
+        <span class="p">&lt;/</span><span class="nt">h3</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>{{ post.description }}<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+    {% endfor %}
+
+    {% include &quot;partials/pagination.html&quot; with page=posts %}
+{% endblock %}
+</pre>
+                </div>
+
+                <h2>۴. استفاده از لاگ‌ها در جنگو</h2>
+                <p>برای مدیریت بهتر خطاها و اشکالات پروژه، استفاده از لاگ‌ها بسیار مفید است. لاگ‌ها به شما کمک می‌کنند
+                    تا مشکلات را شناسایی و رفع کنید.</p>
+                <h3>۴.۱ تنظیمات لاگ‌ها در <code>settings.py</code></h3>
+                <div class="code-box">
+                    <div class="code-info">
+                        <button class="copy-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none"
+                                viewBox="0 0 24 24" class="icon-sm">
+                                <path fill="currentColor" fill-rule="evenodd"
+                                    d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z"
+                                    clip-rule="evenodd"></path>
+                            </svg>
+                            <span>Copy code</span>
+                        </button>
+                        <span class="language">python</span>
+                    </div>
+                    <pre><span></span><span class="c1"># SabzWeb/settings.py</span>
+
+<span class="n">LOGGING</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;version&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="s1">&#39;disable_existing_loggers&#39;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
+    <span class="s1">&#39;handlers&#39;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s1">&#39;file&#39;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s1">&#39;level&#39;</span><span class="p">:</span> <span class="s1">&#39;DEBUG&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;class&#39;</span><span class="p">:</span> <span class="s1">&#39;logging.FileHandler&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;filename&#39;</span><span class="p">:</span> <span class="n">BASE_DIR</span> <span class="o">/</span> <span class="s1">&#39;debug.log&#39;</span><span class="p">,</span>
+        <span class="p">},</span>
+    <span class="p">},</span>
+    <span class="s1">&#39;loggers&#39;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s1">&#39;django&#39;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s1">&#39;handlers&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;file&#39;</span><span class="p">],</span>
+            <span class="s1">&#39;level&#39;</span><span class="p">:</span> <span class="s1">&#39;DEBUG&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;propagate&#39;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+        <span class="p">},</span>
+    <span class="p">},</span>
+<span class="p">}</span>
+</pre>
+                </div>
+
+                <h3>۴.۲ استفاده از لاگ‌ها در ویوها</h3>
+                <div class="code-box">
+                    <div class="code-info">
+                        <button class="copy-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none"
+                                viewBox="0 0 24 24" class="icon-sm">
+                                <path fill="currentColor" fill-rule="evenodd"
+                                    d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z"
+                                    clip-rule="evenodd"></path>
+                            </svg>
+                            <span>Copy code</span>
+                        </button>
+                        <span class="language">python</span>
+                    </div>
+                    <pre><span></span><span class="c1"># blog/views.py</span>
+
+<span class="kn">from</span> <span class="nn">django.shortcuts</span> <span class="kn">import</span> <span class="n">render</span><span class="p">,</span> <span class="n">get_object_or_404</span>
+<span class="kn">from</span> <span class="nn">.models</span> <span class="kn">import</span> <span class="n">Post</span>
+<span class="kn">from</span> <span class="nn">django.core.paginator</span> <span class="kn">import</span> <span class="n">Paginator</span><span class="p">,</span> <span class="n">EmptyPage</span><span class="p">,</span> <span class="n">PageNotAnInteger</span>
+<span class="kn">from</span> <span class="nn">django.views.generic</span> <span class="kn">import</span> <span class="n">ListView</span><span class="p">,</span> <span class="n">DetailView</span>
+<span class="kn">import</span> <span class="nn">logging</span>
+
+<span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">index</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">HttpResponse</span><span class="p">(</span><span class="s2">&quot;index&quot;</span><span class="p">)</span>
+
+<span class="k">class</span> <span class="nc">PostListView</span><span class="p">(</span><span class="n">ListView</span><span class="p">):</span>
+    <span class="n">queryset</span> <span class="o">=</span> <span class="n">Post</span><span class="o">.</span><span class="n">published</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
+    <span class="n">context_object_name</span> <span class="o">=</span> <span class="s2">&quot;posts&quot;</span>
+    <span class="n">paginate_by</span> <span class="o">=</span> <span class="mi">3</span>
+    <span class="n">template_name</span> <span class="o">=</span> <span class="s2">&quot;blog/list.html&quot;</span>
+
+    <span class="k">def</span> <span class="nf">get_queryset</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;Fetching posts for PostListView&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">get_queryset</span><span class="p">()</span>
+
+<span class="k">class</span> <span class="nc">PostDetailView</span><span class="p">(</span><span class="n">DetailView</span><span class="p">):</span>
+    <span class="n">model</span> <span class="o">=</span> <span class="n">Post</span>
+    <span class="n">template_name</span> <span class="o">=</span> <span class="s2">&quot;blog/detail.html&quot;</span>
+
+    <span class="k">def</span> <span class="nf">get_object</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">queryset</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Fetching post with ID </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;pk&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">get_object</span><span class="p">(</span><span class="n">queryset</span><span class="p">)</span>
+</pre>
+                </div>
+
+                <h2>نتیجه‌گیری</h2>
+                <p>با اعمال تغییرات ذکر شده، پروژه جنگو به زبان فارسی قابل استفاده و مدیریت خواهد بود. همچنین قابلیت
+                    صفحه‌بندی و استفاده از لاگ‌ها به شما کمک می‌کند تا تجربه بهتری از مدیریت و رفع مشکلات پروژه داشته
+                    باشید.</p>
+            </div>
+        </div>
+    </main>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+        integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="../seasons-css-&-js/Django-seasons.js"></script>
+    <script src="../seasons-css-&-js/copy-icon.js"></script>
+</body>
+
+</html>
