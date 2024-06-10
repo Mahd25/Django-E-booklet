@@ -13,6 +13,28 @@ $(document).ready(function() {
         </nav>
     `);
 
+    // محتوای h2 موجود در صفحه را انتخاب کنید
+    let h2Text = $('h2').text();
+    let newText = h2Text.split(':')[0];
+
+    function updateNavText() {
+        if ($(window).width() >= 900) {
+            $('nav h1').text(h2Text);
+        } else {
+            $('nav h1').text(newText);
+        }
+    }
+
+    // بار اول برای تنظیم متن صحیح بر اساس سایز صفحه
+    updateNavText();
+
+    // اضافه کردن رویداد resize برای به روزرسانی متن در صورت تغییر سایز صفحه
+    $(window).resize(function() {
+        updateNavText();
+    });
+
+// --------------------------------------------------------------------------------------------
+
     // 2. بارگذاری محتوای فایل menubar.html به داخل div با کلاس container
     $.ajax({
         url: 'menubar.html',
