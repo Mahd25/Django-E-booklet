@@ -15,7 +15,7 @@
 3. ایجاد پروژه
 4. دستور migrate
 
-#### 1. ایجاد محیط مجازی <a id="1.-ایجاد-محیط-مجازی"></a>
+#### 1. ایجاد محیط مجازی
 
 با استفاده از ماژول های (venv) و یا (virtualenv) محیط مجازی را ایجاد میکنیم.
 
@@ -145,7 +145,7 @@ path\venv-name\Scripts\deactivate
 Desktop\myp-roject\my-env\Scripts\deactivate
 ```
 
-#### 2. نصب پکیج جنگو <a id="2.-نصب-پکیج-جنگو"></a>
+#### 2. نصب پکیج جنگو
 
 پس از فعال سازی محیط مجازی با دستور زیر جنگو را نصب میکنیم.
 
@@ -155,7 +155,7 @@ Desktop\myp-roject\my-env\Scripts\deactivate
 pip install django
 ```
 
-#### 3. ایجاد پروژه جنگو <a id="3.-ایجاد-پروژه-جنگو"></a>
+#### 3. ایجاد پروژه جنگو
 
 ``Terminal:``
 
@@ -163,7 +163,7 @@ pip install django
 django-admin startproject project_name
 ```
 
-#### 4. دستور migrate <a id="4.-دستور-migrate"></a>
+#### 4. دستور migrate
 
 دستور migrate که مسئول اعمال و عدم اعمال مهاجرت(migration) است.(یعنی تغییرات migration را روی دیتابیس اعمال میکنه)
 

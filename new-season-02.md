@@ -31,7 +31,7 @@
 
 برای توسعه و مدیریت بهتر بخش های مختلف پروژه بکار میرود، مثلا بخش های مختلف سایت مثله مقالات ، فروشگاه و... هر کدام در یک اپ ساخته میشوند تا هم پروژه ساده تر باشه و هم مدیریت سریعتر و راحت تر.
 
-#### ایجاد اپلیکیشن با دستور <a id="ایجاد-اپلیکیشن-با-دستور"></a>
+#### ایجاد اپلیکیشن با دستور
 
 `Terminal:`
 
@@ -39,7 +39,7 @@
 python manage.py startapp app_name
 ```
 
-#### معرفی اپلیکیشن به پروژه جنگو <a id="معرفی-اپلیکیشن-به-پروژه-جنگو"></a>
+#### معرفی اپلیکیشن به پروژه جنگو
 
 توی تنظیمات پروژه، بخش «INSTALLED_APPS» اپلیکیشن خود را معرفی می کنیم.
 
@@ -63,7 +63,7 @@ INESTALLED_APPS=[
 
 ---
 
-#### ایجاد مدل Post <a id="ایجاد-مدل-Post"></a>
+#### ایجاد مدل Post
 
 جداول در دیتابیس : برای ایجاد جدول و (ستون ها=column) در دیتابیس از «model» در جنگو استفاده میکنیم.
 
@@ -291,7 +291,7 @@ python manage.py shell
 
 ---
 
-#### استفاده از مدل User (مدل پیشفرض جنگو) <a id="استفاده-از-مدل-User-(مدل-پیشفرض-جنگو)"></a>
+#### استفاده از مدل User (مدل پیشفرض جنگو)
 
 `app directory/models.py`
 
@@ -301,7 +301,7 @@ from django.contrib.auth.models import User
 
 ---
 
-#### روابط بین جداول <a id="روابط-بین-جداول"></a>
+#### روابط بین جداول
 
 1. Many To One(ForeignKey)
 2. One To One
@@ -488,7 +488,7 @@ class Model_NameAdmin(admin.ModelAdmin):
     ...
 ```
 
-#### شخصی سازی پنل => داخل کلاس «Model_Name Admin» <a id="شخصی-سازی-پنل-=>-داخل-کلاس-«Model_Name-Admin»"></a>
+#### شخصی سازی پنل => داخل کلاس «Model_Name Admin»
 
 فیلد (list_display): با استفاده از آن مشخص میکنیم کدام فیلد های مدل را در پنل نمایش دهد (به همین ترتیبی که می نویسیم داخل پنل نمایش داده میشوند.)
 
@@ -593,7 +593,7 @@ class PostAdmin(admin.ModelAdmin):
 
 ### کار با کوئری ست ها(CRUD, ORM) <a id="کار-با-کوئری-ست-ها(CRUD,-ORM)"></a>
 
-#### CRUD: Create - Read - Update - Delete <a id="CRUD:-Create---Read---Update---Delete"></a>
+#### CRUD: Create - Read - Update - Delete
 
 اینها چهار عملکرد اصلی برای کار با پایگاه داده هستند.
 
@@ -606,7 +606,7 @@ class PostAdmin(admin.ModelAdmin):
 
 ---
 
-#### ORM : Object Relational Mapping <a id="ORM-:-Object-Relational-Mapping"></a>
+#### ORM : Object Relational Mapping
 
 توی «django» ما به کمک «ORM» میتوانیم با دیتابیس تعامل داشته باشیم («ORM» پلی است برای برقراری ارتباط بین دیتابیس و ساختار کد ما)
 
@@ -1059,7 +1059,7 @@ class PublishedManager(models.Manager):
         return super().get_queryset().filter(status=Post.Status.PUBLISHED)
 ```
 
-#### حالا باید این (manager) را به کلاس مدل خود (Post) معرفی کنیم <a id="حالا-باید-این-(manager)-را-به-کلاس-مدل-خود-(Post)-معرفی-کنیم"></a>
+#### حالا باید این (manager) را به کلاس مدل خود (Post) معرفی کنیم
 
 داخل کلاس مدل یک متغیر بنام (objects) نوشته و برایش مقدار (models.Manager()) را مشخص میکنیم.
 
@@ -1158,7 +1158,7 @@ from . import views
 
 ---
 
-#### تعریف url <a id="تعریف-url"></a>
+#### تعریف url
 
 توی لیست (urlpatterns) به صورت زیر عمل میکنیم:
 
@@ -1202,7 +1202,7 @@ urlpatterns = [
 
 ---
 
-#### کاربرد (app_name) و (name) در فایل (url) <a id="کاربرد-(app_name)-و-(name)-در-فایل-(url)"></a>
+#### کاربرد (app_name) و (name) در فایل (url)
 
 اگه خواستیم از (url) که ایجاد کرده ایم در جایی استفاده کنیم بجای نوشتن آن آدرس طولانی به صورت زیر عمل میکنیم:
 
@@ -1311,7 +1311,7 @@ def post_detail(request, id):
 
 ساختار کلی تمپلیت تگ ها{%  %} و ساختار متغیرهای تمپلیت {{  }} میباشد
 
-#### ساختار base template <a id="ساختار-base-template"></a>
+#### ساختار base template
 
 `app directory/templates/parent/base.html`
 
@@ -1369,7 +1369,7 @@ def post_detail(request, id):
 
 > بخش فرانت اند تمپلیت دلخواه هست و هرکس هر طور خواست میتونه آنرا بنویسه اینجا فقط یک مثال زدیم و چگونگی استفاده از block ها و تمپلیت تگ ها بیان شده است.
 >
-#### post_list.html <a id="post_list.html"></a>
+#### post_list.html
 
 `app directory/templates/blog/post_list.html`
 
@@ -1396,7 +1396,7 @@ def post_detail(request, id):
 
 ```
 
-#### post_detail.html <a id="post_detail.html"></a>
+#### post_detail.html
 
 `app directory/templates/blog/post_detail.html`
 
