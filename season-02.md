@@ -16,7 +16,7 @@ python manage.py startapp app_name
 
 توی تنظیمات پروژه، بخش «INSTALLED_APPS» اپلیکیشن خود را معرفی می کنیم.
 
-`> project directory name > settings.py >`
+`project directory name/settings.py`
 
 ```python
 INESTALLED_APPS=[
@@ -44,7 +44,7 @@ INESTALLED_APPS=[
   برای ایجاد هر ستون از جدول توی کلاس مربوطه یک متغیر (class attribute) ایجاد کرده و نوع فیلد آنرا مشخص میکنیم
   هر کدام از این کلاس ها باید از (models.Model) ارث بری کنند.
 
-`> app directory > models.py`
+`app directory/models.py`
 
 ```python
 class TableName(models.Model):
@@ -53,7 +53,7 @@ class TableName(models.Model):
 
 برای نوشتن فیلد های هر جدول به صورت زیر عمل میکنیم:
 
-`> app directory > models.py`
+`app directory/models.py`
 
 ```python
     variable = models.type-of-field(arguments)
@@ -73,7 +73,7 @@ class TableName(models.Model):
 
  داخل بدنه کلاس (همان جدول) یک کلاس دیگه بنام «Meta» ایجاد میکنیم
 
-`> app directory > models.py`
+`app directory/models.py`
 
 ```python
 class TableName(models.Model):
@@ -98,7 +98,7 @@ indexes = [models.Index(fields=['-publish'])]
 
 الآن برای درک بیشتر میخوایم یک جدول با نام «Post» و یکسری فیلد ها مثل (عنوان، توضیحات،تاریخ انتشار و... )ایجاد کنیم تا توضیحات بالا را در مثال ببینید.
 
-`> app directory > models.py`
+`app directory/models.py`
 
 ```python
 from django.db import models
@@ -146,7 +146,7 @@ class Post(models.Model):
 
 حالا برای این متغیر ها دو مقدار مشخص میکنیم
 
-`> app directory > models.py`
+`app directory/models.py`
 
 ```python
 class TableName(models.Model):
@@ -164,7 +164,7 @@ label = اسمی که به کاربر روی گزینه نمایش داده می
 
 تمامی این اسم ها به دلخواه هستند. (در اینجا مثال در مورد وضعیت پست نوشته شده میباشد).
 
-`> app directory > models.py`
+`app directory/models.py`
 
 ```python
 class Status(models.TextChoices):
@@ -188,7 +188,7 @@ status = models.CharField(max_length=2, choices=Status.choices, default=Status.D
 
 خب بریم همه این توضیحات را در کد ببینیم(کلاس و فیلد «status»)
 
-`> app directory > models.py`
+`app directory/models.py`
 
 ```python
 from django.db import models
@@ -246,7 +246,7 @@ class Post(models.Model):
 ``Terminal:``
 
 ```powershell
-$ python manage.py shell
+python manage.py shell
 >>>from blog.models import Post
 
 >>>Post.Status.choices
@@ -266,7 +266,7 @@ $ python manage.py shell
 
 #### استفاده از مدل User (مدل پیشفرض جنگو)
 
-`> app directory > models.py`
+`app directory/models.py`
 
 ```python
 from django.contrib.auth.models import User
@@ -284,7 +284,7 @@ from django.contrib.auth.models import User
 
 در اینجا رابطه «Many To One(ForeignKey)» توضیح داده میشه و مابقی در فصل های بعد.
 
-ارتباط بین یک کاربر با پست هایش از نوع «Many To One(ForeignKey)» میباشد
+> ارتباط بین یک کاربر با پست هایش از نوع «Many To One(ForeignKey)» میباشد
 توضیح: یک کاربر میتونه چند پست داشته باشه ولی هر پست فقط یک کاربر(نویسنده) داره (یک کاربر، چند پست)
 
 فیلد «Many To One(ForeignKey)» توی جدولی نوشته میشه که چندتایی باشه با توجه به مثال بالا توی جدول «Post» نوشته میشه نه جدول «User»
@@ -295,7 +295,7 @@ from django.contrib.auth.models import User
 
 برای نوشتن فیلد «Many To One(ForeignKey)» به صورت زیر عمل میکنیم:
 
-`> app directory > models.py`
+`app directory/models.py`
 
 ```python
 field_name = models.ForeignKey(Connected-model, on_delete=models.CASCADE, related_name='')
@@ -317,7 +317,7 @@ author = models.ForeignKey(User, on_delete=models.CASCADE, related_name='user_po
 
 خب حالا این فیلد را در کد مدل خود ببینیم:
 
-`> app directory > models.py`
+`app directory/models.py`
 
 ```python
 from django.db import models
@@ -392,6 +392,8 @@ python manage.py sqlmigrate app_name 'migration code'
 
 مثال
 
+``Terminal:``
+
 ```powershell
 python manage.py sqlmigrate blog 0001
 ```
@@ -415,7 +417,7 @@ python manage.py createsuperuser
 ``Terminal:``
 
 ```powershell
-$ python manage.py createsuperuser
+python manage.py createsuperuser
 
 Username (leave blank to use 'system name'): your_username or blank
 Email address: your_email or blank
@@ -423,12 +425,12 @@ Password: your_password
 Password (again): your_password
 ```
 
-با این «username» و «password» میتونیم وارد پنل ادمین بشیم.
+> با این «username» و «password» میتونیم وارد پنل ادمین بشیم.
 پس از run کردن پروژه انتهای «url» عبارت (/admin/) را نوشته و Enter را میزنیم
 
 میخواهیم جداولی که در «model» ایجاد کردیم رو در پنل ادمین نمایش بدهیم.
 
-`> app directory > admin.py`
+`app directory/admin.py`
 
 ```python
 from django.contrib import admin
@@ -447,7 +449,7 @@ admin.site.register(model_name)
 
 این کار را با استفاده از یک دکوراتور و یک کلاس انجام میدهیم ، داخل کلاس شخصی سازی را انجام میدهیم (این کلاس باید از (admin.ModelAdmin) ارث بری بکنه)
 
-`> app directory > admin.py`
+`app directory/admin.py`
 
 ```python
 from django.contrib import admin
@@ -537,7 +539,7 @@ prepopulated_fields = {'slug': ['title']}
 
 حالا بریم تمام این موارد را در کد فایل «admin.py» ببینیم:
 
-`> app directory > admin.py`
+`app directory/admin.py`
 
 ```python
 from django.contrib import admin
@@ -625,6 +627,8 @@ python manage.py shell
 
 ایجاد کاربر و ذخیره آن در دیتابیس:
 
+``shell:``
+
 ```shell
 >>> user1 = User(username='Reza26', password='123456', first_name='Reza')
 >>> user1.save()
@@ -635,6 +639,8 @@ python manage.py shell
 با متد (save()) این تغییرات را توی دیتابیس ذخیره میکنیم.
 
 ---
+
+``shell:``
 
 ```shell
 >>> user1
@@ -650,6 +656,8 @@ python manage.py shell
 
 ---
 
+``shell:``
+
 ```shell
 >>> user1.username = 'Reza_01'
 >>> user1.save()
@@ -664,6 +672,8 @@ python manage.py shell
 ---
 
 با استفاده از متد (delete()) داده را از دیتابیس پاک میکنیم
+
+``shell:``
 
 ```shell
 >>> User.objects.all()
@@ -687,6 +697,8 @@ class_name.manager.method()
 User.objects.create_user()
 ```
 
+``shell:``
+
 ```shell
 >>> User.objects.all()
 <QuerySet [<User: Mahdi>, <User: Ali>]>
@@ -696,6 +708,8 @@ User.objects.create_user()
 ```
 
 خب حالا بریم یک پست جدید ایجاد کنیم:
+
+``shell:``
 
 ```shell
 >>> Post.objects.all()
@@ -714,6 +728,8 @@ User.objects.create_user()
 متد (get()): برای دریافت یک (object) از جدول (منطبق با شرایطی که در دستور برایش مشخص میکنیم) استفاده میشه.
 
 اگه شرطی که برایش مشخص میکنیم چند داده را شامل شود ارور میدهد(پس باید شرطی بیان کنیم که یک داده از جدول را شامل شود)
+
+``shell:``
 
 ```shell
 >>> post = Post.objects.get(id=1)
@@ -763,6 +779,8 @@ User.objects.create_user()
 
 خروجی آن (کوئری ست) هستش.
 
+``shell:``
+
 ```shell
 >>> User.objects.exclude(username='Ali')
 <QuerySet [<User: Mahdi>, <User: Mr_milad>]>
@@ -771,6 +789,8 @@ User.objects.create_user()
 ---
 
 بااستفاده از متد (update) میتوان چند داده را ویرایش و آپدیت کرد.(برای (کوئری ست) کاربرد داره)
+
+``shell:``
 
 ```shell
 >>> new-post = Post.objects.get(id=1)
@@ -782,6 +802,8 @@ User.objects.create_user()
 ---
 
 با استفاده از متد (delete()) یک یا چند داده را از جدول پاک میکنیم.
+
+``shell:``
 
 ```shell
 >>> User.objects.all()
@@ -798,6 +820,8 @@ User.objects.create_user()
 دسترسی به فیلدهای مختلف یک داده از دیتابیس:
 
 انتخاب یک داده 1. با متد (get) 2. استفاده از ایندکس برای (کوئری ست) و 3. حلقه روی (کوئری ست)
+
+``shell:``
 
 ```shell
 >>> p1 = Post.objects.get(id=2)
@@ -824,6 +848,8 @@ Mr_milad
 
 نمایش تمام پست های یک کاربر:
 
+``shell:``
+
 ```shell
 >>> posts1 = Post.objects.filter(author__username='Mr_milad')
 
@@ -840,6 +866,8 @@ Mr_milad
 
 استفاده از فیلدهای مدل در متدهایی مثله (get, filter, exclude):
 
+``shell:``
+
 ```shell
 >>> post_01 = Post.objects.get(id=2)
 >>> post_02 = post.objects.filter(title='Django')
@@ -850,6 +878,8 @@ Mr_milad
 ```
 
 در مثال های متعدد از فیلدها به صورت بالا استفاده کردیم حالا میخوایم وقتی دو جدول بهم متصل هستند، از فیلدهای جدول مقابل استفاده کنیم.
+
+``shell:``
 
 ```shell
 >>> # structure
@@ -870,6 +900,8 @@ Mr_milad
 
 متد (order_by): کوئری ست را براساس یک فیلد مرتب سازی میکند.
 
+``shell:``
+
 ```shell
 >>> sorted_users = User.objects.all().order_by('first_name')
 >>> # reverse
@@ -879,6 +911,8 @@ Mr_milad
 ---
 
 محدود کردن(limit) کوئری ست با slicing:
+
+``shell:``
 
 ```shell
 >>> User.objects.all()[2:5]
@@ -892,6 +926,8 @@ Mr_milad
 
 کلید دیکشنری همان فیلدهای ما هستند.
 
+``shell:``
+
 ```shell
 >>> Post.objects.all()
 <QuerySet [<Post: python programming language>, <Post: Django>]>
@@ -901,6 +937,8 @@ Mr_milad
 ```
 
 خب حالا اگه ما فقط چند فیلد را بجای کل فیلدها بخواهیم کافیه آن فیلدها را برایش مشخص کنیم:
+
+``shell:``
 
 ```shell
 >>> Post.objects.all()
@@ -915,6 +953,8 @@ Mr_milad
 
 هر تاپل شامل مقدار فیلد ها میباشد.
 
+``shell:``
+
 ```shell
 >>> Post.objects.all()
 <QuerySet [<Post: python programming language>, <Post: Django>]>
@@ -924,6 +964,8 @@ Mr_milad
 ```
 
 کاربرد اصلی این متد برای نمایش یک فیلد و بعضی مواقع چند فیلد میباشد:
+
+``shell:``
 
 ```shell
 >>> Post.objects.all().values_list('title')
@@ -955,7 +997,7 @@ Mr_milad
 
 خارج از کلاس مدل خود (در مثال ما کلاس Post) ، یک کلاس ایجاد میکنیم که از (models.Manager) ارث بری میکنه.
 
-`> app directory > models.py`
+`app directory/models.py`
 
 ```python
 class Field_NameManager(models.Manager):
@@ -970,7 +1012,7 @@ class Post(models.Model):
 
 حالا داخل آن کلاس متد (get_queryset) را (override) میکنیم
 
-`> app directory > models.py`
+`app directory/models.py`
 
 ```python
 class Field_NameManager(models.Manager):
@@ -982,7 +1024,7 @@ class Field_NameManager(models.Manager):
 
 مثلا پست هایی را میخواهیم که وضعیت (publish) داشته باشند/ داخل متد (filter) مشخص میکنیم آنهایی که فیلد (status) برابره با (PUBLISHED) رو نمایش بده.
 
-`> app directory > models.py`
+`app directory/models.py`
 
 ```PYTHON
 class PublishedManager(models.Manager):
@@ -1003,7 +1045,7 @@ class PublishedManager(models.Manager):
 
 خب همه اینها را در کد فایل models.py ببینیم (کد جدید مابین خط چین ها میباشد).
 
-`> app directory > models.py`
+`app directory/models.py`
 
 ```python
 from django.db import models
@@ -1074,7 +1116,7 @@ class Post(models.Model):
 
 توی فایل (urls.py) اپ، (path) و (views) را ایمپورت میکنیم.
 
-`> app directory > urls.py`
+`app directory/urls.py`
 
 ```python
 from django.urls import path
@@ -1093,7 +1135,7 @@ from . import views
 
 توی لیست (urlpatterns) به صورت زیر عمل میکنیم:
 
-`> app directory > urls.py`
+`app directory/urls.py`
 
 ```python
 urlpatterns = [
@@ -1106,7 +1148,7 @@ urlpatterns = [
 مورد دوم =>  (view) نوشته شده برای آن (url) میباشد
 مورد سوم => یک اسم برای (url) مشخص میکنیم(همنام با اسم (view))
 
-`> app directory > urls.py`
+`app directory/urls.py`
 
 ```python
 from django.urls import path
@@ -1151,7 +1193,7 @@ path('خالی یا یک آدرس', include('آدرس فایل url اپ', namesp
 
 برای درک بیشتر به کد زیر توجه کنید.
 
-`> project directory > urls.py`
+`project directory/urls.py`
 
 ```python
 from django.contrib import admin
@@ -1191,7 +1233,7 @@ view ها به صورت تابع تعریف میشوند که دارای آرگ�
 
 دایرکتوری blog داخل دایرکتوری templates قرار دارد
 
-`> app directory > views.py`
+`app directory/views.py`
 
 ```python
 from .models import *
@@ -1244,7 +1286,7 @@ def post_detail(request, id):
 
 #### ساختار base template
 
-`> app directory > templates > parent > base.html`
+`app directory/templates/parent/base.html`
 
 ```html
 {% load static %}
@@ -1298,9 +1340,11 @@ def post_detail(request, id):
 
 از آن تمپلیت تگ block استفاده کرده و مابین تگ متن دلخواه خود را می نویسیم
 
-بخش فرانت اند تمپلیت دلخواه هست و هرکس هر طور خواست میتونه آنرا بنویسه اینجا فقط یک مثال زدیم و چگونگی استفاده از block ها و تمپلیت تگ ها بیان شده است.
-
+> بخش فرانت اند تمپلیت دلخواه هست و هرکس هر طور خواست میتونه آنرا بنویسه اینجا فقط یک مثال زدیم و چگونگی استفاده از block ها و تمپلیت تگ ها بیان شده است.
+>
 #### post_list.html
+
+`app directory/templates/blog/post_list.html`
 
 ```html
 {% extends 'parent/base.html' %}
@@ -1327,6 +1371,8 @@ def post_detail(request, id):
 
 #### post_detail.html
 
+`app directory/templates/blog/post_detail.html`
+
 ```html
 {% extends 'parent/base.html' %}
 
@@ -1344,6 +1390,8 @@ def post_detail(request, id):
 
 برای استفاده از حلقه (for) توی تمپلیت از تمپلیت تگ آن استفاده میکنیم:
 
+``jinja:``
+
 ```jinja
 {% for post in posts %}
     بدنه حلقه
@@ -1351,6 +1399,8 @@ def post_detail(request, id):
 ```
 
 با استفاده از تمپلیت تگ (url) بجای آدرس طولانی، میتوان خیلی ساده به آنها دسترسی داشت.
+
+``jinja:``
 
 ```jinja
 {% url 'app_name:name in path' %}
