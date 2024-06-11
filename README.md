@@ -3,7 +3,7 @@
   <!-- Header Section -->
   <div style="width: 100%; height: 100px; background-color: #333333; display: flex; justify-content: center; align-items: center; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
     <h1 style="color: white; margin-right: 10px;">کتابچه الکترونیک جنگو</h1>
-    <img src="Images/django-header.svg" alt="django logo" style="height: 75%; width: auto;">
+    <img src="Images/django-header.svg" alt="django logo" style="height: 75%; width: auto; background-color: none;">
   </div>
 
   <!-- Welcome Section -->
