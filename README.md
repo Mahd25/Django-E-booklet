@@ -112,23 +112,44 @@
   </ul>
 </div>
 
-
-<!-- Sample Chapter Template Section -->
-<div style="background-color: #f0f0f0; padding: 10px; border-radius: 8px; margin-bottom: 20px;">
-<h3 style="color: #333333;">نمونه قالب فصل</h3>
-<p>متن زیر یک نمونه از قالب فصل را برای شما فراهم می‌کند:</p>
-<pre style="background-color: #e8e8e8; padding: 10px; border-radius: 8px;">
-<code dir="ltr" dir="ltr">
+    <!-- Sample Chapter Template Section -->
+    <div style="background-color: #f0f0f0; padding: 10px; border-radius: 8px; margin-bottom: 20px;">
+      <h3 style="color: #333333;">نمونه قالب فصل</h3>
+      <p>متن زیر یک نمونه از قالب فصل را برای شما فراهم می‌کند:</p>
+      <pre style="background-color: #e8e8e8; padding: 10px; border-radius: 8px;">
+<code>
 ## مقدمه (هدینگ ۲)
 
 در این فصل به مباحث مقدماتی دربارهٔ جنگو می‌پردازیم.
-	@@ -147,22 +120,22 @@
+
+### معرفی جنگو (هدینگ ۳)
+
+در این بخش به معرفی کلی جنگو و ویژگی‌های آن می‌پردازیم.
+
+#### ویژگی‌های جنگو (هدینگ ۴)
+
+- ساختار MVC
+- ایجاد مدل‌ها
+- استفاده از ORM برای ارتباط با پایگاه داده
+
+### نصب جنگو (هدینگ ۳)
+
+در این بخش به نحوهٔ نصب جنگو بر روی سیستم عامل‌های مختلف می‌پردازیم. 
+
+#### روش‌های نصب (هدینگ ۴)
+
+1. نصب با استفاده از pip
+2. نصب با استفاده از Anaconda
+
+### ایجاد یک پروژه جدید (هدینگ ۳)
+
+در این بخش به روند ایجاد یک پروژه جدید در جنگو می‌پردازیم.
 
 #### دستورات ایجاد پروژه (هدینگ ۴)
 
-```bash
+\```bash
 django-admin startproject myproject
-```
+\```
 
 ### نمونه کد (هدینگ ۳)
 
@@ -136,16 +157,20 @@ django-admin startproject myproject
 
 #### کد مثال (هدینگ ۴)
 
-```python
+\```python
 from django.http import HttpResponse
 
 def index(request):
     return HttpResponse("Hello, world!")
-```
+\```
 
 ### جدول مثال
 
-	@@ -174,153 +147,117 @@ def index(request):
+| ستون ۱ | ستون ۲ | ستون ۳ |
+| ------- | ------- | ------- |
+| مقدار ۱ | مقدار ۲ | مقدار ۳ |
+| مقدار ۴ | مقدار ۵ | مقدار ۶ |
+
 ### جمع‌بندی (هدینگ ۳)
 
 در این بخش به جمع‌بندی مطالب مطرح شده در این فصل می‌پردازیم.
@@ -153,6 +178,7 @@ def index(request):
 </pre>
       <p>در این نمونه، موارد مختلفی از جمله مقدمه، معرفی، نصب، ایجاد پروژه، نمونه کد و جمع‌بندی در قالب فصل قرار داده شده است. می‌توانید این نمونه را برای ایجاد فصل‌های مختلف در پروژه خودتان استفاده کنید و مطالب خود را با جزئیات بیشتری پر کنید.</p>
     </div>
+
 
     <!-- Style and Formatting Section -->
     <div style="background-color: #f0f0f0; padding: 10px; border-radius: 8px; margin-bottom: 20px;">
