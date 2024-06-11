@@ -120,9 +120,9 @@
 
 #### دستورات ایجاد پروژه (هدینگ ۴)
 
-```bash
+\```bash
 django-admin startproject myproject
-```
+\```
 
 ### نمونه کد (هدینگ ۳)
 
@@ -130,12 +130,12 @@ django-admin startproject myproject
 
 #### کد مثال (هدینگ ۴)
 
-```python
+\```python
 from django.http import HttpResponse
 
 def index(request):
     return HttpResponse("Hello, world!")
-```
+\```
 
 ### جدول مثال
 
