@@ -17,7 +17,7 @@
         </button>
       </a>
     </div>
-  <p>برای مشاهده توضیحات کامل می توانید توضیحات پروژه را مشاهده کنید:</p>
+  <p>اگر در حال مشاهده فایل README در گیت‌هاب هستید، ممکن است برخی موارد به خوبی نمایش داده نشوند. برای تجربه بهتر و مشاهده توضیحات با ظاهر بصری زیباتر، لطفاً از طریق دکمه مقابل اقدام کنید:</p>
   <div style="display: flex; justify-content: center; align-items: center; margin-top: 20px;">
     <a href="https://mahd25.github.io/Django-E-booklet/" style="text-decoration: none;">
     <button type="button" style="background-color: #09b7d6; border-radius: 25px; padding: 10px 20px; color: white; border: none; cursor: pointer;">
