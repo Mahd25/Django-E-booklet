@@ -87,9 +87,8 @@
     <h2 style="color: #333333;">راهنمای مشارکت</h2>
     <p>از علاقه شما به مشارکت در کتابچه الکترونیک جنگو سپاسگزاریم. برای حفظ انسجام و کیفیت کتابچه، لطفاً از اصول زیر پیروی کنید:</p>
 
-    <!-- Content Changes Section -->
-    <div style="background-color: #f0f0f0; padding: 10px; border-radius: 8px; margin-bottom: 20px;">
-      ### تغییرات محتوا
+    
+### تغییرات محتوا
 
 #### هدینگ‌ها
 
@@ -107,7 +106,7 @@
   - بلوک‌های کد (جنگو، HTML، CSS، JS، Jinja، Tree)
   - تصاویر
   - جداول
-    </div>
+  - 
 
     <!-- Sample Chapter Template Section -->
     <div style="background-color: #f0f0f0; padding: 10px; border-radius: 8px; margin-bottom: 20px;">
