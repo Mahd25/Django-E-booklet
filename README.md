@@ -82,37 +82,42 @@
     <p>این پروژه تحت لایسنس MIT است. برای مشاهده متن کامل لایسنس، به فایل <a href="LICENSE" style="color: #09b7d6; text-decoration: none;">MIT License</a> در ریپازیتوری مراجعه کنید.</p>
   </div>
 
-  <!-- Contribution Guide Section -->
-  <div style="background-color: white; padding: 20px; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
-    <h2 style="color: #333333;">راهنمای مشارکت</h2>
-    <p>از علاقه شما به مشارکت در کتابچه الکترونیک جنگو سپاسگزاریم. برای حفظ انسجام و کیفیت کتابچه، لطفاً از اصول زیر پیروی کنید:</p>
+<!-- Contribution Guide Section -->
+<div style="background-color: white; padding: 20px; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+  <h2 style="color: #333333;">راهنمای مشارکت</h2>
+  <p>از علاقه شما به مشارکت در کتابچه الکترونیک جنگو سپاسگزاریم. برای حفظ انسجام و کیفیت کتابچه، لطفاً از اصول زیر پیروی کنید:</p>
 
-    
-### تغییرات محتوا
+  <h3 style="color: #333333;">تغییرات محتوا</h3>
+  
+  <h4 style="color: #333333;">هدینگ‌ها</h4>
+  <ul>
+    <li><strong>هدینگ ۱</strong>: فقط برای نام پروژه استفاده می‌شود.</li>
+    <li><strong>هدینگ ۲</strong>: برای عنوان فصل‌ها استفاده می‌شود.</li>
+    <li><strong>هدینگ ۳ به پایین</strong>: برای عنوان بخش‌های داخل فصل‌ها استفاده می‌شود.</li>
+  </ul>
+  
+  <h4 style="color: #333333;">قالب کلی</h4>
+  <ul>
+    <li>هر فصل با عنوانی با <strong>هدینگ ۲</strong> شروع می‌شود.</li>
+    <li>توضیح مختصری در مورد فصل.</li>
+    <li>لیستی از مطالبی که در طول فصل بررسی می‌شوند.</li>
+    <li>بخش‌های محتوایی که شامل موارد زیر می‌شوند:
+      <ul>
+        <li>متن فارسی و انگلیسی</li>
+        <li>بلوک‌های کد (جنگو، HTML، CSS، JS، Jinja، Tree)</li>
+        <li>تصاویر</li>
+        <li>جداول</li>
+      </ul>
+    </li>
+  </ul>
+</div>
 
-#### هدینگ‌ها
 
-- **هدینگ ۱**: فقط برای نام پروژه استفاده می‌شود.
-- **هدینگ ۲**: برای عنوان فصل‌ها استفاده می‌شود.
-- **هدینگ ۳ به پایین**: برای عنوان بخش‌های داخل فصل‌ها استفاده می‌شود.
-
-#### قالب کلی
-
-- هر فصل با عنوانی با **هدینگ ۲** شروع می‌شود.
-- توضیح مختصری در مورد فصل.
-- لیستی از مطالبی که در طول فصل بررسی می‌شوند.
-- بخش‌های محتوایی که شامل موارد زیر می‌شوند:
-  - متن فارسی و انگلیسی
-  - بلوک‌های کد (جنگو، HTML، CSS، JS، Jinja، Tree)
-  - تصاویر
-  - جداول
-  - 
-
-    <!-- Sample Chapter Template Section -->
-    <div style="background-color: #f0f0f0; padding: 10px; border-radius: 8px; margin-bottom: 20px;">
-      <h3 style="color: #333333;">نمونه قالب فصل</h3>
-      <p>متن زیر یک نمونه از قالب فصل را برای شما فراهم می‌کند:</p>
-      <pre style="background-color: #e8e8e8; padding: 10px; border-radius: 8px;">
+<!-- Sample Chapter Template Section -->
+<div style="background-color: #f0f0f0; padding: 10px; border-radius: 8px; margin-bottom: 20px;">
+<h3 style="color: #333333;">نمونه قالب فصل</h3>
+<p>متن زیر یک نمونه از قالب فصل را برای شما فراهم می‌کند:</p>
+<pre style="background-color: #e8e8e8; padding: 10px; border-radius: 8px;">
 <code dir="ltr" dir="ltr">
 ## مقدمه (هدینگ ۲)
 
