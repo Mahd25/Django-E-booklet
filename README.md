@@ -3,10 +3,10 @@
   <!-- Header Section -->
   <div style="width: 100%; height: 100px; background-color: #333333; display: flex; justify-content: center; align-items: center; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
     <h1 style="color: white; margin-right: 10px;">کتابچه الکترونیک جنگو</h1>
-    <img src="Images/django-header.svg" alt="django logo" style="height: 75%; width: auto; background-color: none;">
+    <img src="Images/django-header.svg" alt="django logo" style="height: 75%; width: auto; background-color: #333333;">
   </div>
 
-  <!-- Welcome Section -->
+   <!-- Welcome Section -->
   <div style="background-color: white; padding: 20px; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
     <h2 style="color: #333333;">پروژه کتابچه الکترونیک جنگو</h2>
     <p>به کتابچه الکترونیک جنگو خوش آمدید، بر اساس آموزش‌های آقای رضا دولتی. این پروژه شامل منابع آموزشی برای یادگیری جنگو است که به صورت یک سایت ارائه شده است. شما می‌توانید سایت را در این آدرس مشاهده کنید:</p>
@@ -15,6 +15,14 @@
         <button type="button" style="background-color: #09b7d6; border-radius: 25px; padding: 10px 20px; color: white; border: none; cursor: pointer;">
           <strong>کتابچه الکترونیک جنگو</strong>
         </button>
+      </a>
+    </div>
+  <p>برای مشاهده توضیحات کامل می توانید توضیحات پروژه را مشاهده کنید:</p>
+  <div style="display: flex; justify-content: center; align-items: center; margin-top: 20px;">
+    <a href="https://mahd25.github.io/Django-E-booklet/" style="text-decoration: none;">
+    <button type="button" style="background-color: #09b7d6; border-radius: 25px; padding: 10px 20px; color: white; border: none; cursor: pointer;">
+      <strong>توضیحات پروژه</strong>
+    </button>
       </a>
     </div>
   </div>
