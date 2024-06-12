@@ -116,7 +116,7 @@
   <div style="background-color: white; padding: 10px; border-radius: 8px; margin-bottom: 20px;">
     <h3 style="color: #333333;">نمونه قالب فصل</h3>
     <p>متن زیر یک نمونه از قالب فصل را برای شما فراهم می‌کند:</p>
-    <pre style="background-color: #333333; padding: 10px; border-radius: 8px;">
+    <pre style="background-color: #333333; color:  #ffb300; padding: 10px; border-radius: 8px;">
 <code>
 ## مقدمه (هدینگ ۲)
 
@@ -191,7 +191,7 @@ def index(request):
   </div>
   </div>
   <!-- Technical Notes Section -->
-  <div style="background-color: white; padding: 20px; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+  <div dir="rtl" style="background-color: white; padding: 20px; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
     <h2 style="color: #333333;">نکات فنی</h2>
     <ul>
       <li><strong>فونت‌ها</strong>: این پروژه از فونت وزیر برای خوانایی بهتر در فارسی استفاده می‌کند.</li>
@@ -203,7 +203,7 @@ def index(request):
     <p>تلاش‌های شما این منبع را برای جامعه ارزشمندتر می‌کند. 🎉</p>
   </div>
   <!-- Step-by-step Contribution Guide Section -->
-  <div style="background-color: white; padding: 20px; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+  <div dir="rtl" style="background-color: white; padding: 20px; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
     <h2 style="color: #333333;">راهنمای گام به گام برای مشارکت در پروژه</h2>
     <h3 style="color: #666666;">۱. فورک کردن ریپازیتوری</h3>
     <ol>
@@ -216,14 +216,14 @@ def index(request):
     <li>به ریپازیتوری فورک شده در حساب GitHub خود بروید.</li>
     <li>لینک کلون را کپی کنید (معمولاً در قسمت کپی‌برداری <code dir="ltr">Code</code> و انتخاب HTTPS یا SSH).</li>
     <li>ترمینال یا خط فرمان را باز کنید و دستور زیر را اجرا کنید تا ریپازیتوری را کلون کنید:
-      <pre style="background-color: #333333; padding: 10px; border-radius: 8px;">
+      <pre style="background-color: #333333; color:  #ffb300; padding: 10px; border-radius: 8px;">
 <code dir="ltr">
 git clone https://github.com/YOUR-USERNAME/Django-E-booklet.git
 </code>
         </pre>
       </li>
       <li>به دایرکتوری پروژه بروید:
-        <pre style="background-color: #333333; padding: 10px; border-radius: 8px;">
+        <pre style="background-color: #333333; color:  #ffb300; padding: 10px; border-radius: 8px;">
 <code dir="ltr">
 cd Django-E-booklet
 </code>
@@ -234,7 +234,7 @@ cd Django-E-booklet
   <h3 style="color: #666666;">۳. افزودن ریموت اصلی</h3>
   <ol>
     <li>ریموت اصلی را اضافه کنید تا بتوانید با ریپازیتوری اصلی همگام‌سازی کنید:
-      <pre style="background-color: #333333; padding: 10px; border-radius: 8px;">
+      <pre style="background-color: #333333; color:  #ffb300; padding: 10px; border-radius: 8px;">
 <code dir="ltr">
 git remote add upstream https://github.com/Mahd25/Django-E-booklet.git
 </code>
@@ -244,7 +244,7 @@ git remote add upstream https://github.com/Mahd25/Django-E-booklet.git
 
   <h3 style="color: #666666;">۴. همگام‌سازی با ریپازیتوری اصلی</h3>
   <p>برای همگام‌سازی با تغییرات اخیر در ریپازیتوری اصلی از دستور زیر استفاده کنید:</p>
-  <pre style="background-color: #333333; padding: 10px; border-radius: 8px;">
+  <pre style="background-color: #333333; color:  #ffb300; padding: 10px; border-radius: 8px;">
 <code dir="ltr">
 git fetch upstream
 git checkout main
@@ -255,13 +255,13 @@ git merge upstream/main
   <h3 style="color: #666666;">۵. ایجاد و جابجایی به برنچ <code dir="ltr">seasons-source</code></h3>
   <ol>
     <li>برنچ <code dir="ltr">seasons-source</code> را چک اوت کنید:
-      <pre style="background-color: #333333; padding: 10px; border-radius: 8px;">
+      <pre style="background-color: #333333; color:  #ffb300; padding: 10px; border-radius: 8px;">
 <code dir="ltr">
 git checkout seasons-source
 </code>
         </pre>
         <strong>توجه:</strong> اگر برنچ <code dir="ltr">seasons-source</code> موجود نیست، ابتدا باید آن را از ریموت اصلی بکشید:
-        <pre style="background-color: #333333; padding: 10px; border-radius: 8px;">
+        <pre style="background-color: #333333; color:  #ffb300; padding: 10px; border-radius: 8px;">
 <code dir="ltr">
 git fetch upstream
 git checkout -b seasons-source upstream/seasons-source
@@ -269,7 +269,7 @@ git checkout -b seasons-source upstream/seasons-source
         </pre>
       </li>
       <li>یک برنچ جدید برای تغییرات خود ایجاد کنید:
-        <pre style="background-color: #333333; padding: 10px; border-radius: 8px;">
+        <pre style="background-color: #333333; color:  #ffb300; padding: 10px; border-radius: 8px;">
 <code dir="ltr">
 git checkout -b my-new-branch
 </code>
@@ -286,14 +286,14 @@ git checkout -b my-new-branch
   <h3 style="color: #666666;">۷. کامیت کردن تغییرات</h3>
   <ol>
     <li>تغییرات خود را برای کامیت کردن آماده کنید:
-      <pre style="background-color: #333333; padding: 10px; border-radius: 8px;">
+      <pre style="background-color: #333333; color:  #ffb300; padding: 10px; border-radius: 8px;">
 <code dir="ltr">
 git add .
 </code>
         </pre>
       </li>
       <li>یک پیام کامیت اضافه کنید و تغییرات را کامیت کنید:
-        <pre style="background-color: #333333; padding: 10px; border-radius: 8px;">
+        <pre style="background-color: #333333; color:  #ffb300; padding: 10px; border-radius: 8px;">
 <code dir="ltr">
 git commit -m "توضیح مختصر در مورد تغییرات"
 </code>
@@ -304,7 +304,7 @@ git commit -m "توضیح مختصر در مورد تغییرات"
   <h3 style="color: #666666;">۸. پوش کردن تغییرات به GitHub</h3>
   <ol>
     <li>تغییرات خود را به ریپازیتوری فورک شده خود در GitHub پوش کنید:
-      <pre style="background-color: #333333; padding: 10px; border-radius: 8px;">
+      <pre style="background-color: #333333; color:  #ffb300; padding: 10px; border-radius: 8px;">
 <code dir="ltr">
 git push origin my-new-branch
 </code>
@@ -321,4 +321,5 @@ git push origin my-new-branch
   </ol>
   <p>حالا تغییرات شما آماده بررسی و ادغام به ریپازیتوری اصلی است. از مشارکت شما در پروژه کتابچه الکترونیک جنگو سپاسگزاریم! 🌟</p>
   <p>این راهنما به شما کمک می‌کند تا بتوانید به سادگی در پروژه مشارکت کنید و تغییرات خود را با دیگران به اشتراک بگذارید.</p>
+  </div>
 </div>
