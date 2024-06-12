@@ -829,3 +829,61 @@ table th {
     max-width: 100%;
     height: auto;
 }
+
+
+/* ------------------------------------------------------------------------------ */
+/* List of contents */
+.toc {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    padding: 15px 25px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+}
+
+.toc h3 {
+    margin-top: 0;
+}
+
+.toc ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.toc ul li {
+    margin: 5px 0;
+}
+
+.toc ul li a {
+    text-decoration: none;
+    color: #007bff;
+}
+
+.toc ul li a:hover {
+    text-decoration: underline;
+}
+
+
+ /* ---------------------------------------------------------- */
+.edit-icon {
+    position: fixed;
+    bottom: 15px;
+    right: 15px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border-radius: 50%;
+
+    width: 53px;
+    height: 53px;
+    background-color: #333333;
+ }
+
+.edit-icon i {
+    color: white;
+    font-size: 23px;
+}
+
+ 
