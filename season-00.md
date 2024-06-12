@@ -197,9 +197,7 @@ username   password  https:// www.      example              .com              :
   - `.mil` (نظامی)
   - `.aero` (صنعت هواپیمایی)
   - `.museum` (موزه‌ها)
-
 - **انواع پسوندهای دامنه ایرانی (ccTLDs for Iran)**
-
   - `.ir` (عمومی)
   - `.co.ir` (شرکت‌ها)
   - `.ac.ir` (موسسات آموزشی)
