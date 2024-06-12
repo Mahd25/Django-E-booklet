@@ -34,9 +34,20 @@ body, html {
     margin: 0;
 }
 
+/* --------------------- These items affect the entire project --------------------- */
 p {
     font-weight: 500;
 }
+
+li {
+    margin-bottom: 7px;
+}
+
+li code {
+    display: inline-block;
+    direction: ltr;
+}
+/* ----------------------------------------------------------- */
 
 /* navigation */
 nav.menu {
@@ -866,9 +877,11 @@ table th {
 
  /* ---------------------------------------------------------- */
 .edit-icon {
+    text-decoration: none;
     position: fixed;
     bottom: 15px;
     right: 15px;
+    z-index: 50;
 
     display: flex;
     justify-content: center;
