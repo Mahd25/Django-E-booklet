@@ -23,7 +23,8 @@
 ### 3. مفهوم شبکه
 
 شبکه مجموعه‌ای از کامپیوترها و دستگاه‌های متصل به هم است که امکان تبادل اطلاعات را فراهم می‌کنند. به عنوان مثال، اینترنت بزرگترین شبکه‌ای است که شامل میلیون‌ها شبکه کوچک‌تر است.
-![local area network](https://static.packt-cdn.com/products/9781838643508/graphics/assets/1f08f6e9-2d91-497f-8aa6-4ad2afccbb33.png)
+
+<img src="https://static.packt-cdn.com/products/9781838643508/graphics/assets/1f08f6e9-2d91-497f-8aa6-4ad2afccbb33.png" alt="local area network" class="img-zero">
 
 - **PAN**: Personal Area Network
   - keyboard
@@ -51,7 +52,7 @@
 
 #### انواع توپولوژی شبکه
 
-![types of  network topologies](https://techiereader.com/wp-content/uploads/2016/08/Network-Topology.png)
+<img src="https://techiereader.com/wp-content/uploads/2016/08/Network-Topology.png" alt="types of  network topologies" class="img-zero">
 
 - **Star Topology (توپولوژی ستاره)**:
 در این توپولوژی، هر دستگاه به یک نقطه مرکزی متصل می‌شود که معمولاً یک سوئیچ یا هاب است. این نقطه مرکزی مسئول اداره ترافیک شبکه است و ارتباطات بین دستگاه‌ها از طریق آن صورت می‌گیرد.
@@ -73,7 +74,7 @@
 
 #### نوع‌های شبکه‌های ارتباطی
 
-![نوع‌های شبکه‌های ارتباطی](https://www.talkfreely.com/hs-fs/hubfs/20220322%20intrant%20extrante.png?width=1280&name=20220322%20intrant%20extrante.png)
+<img src="https://www.talkfreely.com/hs-fs/hubfs/20220322%20intrant%20extrante.png?width=1280&name=20220322%20intrant%20extrante.png" alt="نوع‌های شبکه‌های ارتباطی" class="img-zero">
 
 - **Internet (اتصالات اینترنتی جهانی)**
 این نوع اتصالات بیانگر ارتباطاتی است که از طریق اینترنت بین افراد، سازمان‌ها، و شبکه‌های مختلف در سراسر جهان برقرار می‌شود. این اتصالات از طریق ارائه‌دهندگان خدمات اینترنت و شبکه‌های عمومی برقرار می‌شود و به کاربران امکان ارتباط با یکدیگر را فراهم می‌کند.

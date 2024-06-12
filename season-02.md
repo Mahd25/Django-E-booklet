@@ -65,7 +65,7 @@ class TableName(models.Model):
     title = models.CharField(max_length=250)
 ```
 
-> برای متن های طولانی تر از «TextField» بجای «CharField» استفاده میکنیم.
+برای متن های طولانی تر از «TextField» بجای «CharField» استفاده میکنیم.
 هر صفحه ای از وبسایت دارای «url» خاص خودشه آن میشه slug.(قسمت اصلی آدرس بعد از نام دامنه است)
 برای زمان و تاریخ از فیلد «DateTimeField» استفاده میکنیم.
 
@@ -284,7 +284,7 @@ from django.contrib.auth.models import User
 
 در اینجا رابطه «Many To One(ForeignKey)» توضیح داده میشه و مابقی در فصل های بعد.
 
-> ارتباط بین یک کاربر با پست هایش از نوع «Many To One(ForeignKey)» میباشد
+ارتباط بین یک کاربر با پست هایش از نوع «Many To One(ForeignKey)» میباشد
 توضیح: یک کاربر میتونه چند پست داشته باشه ولی هر پست فقط یک کاربر(نویسنده) داره (یک کاربر، چند پست)
 
 فیلد «Many To One(ForeignKey)» توی جدولی نوشته میشه که چندتایی باشه با توجه به مثال بالا توی جدول «Post» نوشته میشه نه جدول «User»
@@ -425,7 +425,7 @@ Password: your_password
 Password (again): your_password
 ```
 
-> با این «username» و «password» میتونیم وارد پنل ادمین بشیم.
+با این «username» و «password» میتونیم وارد پنل ادمین بشیم.
 پس از run کردن پروژه انتهای «url» عبارت (/admin/) را نوشته و Enter را میزنیم
 
 میخواهیم جداولی که در «model» ایجاد کردیم رو در پنل ادمین نمایش بدهیم.
@@ -1026,7 +1026,7 @@ class Field_NameManager(models.Manager):
 
 `app directory/models.py`
 
-```PYTHON
+```python
 class PublishedManager(models.Manager):
     def get_queryset(self):
         return super().get_queryset().filter(status=Post.Status.PUBLISHED)
@@ -1288,7 +1288,7 @@ def post_detail(request, id):
 
 `app directory/templates/parent/base.html`
 
-```html
+```jinja
 {% load static %}
 <!doctype html>
 <html lang="en">
@@ -1340,13 +1340,13 @@ def post_detail(request, id):
 
 از آن تمپلیت تگ block استفاده کرده و مابین تگ متن دلخواه خود را می نویسیم
 
-> بخش فرانت اند تمپلیت دلخواه هست و هرکس هر طور خواست میتونه آنرا بنویسه اینجا فقط یک مثال زدیم و چگونگی استفاده از block ها و تمپلیت تگ ها بیان شده است.
->
+بخش فرانت اند تمپلیت دلخواه هست و هرکس هر طور خواست میتونه آنرا بنویسه اینجا فقط یک مثال زدیم و چگونگی استفاده از block ها و تمپلیت تگ ها بیان شده است.
+
 #### post_list.html
 
 `app directory/templates/blog/post_list.html`
 
-```html
+```jinja
 {% extends 'parent/base.html' %}
 {% load static %}
 
@@ -1373,7 +1373,7 @@ def post_detail(request, id):
 
 `app directory/templates/blog/post_detail.html`
 
-```html
+```jinja
 {% extends 'parent/base.html' %}
 
 {% block title %} {{ post.title }} {% endblock %}

@@ -1,12 +1,12 @@
-# فصل ۳: فارسی‌سازی اپلیکیشن جنگو
+## فصل ۳: فارسی‌سازی اپلیکیشن جنگو
 
 در این فصل، با روش‌های فارسی‌سازی پنل مدیریت جنگو و تاریخ و زمان آشنا خواهیم شد.
 
-## ۱. فارسی‌سازی پنل مدیریت
+### ۱. فارسی‌سازی پنل مدیریت
 
 برای فارسی‌سازی پنل مدیریت، باید تنظیمات و تغییرات زیر را در فایل‌های مختلف پروژه انجام دهیم.
 
-### ۱.۱ تغییرات در فایل `admin.py`
+#### ۱.۱ تغییرات در فایل `admin.py`
 
 ابتدا باید متغیرهای عنوان و سربرگ پنل مدیریت را به فارسی تغییر دهیم و سپس مدل‌ها را ثبت کنیم:
 
@@ -35,7 +35,7 @@ class PostAdmin(admin.ModelAdmin):
     list_display_links = ['author']
 ```
 
-### ۱.۲ تغییرات در فایل `apps.py`
+#### ۱.۲ تغییرات در فایل `apps.py`
 
 برای فارسی‌سازی نام اپلیکیشن در پنل مدیریت:
 
@@ -50,7 +50,7 @@ class BlogConfig(AppConfig):
     verbose_name = "وبلاگ"
 ```
 
-### ۱.۳ تغییرات در فایل `models.py`
+#### ۱.۳ تغییرات در فایل `models.py`
 
 برای فارسی‌سازی فیلدهای مدل‌ها و استفاده از تاریخ جلالی:
 
@@ -100,7 +100,7 @@ class Post(models.Model):
         return reverse('blog:post_detail', args=[self.id])
 ```
 
-### ۱.۴ تنظیمات زبان و منطقه زمانی در `settings.py`
+#### ۱.۴ تنظیمات زبان و منطقه زمانی در `settings.py`
 
 `project directory name/settings.py`
 
@@ -116,9 +116,9 @@ INSTALLED_APPS = [
 ]
 ```
 
-## ۲. فارسی‌سازی تاریخ و زمان
+### ۲. فارسی‌سازی تاریخ و زمان
 
-### ۲.۱ نصب و پیکربندی `django-jalali`
+#### ۲.۱ نصب و پیکربندی `django-jalali`
 
 برای استفاده از تاریخ جلالی:
 
@@ -128,7 +128,7 @@ INSTALLED_APPS = [
 pip install django-jalali
 ```
 
-### ۲.۲ تنظیمات تاریخ جلالی در فایل‌های مدل و ادمین
+#### ۲.۲ تنظیمات تاریخ جلالی در فایل‌های مدل و ادمین
 
 `blog/admin.py`
 
@@ -201,11 +201,11 @@ class Post(models.Model):
         return reverse('blog:post_detail', args=[self.id])
 ```
 
-### ۲.۳ تغییرات در قالب‌ها برای استفاده از تاریخ جلالی
+#### ۲.۳ تغییرات در قالب‌ها برای استفاده از تاریخ جلالی
 
 `blog/templates/blog/detail.html`
 
-```html
+```jinja
 {% extends 'parent/base.html' %}
 {% load jformat %}
 {% block title %} جزئیات پست {% endblock %}
@@ -218,157 +218,6 @@ class Post(models.Model):
 {% endblock %}
 ```
 
-## ۳. صفحه‌بندی (Pagination)
+### نتیجه‌گیری
 
-برای افزودن قابلیت صفحه‌بندی به لیست پست‌ها، ابتدا تغییرات زیر را در ویوها و قالب‌ها اعمال می‌کنیم.
-
-### ۳.۱ تغییرات در ویوها
-
-`blog/views.py`
-
-```python
-from django.shortcuts import render, get_object_or_404
-from .models import Post
-from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
-from django.views.generic import ListView, DetailView
-
-def index(request):
-    return HttpResponse("index")
-
-class PostListView(ListView):
-    queryset = Post.published.all()
-    context_object_name = "posts"
-    paginate_by = 3
-    template_name = "blog/list.html"
-
-class PostDetailView(DetailView):
-    model = Post
-    template_name = "blog/detail.html"
-```
-
-### ۳.۲ تغییرات در قالب‌ها
-
-`blog/templates/partials/pagination.html`
-
-```html
-<div class="pagination">
-    {% if page.has_previous %}
-        <a href="?page={{ page.previous_page_number }}">« قبلی</a>
-        {% if page.number > 3 %}
-            <a href="?page=1">1</a>
-            {% if page.number > 4 %}
-                <span>...</span>
-            {% endif %}
-        {% endif %}
-    {% endif %}
-
-    {% for num in page.paginator.page_range %}
-        {% if page.number == num %}
-            <a href="?page={{ num }}">{{ num }}</a>
-        {% elif num > page.number|add:'-3' and num < page.number|add:'3' %}
-            <a href="?page={{ num }}">{{ num }}</a>
-        {% endif %}
-    {% endfor %}
-
-    {% if page.has_next %}
-        {% if page.number < page.paginator.num_pages|add:'-3' %}
-            <span>...</span>
-            <a href="?page={{ page.paginator.num_pages }}">{{ page.paginator.num_pages }}</a>
-        {% elif page.number < page.paginator.num_pages|add:'-2' %}
-            <a href="?page={{ page.paginator.num_pages }}">{{ page.paginator.num_pages }}</a>
-        {% endif %}
-        <a href="?page={{ page.next_page_number }}">بعدی »
-
-</a>
-    {% endif %}
-</div>
-```
-
-`blog/templates/blog/list.html`
-
-```html
-{% extends 'parent/base.html' %}
-{% block title %}لیست پست‌ها{% endblock %}
-{% block content %}
-    <h1>لیست پست‌ها</h1>
-    {% for post in posts %}
-        <h3>
-            <a href="{{ post.get_absolute_url }}">
-                {{ post.title }}
-            </a>
-            توسط {{ post.author }}
-        </h3>
-        <p>{{ post.description }}</p>
-    {% endfor %}
-
-    {% include "partials/pagination.html" with page=posts %}
-{% endblock %}
-```
-
-## ۴. استفاده از لاگ‌ها در جنگو
-
-برای مدیریت بهتر خطاها و اشکالات پروژه، استفاده از لاگ‌ها بسیار مفید است. لاگ‌ها به شما کمک می‌کنند تا مشکلات را شناسایی و رفع کنید.
-
-### ۴.۱ تنظیمات لاگ‌ها در `settings.py`
-
-`project directory name/settings.py`
-
-```python
-LOGGING = {
-    'version': 1,
-    'disable_existing_loggers': False,
-    'handlers': {
-        'file': {
-            'level': 'DEBUG',
-            'class': 'logging.FileHandler',
-            'filename': BASE_DIR / 'debug.log',
-        },
-    },
-    'loggers': {
-        'django': {
-            'handlers': ['file'],
-            'level': 'DEBUG',
-            'propagate': True,
-        },
-    },
-}
-```
-
-### ۴.۲ استفاده از لاگ‌ها در ویوها
-
-`blog/views.py`
-
-```python
-from django.shortcuts import render, get_object_or_404
-from .models import Post
-from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
-from django.views.generic import ListView, DetailView
-import logging
-
-logger = logging.getLogger(__name__)
-
-def index(request):
-    return HttpResponse("index")
-
-class PostListView(ListView):
-    queryset = Post.published.all()
-    context_object_name = "posts"
-    paginate_by = 3
-    template_name = "blog/list.html"
-
-    def get_queryset(self):
-        logger.debug("Fetching posts for PostListView")
-        return super().get_queryset()
-
-class PostDetailView(DetailView):
-    model = Post
-    template_name = "blog/detail.html"
-
-    def get_object(self, queryset=None):
-        logger.debug(f"Fetching post with ID {self.kwargs['pk']}")
-        return super().get_object(queryset)
-```
-
-## نتیجه‌گیری
-
-با اعمال تغییرات ذکر شده، پروژه جنگو به زبان فارسی قابل استفاده و مدیریت خواهد بود. همچنین قابلیت صفحه‌بندی و استفاده از لاگ‌ها به شما کمک می‌کند تا تجربه بهتری از مدیریت و رفع مشکلات پروژه داشته باشید.
+با اعمال تغییرات ذکر شده، پنل ادمین پروژه جنگو به زبان فارسی قابل استفاده خواهد بود. همچنین تاریخ و زمان با تاریخ جلالی به شمسی تبدیل خواهد شد(به زبان فارسی)
