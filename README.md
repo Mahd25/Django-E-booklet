@@ -204,8 +204,9 @@ def index(request):
     <p>🙏 از مشارکت شما در پروژه کتابچه الکترونیک جنگو سپاسگزاریم! 📚</p>
     <p>تلاش‌های شما این منبع را برای جامعه ارزشمندتر می‌کند. 🎉</p>
   </div>
-  <!-- Step-by-step Contribution Guide Section --><div dir="rtl" style="background-color: white; padding: 20px; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+ <div dir="rtl" style="background-color: white; padding: 20px; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
 <h2 style="color: #333333;">راهنمای گام به گام برای مشارکت در پروژه</h2>
+
 <h3 style="color: #666666;">۱. فورک کردن ریپازیتوری</h3>
 <ol>
   <li>به صفحه اصلی ریپازیتوری <code>Django-E-booklet</code> در GitHub بروید: <a href="https://github.com/Mahd25/Django-E-booklet" style="color: #09b7d6; text-decoration: none;">Django-E-booklet</a>.</li>
@@ -238,14 +239,19 @@ def index(request):
 </ol>
 
 <h3 style="color: #666666;">۴. همگام‌سازی با ریپازیتوری اصلی</h3>
-<p>برای همگام‌سازی با تغییرات اخیر در ریپازیتوری اصلی از دستور زیر استفاده کنید:</p>
-<pre style="background-color: #333333; color:  #ffb300; padding: 5px; border-radius: 20px; margin: 10px">
-  <code>
-    git fetch upstream
-    git checkout main
-    git merge upstream/main
-  </code>
-</pre>
+<p>اگر ریپازیتوری شما دارای برنچ‌های "master" و "seasons-source" است، برای همگام‌سازی با تغییرات اخیر در ریپازیتوری اصلی از دستورات زیر استفاده کنید:</p>
+<div dir="ltr">
+  <pre style="background-color: #333333; color:  #ffb300; padding: 5px; border-radius: 20px; margin: 10px">
+    <code>
+      git fetch upstream
+      git checkout master
+      git merge upstream/master
+
+      git checkout seasons-source
+      git merge upstream/seasons-source
+    </code>
+  </pre>
+</div>
 
 <h3 style="color: #666666;">۵. ایجاد و جابجایی به برنچ <code>seasons-source</code></h3>
 <ol>
@@ -277,23 +283,29 @@ def index(request):
 <h3 style="color: #666666;">۷. کامیت کردن تغییرات</h3>
 <ol>
   <li>تغییرات خود را برای کامیت کردن آماده کنید:
-    <pre style="background-color: #333333; color:  #ffb300; padding: 5px; border-radius: 20px; margin: 10px">
-      <code>git add .</code>
-    </pre>
+    <div dir="ltr">
+      <pre style="background-color: #333333; color:  #ffb300; padding: 5px; border-radius: 20px; margin: 10px">
+        <code>git add .</code>
+      </pre>
+    </div>
   </li>
   <li>یک پیام کامیت اضافه کنید و تغییرات را کامیت کنید:
-    <pre style="background-color: #333333; color:  #ffb300; padding: 5px; border-radius: 20px; margin: 10px">
-      <code>git commit -m "توضیح مختصر در مورد تغییرات"</code>
-    </pre>
+    <div dir="ltr">
+      <pre style="background-color: #333333; color:  #ffb300; padding: 5px; border-radius: 20px; margin: 10px">
+        <code>git commit -m "توضیح مختصر در مورد تغییرات"</code>
+      </pre>
+    </div>
   </li>
 </ol>
 
 <h3 style="color: #666666;">۸. پوش کردن تغییرات به GitHub</h3>
 <ol>
   <li>تغییرات خود را به ریپازیتوری فورک شده خود در GitHub پوش کنید:
-    <pre style="background-color: #333333; color:  #ffb300; padding: 5px; border-radius: 20px; margin: 10px">
-      <code>git push origin my-new-branch</code>
-    </pre>
+    <div dir="ltr">
+      <pre style="background-color: #333333; color:  #ffb300; padding: 5px; border-radius: 20px; margin: 10px">
+        <code>git push origin my-new-branch</code>
+      </pre>
+    </div>
   </li>
 </ol>
 
@@ -307,5 +319,6 @@ def index(request):
 <p>حالا تغییرات شما آماده بررسی و ادغام به ریپازیتوری اصلی است. از مشارکت شما در پروژه کتابچه الکترونیک جنگو سپاسگزاریم! 🌟</p>
 <p>این راهنما به شما کمک می‌کند تا بتوانید به سادگی در پروژه مشارکت کنید و تغییرات خود را با دیگران به اشتراک بگذارید.</p>
 </div>
+
 
 </div>
