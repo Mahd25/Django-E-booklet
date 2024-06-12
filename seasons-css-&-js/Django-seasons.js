@@ -1,4 +1,4 @@
-$(document).ready(function() {
+$(document).ready(function () {
     // اسکریپت جاوااسکریپت برای اضافه کردن تگ nav به ابتدای body
     $('body').prepend(`
         <nav class="menu">
@@ -29,7 +29,7 @@ $(document).ready(function() {
     updateNavText();
 
     // اضافه کردن رویداد resize برای به روزرسانی متن در صورت تغییر سایز صفحه
-    $(window).resize(function() {
+    $(window).resize(function () {
         updateNavText();
     });
 
@@ -37,10 +37,10 @@ $(document).ready(function() {
     $.ajax({
         url: 'menubar.html',
         method: 'GET',
-        success: function(data) {
+        success: function (data) {
             $('.container').prepend(data);
         },
-        error: function(error) {
+        error: function (error) {
             console.error("Error loading menubar:", error);
         }
     });
@@ -49,16 +49,16 @@ $(document).ready(function() {
     $.ajax({
         url: 'footer.html',
         method: 'GET',
-        success: function(response) {
+        success: function (response) {
             // اضافه کردن محتوای فوتر به صفحه اصلی
             $('body').append(response);
-            
+
             // دستوراتی که بعد از لود شدن فوتر باید اجرا شوند
             const startYear = 2024;
             const currentYear = new Date().getFullYear();
             // Set the start year
             $('#start-year').text(startYear);
-    
+
             // Check and set the current year only if it's different from start year
             if (startYear !== currentYear) {
                 $('#current-year').text('-' + currentYear);
@@ -67,20 +67,20 @@ $(document).ready(function() {
                 $('#current-year').hide();
             }
         },
-        error: function(error) {
+        error: function (error) {
             console.error('Error loading footer:', error);
         }
     });
 
     // پیاده‌سازی اسکریپت جاوااسکریپت برای منوی باز و بسته شدن
-    $(document).on('click', '.open', function() {
+    $(document).on('click', '.open', function () {
         $('.open').toggleClass('active');
         $('.close').toggleClass('active');
         $('.menu-list').toggleClass('active');
         $('.content').toggleClass('active');
     });
 
-    $(document).on('click', '.close', function() {
+    $(document).on('click', '.close', function () {
         $('.close').toggleClass('active');
         $('.open').toggleClass('active');
         $('.menu-list').toggleClass('active');
@@ -90,7 +90,7 @@ $(document).ready(function() {
     // اسکریپت برای اسکرول به عناوین بدون قرارگیری زیر هدر
     const headerOffset = $('.menu').outerHeight(); // ارتفاع هدر را بگیرید
 
-    $('a[href^="#"]').click(function(event) {
+    $('a[href^="#"]').click(function (event) {
         event.preventDefault();
         const targetId = $(this).attr('href').substring(1);
         const targetElement = document.getElementById(targetId);

@@ -1,17 +1,18 @@
 @font-face {
     font-family: 'Vazir';
     src: url('../fonts/Vazir-Variable.woff') format('woff'),
-         url('../fonts/Vazir-Variable.woff2') format('woff2');
+        url('../fonts/Vazir-Variable.woff2') format('woff2');
     /* font-weight: bold; */
     font-style: normal;
 }
-  
+
 
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
+
 body {
     font-family: 'Vazir', sans-serif;
 }
@@ -69,7 +70,8 @@ a.link-to-booklet:hover::before {
     transform: scaleX(1);
 }
 
-a.link-to-booklet, a.link-by-image {
+a.link-to-booklet,
+a.link-by-image {
     text-decoration: none;
     color: black;
 }
@@ -132,7 +134,8 @@ a.link-to-booklet, a.link-by-image {
 @media (min-width: 600px) {
     .content {
         max-width: 650px;
-        grid-template-columns: repeat(2, minmax(0, 1fr)); /* دو ستون در عرض */
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        /* دو ستون در عرض */
         padding: 20px 8px;
     }
 
@@ -145,7 +148,8 @@ a.link-to-booklet, a.link-by-image {
 @media (min-width: 768px) {
     .content {
         max-width: 790px;
-        grid-template-columns: repeat(2, minmax(0, 1fr)); /* دو ستون در عرض */
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        /* دو ستون در عرض */
         padding: 20px 8px;
     }
 
@@ -157,7 +161,8 @@ a.link-to-booklet, a.link-by-image {
 @media (min-width: 1024px) {
     .content {
         max-width: 1070px;
-        grid-template-columns: repeat(3, minmax(0, 1fr)); /* سه ستون در عرض */
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        /* سه ستون در عرض */
         padding: 20px 8px;
     }
 
@@ -169,7 +174,8 @@ a.link-to-booklet, a.link-by-image {
 @media (min-width: 1280px) {
     .content {
         max-width: 1300px;
-        grid-template-columns: repeat(4, minmax(0, 1fr)); /* چهار ستون در عرض */
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        /* چهار ستون در عرض */
         padding: 20px 8px;
     }
 
@@ -258,13 +264,13 @@ footer {
 }
 
 /* style for social box and details */
-.social-media{
+.social-media {
     padding: 18px 8px;
-	display: flex;
+    display: flex;
     flex-direction: column;
     gap: 20px;
-	justify-content: center;
-	align-items: center;
+    justify-content: center;
+    align-items: center;
 }
 
 .social-media h3 {
@@ -274,52 +280,54 @@ footer {
 /* details */
 
 .social-box {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	gap: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 25px;
 }
 
 a.social-link {
     -webkit-tap-highlight-color: transparent;
-	tap-highlight-color: transparent;
-	position: relative;
-	width: 70px;
-	height: 70px;
-	display: block;
-	border-radius: 50%;
-	background-image: linear-gradient(75deg, #ddd, #fff);
-	text-align: center;
-	padding: 6.5px;
-	text-decoration: none;
-	box-shadow: rgba(0, 0, 0, 0.19) 0px 6px 15px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
-	transition: 0.35s;
+    tap-highlight-color: transparent;
+    position: relative;
+    width: 70px;
+    height: 70px;
+    display: block;
+    border-radius: 50%;
+    background-image: linear-gradient(75deg, #ddd, #fff);
+    text-align: center;
+    padding: 6.5px;
+    text-decoration: none;
+    box-shadow: rgba(0, 0, 0, 0.19) 0px 6px 15px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+    transition: 0.35s;
 }
 
-a.social-link:hover{
-	box-shadow: 0 2px 3px rgba(0, 0, 0, 0.6);
+a.social-link:hover {
+    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.6);
 }
 
-i.fab{
-	width: 100%;
-	height: 100%;
-	border-radius: 50%;
-	background: linear-gradient(75deg, #fff, #ddd);
+i.fab {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: linear-gradient(75deg, #fff, #ddd);
     display: flex;
     justify-content: center;
     align-items: center;
-	font-size: 39px;
-	color: #262626;
+    font-size: 39px;
+    color: #262626;
 }
 
-.fab::before{
-	transition: 0.28s linear;
+.fab::before {
+    transition: 0.28s linear;
 }
-a{
-	transition: all 0.3s ease;
+
+a {
+    transition: all 0.3s ease;
 }
-a:hover{
-	transform: scale(0.97);
+
+a:hover {
+    transform: scale(0.97);
 }
 
 a:nth-child(1):hover .fab::before {
@@ -332,20 +340,20 @@ a:nth-child(1):hover .fab::before {
 }
 
 
-a:nth-child(2):hover .fab::before{
-	color: darkblue;
+a:nth-child(2):hover .fab::before {
+    color: darkblue;
 }
 
-a:nth-child(3):hover .fab::before{
-	color: rgba(0,119,255,1.00);
+a:nth-child(3):hover .fab::before {
+    color: rgba(0, 119, 255, 1.00);
 }
 
-a:nth-child(4):hover .fab::before{
-	color: rgba(0,166,224,1.00);
+a:nth-child(4):hover .fab::before {
+    color: rgba(0, 166, 224, 1.00);
 }
 
-a:nth-child(5):hover .fab::before{
-	color: rgba(0,148,0,1.00);
+a:nth-child(5):hover .fab::before {
+    color: rgba(0, 148, 0, 1.00);
 }
 
 
@@ -399,21 +407,23 @@ p.copyright-text {
     0% {
         background-position: 0% 50%;
     }
+
     50% {
         background-position: 100% 50%;
     }
+
     100% {
         background-position: 0% 50%;
     }
 }
 
-@media (min-width:1750px){
+@media (min-width:1750px) {
     .packing {
         justify-content: space-around;
     }
 }
 
-@media (min-width:900px) and (max-width:1200px){
+@media (min-width:900px) and (max-width:1200px) {
     .text-box .text-h4 {
         font-size: 0.95rem;
     }
@@ -429,19 +439,23 @@ p.copyright-text {
     .about-us {
         width: 53%;
     }
+
     a.social-link {
         width: 58px;
         height: 58px;
     }
+
     .packing {
         padding: 0 10px;
     }
+
     i.fab {
         font-size: 33px;
     }
+
     .about-us p {
-    font-size: 0.9rem;
-    color: #373737;
+        font-size: 0.9rem;
+        color: #373737;
     }
 
     footer {
@@ -449,7 +463,7 @@ p.copyright-text {
     }
 }
 
-@media (max-width:900px){
+@media (max-width:900px) {
     .text-box .text-h4 {
         font-size: 0.93rem;
     }
@@ -474,13 +488,13 @@ p.copyright-text {
     }
 }
 
-@media (max-width:750px){
+@media (max-width:750px) {
     .about-us p {
         font-weight: 500;
     }
 }
 
-@media (max-width:500px){
+@media (max-width:500px) {
     footer {
         padding: 15px;
     }
@@ -488,6 +502,7 @@ p.copyright-text {
     .about-us p {
         font-weight: normal;
     }
+
     .line {
         margin-bottom: 0;
     }
@@ -497,8 +512,8 @@ p.copyright-text {
     }
 
     .text-box .text-p {
-    font-size: 0.79rem;
-}
+        font-size: 0.79rem;
+    }
 
     a.social-link {
         width: 13.5vw;
@@ -511,12 +526,12 @@ p.copyright-text {
     }
 
     .social-box {
-	    gap: 16px;
-}
+        gap: 16px;
+    }
 }
 
 
-@media (max-width:450px){
+@media (max-width:450px) {
     .text-box .text-h4 {
         font-size: 0.9rem;
     }

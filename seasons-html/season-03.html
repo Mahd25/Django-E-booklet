@@ -1,42 +1,54 @@
-
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
-<head>
-<title>Season Three</title>    
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Django e-booklet">
-<meta name="keywords" content="django, django learning">
-<meta name="author" content="Mahdi Rezaie, Ali Ebrahimian">
-<link rel="icon" href="../Images/favicon.ico" type="image/ico">
 
-<link rel="stylesheet" type="text/css" href="../seasons-css-&-js/seasons-style.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<head>
+    <title>Season Three</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Django e-booklet">
+    <meta name="keywords" content="django, django learning">
+    <meta name="author" content="Mahdi Rezaie, Ali Ebrahimian">
+    <link rel="icon" href="../Images/favicon.ico" type="image/ico">
+
+    <link rel="stylesheet" type="text/css" href="../seasons-css-&-js/seasons-style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+        integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
+
 <body>
-<main>
-    <div class="container">
-        <div class="content">
-            <h2>فصل سوم: فارسی سازی جنگو</h2><div class="toc"><h3>فهرست مطالب</h3><ul>
-<li><a href="#1-frsy-szy-pnl-mdyryt">۱. فارسی سازی پنل مدیریت</a></li>
-<li><a href="#2-frsy-szy-trykh-w-zmn">۲. فارسی سازی تاریخ و زمان</a></li>
-<li><a href="#ntyjh-gyry">نتیجه‌گیری</a></li>
-</ul></div>
-<p>در این فصل، با روش‌های فارسی سازی پنل مدیریت جنگو و تاریخ و زمان آشنا خواهیم شد.</p>
-<h3 id="1-frsy-szy-pnl-mdyryt">۱. فارسی سازی پنل مدیریت</h3>
-<p>برای فارسی سازی پنل مدیریت، باید تنظیمات و تغییرات زیر را در فایل‌های مختلف پروژه انجام دهیم.</p>
-<h4>۱.۱ تغییرات در فایل <code>admin.py</code></h4>
-<p>ابتدا باید متغیرهای عنوان و سربرگ پنل مدیریت را به فارسی تغییر دهیم و سپس مدل‌ها را ثبت کنیم:</p>
-<p><code>blog/admin.py</code></p>
-<div class="code-box">
-        <div class="code-info">
-            <button class="copy-icon">
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" class="icon-sm"><path fill="currentColor" fill-rule="evenodd" d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z" clip-rule="evenodd"></path></svg>
-                <span>Copy code</span>
-            </button>
-            <span class="language">python</span>
-        </div>
-    <pre><span></span><span class="kn">from</span> <span class="nn">django.contrib</span> <span class="kn">import</span> <span class="n">admin</span>
+    <main>
+        <div class="container">
+            <div class="content">
+                <h2>فصل سوم: فارسی سازی جنگو</h2>
+                <div class="toc">
+                    <h3>فهرست مطالب</h3>
+                    <ul>
+                        <li><a href="#1-frsy-szy-pnl-mdyryt">۱. فارسی سازی پنل مدیریت</a></li>
+                        <li><a href="#2-frsy-szy-trykh-w-zmn">۲. فارسی سازی تاریخ و زمان</a></li>
+                        <li><a href="#ntyjh-gyry">نتیجه‌گیری</a></li>
+                    </ul>
+                </div>
+                <p>در این فصل، با روش‌های فارسی سازی پنل مدیریت جنگو و تاریخ و زمان آشنا خواهیم شد.</p>
+                <h3 id="1-frsy-szy-pnl-mdyryt">۱. فارسی سازی پنل مدیریت</h3>
+                <p>برای فارسی سازی پنل مدیریت، باید تنظیمات و تغییرات زیر را در فایل‌های مختلف پروژه انجام دهیم.</p>
+                <h4>۱.۱ تغییرات در فایل <code>admin.py</code></h4>
+                <p>ابتدا باید متغیرهای عنوان و سربرگ پنل مدیریت را به فارسی تغییر دهیم و سپس مدل‌ها را ثبت کنیم:</p>
+                <p><code>blog/admin.py</code></p>
+                <div class="code-box">
+                    <div class="code-info">
+                        <button class="copy-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none"
+                                viewBox="0 0 24 24" class="icon-sm">
+                                <path fill="currentColor" fill-rule="evenodd"
+                                    d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z"
+                                    clip-rule="evenodd"></path>
+                            </svg>
+                            <span>Copy code</span>
+                        </button>
+                        <span class="language">python</span>
+                    </div>
+                    <pre><span></span><span class="kn">from</span> <span class="nn">django.contrib</span> <span class="kn">import</span> <span class="n">admin</span>
 <span class="kn">from</span> <span class="nn">.models</span> <span class="kn">import</span> <span class="o">*</span>
 
 <span class="c1"># Register your models here.</span>
@@ -56,39 +68,51 @@
     <span class="n">prepopulated_fields</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;slug&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;title&#39;</span><span class="p">]}</span>
     <span class="n">list_editable</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;status&#39;</span><span class="p">]</span>
     <span class="n">list_display_links</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;author&#39;</span><span class="p">]</span>
-</pre></div>
+</pre>
+                </div>
 
-<h4>۱.۲ تغییرات در فایل <code>apps.py</code></h4>
-<p>برای فارسی سازی نام اپلیکیشن در پنل مدیریت:</p>
-<p><code>blog/apps.py</code></p>
-<div class="code-box">
-        <div class="code-info">
-            <button class="copy-icon">
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" class="icon-sm"><path fill="currentColor" fill-rule="evenodd" d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z" clip-rule="evenodd"></path></svg>
-                <span>Copy code</span>
-            </button>
-            <span class="language">python</span>
-        </div>
-    <pre><span></span><span class="kn">from</span> <span class="nn">django.apps</span> <span class="kn">import</span> <span class="n">AppConfig</span>
+                <h4>۱.۲ تغییرات در فایل <code>apps.py</code></h4>
+                <p>برای فارسی سازی نام اپلیکیشن در پنل مدیریت:</p>
+                <p><code>blog/apps.py</code></p>
+                <div class="code-box">
+                    <div class="code-info">
+                        <button class="copy-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none"
+                                viewBox="0 0 24 24" class="icon-sm">
+                                <path fill="currentColor" fill-rule="evenodd"
+                                    d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z"
+                                    clip-rule="evenodd"></path>
+                            </svg>
+                            <span>Copy code</span>
+                        </button>
+                        <span class="language">python</span>
+                    </div>
+                    <pre><span></span><span class="kn">from</span> <span class="nn">django.apps</span> <span class="kn">import</span> <span class="n">AppConfig</span>
 
 <span class="k">class</span> <span class="nc">BlogConfig</span><span class="p">(</span><span class="n">AppConfig</span><span class="p">):</span>
     <span class="n">default_auto_field</span> <span class="o">=</span> <span class="s1">&#39;django.db.models.BigAutoField&#39;</span>
     <span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;blog&#39;</span>
     <span class="n">verbose_name</span> <span class="o">=</span> <span class="s2">&quot;وبلاگ&quot;</span>
-</pre></div>
+</pre>
+                </div>
 
-<h4>۱.۳ تغییرات در فایل <code>models.py</code></h4>
-<p>برای فارسی سازی فیلدهای مدل‌ها و استفاده از تاریخ جلالی:</p>
-<p><code>blog/models.py</code></p>
-<div class="code-box">
-        <div class="code-info">
-            <button class="copy-icon">
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" class="icon-sm"><path fill="currentColor" fill-rule="evenodd" d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z" clip-rule="evenodd"></path></svg>
-                <span>Copy code</span>
-            </button>
-            <span class="language">python</span>
-        </div>
-    <pre><span></span><span class="kn">from</span> <span class="nn">django.db</span> <span class="kn">import</span> <span class="n">models</span>
+                <h4>۱.۳ تغییرات در فایل <code>models.py</code></h4>
+                <p>برای فارسی سازی فیلدهای مدل‌ها و استفاده از تاریخ جلالی:</p>
+                <p><code>blog/models.py</code></p>
+                <div class="code-box">
+                    <div class="code-info">
+                        <button class="copy-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none"
+                                viewBox="0 0 24 24" class="icon-sm">
+                                <path fill="currentColor" fill-rule="evenodd"
+                                    d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z"
+                                    clip-rule="evenodd"></path>
+                            </svg>
+                            <span>Copy code</span>
+                        </button>
+                        <span class="language">python</span>
+                    </div>
+                    <pre><span></span><span class="kn">from</span> <span class="nn">django.db</span> <span class="kn">import</span> <span class="n">models</span>
 <span class="kn">from</span> <span class="nn">django.utils</span> <span class="kn">import</span> <span class="n">timezone</span>
 <span class="kn">from</span> <span class="nn">django.contrib.auth.models</span> <span class="kn">import</span> <span class="n">User</span>
 <span class="kn">from</span> <span class="nn">django_jalali.db</span> <span class="kn">import</span> <span class="n">models</span> <span class="k">as</span> <span class="n">jmodels</span>
@@ -129,19 +153,25 @@
 
     <span class="k">def</span> <span class="nf">get_absolute_url</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="n">reverse</span><span class="p">(</span><span class="s1">&#39;blog:post_detail&#39;</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">id</span><span class="p">])</span>
-</pre></div>
+</pre>
+                </div>
 
-<h4>۱.۴ تنظیمات زبان و منطقه زمانی در <code>settings.py</code></h4>
-<p><code>project directory name/settings.py</code></p>
-<div class="code-box">
-        <div class="code-info">
-            <button class="copy-icon">
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" class="icon-sm"><path fill="currentColor" fill-rule="evenodd" d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z" clip-rule="evenodd"></path></svg>
-                <span>Copy code</span>
-            </button>
-            <span class="language">python</span>
-        </div>
-    <pre><span></span><span class="n">LANGUAGE_CODE</span> <span class="o">=</span> <span class="s1">&#39;fa-ir&#39;</span>
+                <h4>۱.۴ تنظیمات زبان و منطقه زمانی در <code>settings.py</code></h4>
+                <p><code>project directory name/settings.py</code></p>
+                <div class="code-box">
+                    <div class="code-info">
+                        <button class="copy-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none"
+                                viewBox="0 0 24 24" class="icon-sm">
+                                <path fill="currentColor" fill-rule="evenodd"
+                                    d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z"
+                                    clip-rule="evenodd"></path>
+                            </svg>
+                            <span>Copy code</span>
+                        </button>
+                        <span class="language">python</span>
+                    </div>
+                    <pre><span></span><span class="n">LANGUAGE_CODE</span> <span class="o">=</span> <span class="s1">&#39;fa-ir&#39;</span>
 <span class="n">TIME_ZONE</span> <span class="o">=</span> <span class="s1">&#39;Asia/Tehran&#39;</span>
 
 <span class="n">INSTALLED_APPS</span> <span class="o">=</span> <span class="p">[</span>
@@ -150,34 +180,46 @@
     <span class="s1">&#39;django_jalali&#39;</span><span class="p">,</span>
     <span class="o">...</span>
 <span class="p">]</span>
-</pre></div>
+</pre>
+                </div>
 
-<h3 id="2-frsy-szy-trykh-w-zmn">۲. فارسی سازی تاریخ و زمان</h3>
-<h4>۲.۱ نصب و پیکربندی <code>django-jalali</code></h4>
-<p>برای استفاده از تاریخ جلالی:</p>
-<p><code>Terminal:</code></p>
-<div class="code-box">
-        <div class="code-info">
-            <button class="copy-icon">
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" class="icon-sm"><path fill="currentColor" fill-rule="evenodd" d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z" clip-rule="evenodd"></path></svg>
-                <span>Copy code</span>
-            </button>
-            <span class="language">bash</span>
-        </div>
-    <pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>django-jalali
-</pre></div>
+                <h3 id="2-frsy-szy-trykh-w-zmn">۲. فارسی سازی تاریخ و زمان</h3>
+                <h4>۲.۱ نصب و پیکربندی <code>django-jalali</code></h4>
+                <p>برای استفاده از تاریخ جلالی:</p>
+                <p><code>Terminal:</code></p>
+                <div class="code-box">
+                    <div class="code-info">
+                        <button class="copy-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none"
+                                viewBox="0 0 24 24" class="icon-sm">
+                                <path fill="currentColor" fill-rule="evenodd"
+                                    d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z"
+                                    clip-rule="evenodd"></path>
+                            </svg>
+                            <span>Copy code</span>
+                        </button>
+                        <span class="language">bash</span>
+                    </div>
+                    <pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>django-jalali
+</pre>
+                </div>
 
-<h4>۲.۲ تنظیمات تاریخ جلالی در فایل‌های مدل و ادمین</h4>
-<p><code>blog/admin.py</code></p>
-<div class="code-box">
-        <div class="code-info">
-            <button class="copy-icon">
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" class="icon-sm"><path fill="currentColor" fill-rule="evenodd" d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z" clip-rule="evenodd"></path></svg>
-                <span>Copy code</span>
-            </button>
-            <span class="language">python</span>
-        </div>
-    <pre><span></span><span class="kn">from</span> <span class="nn">django.contrib</span> <span class="kn">import</span> <span class="n">admin</span>
+                <h4>۲.۲ تنظیمات تاریخ جلالی در فایل‌های مدل و ادمین</h4>
+                <p><code>blog/admin.py</code></p>
+                <div class="code-box">
+                    <div class="code-info">
+                        <button class="copy-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none"
+                                viewBox="0 0 24 24" class="icon-sm">
+                                <path fill="currentColor" fill-rule="evenodd"
+                                    d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z"
+                                    clip-rule="evenodd"></path>
+                            </svg>
+                            <span>Copy code</span>
+                        </button>
+                        <span class="language">python</span>
+                    </div>
+                    <pre><span></span><span class="kn">from</span> <span class="nn">django.contrib</span> <span class="kn">import</span> <span class="n">admin</span>
 <span class="kn">from</span> <span class="nn">.models</span> <span class="kn">import</span> <span class="o">*</span>
 <span class="kn">from</span> <span class="nn">django_jalali.admin.filters</span> <span class="kn">import</span> <span class="n">JDateFieldListFilter</span>
 <span class="kn">import</span> <span class="nn">django_jalali.admin</span> <span class="k">as</span> <span class="nn">jadmin</span>
@@ -197,18 +239,24 @@
     <span class="n">prepopulated_fields</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;slug&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;title&#39;</span><span class="p">]}</span>
     <span class="n">list_editable</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;status&#39;</span><span class="p">]</span>
     <span class="n">list_display_links</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;title&#39;</span><span class="p">,</span> <span class="s1">&#39;author&#39;</span><span class="p">]</span>
-</pre></div>
+</pre>
+                </div>
 
-<p><code>blog/models.py</code></p>
-<div class="code-box">
-        <div class="code-info">
-            <button class="copy-icon">
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" class="icon-sm"><path fill="currentColor" fill-rule="evenodd" d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z" clip-rule="evenodd"></path></svg>
-                <span>Copy code</span>
-            </button>
-            <span class="language">python</span>
-        </div>
-    <pre><span></span><span class="kn">from</span> <span class="nn">django.db</span> <span class="kn">import</span> <span class="n">models</span>
+                <p><code>blog/models.py</code></p>
+                <div class="code-box">
+                    <div class="code-info">
+                        <button class="copy-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none"
+                                viewBox="0 0 24 24" class="icon-sm">
+                                <path fill="currentColor" fill-rule="evenodd"
+                                    d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z"
+                                    clip-rule="evenodd"></path>
+                            </svg>
+                            <span>Copy code</span>
+                        </button>
+                        <span class="language">python</span>
+                    </div>
+                    <pre><span></span><span class="kn">from</span> <span class="nn">django.db</span> <span class="kn">import</span> <span class="n">models</span>
 <span class="kn">from</span> <span class="nn">django.utils</span> <span class="kn">import</span> <span class="n">timezone</span>
 <span class="kn">from</span> <span class="nn">django.contrib.auth.models</span> <span class="kn">import</span> <span class="n">User</span>
 <span class="kn">from</span> <span class="nn">django_jalali.db</span> <span class="kn">import</span> <span class="n">models</span> <span class="k">as</span> <span class="n">jmodels</span>
@@ -249,19 +297,25 @@
 
     <span class="k">def</span> <span class="nf">get_absolute_url</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="n">reverse</span><span class="p">(</span><span class="s1">&#39;blog:post_detail&#39;</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">id</span><span class="p">])</span>
-</pre></div>
+</pre>
+                </div>
 
-<h4>۲.۳ تغییرات در قالب‌ها برای استفاده از تاریخ جلالی</h4>
-<p><code>blog/templates/blog/detail.html</code></p>
-<div class="code-box">
-        <div class="code-info">
-            <button class="copy-icon">
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" class="icon-sm"><path fill="currentColor" fill-rule="evenodd" d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z" clip-rule="evenodd"></path></svg>
-                <span>Copy code</span>
-            </button>
-            <span class="language">jinja</span>
-        </div>
-    <pre><span></span><span class="cp">{%</span> <span class="k">extends</span> <span class="s1">&#39;parent/base.html&#39;</span> <span class="cp">%}</span>
+                <h4>۲.۳ تغییرات در قالب‌ها برای استفاده از تاریخ جلالی</h4>
+                <p><code>blog/templates/blog/detail.html</code></p>
+                <div class="code-box">
+                    <div class="code-info">
+                        <button class="copy-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none"
+                                viewBox="0 0 24 24" class="icon-sm">
+                                <path fill="currentColor" fill-rule="evenodd"
+                                    d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z"
+                                    clip-rule="evenodd"></path>
+                            </svg>
+                            <span>Copy code</span>
+                        </button>
+                        <span class="language">jinja</span>
+                    </div>
+                    <pre><span></span><span class="cp">{%</span> <span class="k">extends</span> <span class="s1">&#39;parent/base.html&#39;</span> <span class="cp">%}</span>
 <span class="cp">{%</span> <span class="k">load</span> <span class="nv">jformat</span> <span class="cp">%}</span>
 <span class="cp">{%</span> <span class="k">block</span> <span class="nv">title</span> <span class="cp">%}</span><span class="x"> جزئیات پست </span><span class="cp">{%</span> <span class="k">endblock</span> <span class="cp">%}</span>
 <span class="cp">{%</span> <span class="k">block</span> <span class="nv">content</span> <span class="cp">%}</span>
@@ -271,20 +325,25 @@
 <span class="x">    &lt;hr&gt;</span>
 <span class="x">    &lt;p&gt;</span><span class="cp">{{</span> <span class="nv">post.publish</span> <span class="o">|</span> <span class="nf">jformat</span> <span class="cp">}}</span><span class="x">&lt;/p&gt;</span>
 <span class="cp">{%</span> <span class="k">endblock</span> <span class="cp">%}</span>
-</pre></div>
+</pre>
+                </div>
 
-<h3 id="ntyjh-gyry">نتیجه‌گیری</h3>
-<p>با اعمال تغییرات ذکر شده، پنل ادمین پروژه جنگو به زبان فارسی قابل استفاده خواهد بود. همچنین تاریخ و زمان با تاریخ جلالی به شمسی تبدیل خواهد شد(به زبان فارسی)</p>
-            <a href="https://github.com/mahd25/Django-E-booklet/edit/seasons-source/season-03.md" target="_blank" class="edit-icon">
-                <i class="fa-solid fa-pen-to-square"></i>
-            </a>
+                <h3 id="ntyjh-gyry">نتیجه‌گیری</h3>
+                <p>با اعمال تغییرات ذکر شده، پنل ادمین پروژه جنگو به زبان فارسی قابل استفاده خواهد بود. همچنین تاریخ و
+                    زمان با تاریخ جلالی به شمسی تبدیل خواهد شد(به زبان فارسی)</p>
+                <a href="https://github.com/mahd25/Django-E-booklet/edit/seasons-source/season-03.md" target="_blank"
+                    class="edit-icon">
+                    <i class="fa-solid fa-pen-to-square"></i>
+                </a>
+            </div>
         </div>
-    </div>
-</main>
+    </main>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-<script src="../seasons-css-&-js/Django-seasons.js"></script>
-<script src="../seasons-css-&-js/copy-icon.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+        integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="../seasons-css-&-js/Django-seasons.js"></script>
+    <script src="../seasons-css-&-js/copy-icon.js"></script>
 </body>
+
 </html>
-    
