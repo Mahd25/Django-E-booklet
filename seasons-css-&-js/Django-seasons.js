@@ -1,5 +1,5 @@
 $(document).ready(function() {
-    // 1. اضافه کردن تگ nav به ابتدای body
+    // اسکریپت جاوااسکریپت برای اضافه کردن تگ nav به ابتدای body
     $('body').prepend(`
         <nav class="menu">
             <div class="menu-icons">
@@ -33,9 +33,7 @@ $(document).ready(function() {
         updateNavText();
     });
 
-// --------------------------------------------------------------------------------------------
-
-    // 2. بارگذاری محتوای فایل menubar.html به داخل div با کلاس container
+    // بارگذاری محتوای فایل menubar.html به داخل div با کلاس container
     $.ajax({
         url: 'menubar.html',
         method: 'GET',
@@ -74,8 +72,7 @@ $(document).ready(function() {
         }
     });
 
-
-    // 3. پیاده‌سازی اسکریپت جاوااسکریپت
+    // پیاده‌سازی اسکریپت جاوااسکریپت برای منوی باز و بسته شدن
     $(document).on('click', '.open', function() {
         $('.open').toggleClass('active');
         $('.close').toggleClass('active');
@@ -89,5 +86,20 @@ $(document).ready(function() {
         $('.menu-list').toggleClass('active');
         $('.content').toggleClass('active');
     });
-});
 
+    // اسکریپت برای اسکرول به عناوین بدون قرارگیری زیر هدر
+    const headerOffset = $('.menu').outerHeight(); // ارتفاع هدر را بگیرید
+
+    $('a[href^="#"]').click(function(event) {
+        event.preventDefault();
+        const targetId = $(this).attr('href').substring(1);
+        const targetElement = document.getElementById(targetId);
+
+        if (targetElement) {
+            const targetPosition = $(targetElement).offset().top - headerOffset;
+            $('html, body').animate({
+                scrollTop: targetPosition
+            }, 750);
+        }
+    });
+});
