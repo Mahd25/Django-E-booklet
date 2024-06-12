@@ -121,7 +121,8 @@ h1.django-eBooklet {
 /* content */
 .content {
     padding: 20px 75px;
-    overflow: auto;
+    overflow-y: auto;
+    overflow-x: hidden;
     transition: all 0.5s ease-in-out;
 }
 
