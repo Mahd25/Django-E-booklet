@@ -87,29 +87,29 @@
     <h2 style="color: #333333;">راهنمای مشارکت</h2>
     <p>از علاقه شما به مشارکت در کتابچه الکترونیک جنگو سپاسگزاریم. برای حفظ انسجام و کیفیت کتابچه، لطفاً از اصول زیر پیروی کنید:</p>
   
-    <h3 style="color: #333333;">تغییرات محتوا</h3>
-    
-    <h4 style="color: #333333;">هدینگ‌ها</h4>
-    <ul>
-      <li><strong>هدینگ ۱</strong>: فقط برای نام پروژه استفاده می‌شود.</li>
-      <li><strong>هدینگ ۲</strong>: برای عنوان فصل‌ها استفاده می‌شود.</li>
-      <li><strong>هدینگ ۳ به پایین</strong>: برای عنوان بخش‌های داخل فصل‌ها استفاده می‌شود.</li>
-    </ul>
-    
-    <h4 style="color: #333333;">قالب کلی</h4>
-    <ul>
-      <li>هر فصل با عنوانی با <strong>هدینگ ۲</strong> شروع می‌شود.</li>
-      <li>توضیح مختصری در مورد فصل.</li>
-      <li>لیستی از مطالبی که در طول فصل بررسی می‌شوند.</li>
-      <li>بخش‌های محتوایی که شامل موارد زیر می‌شوند:
-        <ul>
-          <li>متن فارسی و انگلیسی</li>
-          <li>بلوک‌های کد (جنگو، HTML، CSS، JS، Jinja، Tree)</li>
-          <li>تصاویر</li>
-          <li>جداول</li>
-        </ul>
-      </li>
-    </ul>
+  <h3 style="color: #333333;">تغییرات محتوا</h3>
+  
+  <h4 style="color: #333333;">هدینگ‌ها</h4>
+  <ul>
+    <li><strong>هدینگ ۱</strong>: فقط برای نام پروژه استفاده می‌شود.</li>
+    <li><strong>هدینگ ۲</strong>: برای عنوان فصل‌ها استفاده می‌شود.</li>
+    <li><strong>هدینگ ۳ به پایین</strong>: برای عنوان بخش‌های داخل فصل‌ها استفاده می‌شود.</li>
+  </ul>
+  
+  <h4 style="color: #333333;">قالب کلی</h4>
+  <ul>
+    <li>هر فصل با عنوانی با <strong>هدینگ ۲</strong> شروع می‌شود.</li>
+    <li>توضیح مختصری در مورد فصل.</li>
+    <li>لیستی از مطالبی که در طول فصل بررسی می‌شوند.</li>
+    <li>بخش‌های محتوایی که شامل موارد زیر می‌شوند:
+      <ul>
+        <li>متن فارسی و انگلیسی</li>
+        <li>بلوک‌های کد (جنگو، HTML، CSS، JS، Jinja، Tree)</li>
+        <li>تصاویر</li>
+        <li>جداول</li>
+      </ul>
+    </li>
+  </ul>
   </div>
 
   <!-- Sample Chapter Template Section -->
@@ -117,8 +117,8 @@
     <h3 style="color: #333333;">نمونه قالب فصل</h3>
     <p>متن زیر یک نمونه از قالب فصل را برای شما فراهم می‌کند:</p>
     <div dir="ltr">
-<pre style="background-color: #333333; color:  #ffb300; padding: 5px; border-radius: 20px; margin: 10px">
-<code>
+    <pre style="background-color: #333333; color:  #ffb300; padding: 5px; border-radius: 20px; margin: 10px">
+    <code>
 ## مقدمه (هدینگ ۲)
 
 در این فصل به مباحث مقدماتی دربارهٔ جنگو می‌پردازیم.
@@ -218,60 +218,60 @@ def index(request):
     <li>به ریپازیتوری فورک شده در حساب GitHub خود بروید.</li>
     <li>لینک کلون را کپی کنید (معمولاً در قسمت کپی‌برداری <code>Code</code> و انتخاب HTTPS یا SSH).</li>
     <li>ترمینال یا خط فرمان را باز کنید و دستور زیر را اجرا کنید تا ریپازیتوری را کلون کنید:
-      <div dir="ltr">
-<pre style="background-color: #333333; color:  #ffb300; padding: 5px; border-radius: 20px; margin: 10px">
+    <div dir="ltr">
+      <pre style="background-color: #333333; color:  #ffb300; padding: 5px; border-radius: 20px; margin: 10px">
       <code>
         git clone https://github.com/YOUR-USERNAME/Django-E-booklet.git
-        </code>
+      </code>
       </pre>
-</div>
+    </div>
       </li>
       <li>به دایرکتوری پروژه بروید:
-        <div dir="ltr">
-<pre style="background-color: #333333; color:  #ffb300; padding: 5px; border-radius: 20px; margin: 10px">
-          <code>
-          cd Django-E-booklet
-          </code>
-        </pre>
-</div>
+      <div dir="ltr">
+      <pre style="background-color: #333333; color:  #ffb300; padding: 5px; border-radius: 20px; margin: 10px">
+        <code>
+        cd Django-E-booklet
+        </code>
+      </pre>
+      </div>
       </li>
     </ol>
 
   <h3 style="color: #666666;">۳. افزودن ریموت اصلی</h3>
   <ol>
     <li>ریموت اصلی را اضافه کنید تا بتوانید با ریپازیتوری اصلی همگام‌سازی کنید:
-      <div dir="ltr">
-<pre style="background-color: #333333; color:  #ffb300; padding: 5px; border-radius: 20px; margin: 10px">
-        <code>
+    <div dir="ltr">
+      <pre style="background-color: #333333; color:  #ffb300; padding: 5px; border-radius: 20px; margin: 10px">
+      <code>
         git remote add upstream https://github.com/Mahd25/Django-E-booklet.git
-        </code>
+      </code>
       </pre>
-</div>
+      </div>
     </li>
   </ol>
 
   <h3 style="color: #666666;">۴. همگام‌سازی با ریپازیتوری اصلی</h3>
   <p>برای همگام‌سازی با تغییرات اخیر در ریپازیتوری اصلی از دستور زیر استفاده کنید:</p>
   <div dir="ltr">
-<pre style="background-color: #333333; color:  #ffb300; padding: 5px; border-radius: 20px; margin: 10px">
+    <pre style="background-color: #333333; color:  #ffb300; padding: 5px; border-radius: 20px; margin: 10px">
     <code>
     git fetch upstream
     git checkout main
     git merge upstream/main
     </code>
     </pre>
-</div>
+  </div>
 
   <h3 style="color: #666666;">۵. ایجاد و جابجایی به برنچ <code>seasons-source</code></h3>
   <ol>
     <li>برنچ <code>seasons-source</code> را چک اوت کنید:
-      <div dir="ltr">
-<pre style="background-color: #333333; color:  #ffb300; padding: 5px; border-radius: 20px; margin: 10px">
+    <div dir="ltr">
+    <pre style="background-color: #333333; color:  #ffb300; padding: 5px; border-radius: 20px; margin: 10px">
         <code>
         git checkout seasons-source
         </code>
-      </pre>
-</div>
+    </pre>
+    </div>
         <strong>توجه:</strong> اگر برنچ <code>seasons-source</code> موجود نیست، ابتدا باید آن را از ریموت اصلی بکشید:
         <div dir="ltr">
 <pre style="background-color: #333333; color:  #ffb300; padding: 5px; border-radius: 20px; margin: 10px">
@@ -280,7 +280,7 @@ def index(request):
           git checkout -b seasons-source upstream/seasons-source
           </code>
         </pre>
-</div>
+    </div>
       </li>
       <li>یک برنچ جدید برای تغییرات خود ایجاد کنید:
         <div dir="ltr">
@@ -289,7 +289,7 @@ def index(request):
           git checkout -b my-new-branch
           </code>
         </pre>
-</div>
+    </div>
       </li>
     </ol>
 
@@ -308,7 +308,7 @@ def index(request):
         git add .
         </code>
       </pre>
-</div>
+    </div>
     </li>
     <li>یک پیام کامیت اضافه کنید و تغییرات را کامیت کنید:
       <div dir="ltr">
@@ -317,7 +317,7 @@ def index(request):
         git commit -m "توضیح مختصر در مورد تغییرات"
         </code>
       </pre>
-</div>
+     </div>
     </li>
   </ol>
 
@@ -330,7 +330,7 @@ def index(request):
         git push origin my-new-branch
       </code>
       </pre>
-</div>
+    </div>
     </li>
   </ol>
 
