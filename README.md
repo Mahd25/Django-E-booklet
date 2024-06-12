@@ -82,35 +82,35 @@
     <p>این پروژه تحت لایسنس MIT است. برای مشاهده متن کامل لایسنس، به فایل <a href="LICENSE" style="color: #09b7d6; text-decoration: none;">MIT License</a> در ریپازیتوری مراجعه کنید.</p>
   </div>
 
-<!-- Contribution Guide Section -->
-<div style="background-color: white; padding: 20px; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
-  <h2 style="color: #333333;">راهنمای مشارکت</h2>
-  <p>از علاقه شما به مشارکت در کتابچه الکترونیک جنگو سپاسگزاریم. برای حفظ انسجام و کیفیت کتابچه، لطفاً از اصول زیر پیروی کنید:</p>
-
-  <h3 style="color: #333333;">تغییرات محتوا</h3>
+  <!-- Contribution Guide Section -->
+  <div style="background-color: white; padding: 20px; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+    <h2 style="color: #333333;">راهنمای مشارکت</h2>
+    <p>از علاقه شما به مشارکت در کتابچه الکترونیک جنگو سپاسگزاریم. برای حفظ انسجام و کیفیت کتابچه، لطفاً از اصول زیر پیروی کنید:</p>
   
-  <h4 style="color: #333333;">هدینگ‌ها</h4>
-  <ul>
-    <li><strong>هدینگ ۱</strong>: فقط برای نام پروژه استفاده می‌شود.</li>
-    <li><strong>هدینگ ۲</strong>: برای عنوان فصل‌ها استفاده می‌شود.</li>
-    <li><strong>هدینگ ۳ به پایین</strong>: برای عنوان بخش‌های داخل فصل‌ها استفاده می‌شود.</li>
-  </ul>
-  
-  <h4 style="color: #333333;">قالب کلی</h4>
-  <ul>
-    <li>هر فصل با عنوانی با <strong>هدینگ ۲</strong> شروع می‌شود.</li>
-    <li>توضیح مختصری در مورد فصل.</li>
-    <li>لیستی از مطالبی که در طول فصل بررسی می‌شوند.</li>
-    <li>بخش‌های محتوایی که شامل موارد زیر می‌شوند:
-      <ul>
-        <li>متن فارسی و انگلیسی</li>
-        <li>بلوک‌های کد (جنگو، HTML، CSS، JS، Jinja، Tree)</li>
-        <li>تصاویر</li>
-        <li>جداول</li>
-      </ul>
-    </li>
-  </ul>
-</div>
+    <h3 style="color: #333333;">تغییرات محتوا</h3>
+    
+    <h4 style="color: #333333;">هدینگ‌ها</h4>
+    <ul>
+      <li><strong>هدینگ ۱</strong>: فقط برای نام پروژه استفاده می‌شود.</li>
+      <li><strong>هدینگ ۲</strong>: برای عنوان فصل‌ها استفاده می‌شود.</li>
+      <li><strong>هدینگ ۳ به پایین</strong>: برای عنوان بخش‌های داخل فصل‌ها استفاده می‌شود.</li>
+    </ul>
+    
+    <h4 style="color: #333333;">قالب کلی</h4>
+    <ul>
+      <li>هر فصل با عنوانی با <strong>هدینگ ۲</strong> شروع می‌شود.</li>
+      <li>توضیح مختصری در مورد فصل.</li>
+      <li>لیستی از مطالبی که در طول فصل بررسی می‌شوند.</li>
+      <li>بخش‌های محتوایی که شامل موارد زیر می‌شوند:
+        <ul>
+          <li>متن فارسی و انگلیسی</li>
+          <li>بلوک‌های کد (جنگو، HTML، CSS، JS، Jinja، Tree)</li>
+          <li>تصاویر</li>
+          <li>جداول</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
 
   <!-- Sample Chapter Template Section -->
   <div style="background-color: white; padding: 10px; border-radius: 8px; margin-bottom: 20px;">
