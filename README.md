@@ -242,14 +242,13 @@ def index(request):
 <p>اگر ریپازیتوری شما دارای برنچ‌های "master" و "seasons-source" است، برای همگام‌سازی با تغییرات اخیر در ریپازیتوری اصلی از دستورات زیر استفاده کنید:</p>
 <div dir="ltr">
   <pre style="background-color: #333333; color:  #ffb300; padding: 5px; border-radius: 20px; margin: 10px">
-    <code>
-      git fetch upstream
-      git checkout master
-      git merge upstream/master
-
-      git checkout seasons-source
-      git merge upstream/seasons-source
-    </code>
+  <code>
+    git fetch upstream
+    git checkout master
+    git merge upstream/master
+    git checkout seasons-source
+    git merge upstream/seasons-source
+  </code>
   </pre>
 </div>
 
