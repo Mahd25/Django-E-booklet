@@ -20,9 +20,9 @@ body {
 p {
     font-weight: 500;
 }
+/* -------------------------------------------------------------------------------------------------- */
 
-
-/* CSS پایه */
+/* base CSS */
 header {
     display: flex;
     flex-direction: row-reverse;
@@ -33,8 +33,7 @@ header {
     color: white;
     padding: 15px;
 }
-
-
+/* --------------------------------------------------------------------------------------------------- */
 
 .content {
     margin: auto;
@@ -43,14 +42,13 @@ header {
     gap: 30px;
     padding: 35px;
 }
-
+/* ------------------------------------------------------------------------------------------------------ */
 
 a.link-to-booklet {
     position: relative;
 }
 
 a.link-to-booklet:hover {
-    /* color: greenyellow; */
     color: #2238ce;
 }
 
@@ -75,6 +73,7 @@ a.link-by-image {
     text-decoration: none;
     color: black;
 }
+/* --------------------------------------------------------------------------------------------------------- */
 
 .season-box {
     border-radius: 12px;
@@ -86,6 +85,7 @@ a.link-by-image {
     flex-direction: column;
     padding-bottom: 8px;
 }
+/* ------------------------------------------------ */
 
 .info {
     padding: 20px 25px 15px;
@@ -105,6 +105,7 @@ a.link-by-image {
 .info p {
     font-size: 0.89rem;
 }
+/* --------------------------------------------- */
 
 .image-box {
     border-radius: 12px;
@@ -117,8 +118,9 @@ a.link-by-image {
     object-fit: cover;
     object-position: center;
 }
+/* ---------------------------------------------------------------------------------------------------------------- */
 
-/* ریسپانسیو برای تبلت‌ها و دسکتاپ‌ها */
+/* responsive */
 @media (max-width: 380px) {
     .image-box {
         height: 180px;
@@ -135,7 +137,6 @@ a.link-by-image {
     .content {
         max-width: 650px;
         grid-template-columns: repeat(2, minmax(0, 1fr));
-        /* دو ستون در عرض */
         padding: 20px 8px;
     }
 
@@ -149,7 +150,6 @@ a.link-by-image {
     .content {
         max-width: 790px;
         grid-template-columns: repeat(2, minmax(0, 1fr));
-        /* دو ستون در عرض */
         padding: 20px 8px;
     }
 
@@ -162,7 +162,6 @@ a.link-by-image {
     .content {
         max-width: 1070px;
         grid-template-columns: repeat(3, minmax(0, 1fr));
-        /* سه ستون در عرض */
         padding: 20px 8px;
     }
 
@@ -175,7 +174,6 @@ a.link-by-image {
     .content {
         max-width: 1300px;
         grid-template-columns: repeat(4, minmax(0, 1fr));
-        /* چهار ستون در عرض */
         padding: 20px 8px;
     }
 
@@ -185,6 +183,7 @@ a.link-by-image {
 }
 
 /* --------------------------------------------------------------------------------------------------------------- */
+
 /* style for footer */
 footer {
     overflow-x: hidden;
@@ -199,7 +198,7 @@ footer {
     flex-direction: column;
     align-items: center;
 }
-
+/* ---------------------------------------------------------- */
 
 /* Style for the text at the top of the footer */
 .text-box {
@@ -238,9 +237,10 @@ footer {
 
 .text-p .bold-text {
     font-weight: bolder;
-    font-size: 14px;
+    font-size: 0.875rem;
     margin-right: 5px;
 }
+/* ---------------------------------------------------------- */
 
 /* line between two boxes */
 .line {
@@ -250,6 +250,7 @@ footer {
     border-radius: 3px;
     margin-bottom: 10px;
 }
+/* ---------------------------------------------------------- */
 
 /* pack social media & about us */
 .packing {
@@ -262,6 +263,7 @@ footer {
     gap: 8px;
     margin-bottom: 25px;
 }
+/* ---------------------------------------------------------- */
 
 /* style for social box and details */
 .social-media {
@@ -285,6 +287,7 @@ footer {
     align-items: center;
     gap: 25px;
 }
+/* ---------------------------------------------------------- */
 
 a.social-link {
     -webkit-tap-highlight-color: transparent;
@@ -314,13 +317,14 @@ i.fab {
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 39px;
+    font-size: 2.4375rem;
     color: #262626;
 }
 
 .fab::before {
     transition: 0.28s linear;
 }
+/* ---------------------------------------------------------- */
 
 a {
     transition: all 0.3s ease;
@@ -329,7 +333,9 @@ a {
 a:hover {
     transform: scale(0.97);
 }
+/* ---------------------------------------------------------- */
 
+/* color for social-media icons when hover them */
 a:nth-child(1):hover .fab::before {
     background: radial-gradient(circle at 33% 100%, #F9FF00 4%, #E92717 30%, #EB0E5C 62%, #6B0089 85%, #515ECF);
     -webkit-background-clip: text;
@@ -355,7 +361,7 @@ a:nth-child(4):hover .fab::before {
 a:nth-child(5):hover .fab::before {
     color: rgba(0, 148, 0, 1.00);
 }
-
+/* ---------------------------------------------------------- */
 
 /* style for about us box */
 .about-us {
@@ -377,9 +383,9 @@ a:nth-child(5):hover .fab::before {
     font-size: 0.95rem;
     color: #373737;
 }
+/* ---------------------------------------------------------- */
 
 /* style for copyright box */
-
 div.copy-right {
     direction: ltr;
     width: 100vw;
@@ -402,6 +408,7 @@ p.copyright-text {
     background-clip: text;
     color: transparent;
 }
+/* ---------------------------------------------------------- */
 
 @keyframes gradient {
     0% {
@@ -450,7 +457,7 @@ p.copyright-text {
     }
 
     i.fab {
-        font-size: 33px;
+        font-size: 2.0625rem;
     }
 
     .about-us p {

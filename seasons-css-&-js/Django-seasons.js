@@ -1,5 +1,5 @@
 $(document).ready(function () {
-    // اسکریپت جاوااسکریپت برای اضافه کردن تگ nav به ابتدای body
+    // Adds the 'nav' tag to the beginning of the 'body' tag
     $('body').prepend(`
         <nav class="menu">
             <div class="menu-icons">
@@ -13,10 +13,11 @@ $(document).ready(function () {
         </nav>
     `);
 
-    // محتوای h2 موجود در صفحه را انتخاب کنید
+    // Get the content of the 'h2' tag
     let h2Text = $('h2').text();
     let newText = h2Text.split(':')[0];
 
+    // Creates the content of the 'h1' tag based on the content of the 'h2' tag
     function updateNavText() {
         if ($(window).width() >= 900) {
             $('nav h1').text(h2Text);
@@ -25,15 +26,15 @@ $(document).ready(function () {
         }
     }
 
-    // بار اول برای تنظیم متن صحیح بر اساس سایز صفحه
     updateNavText();
 
-    // اضافه کردن رویداد resize برای به روزرسانی متن در صورت تغییر سایز صفحه
+    // changes the text, based on the page size change
     $(window).resize(function () {
         updateNavText();
     });
+// -------------------------------------------------------------------------------------------
 
-    // بارگذاری محتوای فایل menubar.html به داخل div با کلاس container
+    // Adds the 'menubar' to the 'container' div
     $.ajax({
         url: 'menubar.html',
         method: 'GET',
@@ -44,18 +45,20 @@ $(document).ready(function () {
             console.error("Error loading menubar:", error);
         }
     });
+// -------------------------------------------------------------------------------------------   
 
     // Load footer and then execute additional scripts
     $.ajax({
         url: 'footer.html',
         method: 'GET',
         success: function (response) {
-            // اضافه کردن محتوای فوتر به صفحه اصلی
+
+            // Adds the 'footer' to the end of the 'body' tag
             $('body').append(response);
 
-            // دستوراتی که بعد از لود شدن فوتر باید اجرا شوند
             const startYear = 2024;
             const currentYear = new Date().getFullYear();
+
             // Set the start year
             $('#start-year').text(startYear);
 
@@ -71,8 +74,9 @@ $(document).ready(function () {
             console.error('Error loading footer:', error);
         }
     });
+// ------------------------------------------------------------------------------------------------------------
 
-    // پیاده‌سازی اسکریپت جاوااسکریپت برای منوی باز و بسته شدن
+    // open and close icon for menubar
     $(document).on('click', '.open', function () {
         $('.open').toggleClass('active');
         $('.close').toggleClass('active');
@@ -86,9 +90,10 @@ $(document).ready(function () {
         $('.menu-list').toggleClass('active');
         $('.content').toggleClass('active');
     });
+// --------------------------------------------------------------------------------------------------------------
 
-    // اسکریپت برای اسکرول به عناوین بدون قرارگیری زیر هدر
-    const headerOffset = $('.menu').outerHeight(); // ارتفاع هدر را بگیرید
+    // Script for scrolling to titles, without placing them under the header
+    const headerOffset = $('.menu').outerHeight();
 
     $('a[href^="#"]').click(function (event) {
         event.preventDefault();
@@ -99,7 +104,7 @@ $(document).ready(function () {
             const targetPosition = $(targetElement).offset().top - headerOffset;
             $('html, body').animate({
                 scrollTop: targetPosition
-            }, 750);
+            }, 750); // was 600
         }
     });
 });
