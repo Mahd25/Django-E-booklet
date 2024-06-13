@@ -870,7 +870,7 @@ a.social-link:hover {
     box-shadow: 0 2px 3px rgba(0, 0, 0, 0.6);
 }
 
-i.fab {
+i.fa-brands {
     font-size: 2.4375rem;
     color: #262626;
     width: 100%;
@@ -882,7 +882,7 @@ i.fab {
     align-items: center;
 }
 
-.fab::before {
+.fa-brands::before {
     transition: 0.28s linear;
 }
 
@@ -897,7 +897,7 @@ a:hover {
 /* ---------------------------------------------------------- */
 
 /* the color for social-media icons when 'hover' them */
-a:nth-child(1):hover .fab::before {
+a:nth-child(1):hover .fa-brands::before {
     background: radial-gradient(circle at 33% 100%, #F9FF00 4%, #E92717 30%, #EB0E5C 62%, #6B0089 85%, #515ECF);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -907,21 +907,18 @@ a:nth-child(1):hover .fab::before {
 }
 
 
-a:nth-child(2):hover .fab::before {
-    color: darkblue;
+a:nth-child(2):hover .fa-brands::before {
+    color: #FF0000;
 }
 
-a:nth-child(3):hover .fab::before {
-    color: rgba(0, 119, 255, 1.00);
+a:nth-child(3):hover .fa-brands::before {
+    color: #6e5494;
 }
 
-a:nth-child(4):hover .fab::before {
+a:nth-child(4):hover .fa-brands::before {
     color: rgba(0, 166, 224, 1.00);
 }
 
-a:nth-child(5):hover .fab::before {
-    color: rgba(0, 148, 0, 1.00);
-}
 /* ------------------------------------------------------ */
 
 /* style for about us box */
@@ -1018,7 +1015,7 @@ p.copyright-text {
         padding: 0 10px;
     }
 
-    i.fab {
+    i.fa-brands {
         font-size: 2.0625rem;
     }
 
@@ -1094,7 +1091,7 @@ p.copyright-text {
         padding: 5px;
     }
 
-    i.fab {
+    i.fa-brands {
         font-size: 7.5vw;
     }
 
