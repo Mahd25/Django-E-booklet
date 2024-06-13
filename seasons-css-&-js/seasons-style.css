@@ -9,7 +9,6 @@
 }
 
 
-
 :root {
     --code-BG: #021028;
     --comment-color: #B18EB1;
@@ -19,7 +18,6 @@
     --True-False: #56B6C2;
     --strings: #98c379;
 }
-
 
 
 * {
@@ -40,6 +38,7 @@ p {
     font-weight: 500;
 }
 
+/* -------------------------------- for season zero -------------------------------- */
 li {
     margin-bottom: 7px;
 }
@@ -48,8 +47,7 @@ li code {
     display: inline-block;
     direction: ltr;
 }
-
-/* ----------------------------------------------------------- */
+/* ------------------------------------------------------------------------------- */
 
 /* navigation */
 nav.menu {
@@ -83,14 +81,16 @@ h1.django-eBooklet {
 }
 
 .back-home-icon {
-    font-size: 25px;
+    font-size: 1.5625rem;
     color: white;
 }
+/* ----------------------------------------------------------------------------------------------- */
 
 /* container */
 .container {
     height: calc(100% - 50px);
 }
+/* ----------------------------------------------------------------------------------------------- */
 
 /* menu-list */
 .menu-list {
@@ -117,6 +117,7 @@ h1.django-eBooklet {
 .menu-list a:hover {
     background-color: #ddd;
 }
+/* -------------------------------------------------------------------------------------------------- */
 
 /* content */
 .content {
@@ -125,6 +126,7 @@ h1.django-eBooklet {
     overflow-x: hidden;
     transition: all 0.5s ease-in-out;
 }
+/* ---------------------------------------------------------------------------------------------------- */
 
 /* Media Queries */
 @media (min-width: 1200px) {
@@ -243,9 +245,10 @@ h1.django-eBooklet {
         transform: translateX(-70vw);
     }
 }
+/* -------------------------------------------------------------------------------------------------------- */
 
 
-
+/* Style 'code box' and structure inside it  */
 .code-box {
     margin-bottom: 20px;
     text-align: left;
@@ -293,9 +296,6 @@ code {
 }
 
 
-
-
-
 td.linenos .normal {
     color: inherit;
     background-color: transparent;
@@ -332,371 +332,372 @@ span.linenos.special {
     background: #021028;
 }
 
+/* ---------------------------------------------------------- */
+/* Comment */
 .code-box .c {
     color: #3D7B7B;
     font-style: italic
 }
 
-/* Comment */
+/* Error */
 .code-box .err {
     border: 1px solid #FF0000
 }
 
-/* Error */
+/* Keyword */
 .code-box .k {
     color: #F92672;
     font-weight: bold
 }
 
-/* Keyword */
+/* Operator */
 .code-box .o {
     color: #ff7700
 }
 
-/* Operator */
+/* Comment.Hashbang */
 .code-box .ch {
     color: #3D7B7B;
     font-style: italic
 }
 
-/* Comment.Hashbang */
+/* Comment.Multiline */
 .code-box .cm {
     color: #3D7B7B;
     font-style: italic
 }
 
-/* Comment.Multiline */
+/* Comment.Preproc */
 .code-box .cp {
     color: #9C6500
 }
 
-/* Comment.Preproc */
+/* Comment.PreprocFile */
 .code-box .cpf {
     color: #3D7B7B;
     font-style: italic
 }
 
-/* Comment.PreprocFile */
+/* Comment.Single */
 .code-box .c1 {
     color: #B18EB1;
     font-style: italic
 }
 
-/* Comment.Single */
+/* Comment.Special */
 .code-box .cs {
     color: #3D7B7B;
     font-style: italic
 }
 
-/* Comment.Special */
+/* Generic.Deleted */
 .code-box .gd {
     color: #A00000
 }
 
-/* Generic.Deleted */
+/* Generic.Emph */
 .code-box .ge {
     font-style: italic
 }
 
-/* Generic.Emph */
+/* Generic.EmphStrong */
 .code-box .ges {
     font-weight: bold;
     font-style: italic
 }
 
-/* Generic.EmphStrong */
+/* Generic.Error */
 .code-box .gr {
     color: #E40000
 }
 
-/* Generic.Error */
+/* Generic.Heading */
 .code-box .gh {
     color: #000080;
     font-weight: bold
 }
 
-/* Generic.Heading */
+/* Generic.Inserted */
 .code-box .gi {
     color: #008400
 }
 
-/* Generic.Inserted */
+/* Generic.Output */
 .code-box .go {
     color: #717171
 }
 
-/* Generic.Output */
+/* Generic.Prompt */
 .code-box .gp {
     color: #000080;
     font-weight: bold
 }
 
-/* Generic.Prompt */
+/* Generic.Strong */
 .code-box .gs {
     font-weight: bold
 }
 
-/* Generic.Strong */
+/* Generic.Subheading */
 .code-box .gu {
     color: #800080;
     font-weight: bold
 }
 
-/* Generic.Subheading */
+/* Generic.Traceback */
 .code-box .gt {
     color: #0044DD
 }
 
-/* Generic.Traceback */
+/* Keyword.Constant */
 .code-box .kc {
     color: #56B6C2;
     font-weight: bold
 }
 
-/* Keyword.Constant */
+/* Keyword.Declaration */
 .code-box .kd {
     color: #008000;
     font-weight: bold
 }
 
-/* Keyword.Declaration */
+/* Keyword.Namespace */
 .code-box .kn {
     color: #F92672;
     font-weight: bold
 }
 
-/* Keyword.Namespace */
+/* Keyword.Pseudo */
 .code-box .kp {
     color: #008000
 }
 
-/* Keyword.Pseudo */
+/* Keyword.Reserved */
 .code-box .kr {
     color: #008000;
     font-weight: bold
 }
 
-/* Keyword.Reserved */
+/* Keyword.Type */
 .code-box .kt {
     color: #B00040
 }
 
-/* Keyword.Type */
+/* Literal.Number */
 .code-box .m {
     color: #666666
 }
 
-/* Literal.Number */
+/* Literal.String */
 .code-box .s {
     color: #BA2121
 }
 
-/* Literal.String */
+/* Name.Attribute */
 .code-box .na {
     color: #687822
 }
 
-/* Name.Attribute */
+/* Name.Builtin */
 .code-box .nb {
     color: #008000
 }
 
-/* Name.Builtin */
+/* Name.Class */
 .code-box .nc {
     color: #61AEEE;
     font-weight: bold
 }
 
-/* Name.Class */
+/* Name.Constant */
 .code-box .no {
     color: #880000
 }
 
-/* Name.Constant */
+/* Name.Decorator */
 .code-box .nd {
     color: #AA22FF
 }
 
-/* Name.Decorator */
+/* Name.Entity */
 .code-box .ni {
     color: #717171;
     font-weight: bold
 }
 
-/* Name.Entity */
+/* Name.Exception */
 .code-box .ne {
     color: #CB3F38;
     font-weight: bold
 }
 
-/* Name.Exception */
+/* Name.Function */
 .code-box .nf {
     color: #61AEEE
 }
 
-/* Name.Function */
+/* Name.Label */
 .code-box .nl {
     color: #767600
 }
 
-/* Name.Label */
+/* Name.Namespace */
 .code-box .nn {
     color: #61AEEE;
     font-weight: bold
 }
 
-/* Name.Namespace */
+/* Name.Tag */
 .code-box .nt {
     color: #008000;
     font-weight: bold
 }
 
-/* Name.Tag */
+/* Name.Variable */
 .code-box .nv {
     color: #eaff00
 }
 
-/* Name.Variable */
+/* Operator.Word */
 .code-box .ow {
     color: #AA22FF;
     font-weight: bold
 }
 
-/* Operator.Word */
+/* Text.Whitespace */
 .code-box .w {
     color: #bbbbbb
 }
 
-/* Text.Whitespace */
+/* Literal.Number.Bin */
 .code-box .mb {
     color: #666666
 }
 
-/* Literal.Number.Bin */
+/* Literal.Number.Float */
 .code-box .mf {
     color: #666666
 }
 
-/* Literal.Number.Float */
+/* Literal.Number.Hex */
 .code-box .mh {
     color: #666666
 }
 
-/* Literal.Number.Hex */
+/* Literal.Number.Integer */
 .code-box .mi {
     color: #00ff91
 }
 
-/* Literal.Number.Integer */
+/* Literal.Number.Oct */
 .code-box .mo {
     color: #666666
 }
 
-/* Literal.Number.Oct */
+/* Literal.String.Affix */
 .code-box .sa {
     color: #BA2121
 }
 
-/* Literal.String.Affix */
+/* Literal.String.Backtick */
 .code-box .sb {
     color: #BA2121
 }
 
-/* Literal.String.Backtick */
+/* Literal.String.Char */
 .code-box .sc {
     color: #BA2121
 }
 
-/* Literal.String.Char */
+/* Literal.String.Delimiter */
 .code-box .dl {
     color: #BA2121
 }
 
-/* Literal.String.Delimiter */
+/* Literal.String.Doc */
 .code-box .sd {
     color: #BA2121;
     font-style: italic
 }
 
-/* Literal.String.Doc */
+/* Literal.String.Double */
 .code-box .s2 {
     color: #00bdff
 }
 
-/* Literal.String.Double */
+/* Literal.String.Escape */
 .code-box .se {
     color: #AA5D1F;
     font-weight: bold
 }
 
-/* Literal.String.Escape */
+/* Literal.String.Heredoc */
 .code-box .sh {
     color: #BA2121
 }
 
-/* Literal.String.Heredoc */
+/* Literal.String.Interpol */
 .code-box .si {
     color: #A45A77;
     font-weight: bold
 }
 
-/* Literal.String.Interpol */
+/* Literal.String.Other */
 .code-box .sx {
     color: #008000
 }
 
-/* Literal.String.Other */
+/* Literal.String.Regex */
 .code-box .sr {
     color: #A45A77
 }
 
-/* Literal.String.Regex */
+/* Literal.String.Single */
 .code-box .s1 {
     color: #ceff00
 }
 
-/* Literal.String.Single */
+/* Literal.String.Symbol */
 .code-box .ss {
     color: #19177C
 }
 
-/* Literal.String.Symbol */
+/* Name.Builtin.Pseudo */
 .code-box .bp {
     color: #c300ff
 }
 
-/* Name.Builtin.Pseudo */
+/* Name.Function.Magic */
 .code-box .fm {
     color: #61AEEE
 }
 
-/* Name.Function.Magic */
+/* Name.Variable.Class */
 .code-box .vc {
     color: #19177C
 }
 
-/* Name.Variable.Class */
+/* Name.Variable.Global */
 .code-box .vg {
     color: #19177C
 }
 
-/* Name.Variable.Global */
+/* Name.Variable.Instance */
 .code-box .vi {
     color: #19177C
 }
 
-/* Name.Variable.Instance */
+/* Name.Variable.Magic */
 .code-box .vm {
     color: #7bff00
 }
 
-/* Name.Variable.Magic */
+/* Literal.Number.Integer.Long */
 .code-box .il {
     color: #666666
 }
 
-/* Literal.Number.Integer.Long */
-
+/* symbols(., *, (),... */
 .code-box .p {
     color: #ff8800
 }
@@ -708,10 +709,11 @@ span.linenos.special {
     }
 
 }
+/* ----------------------------------------------------------------------------------------------------- */
 
-
+/* Styling the 'div' tag that holds the 'copy code' structure */
 .language {
-    font-size: 14px;
+    font-size: 0.875rem;
 }
 
 .copy-icon {
@@ -754,6 +756,7 @@ footer {
     flex-direction: column;
     align-items: center;
 }
+/* ------------------------------------------------------- */
 
 
 /* Style for the text at the top of the footer */
@@ -793,9 +796,10 @@ footer {
 
 .text-p .bold-text {
     font-weight: bolder;
-    font-size: 14px;
+    font-size: 0.875rem;
     margin-right: 5px;
 }
+/* ---------------------------------------------------------- */
 
 /* line between two boxes */
 .line {
@@ -805,6 +809,7 @@ footer {
     border-radius: 3px;
     margin-bottom: 10px;
 }
+/* ----------------------------------------------------------------------------------------- */
 
 /* pack social media & about us */
 .packing {
@@ -817,6 +822,8 @@ footer {
     gap: 8px;
     margin-bottom: 25px;
 }
+/* --------------------------------------------- */
+
 
 /* style for social box and details */
 .social-media {
@@ -832,7 +839,7 @@ footer {
     font-size: 1.15rem;
 }
 
-/* details */
+/* ------------------- details of social-media style ------------------- */
 
 .social-box {
     display: flex;
@@ -844,13 +851,15 @@ footer {
 a.social-link {
     -webkit-tap-highlight-color: transparent;
     tap-highlight-color: transparent;
+
     position: relative;
+    display: block;
+    text-align: center;
+
     width: 70px;
     height: 70px;
-    display: block;
     border-radius: 50%;
     background-image: linear-gradient(75deg, #ddd, #fff);
-    text-align: center;
     padding: 6.5px;
     text-decoration: none;
     box-shadow: rgba(0, 0, 0, 0.19) 0px 6px 15px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
@@ -862,6 +871,8 @@ a.social-link:hover {
 }
 
 i.fab {
+    font-size: 2.4375rem;
+    color: #262626;
     width: 100%;
     height: 100%;
     border-radius: 50%;
@@ -869,14 +880,13 @@ i.fab {
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 39px;
-    color: #262626;
 }
 
 .fab::before {
     transition: 0.28s linear;
 }
 
+/* -------------------------------------------------------- */
 a {
     transition: all 0.3s ease;
 }
@@ -884,7 +894,9 @@ a {
 a:hover {
     transform: scale(0.97);
 }
+/* ---------------------------------------------------------- */
 
+/* the color for social-media icons when 'hover' them */
 a:nth-child(1):hover .fab::before {
     background: radial-gradient(circle at 33% 100%, #F9FF00 4%, #E92717 30%, #EB0E5C 62%, #6B0089 85%, #515ECF);
     -webkit-background-clip: text;
@@ -910,7 +922,7 @@ a:nth-child(4):hover .fab::before {
 a:nth-child(5):hover .fab::before {
     color: rgba(0, 148, 0, 1.00);
 }
-
+/* ------------------------------------------------------ */
 
 /* style for about us box */
 .about-us {
@@ -932,9 +944,9 @@ a:nth-child(5):hover .fab::before {
     font-size: 0.95rem;
     color: #373737;
 }
+/* --------------------------------------------------------- */
 
 /* style for copyright box */
-
 div.copy-right {
     direction: ltr;
     width: 100vw;
@@ -957,6 +969,7 @@ p.copyright-text {
     background-clip: text;
     color: transparent;
 }
+/* ------------------------------------------------------------- */
 
 @keyframes gradient {
     0% {
@@ -971,6 +984,7 @@ p.copyright-text {
         background-position: 0% 50%;
     }
 }
+/* ----------------------------------------------------------------------------------------- */
 
 @media (min-width:1750px) {
     .packing {
@@ -1005,7 +1019,7 @@ p.copyright-text {
     }
 
     i.fab {
-        font-size: 33px;
+        font-size: 2.0625rem;
     }
 
     .about-us p {
@@ -1111,9 +1125,9 @@ p.copyright-text {
         font-size: 0.75rem;
     }
 }
-
-
 /* --------------------------------------------------------------------------------- */
+
+
 /* Base Table Styles */
 table {
     margin-top: 25px;
@@ -1170,7 +1184,7 @@ table th {
         position: relative;
         padding-left: 50%;
         text-align: left;
-        font-size: 14px;
+        font-size: 0.875rem;
     }
 
     td:last-child {
@@ -1189,6 +1203,7 @@ table th {
         color: #555;
     }
 }
+/* --------------------------------------------------------------------------------------------------- */
 
 /* Responsive Images */
 .img-zero {
@@ -1197,10 +1212,9 @@ table th {
     border-radius: 5px;
     box-shadow: 0 2px 2px rgba(0, 0, 0, 0.1);
 }
+/* -------------------------------------------------------------------------------------------------- */
 
 
-
-/* ------------------------------------------------------------------------------ */
 /* List of contents */
 .toc {
     background-color: #f9f9f9;
@@ -1231,9 +1245,10 @@ table th {
 .toc ul li a:hover {
     text-decoration: underline;
 }
+/* ------------------------------------------------------------------------------------------------- */
 
 
-/* ---------------------------------------------------------- */
+/* style for edit icon */
 .edit-icon {
     text-decoration: none;
     position: fixed;
@@ -1254,5 +1269,5 @@ table th {
 
 .edit-icon i {
     color: white;
-    font-size: 23px;
+    font-size: 1.4375rem;
 }
