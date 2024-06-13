@@ -1114,7 +1114,7 @@ p.copyright-text {
 
 
 /* --------------------------------------------------------------------------------- */
-/* Responsive Tables */
+/* Base Table Styles */
 table {
     margin-top: 25px;
     width: 100%;
@@ -1131,43 +1131,53 @@ table td {
 
 table th {
     background-color: #f2f2f2;
+    color: #333;
 }
 
 /* Responsive Tables */
 @media (max-width: 600px) {
-
     table,
-    table thead,
-    table tbody,
-    table th,
-    table td,
-    table tr {
+    thead,
+    tbody,
+    th,
+    td,
+    tr {
         display: block;
     }
 
-    table thead tr {
+    thead tr {
         position: absolute;
         top: -9999px;
         left: -9999px;
     }
 
-    table tr {
+    tr {
         margin: 0 0 1rem 0;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        padding: 10px;
+        background-color: #fff;
+        box-shadow: 0 2px 2px rgba(0, 0, 0, 0.1);
     }
 
-    table tr:nth-child(odd) {
-        background: #f2f2f2;
+    tr:nth-child(odd) {
+        background: #f9f9f9;
     }
 
-    table td {
+    td {
         border: none;
         border-bottom: 1px solid #eee;
         position: relative;
         padding-left: 50%;
-        text-align: right;
+        text-align: left;
+        font-size: 14px;
     }
 
-    table td:before {
+    td:last-child {
+        border-bottom: none;
+    }
+
+    td:before {
         content: attr(data-label);
         position: absolute;
         left: 10px;
@@ -1176,6 +1186,7 @@ table th {
         white-space: nowrap;
         text-align: left;
         font-weight: bold;
+        color: #555;
     }
 }
 
@@ -1183,7 +1194,10 @@ table th {
 .img-zero {
     max-width: 100%;
     height: auto;
+    border-radius: 5px;
+    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.1);
 }
+
 
 
 /* ------------------------------------------------------------------------------ */
