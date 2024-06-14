@@ -1,0 +1,68 @@
+
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<title>Season nine</title>    
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Django e-booklet">
+<meta name="keywords" content="django, django learning">
+<meta name="author" content="Mahdi Rezaie, Ali Ebrahimian">
+<link rel="icon" href="../Images/favicon.ico" type="image/ico">
+
+<link rel="stylesheet" type="text/css" href="../seasons-css-&-js/seasons-style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+<main>
+    <div class="container">
+        <div class="content">
+            <h2>فصل نهم: اپلیکیشن شبکه اجتماعی (بخش دوم)</h2><div class="toc"><h3>فهرست مطالب</h3><ul>
+<li><a href="#lykh-pst-h-b-ajax-w-rbth-m2m">لایک پست ها با AJAX و رابطه M2M</a></li>
+<li><a href="#br-gdhry-byshtr-pst-h-b-ajax-sfhh-bndy">بار‌گذاری بیشتر پست ها با AJAX (صفحه بندی)</a></li>
+<li><a href="#dhkhyrh-pst-h-b-ajax">ذخیره پست ها با AJAX</a></li>
+<li><a href="#yjd-mdl-wst-bry-fyld-m2m">ایجاد مدل واسط برای فیلد M2M</a></li>
+<li><a href="#khr-b-thumbnail-nmysh-tswyr-prwfyl">کار با thumbnail (نمایش تصویر پروفایل)</a></li>
+<li><a href="#nmysh-lyst-khrbr-h">نمایش لیست کاربر ها</a></li>
+<li><a href="#nmysh-jzyyt-khrbr">نمایش جزئیات کاربر</a></li>
+<li><a href="#pydh-szy-flw-w-nflw-b-ajax">پیاده سازی فالو و آنفالو با AJAX</a></li>
+<li><a href="#bhynh-szy-khwyry-select-related-w-prefetch-related">بهینه سازی کوئری (select_related و prefetch_related)</a></li>
+<li><a href="#khr-b-sygnl-h-mhsbh-mjmw-lykh">کار با سیگنال ها (محاسبه مجموع لایک)</a></li>
+<li><a href="#khr-b-sygnl-h-rsl-ymyl-hdhf-pst">کار با سیگنال ها (ارسال ایمیل حذف پست)</a></li>
+<li><a href="#khr-b-message-jngw">کار با message جنگو</a></li>
+<li><a href="#khr-b-debug-toolbar-jngw">کار با debug toolbar جنگو</a></li>
+<li><a href="#yjd-khshn-action-dr-pnl-dmyn">ایجاد اکشن (action) در پنل ادمین</a></li>
+<li><a href="#tmrynt-fsl-nhm-mhm">تمرینات فصل نهم (مهم)</a></li>
+<li><a href="#styl-dhy-w-chnd-nkhth-mwzshy-bkhsh-wl">استایل دهی و چند نکته آموزشی (بخش اول)</a></li>
+<li><a href="#styl-dhy-w-chnd-nkhth-mwzshy-bkhsh-dwm">استایل دهی و چند نکته آموزشی (بخش دوم)</a></li>
+</ul></div>
+<h3 id="lykh-pst-h-b-ajax-w-rbth-m2m">لایک پست ها با AJAX و رابطه M2M</h3>
+<h3 id="br-gdhry-byshtr-pst-h-b-ajax-sfhh-bndy">بار‌گذاری بیشتر پست ها با AJAX (صفحه بندی)</h3>
+<h3 id="dhkhyrh-pst-h-b-ajax">ذخیره پست ها با AJAX</h3>
+<h3 id="yjd-mdl-wst-bry-fyld-m2m">ایجاد مدل واسط برای فیلد M2M</h3>
+<h3 id="khr-b-thumbnail-nmysh-tswyr-prwfyl">کار با thumbnail (نمایش تصویر پروفایل)</h3>
+<h3 id="nmysh-lyst-khrbr-h">نمایش لیست کاربر ها</h3>
+<h3 id="nmysh-jzyyt-khrbr">نمایش جزئیات کاربر</h3>
+<h3 id="pydh-szy-flw-w-nflw-b-ajax">پیاده سازی فالو و آنفالو با AJAX</h3>
+<h3 id="bhynh-szy-khwyry-select-related-w-prefetch-related">بهینه سازی کوئری (select_related و prefetch_related)</h3>
+<h3 id="khr-b-sygnl-h-mhsbh-mjmw-lykh">کار با سیگنال ها (محاسبه مجموع لایک)</h3>
+<h3 id="khr-b-sygnl-h-rsl-ymyl-hdhf-pst">کار با سیگنال ها (ارسال ایمیل حذف پست)</h3>
+<h3 id="khr-b-message-jngw">کار با message جنگو</h3>
+<h3 id="khr-b-debug-toolbar-jngw">کار با debug toolbar جنگو</h3>
+<h3 id="yjd-khshn-action-dr-pnl-dmyn">ایجاد اکشن (action) در پنل ادمین</h3>
+<h3 id="tmrynt-fsl-nhm-mhm">تمرینات فصل نهم (مهم)</h3>
+<h3 id="styl-dhy-w-chnd-nkhth-mwzshy-bkhsh-wl">استایل دهی و چند نکته آموزشی (بخش اول)</h3>
+<h3 id="styl-dhy-w-chnd-nkhth-mwzshy-bkhsh-dwm">استایل دهی و چند نکته آموزشی (بخش دوم)</h3>
+            <a href="https://github.com/mahd25/Django-E-booklet/edit/seasons-source/season-09.md" target="_blank" class="edit-icon">
+                <i class="fa-solid fa-pen-to-square"></i>
+            </a>
+        </div>
+    </div>
+</main>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="../seasons-css-&-js/Django-seasons.js"></script>
+<script src="../seasons-css-&-js/copy-icon.js"></script>
+</body>
+</html>
+    

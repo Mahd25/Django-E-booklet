@@ -1,0 +1,70 @@
+
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<title>Season ten</title>    
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Django e-booklet">
+<meta name="keywords" content="django, django learning">
+<meta name="author" content="Mahdi Rezaie, Ali Ebrahimian">
+<link rel="icon" href="../Images/favicon.ico" type="image/ico">
+
+<link rel="stylesheet" type="text/css" href="../seasons-css-&-js/seasons-style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+<main>
+    <div class="container">
+        <div class="content">
+            <h2>فصل دهم: اپلیکیشن فروشگاه اینترنتی (بخش اول)</h2><div class="toc"><h3>فهرست مطالب</h3><ul>
+<li><a href="#yjd-prwjh-w-mdl-mhswl">ایجاد پروژه و مدل محصول</a></li>
+<li><a href="#nmysh-mdl-h-dr-dmyn-w-sygnl-tkhfyf">نمایش مدل ها در ادمین و سیگنال تخفیف</a></li>
+<li><a href="#dfh-khrdn-url-w-view-bry-mhswlt">اضافه کردن Url و View برای محصولات</a></li>
+<li><a href="#dfh-khrdn-tmplyt-lyst-mhswlt">اضافه کردن تمپلیت لیست محصولات</a></li>
+<li><a href="#dfh-khrdn-tmplyt-jzyyt-mhswl">اضافه کردن تمپلیت جزئیات محصول</a></li>
+<li><a href="#khr-b-sshn-session">کار با سشن (session)</a></li>
+<li><a href="#dfh-khrdn-p-sbd-khryd">اضافه کردن اپ سبد خرید</a></li>
+<li><a href="#khr-b-context-processor">کار با context processor</a></li>
+<li><a href="#fzwdn-ytm-bh-sbd-khryd-b-ajax">افزودن آیتم به سبد خرید با Ajax</a></li>
+<li><a href="#tmplyt-sbd-khryd">تمپلیت سبد خرید</a></li>
+<li><a href="#khlyd-fzysh-w-khhsh-sbd-khryd-b-ajax">کلید افزایش و کاهش سبد خرید با Ajax</a></li>
+<li><a href="#khlyd-hdhf-z-sbd-khryd-b-ajax">کلید حذف از سبد خرید با Ajax</a></li>
+<li><a href="#dfh-khrdn-p-w-mdl-hy-sfrsh-order">اضافه کردن اپ و مدل های سفارش (Order)</a></li>
+<li><a href="#nmysh-mdl-sfrsh-dr-pnl-dmyn">نمایش مدل سفارش در پنل ادمین</a></li>
+<li><a href="#yjd-khrbr-sfrshy-abstractbaseuser">ایجاد کاربر سفارشی (AbstractBaseUser)</a></li>
+<li><a href="#shkhsy-szy-frm-dmyn-bry-khrbr-sfrshy">شخصی سازی فرم ادمین برای کاربر سفارشی</a></li>
+<li><a href="#tbr-snjy-khrbr-sfrshy">اعتبار سنجی کاربر سفارشی</a></li>
+<li><a href="#tmrynt-fsl-dhm-mhm">تمرینات فصل دهم (مهم)</a></li>
+</ul></div>
+<h3 id="yjd-prwjh-w-mdl-mhswl">ایجاد پروژه و مدل محصول</h3>
+<h3 id="nmysh-mdl-h-dr-dmyn-w-sygnl-tkhfyf">نمایش مدل ها در ادمین و سیگنال تخفیف</h3>
+<h3 id="dfh-khrdn-url-w-view-bry-mhswlt">اضافه کردن Url و View برای محصولات</h3>
+<h3 id="dfh-khrdn-tmplyt-lyst-mhswlt">اضافه کردن تمپلیت لیست محصولات</h3>
+<h3 id="dfh-khrdn-tmplyt-jzyyt-mhswl">اضافه کردن تمپلیت جزئیات محصول</h3>
+<h3 id="khr-b-sshn-session">کار با سشن (session)</h3>
+<h3 id="dfh-khrdn-p-sbd-khryd">اضافه کردن اپ سبد خرید</h3>
+<h3 id="khr-b-context-processor">کار با context processor</h3>
+<h3 id="fzwdn-ytm-bh-sbd-khryd-b-ajax">افزودن آیتم به سبد خرید با Ajax</h3>
+<h3 id="tmplyt-sbd-khryd">تمپلیت سبد خرید</h3>
+<h3 id="khlyd-fzysh-w-khhsh-sbd-khryd-b-ajax">کلید افزایش و کاهش سبد خرید با Ajax</h3>
+<h3 id="khlyd-hdhf-z-sbd-khryd-b-ajax">کلید حذف از سبد خرید با Ajax</h3>
+<h3 id="dfh-khrdn-p-w-mdl-hy-sfrsh-order">اضافه کردن اپ و مدل های سفارش (Order)</h3>
+<h3 id="nmysh-mdl-sfrsh-dr-pnl-dmyn">نمایش مدل سفارش در پنل ادمین</h3>
+<h3 id="yjd-khrbr-sfrshy-abstractbaseuser">ایجاد کاربر سفارشی (AbstractBaseUser)</h3>
+<h3 id="shkhsy-szy-frm-dmyn-bry-khrbr-sfrshy">شخصی سازی فرم ادمین برای کاربر سفارشی</h3>
+<h3 id="tbr-snjy-khrbr-sfrshy">اعتبار سنجی کاربر سفارشی</h3>
+<h3 id="tmrynt-fsl-dhm-mhm">تمرینات فصل دهم (مهم)</h3>
+            <a href="https://github.com/mahd25/Django-E-booklet/edit/seasons-source/season-10.md" target="_blank" class="edit-icon">
+                <i class="fa-solid fa-pen-to-square"></i>
+            </a>
+        </div>
+    </div>
+</main>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="../seasons-css-&-js/Django-seasons.js"></script>
+<script src="../seasons-css-&-js/copy-icon.js"></script>
+</body>
+</html>
+    
