@@ -2,7 +2,7 @@
 <html lang="fa" dir="rtl">
 
 <head>
-    <title>Contact Us</title>
+    <title>About Us</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Django e-booklet">
@@ -14,47 +14,21 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
         integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-
-    <style>
-        .team-logo {
-            margin-top: 65px;
-            text-align: center;
-        }
-
-        h2.contact-us-text {
-            text-align: center;
-        }
-
-        .persons {
-            padding: 30px 20px;
-            border-radius: 12px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
-
-            margin-bottom: 50px;
-        }
-
-        .contact-author {
-            display: flex;
-            align-items: center;
-            gap: 20px;
-        }
-    </style>
 </head>
 
 <body>
     <main>
         <div class="content">
+
             <div class="team-logo">
                 <img src="../Images/my-logo.svg" alt="team logo" width="250px">
             </div>
 
+            <h2 class="contact-us-text">درباره ما</h2>
 
             <div id="about-us" class="section">
-                <h2 class="contact-us-text">درباره ما</h2>
                 <h3>درباره ما</h3>
+
                 <p>
                     این کتابچه الکترونیک توسط دانشجویان پایتون و جنگوی آقای رضا دولتی بر اساس سرفصل و آموزش‌های ایشان و
                     البته تجربیات شخصی دانشجویان ایجاد شده است.
@@ -63,6 +37,7 @@
                 </p>
 
                 <h3>توضیحاتی درمورد پروژه</h3>
+
                 <p>
                     سرفصل‌های این پروژه بر اساس سرفصل‌های جنگو در وب سایت سبز لرن که با فرمت فایل های markdown به صورت
                     فصل به فصل در ریپازیتوری گیتهاب آقای مهدی رضایی و در برنچ seasons-source قرار گرفته اند
@@ -75,43 +50,61 @@
                 </p>
             </div>
 
+            <div class="separate-line"></div>
+
             <div id="contact-us" class="section">
                 <h3>ارتباط با ما</h3>
 
                 <div class="persons per1">
-                    <img src="../Images/logo-ali-ebrahimian.svg" alt="Ali Ebrahimian logo" class="personal-logo">
-                    <h4>علی ابراهیمیان</h4>
-                    <p>
-                        دانشجوی کارشناسی رشته مهندسی پزشکی داشگاه آزاد شهرکرد
-                    </p>
-                    <p>
-                        علاقه مند به برنامه نویسی به زبان های Python, C, C++, GO, JS, TeX و طراحی لوگو
-                    </p>
+                    <div class="personal-logo">
+                        <img src="../Images/logo-ali-ebrahimian.svg" alt="Ali Ebrahimian logo" class="personal-logo-img">
+                    </div>
 
-                    <div class="contact-author">
-                        <a href="https://github.com/alie8096" class="social-link"><i
-                                class="fa-brands fa-github"></i></a>
-                        <a href="https://t.me/ali_e_8096" class="social-link"><i class="fa-brands fa-telegram"></i></a>
+                    <div class="vertical-line horizontal-line"></div>
+
+                    <div class="personal-info">
+                        <div class="info-text">
+                            <h3>علی ابراهیمیان</h3>
+                            <p class="info">
+                                دانشجوی کارشناسی رشته مهندسی پزشکی داشگاه آزاد شهرکرد
+                            </p>
+                            <p class="info">
+                                علاقه مند به برنامه نویسی به زبان های Python, C, C++, GO, JS, TeX و طراحی لوگو
+                            </p>    
+                        </div>
+    
+                        <div class="contact-author">
+                            <a href="https://github.com/alie8096" class="social-link github"><i class="fa-brands fa-github"></i></a>
+                            <a href="https://t.me/ali_e_8096" class="social-link telegram"><i class="fa-brands fa-telegram"></i></a>
+                        </div>
                     </div>
 
                 </div>
 
                 <div class="persons per2">
-                    <img src="../Images/logo-mahdi-rezaei.svg" alt="Mahdi Rezaie logo" class="personal-logo">
-                    <h4>مهدی رضایی</h4>
-                    <p>دانشجوی کارشناسی رشته روانشناسی </p>
-                    <p>
-                        علاقه مند به برنامه نویسی با Python, Django، طراحی سایت و طراحی گرافیکی و لوگو
-                    </p>
 
-                    <div class="contact-author">
-                        <a href="https://github.com/mahd25" class="social-link"><i class="fa-brands fa-github"></i></a>
-                        <a href="https://t.me/Mr_Rezaie01" class="social-link"><i class="fa-brands fa-telegram"></i></a>
+                    <img src="../Images/logo-mahdi-rezaei.svg" alt="Mahdi Rezaie logo" class="personal-logo">
+
+                    <div class="vertical-line horizontal-line"></div>
+
+                    <div class="personal-info">
+                        <div class="info-text">
+                            <h3>مهدی رضایی</h3>
+                            <p class="info">دانشجوی کارشناسی رشته روانشناسی </p>
+                            <p class="info">
+                                علاقه مند به برنامه نویسی با Python, Django، طراحی سایت و طراحی گرافیکی و لوگو
+                            </p>
+                        </div>
+    
+                        <div class="contact-author">
+                            <a href="https://github.com/mahd25" class="social-link github"><i class="fa-brands fa-github"></i></a>
+                            <a href="https://t.me/Mr_Rezaie01" class="social-link telegram"><i class="fa-brands fa-telegram"></i></a>
+                        </div>        
                     </div>
 
                 </div>
 
-                <a href="mailto:django.e.booklet01@gmail.com"><i class="fas fa-envelope"></i><a>
+                <a href="mailto:django.e.booklet01@gmail.com" class="email-icon"><i class="fas fa-envelope"></i><a>
 
 
 
