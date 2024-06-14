@@ -1,0 +1,66 @@
+
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<title>Season four</title>    
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Django e-booklet">
+<meta name="keywords" content="django, django learning">
+<meta name="author" content="Mahdi Rezaie, Ali Ebrahimian">
+<link rel="icon" href="../Images/favicon.ico" type="image/ico">
+
+<link rel="stylesheet" type="text/css" href="../seasons-css-&-js/seasons-style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+<main>
+    <div class="container">
+        <div class="content">
+            <h2>فصل چهارم: اپلیکیشن بلاگ(بخش دوم)</h2><div class="toc"><h3>فهرست مطالب</h3><ul>
+<li><a href="#mtd-yjd-url-bry-pst-h">متد ایجاد URL برای پست ها</a></li>
+<li><a href="#styl-dhy-tmplyt">استایل دهی تمپلیت</a></li>
+<li><a href="#sfhh-bndy-pagination">صفحه بندی (pagination)</a></li>
+<li><a href="#view-hy-mbtny-br-khls-class-based-views">View های مبتنی بر کلاس (Class-based views)</a></li>
+<li><a href="#shnyy-b-skhtr-frm-h">آشنایی با ساختار فرم ها</a></li>
+<li><a href="#shnyy-b-form-skht-frm-tykht">آشنایی با Form (ساخت فرم تیکت)</a></li>
+<li><a href="#khr-b-tmplyt-frm-h">کار با تمپلیت فرم ها</a></li>
+<li><a href="#tbr-snjy-frm-h-w-nmysh-kht-h">اعتبار سنجی فرم ها و نمایش خطا ها</a></li>
+<li><a href="#shnyy-b-forms-modelform-skht-frm-khmnt-bkhsh-wl">آشنایی با forms.ModelForm (ساخت فرم کامنت-بخش اول)</a></li>
+<li><a href="#shnyy-b-forms-modelform-skht-frm-khmnt-bkhsh-dwm">آشنایی با forms.ModelForm (ساخت فرم کامنت-بخش دوم)</a></li>
+<li><a href="#yjd-tmplyt-tg-sfrshy-simple-tag">ایجاد تمپلیت تگ سفارشی (simple tag)</a></li>
+<li><a href="#yjd-tmplyt-tg-sfrshy-inclusion-tags">ایجاد تمپلیت تگ سفارشی (Inclusion tags)</a></li>
+<li><a href="#khr-b-aggregate-w-annotate-tg-sfrshy-bry-khwyry-st">کار با aggregate و annotate (تگ سفارشی برای کوئری ست)</a></li>
+<li><a href="#yjd-tmplyt-fyltr-sfrshy-w-khr-b-markdown">ایجاد تمپلیت فیلتر سفارشی و کار با markdown</a></li>
+<li><a href="#styl-dhy-frm-hy-mdh">استایل دهی فرم های آماده</a></li>
+<li><a href="#tmrynt-fsl-chhrm-mhm">تمرینات فصل چهارم (مهم)</a></li>
+</ul></div>
+<h3 id="mtd-yjd-url-bry-pst-h">متد ایجاد URL برای پست ها</h3>
+<h3 id="styl-dhy-tmplyt">استایل دهی تمپلیت</h3>
+<h3 id="sfhh-bndy-pagination">صفحه بندی (pagination)</h3>
+<h3 id="view-hy-mbtny-br-khls-class-based-views">View های مبتنی بر کلاس (Class-based views)</h3>
+<h3 id="shnyy-b-skhtr-frm-h">آشنایی با ساختار فرم ها</h3>
+<h3 id="shnyy-b-form-skht-frm-tykht">آشنایی با Form (ساخت فرم تیکت)</h3>
+<h3 id="khr-b-tmplyt-frm-h">کار با تمپلیت فرم ها</h3>
+<h3 id="tbr-snjy-frm-h-w-nmysh-kht-h">اعتبار سنجی فرم ها و نمایش خطا ها</h3>
+<h3 id="shnyy-b-forms-modelform-skht-frm-khmnt-bkhsh-wl">آشنایی با forms.ModelForm (ساخت فرم کامنت-بخش اول)</h3>
+<h3 id="shnyy-b-forms-modelform-skht-frm-khmnt-bkhsh-dwm">آشنایی با forms.ModelForm (ساخت فرم کامنت-بخش دوم)</h3>
+<h3 id="yjd-tmplyt-tg-sfrshy-simple-tag">ایجاد تمپلیت تگ سفارشی (simple tag)</h3>
+<h3 id="yjd-tmplyt-tg-sfrshy-inclusion-tags">ایجاد تمپلیت تگ سفارشی (Inclusion tags)</h3>
+<h3 id="khr-b-aggregate-w-annotate-tg-sfrshy-bry-khwyry-st">کار با aggregate و annotate (تگ سفارشی برای کوئری ست)</h3>
+<h3 id="yjd-tmplyt-fyltr-sfrshy-w-khr-b-markdown">ایجاد تمپلیت فیلتر سفارشی و کار با markdown</h3>
+<h3 id="styl-dhy-frm-hy-mdh">استایل دهی فرم های آماده</h3>
+<h3 id="tmrynt-fsl-chhrm-mhm">تمرینات فصل چهارم (مهم)</h3>
+            <a href="https://github.com/mahd25/Django-E-booklet/edit/seasons-source/season-04.md" target="_blank" class="edit-icon">
+                <i class="fa-solid fa-pen-to-square"></i>
+            </a>
+        </div>
+    </div>
+</main>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="../seasons-css-&-js/Django-seasons.js"></script>
+<script src="../seasons-css-&-js/copy-icon.js"></script>
+</body>
+</html>
+    
