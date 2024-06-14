@@ -1,0 +1,3 @@
+markdown
+Pygments
+python-slugify
