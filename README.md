@@ -47,21 +47,21 @@
         <img src="https://img.shields.io/github/languages/count/Mahd25/Django-E-booklet" alt="Language Count">
       </a>
     </div>
-    <div style="display: flex; gap: 10px; margin-top: 10px;">
+    <div style="display: flex; gap: 10px; flex-wrap: wrap; margin-top: 10px;">
       <a href="https://github.com/Mahd25/Django-E-booklet">
-        <img src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white" alt="HTML" style="width: 150px; height: 40px;">
+        <img src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white" alt="HTML" style="width: auto; height: 40px;">
       </a>
       <a href="https://github.com/Mahd25/Django-E-booklet">
-        <img src="https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white" alt="CSS" style="width: 150px; height: 40px;">
+        <img src="https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white" alt="CSS" style="width: auto; height: 40px;">
       </a>
       <a href="https://github.com/Mahd25/Django-E-booklet">
-        <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black" alt="JavaScript" style="width: 150px; height: 40px;">
+        <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black" alt="JavaScript" style="width: auto; height: 40px;">
       </a>
       <a href="https://github.com/Mahd25/Django-E-booklet">
-        <img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white" alt="Python" style="width: 150px; height: 40px;">
+        <img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white" alt="Python" style="width: auto; height: 40px;">
       </a>
       <a href="https://github.com/Mahd25/Django-E-booklet">
-        <img src="https://img.shields.io/badge/Markdown-000000?style=for-the-badge&logo=markdown&logoColor=white" alt="Markdown" style="width: 150px; height: 40px;">
+        <img src="https://img.shields.io/badge/Markdown-000000?style=for-the-badge&logo=markdown&logoColor=white" alt="Markdown" style="width: auto; height: 40px;">
       </a>
     </div>
   </div>

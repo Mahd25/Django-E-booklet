@@ -94,6 +94,7 @@ h1.django-eBooklet {
 
 /* menu-list */
 .menu-list {
+    overflow-y: auto;
     height: 91.5vh;
     top: 65px;
     position: fixed;
