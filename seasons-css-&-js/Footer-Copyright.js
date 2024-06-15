@@ -7,6 +7,8 @@ $(document).ready(function() {
 
             // Adds the 'footer' to the end of the 'body' tag
             $('body').append(response);
+        
+        // ---------------------------------------------------------------------------
 
             const startYear = 2024;
             const currentYear = new Date().getFullYear();

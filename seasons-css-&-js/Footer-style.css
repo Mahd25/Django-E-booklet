@@ -1,0 +1,405 @@
+/* style for footer */
+footer * {
+    margin: 0;
+}
+
+footer {
+    overflow-x: hidden;
+    margin-top: 15px;
+    box-shadow: 0 -2px 13px rgba(128, 128, 128, 0.2);
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    width: 100%;
+    padding: 15px 25px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+/* ------------------------------------------------------- */
+
+
+/* Style for the text at the top of the footer */
+.text-box {
+    direction: rtl;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.text-box .pipe {
+    height: 45px;
+    width: 2px;
+    background-color: gray;
+}
+
+.text-box .texts {
+    text-align: right;
+}
+
+.text-box .text-h4 {
+    font-size: 1.01rem;
+}
+
+.text-box .text-p {
+    display: flex;
+    align-items: center;
+    font-size: 0.8rem;
+    color: #696969;
+}
+
+.heart {
+    font-size: 1.25rem;
+}
+
+.text-p .bold-text {
+    font-weight: bolder;
+    font-size: 0.875rem;
+    margin-right: 5px;
+}
+/* ---------------------------------------------------------- */
+
+/* line between two boxes */
+.line {
+    width: 70%;
+    height: 3px;
+    background-color: gray;
+    border-radius: 3px;
+    margin-bottom: 10px;
+}
+/* ----------------------------------------------------------------------------------------- */
+
+/* pack social media & about us */
+.packing {
+    padding: 0 15px;
+    width: 100%;
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    align-items: start;
+    gap: 8px;
+    margin-bottom: 25px;
+}
+/* --------------------------------------------- */
+
+
+/* style for social box and details */
+.social-media {
+    padding: 18px 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+}
+
+.social-media h3 {
+    font-size: 1.15rem;
+}
+
+/* ------------------- details of social-media style ------------------- */
+
+.social-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 25px;
+}
+
+a.social-link {
+    -webkit-tap-highlight-color: transparent;
+    tap-highlight-color: transparent;
+
+    position: relative;
+    display: block;
+    text-align: center;
+
+    width: 65px;
+    height: 65px;
+    border-radius: 50%;
+    background-image: linear-gradient(75deg, #ddd, #fff);
+    padding: 6.5px;
+    text-decoration: none;
+    box-shadow: rgba(0, 0, 0, 0.19) 0px 6px 15px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+    transition: 0.35s;
+}
+
+a.social-link:hover {
+    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.6);
+}
+
+i.fa-brands {
+    font-size: 2.1875rem;
+    color: #262626;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: linear-gradient(75deg, #fff, #ddd);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.fa-brands::before {
+    transition: 0.28s linear;
+}
+
+/* -------------------------------------------------------- */
+a {
+    transition: all 0.3s ease;
+}
+
+a:hover {
+    transform: scale(0.97);
+}
+/* ---------------------------------------------------------- */
+
+/* the color for social-media icons when 'hover' them */
+a.instagram:hover .fa-brands::before {
+    background: radial-gradient(circle at 33% 100%, #F9FF00 4%, #E92717 30%, #EB0E5C 62%, #6B0089 85%, #515ECF);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    color: transparent;
+    background-clip: text;
+}
+
+
+a.youtube:hover .fa-brands::before {
+    color: #FF0000;
+}
+
+a.github:hover .fa-brands::before {
+    color: #8856d3;
+}
+
+a.telegram:hover .fa-brands::before {
+    color: rgba(0, 166, 224, 1.00);
+}
+
+/* ------------------------------------------------------ */
+
+/* style for about us box */
+.about-us {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 18px 5px;
+    text-align: center;
+}
+
+.about-us h3 {
+    font-size: 1.15rem;
+}
+
+.about-us p {
+    font-weight: bold;
+    font-size: 0.95rem;
+    color: #373737;
+}
+
+.more-contact-us {
+
+    width: auto;
+    padding: 8px 30px;
+    background-image: linear-gradient(30deg ,#01d7bdb9, #3e82fef1);
+    border-radius: 25px;
+    margin: auto;
+}
+
+.more-contact-us a {    
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    text-decoration: none;
+    color: #fff;
+    font-size: 1.1rem;
+    font-weight: bold;
+    font-family: 'Vazir', sans-serif;
+}
+/* --------------------------------------------------------- */
+
+/* style for copyright box */
+div.copy-right {
+    direction: ltr;
+    width: 100vw;
+    margin-bottom: -15px;
+    padding: 18px 12px;
+    color: white;
+    background-color: #030024;
+}
+
+.copy-right .bold-copy {
+    font-weight: bold;
+}
+
+p.copyright-text {
+    background-image: linear-gradient(to right, #f79c48 20%, #ff8000 40%, #f79c48);
+    background-size: 30%;
+    animation: gradient 6s infinite ease-in-out;
+    text-align: center;
+    width: 100%;
+    background-clip: text;
+    color: transparent;
+    margin: 0;
+}
+/* ------------------------------------------------------------- */
+
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+/* ----------------------------------------------------------------------------------------- */
+
+@media (min-width:1750px) {
+    .packing {
+        justify-content: space-around;
+    }
+}
+
+@media (min-width:900px) and (max-width:1200px) {
+    .text-box .text-h4 {
+        font-size: 0.95rem;
+    }
+
+    .social-media h3 {
+        font-size: 1.12rem;
+    }
+
+    .about-us h3 {
+        font-size: 1.12rem;
+    }
+
+    .about-us {
+        width: 53%;
+    }
+
+    a.social-link {
+        width: 58px;
+        height: 58px;
+    }
+
+    .packing {
+        padding: 0 10px;
+    }
+
+    i.fa-brands {
+        font-size: 2.0625rem;
+    }
+
+    .about-us p {
+        font-size: 0.9rem;
+        color: #373737;
+    }
+
+    footer {
+        padding: 15px 13px;
+    }
+}
+
+@media (max-width:900px) {
+    .text-box .text-h4 {
+        font-size: 0.93rem;
+    }
+
+    .social-media h3 {
+        font-size: 1.12rem;
+    }
+
+    .about-us h3 {
+        font-size: 1.12rem;
+    }
+
+    .packing {
+        padding: 0 8px;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 8px;
+        flex-direction: column;
+
+    }
+}
+
+@media (max-width:750px) {
+    .about-us p {
+        font-weight: 500;
+    }
+}
+
+@media (max-width:500px) {
+    footer {
+        padding: 15px;
+    }
+
+    .packing {
+        margin-bottom: 10px;
+    }
+
+    .about-us p {
+        font-weight: normal;
+    }
+
+    .line {
+        margin-bottom: 0;
+    }
+
+    .text-box .text-h4 {
+        font-size: 0.87rem;
+    }
+
+    .text-box .text-p {
+        font-size: 0.79rem;
+    }
+
+    a.social-link {
+        width: 13.5vw;
+        height: 13.5vw;
+        padding: 5px;
+    }
+
+    i.fa-brands {
+        font-size: 7.5vw;
+    }
+
+    .social-box {
+        gap: 16px;
+    }
+}
+
+
+@media (max-width:450px) {
+    .text-box .text-h4 {
+        font-size: 0.9rem;
+    }
+
+    .text-box .text-p {
+        font-size: 0.75rem;
+    }
+
+    .social-media h3 {
+        font-size: 0.98rem;
+    }
+
+    .about-us h3 {
+        font-size: 0.98rem;
+    }
+
+    p.copyright-text {
+        font-size: 0.75rem;
+    }
+}
