@@ -986,6 +986,7 @@ p.copyright-text {
     width: 100%;
     background-clip: text;
     color: transparent;
+    margin: 0;
 }
 /* ------------------------------------------------------------- */
 
