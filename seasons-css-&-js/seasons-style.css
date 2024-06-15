@@ -856,8 +856,8 @@ a.social-link {
     display: block;
     text-align: center;
 
-    width: 70px;
-    height: 70px;
+    width: 65px;
+    height: 65px;
     border-radius: 50%;
     background-image: linear-gradient(75deg, #ddd, #fff);
     padding: 6.5px;
@@ -871,7 +871,7 @@ a.social-link:hover {
 }
 
 i.fa-brands {
-    font-size: 2.4375rem;
+    font-size: 2.1875rem;
     color: #262626;
     width: 100%;
     height: 100%;
@@ -897,7 +897,7 @@ a:hover {
 /* ---------------------------------------------------------- */
 
 /* the color for social-media icons when 'hover' them */
-a:nth-child(1):hover .fa-brands::before {
+a.instagram:hover .fa-brands::before {
     background: radial-gradient(circle at 33% 100%, #F9FF00 4%, #E92717 30%, #EB0E5C 62%, #6B0089 85%, #515ECF);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -907,15 +907,15 @@ a:nth-child(1):hover .fa-brands::before {
 }
 
 
-a:nth-child(2):hover .fa-brands::before {
+a.youtube:hover .fa-brands::before {
     color: #FF0000;
 }
 
-a:nth-child(3):hover .fa-brands::before {
+a.github:hover .fa-brands::before {
     color: #8856d3;
 }
 
-a:nth-child(4):hover .fa-brands::before {
+a.telegram:hover .fa-brands::before {
     color: rgba(0, 166, 224, 1.00);
 }
 
@@ -952,6 +952,8 @@ a:nth-child(4):hover .fa-brands::before {
 }
 
 .more-contact-us a {    
+    width: 100%;
+    height: 100%;
     text-align: center;
     text-decoration: none;
     color: #fff;
@@ -1288,194 +1290,3 @@ table th {
 }
 /* --------------------------------------------------------------------------------------------------- */
 
- /* style for contact-us.html */
- /* .content.contact-us-file {
-    margin: 0;
-    padding: 0;
-    border: none;
-    outline: none;
- } */
-
- .team-logo {
-     margin-top: 65px;
-     text-align: center;
- }
-/* ----------------------------------------------------------------- */
-
- h2.contact-us-text {
-     display: none;
- }
-
- h3 {
-     margin-bottom: 18px;
- }
-
- #contact-us > h3 {
-     text-align: center;
-     margin-top: 50px;
- }
-
- p {
-     margin-bottom: 16px;
- }
-/* ----------------------------------------------------------------- */
-
- .separate-line {
-     width: 95%;
-     height: 4px;
-     border-radius: 50%;
-     margin: auto;
-     margin-top: 70px;
-     margin-bottom: 20px;
-     background-color: #333;
- }
-/* ----------------------------------------------------------------- */
- #about-us * {
-     text-align: right;
- }
-/* ----------------------------------------------------------------- */
-
- .persons {
-     min-width: 300px;
-     display: inline-block;
-     height: max-content;
-     padding: 20px 40px;
-     border-radius: 12px;
-     display: flex;
-     align-items: center;
-     gap: 40px;
-     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
-
-     margin-bottom: 50px;
- }
-
-
-/* ----------------------------------- */
-
- .personal-logo{
-     width: 150px;
-     height: 150px;
-     border-radius: 50%;
-     padding: 12px;
- }
-
- .personal-logo-img {
-     width: 100%;
-     height: auto;
-     object-fit: fill;
-     object-position: center;
- }
-
-/* ----------------------------------- */
- .vertical-line {
-     max-height: 500px;
-     height: 220px;
-     width: 5px;
-     border-radius: 5px;
-     background-color: #333;
- }
-
-/* ----------------------------------- */
- .personal-info{
-     display: flex;
-     flex-direction: column;
-     justify-content: space-between;
-     max-height: 500px;
-     height: 250px;
-     padding-top: 25px;
-     padding-bottom: 10px;
- }
-
-/* ----------------------------------- */
- .info-text *{
-     text-align: right;
- }
-
- .info-text p {
-     margin: 5px;
- }
-/* ----------------------------------- */
- .contact-author {
-     display: flex;
-     align-items: center;
-     gap: 20px;
- }
-/* ----------------------------------------------------------------------------------------------------------- */
-/* ----------------------------------------------------------------------------------------------------------- */
-
- @media (max-width:1040px){
-     .personal-logo {
-         width: 130px;
-         height: 130px;
-     }
- }
-
- @media (max-width:950px){
-     .persons {
-         flex-direction: column;
-         gap: 10px;
-     }
-     .persons h3 {
-        margin-top: -18px;
-    }
-
-     .personal-logo {
-         width: 120px;
-         height: 120px;
-         box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
-     }
-
-     .horizontal-line{
-         display: none;
-     }
-
-     .info-text * {
-         text-align: center;
-     }
-     .contact-author {
-         justify-content: center;
-     }
- }
-
- @media (max-width:450px){
-    .persons h3 {
-        margin-top: -18px;
-    }
-
-     .personal-logo {
-         width: 100px;
-         height: 100px;
-         box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
-     }
-
-     .info-text p {
-         font-size: 0.9rem;
-     }
-     .contact-author {
-         margin-top: 25px;
-     }
- }
-
- /* ---------------------------------------------------------------------------------------- */
- .email-icon {
-     text-decoration: none;
-     position: fixed;
-     bottom: 15px;
-     left: 15px;
-     z-index: 50;
-
-     display: flex;
-     justify-content: center;
-     align-items: center;
-
-     border-radius: 50%;
-
-     width: 53px;
-     height: 53px;
-     background-color: #333333;
- }
-
- .email-icon i {
-     color: white;
-     font-size: 1.4375rem;
- }
