@@ -1,14 +1,15 @@
 $(document).ready(function() {
-    // تابع برای تعیین مسیر صحیح فایل footer.html
+    // A function to determine the correct path of the footer.html file, for the url in ajax
     function getFooterUrl() {
-        var currentPath = window.location.pathname;
+        let currentPath = window.location.pathname;
         if (currentPath.includes('/seasons-html/')) {
-            return 'footer.html'; // مسیر برای فایل‌های موجود در پوشه seasons-html
+            return 'footer.html'; // The path for the files in the seasons-html folder
         } else {
-            return 'seasons-html/footer.html'; // مسیر برای فایل‌های موجود در سطح بالاتر
+            return 'seasons-html/footer.html'; // The path for the files in the higher level
         }
     }
 
+    // --------------------------------------------------------------------------------------------------------------
     // Load footer and then execute additional scripts
     $.ajax({
         url: getFooterUrl(),
@@ -16,25 +17,43 @@ $(document).ready(function() {
         success: function (response) {
             // Adds the 'footer' to the end of the 'body' tag
             $('body').append(response);
-            
-            // تابع برای تعیین مسیر صحیح تصویر
-            function setFooterImagePath() {
-                var footerImg = document.getElementById('footer-img');
-                
-                // مکان نسبی فایل HTML فعلی را تعیین کنید
-                var currentPath = window.location.pathname;
 
-                // بر اساس مکان نسبی، مسیر تصویر را تنظیم کنید
+            // --------------------------------------------------------------------------------------------------------
+            // Function to determine the correct path of the logo
+            function setFooterImagePath() {
+                let footerImg = document.getElementById('footer-logo');
+                
+                // Determine the relative location of the current HTML file
+                let currentPath = window.location.pathname;
+
+                // Adjust logo image path based on relative location
                 if (currentPath.includes('/seasons-html/')) {
-                    footerImg.src = '../Images/my-logo.svg'; // تنظیم مسیر برای فایل‌های موجود در پوشه seasons-html
+                    footerImg.src = '../Images/my-logo.svg'; // the path for the files in the seasons-html folder
                 } else {
-                    footerImg.src = 'Images/my-logo.svg'; // تنظیم مسیر برای فایل e-booklet.html
+                    footerImg.src = 'Images/my-logo.svg'; // the path for the e-booklet.html file
                 }
             }
 
-            // فراخوانی تابع پس از بارگذاری فوتر
+            // ------------------------------------------------------------------------------------------------------------
+            // Function to set contact-us link path for about-us page
+            function setContactUsLink() {
+                let contactUsLink = document.querySelector('.more-link');
+                let currentPath = window.location.pathname;
+
+                if (currentPath.includes('/seasons-html/')) {
+                    contactUsLink.href = 'contact-us.html'; // The href path for the files in the seasons-html folder
+                } else {
+                    contactUsLink.href = 'seasons-html/contact-us.html'; // The href path for the e-booklet.html file
+                }
+            }
+
+            // ------------------------------------------------------------------------------------------------------------
+            // Calling functions after loading the footer
             setFooterImagePath();
-        
+            setContactUsLink();
+
+            // ------------------------------------------------------------------------------------------------------------
+            // Automatic adjustment of the year in the copyright text
             const startYear = 2024;
             const currentYear = new Date().getFullYear();
 
