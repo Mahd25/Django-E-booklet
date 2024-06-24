@@ -38,6 +38,50 @@ p {
     font-weight: 500;
 }
 
+/* ----------------------------------------------- */
+.edu-img {
+    margin: 25px 0;
+
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+
+    max-width: 100%;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}
+
+/* ----------------------------------------------- */
+blockquote {
+    font-style: italic;
+    border-inline-start: 7px solid #00b4ff;
+    border-radius: 10px;
+    margin: 30px 0;
+    padding: 5px 20px;
+    background: #f3faff;
+}
+
+/* ----------------------------------------------- */
+span.en-text {
+    display: inline-block;
+    direction: ltr;
+}
+
+@media (max-width:500px){
+    blockquote {
+        font-size: 0.9rem;
+    }
+
+    .edu-img {
+        margin: 0;
+    }
+
+    h5 {
+        margin: 1rem 0;
+    }
+}
+
 /* -------------------------------- for season zero -------------------------------- */
 li {
     margin-bottom: 7px;
@@ -818,9 +862,15 @@ table th {
 
 /* Responsive Images */
 .img-zero {
+    margin: 20px 0;
+
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+
     max-width: 100%;
     height: auto;
-    border-radius: 5px;
+    border-radius: 12px;
     box-shadow: 0 2px 2px rgba(0, 0, 0, 0.1);
 }
 /* -------------------------------------------------------------------------------------------------- */
