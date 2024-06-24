@@ -14,7 +14,7 @@
 
 ##### installation
 
-مسیرهای نصبی را ترجیحاً همان مسیر پیشفرض مثله (C:\\Program File\\PostgreSQL\\version) بگذارید باشد./ تیک گزینه ها را بگذارید به صورت پیشفرض فعال باشند.
+مسیرهای نصبی را ترجیحاً همان مسیر پیشفرض مثله (C:\\Program File\\PostgreSQL\\<span class="en-text">\<version></span>) بگذارید باشد./ تیک گزینه ها را بگذارید به صورت پیشفرض فعال باشند.
 
 در ادامه نصب، از ما یک رمز درخواست میکنه که برای استفاده از postgres به آن نیاز داریم./ رمز قابل مشاهده نیست پس حواسمون باشه چه کاراکترهایی وارد میکنیم.
 
@@ -72,7 +72,7 @@ grant all privileges on database <database-name> to <user>;
 
 ---
 
-با دستور ``\q``، از psql خارج میشود.
+با دستور <span class="en-text">`\q`</span>، از psql خارج میشود.
 
 `sql shell:`
 
@@ -82,7 +82,7 @@ grant all privileges on database <database-name> to <user>;
 
 ---
 
-با دستور ``\du``، لیست userها را نشان میدهد.
+با دستور <span class="en-text">`\du`</span>، لیست userها را نشان میدهد.
 
 `sql shell:`
 
@@ -92,7 +92,7 @@ grant all privileges on database <database-name> to <user>;
 
 ---
 
-با دستور ``\dt``، لیست جدول های دیتابیس فعلی را نشان میدهد.
+با دستور <span class="en-text">`\dt`</span>، لیست جدول های دیتابیس فعلی را نشان میدهد.
 
 `sql shell:`
 
@@ -102,7 +102,7 @@ grant all privileges on database <database-name> to <user>;
 
 ---
 
-با دستور ``\l``، لیست دیتابیس ها را نشان میدهد.
+با دستور <span class="en-text">`\l`</span>، لیست دیتابیس ها را نشان میدهد.
 
 `sql shell:`
 
@@ -283,11 +283,11 @@ create database <database-name>;
 python -Xutf8 manage.py dumpdata --indent=4 --output=blog_data.json
 ```
 
-> دستور `-Xutf8` برای جلوگیری از خطا و ارورهای احتمالی است، utf8-mode پایتون را فعال میکنیم تا دیتا به درستی ذخیره بشوند.
+> دستور <span class="en-text">`-Xutf8`</span> برای جلوگیری از خطا و ارورهای احتمالی است، utf8-mode پایتون را فعال میکنیم تا دیتا به درستی ذخیره بشوند.
 
-> با دستور `--indent=4` برایش فاصله گذاری(دندانه گذاری) مشخص میکنیم تا ساختار فایل بهم ریختگی داشته باشد
+> با دستور <span class="en-text">`--indent=4`</span> برایش فاصله گذاری(دندانه گذاری) مشخص میکنیم تا ساختار فایل بهم ریختگی داشته باشد
 
-> با دستور `--output=<name>.json` مشخص میکنیم داده های استخراج شده در چه فایلی(با چه نامی) ذخیره شوند.
+> با دستور <span class="en-text">`--output=<name>.json`</span> مشخص میکنیم داده های استخراج شده در چه فایلی(با چه نامی) ذخیره شوند.
 
 این فایل خروجی در پروژه جنگو ما ذخیره میشود.
 
