@@ -915,7 +915,7 @@ class TicketForm(forms.Form):
 
 #### انواع فیلد در html:
 
-<img src="https://res.cloudinary.com/dyjvqwy0s/image/upload/v1719592877/types_of_input_q4slhv.png" alt="types_of_input" class="edu-img" width="100%" height="auto">
+[!["types_of_input"](https://res.cloudinary.com/dyjvqwy0s/image/upload/v1719592877/types_of_input_q4slhv.png)](https://res.cloudinary.com/dyjvqwy0s/image/upload/v1719592877/types_of_input_q4slhv.png)
 
 #### ساختار فرم به صورت دستی
 
@@ -1812,10 +1812,10 @@ def to_markdown(text):
 میتوانید تگ input و  widget مربوط به هر نوع از فیلدهای فرم را در آدرس [***webforefront.com***](https://www.webforefront.com/django/formfieldtypesandvalidation.html) مشاهده کنید.
 
 > حالا برای widget های مشخص شده از آرگومان attrs استفاده کرده و برایش یک دیکشنری تعریف میکنیم، کلیدهای آن میشه اسم اتریبیوت مدنظر و مقدار آن کلید میشه مقدار اتریبیوت مشخص شده.
-> 
-> ```python
-> widget=forms.<type-of-widget>(attrs={'attr_name': 'value'})
-> ```
+
+```python
+widget=forms.<type-of-widget>(attrs={'attr_name': 'value'})
+```
 
 بریم یک نمونه ببینیم:
 
@@ -1900,7 +1900,7 @@ class CreatePostForm(forms.ModelForm):
         fields = ['title', 'description', 'reading_time']
 ```
 
-##### **بریم برای صفحه ایجاد پست یک URL بنویسیم:**
+**بریم برای صفحه ایجاد پست یک URL بنویسیم:**
 
 `app directory/urls.py`
 
@@ -1908,7 +1908,7 @@ class CreatePostForm(forms.ModelForm):
 path('create-post/', views.create_post, name='create_post'),
 ```
 
-##### **وقتشه بریم و یک view برای ایجاد پست جدید بنویسیم:**
+**وقتشه بریم و یک view برای ایجاد پست جدید بنویسیم:**
 
 > دستور request.user کاربری که لاگین کرده است را برمیگرداند.
 
@@ -2100,7 +2100,7 @@ class CreatePostForm(forms.Form):
 
 </center>
 
-##### **نمایش پست با بیشترین تایم مطالعه با simple_tag:**
+**نمایش پست با بیشترین تایم مطالعه با simple_tag:**
 
 `app directory/templatetags/blog_tags.py`
 
@@ -2116,7 +2116,7 @@ def max_reading_time():
     return Post.published.order_by('-reading_time').first()
 ```
 
-##### **نمایش پست با کمترین تایم مطالعه با simple_tag:**
+**نمایش پست با کمترین تایم مطالعه با simple_tag:**
 
 `app directory/templatetags/blog_tags.py`
 
@@ -2138,7 +2138,7 @@ def max_reading_time():
 
 </center>
 
-##### **نمایش پست با بیشترین تایم مطالعه با inclusion_tag:**
+**نمایش پست با بیشترین تایم مطالعه با inclusion_tag:**
 
 `app directory/templatetags/blog_tags.py`
 
@@ -2164,7 +2164,7 @@ def max_reading_time():
 longest post: {{ max_time }}
 ```
 
-##### **نمایش پست با کمترین تایم مطالعه با inclusion_tag:**
+**نمایش پست با کمترین تایم مطالعه با inclusion_tag:**
 
 `app directory/templatetags/blog_tags.py`
 
