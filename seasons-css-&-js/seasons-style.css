@@ -52,8 +52,16 @@ p {
     box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
 }
 
-/* ----------------------------------------------- */
-blockquote {
+/* ----------------------- block quote ------------------------ */
+blockquote:has(span) {
+    direction: ltr;
+    border-radius: 5px;
+    border-inline-width: 5px;
+    margin: 20px 0;
+    padding: 5px 10px;
+}
+blockquote, blockquote:has(blockquote) {
+    direction: rtl;
     font-style: italic;
     border-inline-start: 7px solid #00b4ff;
     border-radius: 10px;
@@ -80,6 +88,14 @@ span.en-text {
     h5 {
         margin: 1rem 0;
     }
+}
+
+/* --------------------------------------------------------------------------------- */
+
+center *:not(p) {
+    background-color: antiquewhite;
+    padding: 10px 15px;
+    border-radius: 12px;
 }
 
 /* -------------------------------- for season zero -------------------------------- */
