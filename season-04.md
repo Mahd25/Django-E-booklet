@@ -808,11 +808,15 @@ def ticket(request):
 
 #### انواع متد، برای ایجاد فرم به حالت اتوماتیک:
 
-> #### form rendering options    
-> form.as_p => \<p>input\</p>    
-> form.as_div => \<div>input\</div>    
-> form.as_table => \<tr>input\</tr>    
-> form.as_ul => \<li>input\</li>
+> #### <span class="en-text">form rendering options</span>
+>
+> form.as_p => &lt;p&gt;<code>&lt;input type=&quot;&quot;&gt;</code>&lt;/p&gt;
+>
+> form.as_div => &lt;div&gt;<code>&lt;input type=&quot;&quot;&gt;</code>&lt;/div&gt;
+>
+> form.as_table => &lt;tr&gt;<code>&lt;input type=&quot;&quot;&gt;</code>&lt;/tr&gt;
+>
+> form.as_ul => &lt;li&gt;<code>&lt;input type=&quot;&quot;&gt;</code>&lt;/li&gt;
 
 
 
