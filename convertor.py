@@ -5,6 +5,7 @@ from pygments.formatters import HtmlFormatter
 import re
 from slugify import slugify
 
+
 # Function to highlight code blocks
 def highlight_code(code, language):
     try:
@@ -28,6 +29,7 @@ def highlight_code(code, language):
     highlighted_code = re.sub(r'<div class="code-box">', f'<div class="code-box">{code_info}', highlighted_code)
     return highlighted_code
 
+
 # Function to convert markdown to HTML
 def markdown_to_html(md_text):
     code_block_re = re.compile(r'```(\w+)\n(.*?)\n```', re.DOTALL)
@@ -38,21 +40,29 @@ def markdown_to_html(md_text):
         # Do not escape HTML entities in code blocks
         return highlight_code(code, language)
 
+    # Convert code blocks
     html_with_highlighted_code = code_block_re.sub(code_block_replacer, md_text)
+
+    # Convert markdown to HTML
     html_content = markdown.markdown(html_with_highlighted_code, extensions=['fenced_code', 'codehilite', 'tables'])
 
+    # Replace image tags to add class edu-img
+    img_tag_re = re.compile(r'<img(.*?)>')
+    html_content = img_tag_re.sub(r'<img\1 class="edu-img">', html_content)
+
     return html_content
+
 
 # Function to generate TOC and add it after the first h2 tag
 def generate_toc_and_add_links(html_content):
     # Find all h3 tags
     headings = re.findall(r'<h3>(.*?)</h3>', html_content)
     toc_lines = ["<div class=\"toc\"><h3>فهرست مطالب</h3><ul>"]
-    
+
     for heading in headings:
         slug = slugify(heading, separator='-', replacements=[(" ", "-"), ("‌", "-")])
         toc_lines.append(f'<li><a href="#{slug}">{heading}</a></li>')
-        
+
     toc_lines.append("</ul></div>")
     toc_content = '\n'.join(toc_lines)
 
