@@ -60,7 +60,7 @@ blockquote:has(span) {
     margin: 20px 0;
     padding: 5px 10px;
 }
-blockquote, blockquote:has(blockquote) {
+blockquote, blockquote:has(blockquote), blockquote:has(.rtl-text) {
     direction: rtl;
     font-style: italic;
     border-inline-start: 7px solid #00b4ff;
