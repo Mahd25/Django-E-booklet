@@ -192,10 +192,9 @@
     <pre><span></span><span class="cp">{{</span> <span class="nv">post.get_absolute_url</span> <span class="cp">}}</span>
 </pre></div>
 
-<center>
+<p><center></p>
 <h3 id="forloop">forloop</h3>
-</center>
-            
+<p></center></p>
 <blockquote>
 <p>تمپلیت تگ for در  جنگو؛ از یک متغیر داخلی به نام forloop استفاده می‌کند که شامل اطلاعاتی درباره‌ی حلقه‌ی فعلی است. این متغیر دارای چندین ویژگی است که به تحلیل و کنترل حلقه کمک می‌کند(از forloop میتوان برای مدیریت حلقه‌ها استفاده کرد).</p>
 <blockquote>
@@ -1108,11 +1107,8 @@
 
 <p>فیلد full_name از نوع CharField هست پس اینپوت را از نوع text ایجاد میکنیم، چون اسم فیلد full_name هست برای اتریبیوت name در تگ input، اسم آن فیلد (یعنی full_name) را وارد میکنیم.</p>
 <h4>انواع فیلد در html:</h4>
-<!-- <img src="https://res.cloudinary.com/dyjvqwy0s/image/upload/v1719592877/types_of_input_q4slhv.png" alt="types_of_input" class="edu-img" width="100%" height="auto" class="edu-img"> -->
-
-<p><a href="https://res.cloudinary.com/am-er/image/upload/v1719592877/types_of_input_q4slhv.png"><img alt="&quot;types_of_input&quot;" src="https://res.cloudinary.com/am-er/image/upload/v1719592877/types_of_input_q4slhv.png" / class="edu-img"></a></p>
+<p><a href="https://res.cloudinary.com/dyjvqwy0s/image/upload/v1719592877/types_of_input_q4slhv.png"><img alt="&quot;types_of_input&quot;" src="https://res.cloudinary.com/dyjvqwy0s/image/upload/v1719592877/types_of_input_q4slhv.png" / class="edu-img"></a></p>
 <h4>ساختار فرم به صورت دستی</h4>
-
 <p><code>templates/forms/ticket.html</code></p>
 <div class="code-box">
         <div class="code-info">
@@ -1253,7 +1249,7 @@
 <p>اعتبارسنجی فرم ها را در فایل forms.py انجام می دهیم. | در کلاس فرم مربوطه اعتبارسنجی را انجام میدهیم.</p>
 <p>برای اعتبارسنجی فیلدها دو حالت وجود دارد:</p>
 <blockquote>
-<p>اعتبارسنجی را با یکی از متدهای <span class="en-text">clean_<field_name>()</span> و یا <span class="en-text">clean()</span> انجام میدهیم.</p>
+<p><span class="rtl-text">اعتبارسنجی را با یکی از متدهای <span class="en-text">clean_<field_name>()</span> و یا <span class="en-text">clean()</span> انجام میدهیم.</span></p>
 </blockquote>
 <h4>حالت اول</h4>
 <p><code>app directory/forms.py</code></p>
@@ -1364,12 +1360,14 @@
 
 <p>کامنت باید به پست متصل شود تا مشخص شود هر پست چه کامنت هایی دارد یا یک کامنت متعلق به چه پستی میباشد.</p>
 <blockquote>
-<p>یک پست میتواند چندین کامنت داشته باشد ولی هر کامنت فقط به یک پست تعلق داره پس فیلد آن از نوع Many To One خواهد بود.(ForeignKey)</p>
+<p>یک پست میتواند چندین کامنت داشته باشد ولی هر کامنت فقط به یک پست تعلق داره پس فیلد آن از نوع Many To One خواهد بود.(ForeignKey)    </p>
 <h4>یادآوری:</h4>
-<p># تمام کامنت های یک پست  <br />
-<span class="en-text">post.comments.all()</span> <br />
+<p># تمام کامنت های یک پست    </p>
+<blockquote>
+<p><span class="en-text">post.comments.all()</span> <br />
 # تشخیص پست برای یک کامنت  <br />
-comment.post</p>
+<span class="en-text">comment.post</span></p>
+</blockquote>
 </blockquote>
 <p>دستور makemigrations و migrate فراموش نشه!</p>
 <h4>نمایش کامنت ها در پنل ادمین</h4>
@@ -2264,7 +2262,7 @@ comment.post</p>
 <p>در ساختار ModelForm یکم داستان فرق میکنه.</p>
 <p>در کلاس Meta، از «اتریبیوت کلاس widgets» استفاده میکنیم؛ مقداری که برایش مشخص میکنیم یک دیکشنری است.</p>
 <blockquote>
-<p>کلیدهای این دیکشنری اسم فیلدهای فرم هستند؛ حالا برای اینکه برای هر فیلد اتریبیوتی که میخواهیم اضافه کنیم، به عنوان value برای آن فیلد از ساختار <span class="en-text">forms.\<type-of-widget>()</span> استفاده کرده و حالا مثل حالت قبلی از آرگومان attrs استفاده کرده و برایش یک دیکشنری مشخص میکنیم حالا اتریبیوت های مدنظر را اضافه میکنیم.</p>
+<p><span class="rtl-text">کلیدهای این دیکشنری اسم فیلدهای فرم هستند؛ حالا برای اینکه برای هر فیلد اتریبیوتی که میخواهیم اضافه کنیم، به عنوان value برای آن فیلد از ساختار <span class="en-text">forms.\<type-of-widget>()</span> استفاده کرده و حالا مثل حالت قبلی از آرگومان attrs استفاده کرده و برایش یک دیکشنری مشخص میکنیم حالا اتریبیوت های مدنظر را اضافه میکنیم.</span></p>
 </blockquote>
 <h4>خب بریم برای فیلدهای فرم کامنت، اتریبیوت class اضافه کنیم</h4>
 <p><code>app directory/forms.py</code></p>
