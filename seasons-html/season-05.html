@@ -1,446 +1,312 @@
+
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
-
 <head>
-    <title>Season Five</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Django e-booklet">
-    <meta name="keywords" content="django, django learning">
-    <meta name="author" content="Mahdi Rezaie, Ali Ebrahimian">
-    <link rel="icon" href="../Images/favicon.ico" type="image/ico">
+<title>Season Five</title>    
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Django e-booklet">
+<meta name="keywords" content="django, django learning">
+<meta name="author" content="Mahdi Rezaie, Ali Ebrahimian">
+<link rel="icon" href="../Images/favicon.ico" type="image/ico">
 
-    <link rel="stylesheet" type="text/css" href="../seasons-css-&-js/seasons-style.css">
-    <link rel="stylesheet" type="text/css" href="../seasons-css-&-js/Footer-style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
-        integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
+<link rel="stylesheet" type="text/css" href="../seasons-css-&-js/seasons-style.css">
+<link rel="stylesheet" type="text/css" href="../seasons-css-&-js/Footer-style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
-
 <body>
-    <main>
-        <div class="container">
-            <div class="content">
-                <h2>فصل پنجم: نصب و راه اندازی پایگاه داده</h2>
-                <div class="toc">
-                    <h3>فهرست مطالب</h3>
-                    <ul>
-                        <li><a href="#nsb-pygh-ddh-postgresql">نصب پایگاه داده postgresql</a></li>
-                        <li><a href="#khr-b-sql-shell-psql">کار با SQL Shell (psql)</a></li>
-                        <li><a href="#khr-b-pgadmin">کار با pgAdmin</a></li>
-                        <li><a href="#tsl-dytbys-bh-prwjh-w-ntql-ddh-hy-dytbys-qbly">اتصال دیتابیس به پروژه و انتقال
-                                داده های دیتابیس قبلی</a></li>
-                    </ul>
-                </div>
-                <h3 id="nsb-pygh-ddh-postgresql">نصب پایگاه داده postgresql</h3>
-                <p>از وبسایت PostgreSQL به آدرس <a
-                        href="https://www.postgresql.org/"><strong><em>postgresql.org</em></strong></a>، اپلیکیشن
-                    postgres را دانلود و آن را نصب میکنیم.</p>
-                <hr />
-                <h5>download</h5>
-                <p>از بخش دانلود وبسایت سیستم عامل خود (windows, linux, macOS) را انتخاب میکنیم حالا روی لینک Download
-                    the installer (نوشته شده در ابتدای صفحه) کلیک میکنیم و یکی از ورژن ها را دانلود میکنیم.</p>
-                <hr />
-                <h5>installation</h5>
-                <p>مسیرهای نصبی را ترجیحاً همان مسیر پیشفرض مثله (C:\Program File\PostgreSQL\<span class="en-text">\
-                        <version></span>) بگذارید باشد./ تیک گزینه ها را بگذارید به صورت پیشفرض فعال باشند.</p>
-                <p>در ادامه نصب، از ما یک رمز درخواست میکنه که برای استفاده از postgres به آن نیاز داریم./ رمز قابل
-                    مشاهده نیست پس حواسمون باشه چه کاراکترهایی وارد میکنیم.</p>
-                <p>این رمز برای super-user هست./ نام کاربری برای super-user به صورت پیشفرض postgres میباشد. / از آن برای
-                    بخش های مدیریتی استفاده میشود.</p>
-                <p>فیلد port و سایر موارد را هم بگذارید پیشفرض بمانند./ حالا منتظر میمانیم تا نصب کامل شود.</p>
-                <p>در پنجره Stack Builder که باز شده postgres را انتخاب و next را میزنیم ، در صفحه بعدی اگر هرکدام از
-                    این ابزارها را نیاز داشتید می توانید انتخاب کنید فعلا با زدن دکمه cancel از آنها صرف نظر میکنیم.</p>
-                <h3 id="khr-b-sql-shell-psql">کار با SQL Shell (psql)</h3>
-                <p>میتوان با جستجو sql shell یا psql آنرا اجرا کنیم.</p>
-                <p>اگر فیلدی را خالی رها کرده و اینتر را بزنیم از مقدار پیشفرض داخل [] استفاده میکند./ یا اینکه میتوانیم
-                    مقدار مدنظر خود را وارد کنیم.</p>
-                <p><strong>برای اولین بار هیچ کاربری بجز super-user وجود ندارد پس username را همین پیشفرض انتخاب میکنیم
-                        و در قسمت password، رمزی را که هنگام نصب postgres مشخص کردیم را باید وارد کنیم.</strong></p>
-                <p><code>sql shell:</code></p>
-                <div class="code-box">
-                    <div class="code-info">
-                        <button class="copy-icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none"
-                                viewBox="0 0 24 24" class="icon-sm">
-                                <path fill="currentColor" fill-rule="evenodd"
-                                    d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z"
-                                    clip-rule="evenodd"></path>
-                            </svg>
-                            <span>Copy code</span>
-                        </button>
-                        <span class="language">sqlshell</span>
-                    </div>
-                    <pre><span></span>Server [local host]: &lt;your_host or blank&gt;
+<main>
+    <div class="container">
+        <div class="content">
+            <h2>فصل پنجم: نصب و راه اندازی پایگاه داده</h2><div class="toc"><h3>فهرست مطالب</h3><ul>
+<li><a href="#nsb-pygh-ddh-postgresql">نصب پایگاه داده postgresql</a></li>
+<li><a href="#khr-b-sql-shell-psql">کار با SQL Shell (psql)</a></li>
+<li><a href="#khr-b-pgadmin">کار با pgAdmin</a></li>
+<li><a href="#tsl-dytbys-bh-prwjh-w-ntql-ddh-hy-dytbys-qbly">اتصال دیتابیس به پروژه و انتقال داده های دیتابیس قبلی</a></li>
+</ul></div>
+<h3 id="nsb-pygh-ddh-postgresql">نصب پایگاه داده postgresql</h3>
+<p>از وبسایت PostgreSQL به آدرس <a href="https://www.postgresql.org/"><strong><em>postgresql.org</em></strong></a>، اپلیکیشن postgres را دانلود و آن را نصب میکنیم.</p>
+<hr />
+<p>download</p>
+<p>از بخش دانلود وبسایت سیستم عامل خود (windows, linux, macOS)  را انتخاب میکنیم حالا روی لینک Download the installer  (نوشته شده در ابتدای صفحه) کلیک میکنیم و یکی از ورژن ها را دانلود میکنیم.</p>
+<hr />
+<p>installation</p>
+<p>مسیرهای نصبی را ترجیحاً همان مسیر پیشفرض مثله (C:\Program File\PostgreSQL\<span class="en-text">\<version></span>) بگذارید باشد./ تیک گزینه ها را بگذارید به صورت پیشفرض فعال باشند.</p>
+<p>در ادامه نصب، از ما یک رمز درخواست میکنه که برای استفاده از postgres به آن نیاز داریم./ رمز قابل مشاهده نیست پس حواسمون باشه چه کاراکترهایی وارد میکنیم.</p>
+<p>این رمز برای super-user هست./ نام کاربری برای super-user به صورت پیشفرض postgres میباشد. / از آن برای بخش های مدیریتی استفاده میشود.</p>
+<p>فیلد port و سایر موارد را هم بگذارید پیشفرض بمانند./ حالا منتظر میمانیم تا نصب کامل شود.</p>
+<p>در پنجره Stack Builder که باز شده postgres را انتخاب و next را میزنیم ، در صفحه بعدی اگر هرکدام از این ابزارها را نیاز داشتید می توانید انتخاب کنید فعلا با زدن دکمه cancel از آنها صرف نظر میکنیم.</p>
+<h3 id="khr-b-sql-shell-psql">کار با SQL Shell (psql)</h3>
+<p>میتوان با جستجو sql shell یا psql آنرا اجرا کنیم.</p>
+<p>اگر فیلدی را خالی رها کرده و اینتر را بزنیم از مقدار پیشفرض داخل [] استفاده میکند./ یا اینکه میتوانیم مقدار مدنظر خود را وارد کنیم.</p>
+<p><strong>برای اولین بار هیچ کاربری بجز super-user وجود ندارد پس username را همین پیشفرض انتخاب میکنیم و در قسمت password، رمزی را که هنگام نصب postgres مشخص کردیم را باید وارد کنیم.</strong></p>
+<p><code>sql shell:</code></p>
+<div class="code-box">
+        <div class="code-info">
+            <button class="copy-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" class="icon-sm"><path fill="currentColor" fill-rule="evenodd" d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z" clip-rule="evenodd"></path></svg>
+                <span>Copy code</span>
+            </button>
+            <span class="language">sqlshell</span>
+        </div>
+    <pre><span></span>Server [local host]: &lt;your_host or blank&gt;
 Database [postgres]: &lt;your_database_name or blank&gt;
 Port [5432]: &lt;your_port or blank&gt;
 Username [postgres]: &lt;ypur_username or blank&gt;
 Password for user postgres: &lt;password during installation&gt;
-</pre>
-                </div>
+</pre></div>
 
-                <p>بعد از این تنظیمات، دیتابیس آماده استفاده و کد زدن میباشد.</p>
-                <p>توی دستورات SQL باید انتهای کد از علامت (;) استفاده کنیم.</p>
-                <h4>ایجاد یک user جدید</h4>
-                <p><code>sql shell:</code></p>
-                <div class="code-box">
-                    <div class="code-info">
-                        <button class="copy-icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none"
-                                viewBox="0 0 24 24" class="icon-sm">
-                                <path fill="currentColor" fill-rule="evenodd"
-                                    d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z"
-                                    clip-rule="evenodd"></path>
-                            </svg>
-                            <span>Copy code</span>
-                        </button>
-                        <span class="language">sqlshell</span>
-                    </div>
-                    <pre><span></span>create user &lt;name&gt; with encrypted password &#39;password&#39;;
-</pre>
-                </div>
+<p>بعد از این تنظیمات، دیتابیس آماده استفاده و کد زدن میباشد.</p>
+<p>توی دستورات SQL باید انتهای کد از علامت (;) استفاده کنیم.</p>
+<h4>ایجاد یک user جدید</h4>
+<p><code>sql shell:</code></p>
+<div class="code-box">
+        <div class="code-info">
+            <button class="copy-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" class="icon-sm"><path fill="currentColor" fill-rule="evenodd" d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z" clip-rule="evenodd"></path></svg>
+                <span>Copy code</span>
+            </button>
+            <span class="language">sqlshell</span>
+        </div>
+    <pre><span></span>create user &lt;name&gt; with encrypted password &#39;password&#39;;
+</pre></div>
 
-                <p>پس از ایجاد یک کاربر جدید برای دفعات بعدی که خواستیم وارد psql, sql shell بشویم چنانچه خواستیم از
-                    طریق این کاربر جدید وارد شویم باید همین رمزی که در بالا برایش مشخص کرده ایم را بزنیم نه رمز
-                    super-user را.</p>
-                <p>وقتی برای فیلد Username یکی از نام کاربری ها را که ایجاد کرده ایم وارد کنیم در بخش Password مینویسه
-                    رمز این کاربر را وارد کنید./ پس هر کاربر ایجاد شده با رمز خودش وارد میشود.</p>
-                <hr />
-                <h4>دادن دسترسی کامل به کاربر</h4>
-                <p><code>sql shell:</code></p>
-                <div class="code-box">
-                    <div class="code-info">
-                        <button class="copy-icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none"
-                                viewBox="0 0 24 24" class="icon-sm">
-                                <path fill="currentColor" fill-rule="evenodd"
-                                    d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z"
-                                    clip-rule="evenodd"></path>
-                            </svg>
-                            <span>Copy code</span>
-                        </button>
-                        <span class="language">sqlshell</span>
-                    </div>
-                    <pre><span></span>grant all privileges on database &lt;database-name&gt; to &lt;user&gt;;
-</pre>
-                </div>
+<p>پس از ایجاد یک کاربر جدید برای دفعات بعدی که خواستیم وارد psql, sql shell بشویم چنانچه خواستیم از طریق این کاربر جدید وارد شویم باید همین رمزی که در بالا برایش مشخص کرده ایم را بزنیم نه رمز super-user را.</p>
+<p>وقتی برای فیلد Username یکی از نام کاربری ها را که ایجاد کرده ایم وارد کنیم در بخش Password مینویسه رمز این کاربر را وارد کنید./ پس هر کاربر ایجاد شده با رمز خودش وارد میشود.</p>
+<hr />
+<h4>دادن دسترسی کامل به کاربر</h4>
+<p><code>sql shell:</code></p>
+<div class="code-box">
+        <div class="code-info">
+            <button class="copy-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" class="icon-sm"><path fill="currentColor" fill-rule="evenodd" d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z" clip-rule="evenodd"></path></svg>
+                <span>Copy code</span>
+            </button>
+            <span class="language">sqlshell</span>
+        </div>
+    <pre><span></span>grant all privileges on database &lt;database-name&gt; to &lt;user&gt;;
+</pre></div>
 
-                <p>به این ترتیب به کاربر مدنظر روی آن دیتابیس دسترسی کامل میدهیم.</p>
-                <hr />
-                <p>با دستور <span class="en-text"><code>\q</code></span>، از psql خارج میشود.</p>
-                <p><code>sql shell:</code></p>
-                <div class="code-box">
-                    <div class="code-info">
-                        <button class="copy-icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none"
-                                viewBox="0 0 24 24" class="icon-sm">
-                                <path fill="currentColor" fill-rule="evenodd"
-                                    d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z"
-                                    clip-rule="evenodd"></path>
-                            </svg>
-                            <span>Copy code</span>
-                        </button>
-                        <span class="language">sqlshell</span>
-                    </div>
-                    <pre><span></span>\q;
-</pre>
-                </div>
+<p>به این ترتیب به کاربر مدنظر روی آن دیتابیس دسترسی کامل میدهیم.</p>
+<hr />
+<p>با دستور <span class="en-text"><code>\q</code></span>، از psql خارج میشود.</p>
+<p><code>sql shell:</code></p>
+<div class="code-box">
+        <div class="code-info">
+            <button class="copy-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" class="icon-sm"><path fill="currentColor" fill-rule="evenodd" d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z" clip-rule="evenodd"></path></svg>
+                <span>Copy code</span>
+            </button>
+            <span class="language">sqlshell</span>
+        </div>
+    <pre><span></span>\q;
+</pre></div>
 
-                <hr />
-                <p>با دستور <span class="en-text"><code>\du</code></span>، لیست userها را نشان میدهد.</p>
-                <p><code>sql shell:</code></p>
-                <div class="code-box">
-                    <div class="code-info">
-                        <button class="copy-icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none"
-                                viewBox="0 0 24 24" class="icon-sm">
-                                <path fill="currentColor" fill-rule="evenodd"
-                                    d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z"
-                                    clip-rule="evenodd"></path>
-                            </svg>
-                            <span>Copy code</span>
-                        </button>
-                        <span class="language">sqlshell</span>
-                    </div>
-                    <pre><span></span>\du;
-</pre>
-                </div>
+<hr />
+<p>با دستور <span class="en-text"><code>\du</code></span>، لیست userها را نشان میدهد.</p>
+<p><code>sql shell:</code></p>
+<div class="code-box">
+        <div class="code-info">
+            <button class="copy-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" class="icon-sm"><path fill="currentColor" fill-rule="evenodd" d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z" clip-rule="evenodd"></path></svg>
+                <span>Copy code</span>
+            </button>
+            <span class="language">sqlshell</span>
+        </div>
+    <pre><span></span>\du;
+</pre></div>
 
-                <hr />
-                <p>با دستور <span class="en-text"><code>\dt</code></span>، لیست جدول های دیتابیس فعلی را نشان میدهد.</p>
-                <p><code>sql shell:</code></p>
-                <div class="code-box">
-                    <div class="code-info">
-                        <button class="copy-icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none"
-                                viewBox="0 0 24 24" class="icon-sm">
-                                <path fill="currentColor" fill-rule="evenodd"
-                                    d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z"
-                                    clip-rule="evenodd"></path>
-                            </svg>
-                            <span>Copy code</span>
-                        </button>
-                        <span class="language">sqlshell</span>
-                    </div>
-                    <pre><span></span>\dt;
-</pre>
-                </div>
+<hr />
+<p>با دستور <span class="en-text"><code>\dt</code></span>، لیست جدول های دیتابیس فعلی را نشان میدهد.</p>
+<p><code>sql shell:</code></p>
+<div class="code-box">
+        <div class="code-info">
+            <button class="copy-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" class="icon-sm"><path fill="currentColor" fill-rule="evenodd" d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z" clip-rule="evenodd"></path></svg>
+                <span>Copy code</span>
+            </button>
+            <span class="language">sqlshell</span>
+        </div>
+    <pre><span></span>\dt;
+</pre></div>
 
-                <hr />
-                <p>با دستور <span class="en-text"><code>\l</code></span>، لیست دیتابیس ها را نشان میدهد.</p>
-                <p><code>sql shell:</code></p>
-                <div class="code-box">
-                    <div class="code-info">
-                        <button class="copy-icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none"
-                                viewBox="0 0 24 24" class="icon-sm">
-                                <path fill="currentColor" fill-rule="evenodd"
-                                    d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z"
-                                    clip-rule="evenodd"></path>
-                            </svg>
-                            <span>Copy code</span>
-                        </button>
-                        <span class="language">sqlshell</span>
-                    </div>
-                    <pre><span></span>\l;
-</pre>
-                </div>
+<hr />
+<p>با دستور <span class="en-text"><code>\l</code></span>، لیست دیتابیس ها را نشان میدهد.</p>
+<p><code>sql shell:</code></p>
+<div class="code-box">
+        <div class="code-info">
+            <button class="copy-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" class="icon-sm"><path fill="currentColor" fill-rule="evenodd" d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z" clip-rule="evenodd"></path></svg>
+                <span>Copy code</span>
+            </button>
+            <span class="language">sqlshell</span>
+        </div>
+    <pre><span></span>\l;
+</pre></div>
 
-                <hr />
-                <h4>حذف user</h4>
-                <p><code>sql shell:</code></p>
-                <div class="code-box">
-                    <div class="code-info">
-                        <button class="copy-icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none"
-                                viewBox="0 0 24 24" class="icon-sm">
-                                <path fill="currentColor" fill-rule="evenodd"
-                                    d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z"
-                                    clip-rule="evenodd"></path>
-                            </svg>
-                            <span>Copy code</span>
-                        </button>
-                        <span class="language">sqlshell</span>
-                    </div>
-                    <pre><span></span>drop owned by &lt;user&gt;;
+<hr />
+<h4>حذف user</h4>
+<p><code>sql shell:</code></p>
+<div class="code-box">
+        <div class="code-info">
+            <button class="copy-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" class="icon-sm"><path fill="currentColor" fill-rule="evenodd" d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z" clip-rule="evenodd"></path></svg>
+                <span>Copy code</span>
+            </button>
+            <span class="language">sqlshell</span>
+        </div>
+    <pre><span></span>drop owned by &lt;user&gt;;
 drop user &lt;user&gt;
-</pre>
-                </div>
+</pre></div>
 
-                <p>اولین دستور، دسترسی های کاربر را از بین میبرد.</p>
-                <p>دومین دستور، کاربر را حذف میکند.</p>
-                <p>همچنین میتوان table و دیتابیس ها را حذف کرد:</p>
-                <p><code>sql shell:</code></p>
-                <div class="code-box">
-                    <div class="code-info">
-                        <button class="copy-icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none"
-                                viewBox="0 0 24 24" class="icon-sm">
-                                <path fill="currentColor" fill-rule="evenodd"
-                                    d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z"
-                                    clip-rule="evenodd"></path>
-                            </svg>
-                            <span>Copy code</span>
-                        </button>
-                        <span class="language">sqlshell</span>
-                    </div>
-                    <pre><span></span>drop table &lt;table-name&gt;
-</pre>
-                </div>
+<p>اولین دستور، دسترسی های کاربر را از بین میبرد.</p>
+<p>دومین دستور، کاربر را حذف میکند.</p>
+<p>همچنین میتوان table و دیتابیس ها را حذف کرد:</p>
+<p><code>sql shell:</code></p>
+<div class="code-box">
+        <div class="code-info">
+            <button class="copy-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" class="icon-sm"><path fill="currentColor" fill-rule="evenodd" d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z" clip-rule="evenodd"></path></svg>
+                <span>Copy code</span>
+            </button>
+            <span class="language">sqlshell</span>
+        </div>
+    <pre><span></span>drop table &lt;table-name&gt;
+</pre></div>
 
-                <p><code>sql shell:</code></p>
-                <div class="code-box">
-                    <div class="code-info">
-                        <button class="copy-icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none"
-                                viewBox="0 0 24 24" class="icon-sm">
-                                <path fill="currentColor" fill-rule="evenodd"
-                                    d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z"
-                                    clip-rule="evenodd"></path>
-                            </svg>
-                            <span>Copy code</span>
-                        </button>
-                        <span class="language">sqlshell</span>
-                    </div>
-                    <pre><span></span>drop database &lt;database-name&gt;
-</pre>
-                </div>
+<p><code>sql shell:</code></p>
+<div class="code-box">
+        <div class="code-info">
+            <button class="copy-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" class="icon-sm"><path fill="currentColor" fill-rule="evenodd" d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z" clip-rule="evenodd"></path></svg>
+                <span>Copy code</span>
+            </button>
+            <span class="language">sqlshell</span>
+        </div>
+    <pre><span></span>drop database &lt;database-name&gt;
+</pre></div>
 
-                <hr />
-                <h4>ایجاد دیتابیس</h4>
-                <p><code>sql shell:</code></p>
-                <div class="code-box">
-                    <div class="code-info">
-                        <button class="copy-icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none"
-                                viewBox="0 0 24 24" class="icon-sm">
-                                <path fill="currentColor" fill-rule="evenodd"
-                                    d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z"
-                                    clip-rule="evenodd"></path>
-                            </svg>
-                            <span>Copy code</span>
-                        </button>
-                        <span class="language">sqlshell</span>
-                    </div>
-                    <pre><span></span>create database &lt;database-name&gt;;
-</pre>
-                </div>
+<hr />
+<h4>ایجاد دیتابیس</h4>
+<p><code>sql shell:</code></p>
+<div class="code-box">
+        <div class="code-info">
+            <button class="copy-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" class="icon-sm"><path fill="currentColor" fill-rule="evenodd" d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z" clip-rule="evenodd"></path></svg>
+                <span>Copy code</span>
+            </button>
+            <span class="language">sqlshell</span>
+        </div>
+    <pre><span></span>create database &lt;database-name&gt;;
+</pre></div>
 
-                <hr />
-                <h4>سوییچ کردن بین دیتابیس ها</h4>
-                <p><code>sql shell:</code></p>
-                <div class="code-box">
-                    <div class="code-info">
-                        <button class="copy-icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none"
-                                viewBox="0 0 24 24" class="icon-sm">
-                                <path fill="currentColor" fill-rule="evenodd"
-                                    d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z"
-                                    clip-rule="evenodd"></path>
-                            </svg>
-                            <span>Copy code</span>
-                        </button>
-                        <span class="language">sqlshell</span>
-                    </div>
-                    <pre><span></span>\c &lt;database-name&gt;;
-</pre>
-                </div>
+<hr />
+<h4>سوییچ کردن بین دیتابیس ها</h4>
+<p><code>sql shell:</code></p>
+<div class="code-box">
+        <div class="code-info">
+            <button class="copy-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" class="icon-sm"><path fill="currentColor" fill-rule="evenodd" d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z" clip-rule="evenodd"></path></svg>
+                <span>Copy code</span>
+            </button>
+            <span class="language">sqlshell</span>
+        </div>
+    <pre><span></span>\c &lt;database-name&gt;;
+</pre></div>
 
-                <p>اسم دیتابیسی که مشخص میکنیم باید توی لیست دیتابیس ها موجود باشه./ مگرنه ارور میده</p>
-                <hr />
-                <h4>استفاده از psql توی cmd</h4>
-                <p>باید آنرا توی متغیرهای محیطی(Environment Variables) ویندوز تعریف کنیم.</p>
-                <p>حالا چطور؟</p>
-                <p>به محل نصب postgres رفته و آدرس دایرکتوری bin را برمیداریم.</p>
-                <p>مثله (C:\Program File\PostgreSQL\16\bin) ممکنه ورژن برای شما متفاوت باشد.</p>
-                <p>حالا Environment Variables را جستجو کرده و آنرا اجرا میکنیم./ حالا روی path دابل کلیک کرده با new یک
-                    مسیر جدید ایجاد کرده و مسیر bin را آنجا paste میکنیم.(مثله: C:\Program File\PostgreSQL\16\bin)</p>
-                <p>حالا توی cmd با نوشتن psql میتوان از postgres استفاده کرد.</p>
-                <h3 id="khr-b-pgadmin">کار با pgAdmin</h3>
-                <p>وقتی وارد pgadmin میشویم از ما رمز درخواست میکند که همان رمز super-user میباشد(رمزی که در هنگام نصب
-                    وارد کردیم)</p>
-                <p><img src="https://res.cloudinary.com/dyjvqwy0s/image/upload/v1719213412/01-Enter-Password_nuidfx.png"
-                        alt="Enter-Password" class="edu-img" width="100%" height="auto"></p>
-                <p>اپلیکیشن pgadmin حالت گرافیکی postgres برای کار و مدیریت کردن دیتابیس هست./ایجاد(database, user,
-                    table)، حذف و یا آپدیت آنها</p>
-                <p>وقتی در محیط گرافیکی یکی از موارد بالا مثل ایجاد یک دیتابیس را انجام میدهیم کد SQL آن را هم به ما
-                    نشان میدهد که به درک و یا یادگیری ما کمک میکند.</p>
-                <p><img src="https://res.cloudinary.com/dyjvqwy0s/image/upload/v1719213431/02-Create-all_lnxm9f.png"
-                        alt="creating" class="edu-img" width="100%" height="auto"></p>
-                <h4>ایجاد دیتابیس</h4>
-                <h5>مرحله 1:</h5>
-                <p><img src="https://res.cloudinary.com/dyjvqwy0s/image/upload/v1719213448/03-Create-Database-01_sgcwpg.png"
-                        alt="Create-Database-01" class="edu-img" width="100%" height="auto"></p>
-                <h5>مرحله 2:</h5>
-                <p><img src="https://res.cloudinary.com/dyjvqwy0s/image/upload/v1719213464/04-Create-Database-02_mlrmjw.png"
-                        alt="Create-Database-02" class="edu-img" width="100%" height="auto"></p>
-                <h5>نمایش ساختار SQL:</h5>
-                <p><img src="https://res.cloudinary.com/dyjvqwy0s/image/upload/v1719213478/05-Create-Database-03_utmmrm.png"
-                        alt="Create-Database-03" class="edu-img" width="100%" height="auto"></p>
-                <h4>ایجاد جدول در دیتابیس</h4>
-                <p>جداول هر دیتابیس در بخش Schemas آن دیتابیس وجود دارند.</p>
-                <h5>مرحله 1:</h5>
-                <p><img src="https://res.cloudinary.com/dyjvqwy0s/image/upload/v1719213479/06-Create-Table-01_puwfwb.png"
-                        alt="Create-Table-01" class="edu-img" width="100%" height="auto"></p>
-                <h5>مرحله 2:</h5>
-                <p><img src="https://res.cloudinary.com/dyjvqwy0s/image/upload/v1719213480/07-Create-Table-02_podr0o.png"
-                        alt="Create-Table-02" class="edu-img" width="100%" height="auto"></p>
-                <h5>مرحله 3:</h5>
-                <p><img src="https://res.cloudinary.com/dyjvqwy0s/image/upload/v1719213510/08-Create-Table-03_yanuqi.png"
-                        alt="Create-Table-03" class="edu-img" width="100%" height="auto"></p>
-                <h5>مرحله 4:</h5>
-                <p><img src="https://res.cloudinary.com/dyjvqwy0s/image/upload/v1719213511/09-Create-Table-04_it71hb.png"
-                        alt="Create-Table-04" class="edu-img" width="100%" height="auto"></p>
-                <h5>نمایش ساختار SQL:</h5>
-                <p><img src="https://res.cloudinary.com/dyjvqwy0s/image/upload/v1719213511/10-Create-Table-05_cnsla0.png"
-                        alt="Create-Table-05" class="edu-img" width="100%" height="auto"></p>
-                <h4>ایجاد User</h4>
-                <h5>مرحله 1:</h5>
-                <p><img src="https://res.cloudinary.com/dyjvqwy0s/image/upload/v1719213553/11-Create-User-01_abjjbh.png"
-                        alt="Create-User-01" class="edu-img" width="100%" height="auto"></p>
-                <h5>مرحله 2:</h5>
-                <p><img src="https://res.cloudinary.com/dyjvqwy0s/image/upload/v1719213554/12-Create-User-02_o0f4aq.png"
-                        alt="Create-User-02" class="edu-img" width="100%" height="auto"></p>
-                <h5>مرحله 3:</h5>
-                <p><img src="https://res.cloudinary.com/dyjvqwy0s/image/upload/v1719213555/13-Create-User-03_mn9omw.png"
-                        alt="Create-User-03" class="edu-img" width="100%" height="auto"></p>
-                <h5>مرحله 4:</h5>
-                <p><img src="https://res.cloudinary.com/dyjvqwy0s/image/upload/v1719213556/14-Create-User-04_vupavc.png"
-                        alt="Create-User-04" class="edu-img" width="100%" height="auto"></p>
-                <h5>مرحله 5:</h5>
-                <p><img src="https://res.cloudinary.com/dyjvqwy0s/image/upload/v1719213557/15-Create-User-05_vllx8e.png"
-                        alt="Create-User-05" class="edu-img" width="100%" height="auto"></p>
-                <h5>نمایش ساختار SQL:</h5>
-                <p><img src="https://res.cloudinary.com/dyjvqwy0s/image/upload/v1719213558/16-Create-User-06_zgdzq3.png"
-                        alt="Create-User-06" class="edu-img" width="100%" height="auto"></p>
-                <blockquote>
-                    <p>در این ساختار گرافیکی میتوان از کدهای SQL هم استفاده کرد.</p>
-                </blockquote>
-                <h3 id="tsl-dytbys-bh-prwjh-w-ntql-ddh-hy-dytbys-qbly">اتصال دیتابیس به پروژه و انتقال داده های دیتابیس
-                    قبلی</h3>
-                <p>قبل از هرچیزی لازمه یک کاربر(بهتره تمام دسترسی ها را به کاربر خود بدهیم) و یک دیتابیس(همین کاربر جدید
-                    را برایش مشخص میکنیم) از طریق psql و یا pgadmin ایجاد کنیم.</p>
-                <hr />
-                <p>اگر فرمت تاریخ داده های دیتابیس قبلی به فارسی(شمسی) بود ابتدا باید فیلدهای تاریخ را به حالت عادی
-                    برگردانیم.(هر جا از تاریخ جلالی استفاده کرده ایم را باید به حالت عادی خود برگردانیم) | سپس make
-                    migrations و migrate را اجرا میکنیم./ (مگرنه نمیتوان داده های دیتابیس قبلی را به دیتابیس جدید منتقل
-                    کرد.)</p>
-                <p>پس از انتقال داده ها به روی دیتابیس جدید دوباره تاریخ ها را فارسی میکنیم.</p>
-                <hr />
-                <h5>در اینجا میخواهیم نحوه استخراج داده های دیتابیس قبلی و انتقال آنها روی دیتابیس جدید را توضیح دهیم
-                    چنانچه داده های قبلی را نیاز ندارید و فقط میخواهید دیتابیس جدید را به پروژه خود معرفی کنید میتوانید
-                    از این توضیحات صرف نظر کنید:</h5>
-                <p>اینها توی ترمینال استفاده میشوند./ توی پروژه جنگوی خود، ترمیتال را باز کرده و دستورات را اجرا میکنیم.
-                </p>
-                <blockquote>
-                    <p>با استفاده از dumpdata اطلاعات دیتابیس را استخراج میکنیم.</p>
-                    <p>با استفاده از loaddata اطلاعات را روی دیتابیس قرار میدهیم.</p>
-                    <p>با استفاده از python manage.py dumpdata --help میتوان دستورات dumpdata را مشاهده کرد.</p>
-                </blockquote>
-                <p><code>Terminal</code></p>
-                <div class="code-box">
-                    <div class="code-info">
-                        <button class="copy-icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none"
-                                viewBox="0 0 24 24" class="icon-sm">
-                                <path fill="currentColor" fill-rule="evenodd"
-                                    d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z"
-                                    clip-rule="evenodd"></path>
-                            </svg>
-                            <span>Copy code</span>
-                        </button>
-                        <span class="language">powershell</span>
-                    </div>
-                    <pre><span></span><span class="n">python</span> <span class="n">-Xutf8</span> <span class="n">manage</span><span class="p">.</span><span class="n">py</span> <span class="n">dumpdata</span> <span class="p">-</span><span class="n">-indent</span><span class="p">=</span><span class="n">4</span> <span class="p">-</span><span class="n">-output</span><span class="p">=</span><span class="n">blog_data</span><span class="p">.</span><span class="n">json</span>
-</pre>
-                </div>
+<p>اسم دیتابیسی که مشخص میکنیم باید توی لیست دیتابیس ها موجود باشه./ مگرنه ارور میده</p>
+<hr />
+<h4>استفاده از psql توی cmd</h4>
+<p>باید آنرا توی متغیرهای محیطی(Environment Variables) ویندوز تعریف کنیم.</p>
+<p>حالا چطور؟</p>
+<p>به محل نصب postgres رفته و آدرس دایرکتوری bin را برمیداریم.</p>
+<p>مثله (C:\Program File\PostgreSQL\16\bin) ممکنه ورژن برای شما متفاوت باشد.</p>
+<p>حالا Environment Variables را جستجو کرده و آنرا اجرا میکنیم./ حالا روی path دابل کلیک کرده با new یک مسیر جدید ایجاد کرده و مسیر bin را آنجا paste میکنیم.(مثله: C:\Program File\PostgreSQL\16\bin)</p>
+<p>حالا توی cmd با نوشتن psql میتوان از postgres استفاده کرد.</p>
+<h3 id="khr-b-pgadmin">کار با pgAdmin</h3>
+<p>وقتی وارد pgadmin میشویم از ما رمز درخواست میکند که همان رمز super-user میباشد(رمزی که در هنگام نصب وارد کردیم)</p>
+<p><a href="https://res.cloudinary.com/am-er/image/upload/v1719213412/01-Enter-Password_nuidfx.png"><img alt="Enter-Password" src="https://res.cloudinary.com/am-er/image/upload/v1719213412/01-Enter-Password_nuidfx.png" / class="edu-img"></a></p>
+<p>اپلیکیشن pgadmin حالت گرافیکی postgres برای کار و مدیریت کردن دیتابیس هست./ایجاد(database, user, table)، حذف و یا آپدیت آنها</p>
+<p>وقتی در محیط گرافیکی یکی از موارد بالا مثل ایجاد یک دیتابیس را انجام میدهیم کد SQL آن را هم به ما نشان میدهد که به درک و یا یادگیری ما کمک میکند.</p>
+<p><a href="https://res.cloudinary.com/am-er/image/upload/v1719213431/02-Create-all_lnxm9f.png"><img alt="creating" src="https://res.cloudinary.com/am-er/image/upload/v1719213431/02-Create-all_lnxm9f.png" / class="edu-img"></a></p>
+<h4>ایجاد دیتابیس</h4>
+<p>مرحله 1:</p>
+<p><a href="https://res.cloudinary.com/am-er/image/upload/v1719213448/03-Create-Database-01_sgcwpg.png"><img alt="Create-Database-01" src="https://res.cloudinary.com/am-er/image/upload/v1719213448/03-Create-Database-01_sgcwpg.png" / class="edu-img"></a></p>
+<p>مرحله 2:</p>
+<p><a href="https://res.cloudinary.com/am-er/image/upload/v1719213464/04-Create-Database-02_mlrmjw.png"><img alt="Create-Database-02" src="https://res.cloudinary.com/am-er/image/upload/v1719213464/04-Create-Database-02_mlrmjw.png" / class="edu-img"></a></p>
+<p>نمایش ساختار SQL:</p>
+<p><a href="https://res.cloudinary.com/am-er/image/upload/v1719213478/05-Create-Database-03_utmmrm.png"><img alt="Create-Database-03" src="https://res.cloudinary.com/am-er/image/upload/v1719213478/05-Create-Database-03_utmmrm.png" / class="edu-img"></a></p>
+<h4>ایجاد جدول در دیتابیس</h4>
+<p>جداول هر دیتابیس در بخش Schemas آن دیتابیس وجود دارند.</p>
+<p>مرحله 1:</p>
+<p><a href="https://res.cloudinary.com/am-er/image/upload/v1719213479/06-Create-Table-01_puwfwb.png"><img alt="Create-Table-01" src="https://res.cloudinary.com/am-er/image/upload/v1719213479/06-Create-Table-01_puwfwb.png" / class="edu-img"></a></p>
+<p>مرحله 2:</p>
+<p><a href="https://res.cloudinary.com/am-er/image/upload/v1719213480/07-Create-Table-02_podr0o.png"><img alt="Create-Table-02" src="https://res.cloudinary.com/am-er/image/upload/v1719213480/07-Create-Table-02_podr0o.png" / class="edu-img"></a></p>
+<p>مرحله 3:</p>
+<p><a href="https://res.cloudinary.com/am-er/image/upload/v1719213510/08-Create-Table-03_yanuqi.png"><img alt="Create-Table-03" src="https://res.cloudinary.com/am-er/image/upload/v1719213510/08-Create-Table-03_yanuqi.png" / class="edu-img"></a></p>
+<p>مرحله 4:</p>
+<p><a href="https://res.cloudinary.com/am-er/image/upload/v1719213511/09-Create-Table-04_it71hb.png"><img alt="Create-Table-04" src="https://res.cloudinary.com/am-er/image/upload/v1719213511/09-Create-Table-04_it71hb.png" / class="edu-img"></a></p>
+<p>نمایش ساختار SQL:</p>
+<p><a href="https://res.cloudinary.com/am-er/image/upload/v1719213511/10-Create-Table-05_cnsla0.png"><img alt="Create-Table-05" src="https://res.cloudinary.com/am-er/image/upload/v1719213511/10-Create-Table-05_cnsla0.png" / class="edu-img"></a></p>
+<h4>ایجاد User</h4>
+<p>مرحله 1:</p>
+<p><a href="https://res.cloudinary.com/am-er/image/upload/v1719213553/11-Create-User-01_abjjbh.png"><img alt="Create-User-01" src="https://res.cloudinary.com/am-er/image/upload/v1719213553/11-Create-User-01_abjjbh.png" / class="edu-img"></a></p>
+<p>مرحله 2:</p>
+<p><a href="https://res.cloudinary.com/am-er/image/upload/v1719213554/12-Create-User-02_o0f4aq.png"><img alt="Create-User-02" src="https://res.cloudinary.com/am-er/image/upload/v1719213554/12-Create-User-02_o0f4aq.png" / class="edu-img"></a></p>
+<p>مرحله 3:</p>
+<p><a href="https://res.cloudinary.com/am-er/image/upload/v1719213555/13-Create-User-03_mn9omw.png"><img alt="Create-User-03" src="https://res.cloudinary.com/am-er/image/upload/v1719213555/13-Create-User-03_mn9omw.png" / class="edu-img"></a></p>
+<p>مرحله 4:</p>
+<p><a href="https://res.cloudinary.com/am-er/image/upload/v1719213556/14-Create-User-04_vupavc.png"><img alt="Create-User-04" src="https://res.cloudinary.com/am-er/image/upload/v1719213556/14-Create-User-04_vupavc.png" / class="edu-img"></a></p>
+<p>مرحله 5:</p>
+<p><a href="https://res.cloudinary.com/am-er/image/upload/v1719213557/15-Create-User-05_vllx8e.png"><img alt="Create-User-05" src="https://res.cloudinary.com/am-er/image/upload/v1719213557/15-Create-User-05_vllx8e.png" / class="edu-img"></a></p>
+<p>نمایش ساختار SQL:</p>
+<p><a href="https://res.cloudinary.com/am-er/image/upload/v1719213558/16-Create-User-06_zgdzq3.png"><img alt="Create-User-06" src="https://res.cloudinary.com/am-er/image/upload/v1719213558/16-Create-User-06_zgdzq3.png" / class="edu-img"></a></p>
+<blockquote>
+<p>در این ساختار گرافیکی میتوان از کدهای SQL هم استفاده کرد.</p>
+</blockquote>
+<h3 id="tsl-dytbys-bh-prwjh-w-ntql-ddh-hy-dytbys-qbly">اتصال دیتابیس به پروژه و انتقال داده های دیتابیس قبلی</h3>
+<p>قبل از هرچیزی لازمه یک کاربر(بهتره تمام دسترسی ها را به کاربر خود بدهیم) و یک دیتابیس(همین کاربر جدید را برایش مشخص میکنیم) از طریق psql و یا pgadmin ایجاد کنیم.</p>
+<hr />
+<p>اگر فرمت تاریخ داده های دیتابیس قبلی به فارسی(شمسی) بود ابتدا باید فیلدهای تاریخ را به حالت عادی برگردانیم.(هر جا از تاریخ جلالی استفاده کرده ایم را باید به حالت عادی خود برگردانیم) | سپس make migrations و migrate را اجرا میکنیم./ (مگرنه نمیتوان داده های دیتابیس قبلی را به دیتابیس جدید منتقل کرد.)</p>
+<p>پس از انتقال داده ها به روی دیتابیس جدید دوباره تاریخ ها را فارسی میکنیم.</p>
+<hr />
+<p>در اینجا میخواهیم نحوه استخراج داده های دیتابیس قبلی و انتقال آنها روی دیتابیس جدید را توضیح دهیم چنانچه داده های قبلی را نیاز ندارید و فقط میخواهید دیتابیس جدید را به پروژه خود معرفی کنید میتوانید از این توضیحات صرف نظر کنید:</p>
+<p>اینها توی ترمینال استفاده میشوند./ توی پروژه جنگوی خود، ترمیتال را باز کرده و دستورات را اجرا میکنیم.</p>
+<blockquote>
+<p>با استفاده از dumpdata اطلاعات دیتابیس را استخراج میکنیم.</p>
+<p>با استفاده از loaddata اطلاعات را روی دیتابیس قرار میدهیم.</p>
+<p>با استفاده از python manage.py dumpdata --help میتوان دستورات dumpdata را مشاهده کرد.</p>
+</blockquote>
+<p><code>Terminal</code></p>
+<div class="code-box">
+        <div class="code-info">
+            <button class="copy-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" class="icon-sm"><path fill="currentColor" fill-rule="evenodd" d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z" clip-rule="evenodd"></path></svg>
+                <span>Copy code</span>
+            </button>
+            <span class="language">powershell</span>
+        </div>
+    <pre><span></span><span class="n">python</span> <span class="n">-Xutf8</span> <span class="n">manage</span><span class="p">.</span><span class="n">py</span> <span class="n">dumpdata</span> <span class="p">-</span><span class="n">-indent</span><span class="p">=</span><span class="n">4</span> <span class="p">-</span><span class="n">-output</span><span class="p">=</span><span class="n">blog_data</span><span class="p">.</span><span class="n">json</span>
+</pre></div>
 
-                <blockquote>
-                    <p>دستور <span class="en-text"><code>-Xutf8</code></span> برای جلوگیری از خطا و ارورهای احتمالی است،
-                        utf8-mode پایتون را فعال میکنیم تا دیتا به درستی ذخیره بشوند.</p>
-                    <p>با دستور <span class="en-text"><code>--indent=4</code></span> برایش فاصله گذاری(دندانه گذاری)
-                        مشخص میکنیم تا ساختار فایل بهم ریختگی داشته باشد</p>
-                    <p>با دستور <span class="en-text"><code>--output=&lt;name&gt;.json</code></span> مشخص میکنیم داده
-                        های استخراج شده در چه فایلی(با چه نامی) ذخیره شوند.</p>
-                </blockquote>
-                <p>این فایل خروجی در پروژه جنگو ما ذخیره میشود.</p>
-                <hr />
-                <h4>اتصال دیتابیس جدید به پروژه خود</h4>
-                <p><code>project directory/settings.py</code></p>
-                <div class="code-box">
-                    <div class="code-info">
-                        <button class="copy-icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none"
-                                viewBox="0 0 24 24" class="icon-sm">
-                                <path fill="currentColor" fill-rule="evenodd"
-                                    d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z"
-                                    clip-rule="evenodd"></path>
-                            </svg>
-                            <span>Copy code</span>
-                        </button>
-                        <span class="language">python</span>
-                    </div>
-                    <pre><span></span><span class="n">DATABASES</span> <span class="o">=</span> <span class="p">{</span>
+<blockquote>
+<p><span class="rtl-text">دستور <span class="en-text"><code>-Xutf8</code></span> برای جلوگیری از خطا و ارورهای احتمالی است، utf8-mode پایتون را فعال میکنیم تا دیتا به درستی ذخیره بشوند.</span></p>
+<p>با دستور <span class="en-text"><code>--indent=4</code></span> برایش فاصله گذاری(دندانه گذاری) مشخص میکنیم تا ساختار فایل بهم ریختگی داشته باشد</p>
+<p>با دستور <span class="en-text"><code>--output=&lt;name&gt;.json</code></span> مشخص میکنیم داده های استخراج شده در چه فایلی(با چه نامی) ذخیره شوند.</p>
+</blockquote>
+<p>این فایل خروجی در پروژه جنگو ما ذخیره میشود.</p>
+<hr />
+<h4>اتصال دیتابیس جدید به پروژه خود</h4>
+<p><code>project directory/settings.py</code></p>
+<div class="code-box">
+        <div class="code-info">
+            <button class="copy-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" class="icon-sm"><path fill="currentColor" fill-rule="evenodd" d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z" clip-rule="evenodd"></path></svg>
+                <span>Copy code</span>
+            </button>
+            <span class="language">python</span>
+        </div>
+    <pre><span></span><span class="n">DATABASES</span> <span class="o">=</span> <span class="p">{</span>
     <span class="s1">&#39;default&#39;</span><span class="p">:</span> <span class="p">{</span>
         <span class="s1">&#39;ENGINE&#39;</span><span class="p">:</span> <span class="s1">&#39;django.db.backends.postgresql&#39;</span><span class="p">,</span>
         <span class="s1">&#39;NAME&#39;</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">database</span><span class="o">-</span><span class="n">name</span><span class="o">&gt;</span><span class="p">,</span>
@@ -449,96 +315,71 @@ drop user &lt;user&gt;
         <span class="s1">&#39;PORT&#39;</span><span class="p">:</span> <span class="mi">5432</span><span class="p">,</span>
     <span class="p">}</span>
 <span class="p">}</span>
-</pre>
-                </div>
+</pre></div>
 
-                <p>برای NAME، اسم دیتابیسی که ایجاد کردیم را وارد میکنیم.</p>
-                <p>برای USER، اسم کاربری که ایجاد کردیم را وارد میکنیم./(کاربری که میتواند به دیتابیس لاگین کند)</p>
-                <p>برای PASSWORD، رمز user را وارد میکنیم.</p>
-                <p>برای PORT، پورت پیشفرض postgres را وارد میکنیم.</p>
-                <hr />
-                <p>پس از ایجاد تغییرات در settings.py(معرفی دیتابیس جدید به پروژه)، ابتدا باید کتابخانه psycopg-binary
-                    را نصب کنیم و بعد از آن دستور migrate را اجرا میکنیم.</p>
-                <p><code>Terminal</code></p>
-                <div class="code-box">
-                    <div class="code-info">
-                        <button class="copy-icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none"
-                                viewBox="0 0 24 24" class="icon-sm">
-                                <path fill="currentColor" fill-rule="evenodd"
-                                    d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z"
-                                    clip-rule="evenodd"></path>
-                            </svg>
-                            <span>Copy code</span>
-                        </button>
-                        <span class="language">terminal</span>
-                    </div>
-                    <pre><span></span>python -m pip install psycopg2-binary
-</pre>
-                </div>
-
-                <div class="code-box">
-                    <div class="code-info">
-                        <button class="copy-icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none"
-                                viewBox="0 0 24 24" class="icon-sm">
-                                <path fill="currentColor" fill-rule="evenodd"
-                                    d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z"
-                                    clip-rule="evenodd"></path>
-                            </svg>
-                            <span>Copy code</span>
-                        </button>
-                        <span class="language">powershell</span>
-                    </div>
-                    <pre><span></span><span class="n">python</span> <span class="n">manage</span><span class="p">.</span><span class="n">py</span> <span class="n">migrate</span>
-</pre>
-                </div>
-
-                <h4>انتقال داده های قبلی به روی دیتابیس جدید</h4>
-                <p><code>Terminal</code></p>
-                <div class="code-box">
-                    <div class="code-info">
-                        <button class="copy-icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none"
-                                viewBox="0 0 24 24" class="icon-sm">
-                                <path fill="currentColor" fill-rule="evenodd"
-                                    d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z"
-                                    clip-rule="evenodd"></path>
-                            </svg>
-                            <span>Copy code</span>
-                        </button>
-                        <span class="language">powershell</span>
-                    </div>
-                    <pre><span></span><span class="n">python</span> <span class="n">manage</span><span class="p">.</span><span class="n">py</span> <span class="n">loaddata</span> <span class="p">&lt;</span><span class="n">output_file</span><span class="p">.</span><span class="n">json</span><span class="p">&gt;</span>
-</pre>
-                </div>
-
-                <p>به این ترتیب اطلاعات داده های قبلی از روی فایل JSON به دیتابیس جدید منتقل میشوند./ حالا اگه خواستیم
-                    دوباره تاریخ ها را فارسی میکنیم.</p>
-                <hr />
-                <p>خلاصه مراحل صورت گرفته:</p>
-                <p>ابتدا user و database را ایجاد میکنیم ، فیلدهای تاریخ را اگر فارسی هستند به حالت عادی برمیگردانیم.
-                </p>
-                <blockquote>
-                    <p>1- با استفاده از dumpdata اطلاعات دیتابیس را استخراج میکنیم. <br />
-                        2- دیتابیس جدید را به پروژه معرفی میکنیم(settings.py/DATABASES) <br />
-                        3- با استفاده از loaddata اطلاعات را روی دیتابیس جدید قرار میدهیم.</p>
-                </blockquote>
-                <p>اگر بخواهیم تاریخ ها فارسی باشند دوباره از تاریخ جلالی برای فیلد های تاریخ استفاده میکنیم.</p>
-                <a href="https://github.com/mahd25/Django-E-booklet/edit/seasons-source/season-05.md" target="_blank"
-                    class="edit-icon">
-                    <i class="fa-solid fa-pen-to-square"></i>
-                </a>
-            </div>
+<p>برای NAME، اسم دیتابیسی که ایجاد کردیم را وارد میکنیم.</p>
+<p>برای USER، اسم کاربری که ایجاد کردیم را وارد میکنیم./(کاربری که میتواند به دیتابیس لاگین کند)</p>
+<p>برای PASSWORD، رمز user را وارد میکنیم.</p>
+<p>برای PORT، پورت پیشفرض postgres را وارد میکنیم.</p>
+<hr />
+<p>پس از ایجاد تغییرات در settings.py(معرفی دیتابیس جدید به پروژه)،  ابتدا باید کتابخانه psycopg-binary را نصب کنیم و بعد از آن دستور migrate را اجرا میکنیم.</p>
+<p><code>Terminal</code></p>
+<div class="code-box">
+        <div class="code-info">
+            <button class="copy-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" class="icon-sm"><path fill="currentColor" fill-rule="evenodd" d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z" clip-rule="evenodd"></path></svg>
+                <span>Copy code</span>
+            </button>
+            <span class="language">terminal</span>
         </div>
-    </main>
+    <pre><span></span>python -m pip install psycopg2-binary
+</pre></div>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
-        integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
-        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="../seasons-css-&-js/Django-seasons.js"></script>
-    <script src="../seasons-css-&-js/copy-icon.js"></script>
-    <script src="../seasons-css-&-js/Footer-Copyright.js"></script>
+<div class="code-box">
+        <div class="code-info">
+            <button class="copy-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" class="icon-sm"><path fill="currentColor" fill-rule="evenodd" d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z" clip-rule="evenodd"></path></svg>
+                <span>Copy code</span>
+            </button>
+            <span class="language">powershell</span>
+        </div>
+    <pre><span></span><span class="n">python</span> <span class="n">manage</span><span class="p">.</span><span class="n">py</span> <span class="n">migrate</span>
+</pre></div>
+
+<h4>انتقال داده های قبلی به روی دیتابیس جدید</h4>
+<p><code>Terminal</code></p>
+<div class="code-box">
+        <div class="code-info">
+            <button class="copy-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" class="icon-sm"><path fill="currentColor" fill-rule="evenodd" d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z" clip-rule="evenodd"></path></svg>
+                <span>Copy code</span>
+            </button>
+            <span class="language">powershell</span>
+        </div>
+    <pre><span></span><span class="n">python</span> <span class="n">manage</span><span class="p">.</span><span class="n">py</span> <span class="n">loaddata</span> <span class="p">&lt;</span><span class="n">output_file</span><span class="p">.</span><span class="n">json</span><span class="p">&gt;</span>
+</pre></div>
+
+<p>به این ترتیب اطلاعات داده های قبلی از روی فایل JSON به دیتابیس جدید منتقل میشوند./ حالا اگه خواستیم دوباره تاریخ ها را فارسی میکنیم.</p>
+<hr />
+<p>خلاصه مراحل صورت گرفته:</p>
+<p>ابتدا user و database را ایجاد میکنیم ، فیلدهای تاریخ را اگر فارسی هستند به حالت عادی برمیگردانیم.</p>
+<blockquote>
+<p>1- با استفاده از dumpdata اطلاعات دیتابیس را استخراج میکنیم.  <br />
+2- دیتابیس جدید را به پروژه معرفی میکنیم(settings.py/DATABASES)  <br />
+3- با استفاده از loaddata اطلاعات را روی دیتابیس جدید قرار میدهیم.</p>
+</blockquote>
+<p>اگر بخواهیم تاریخ ها فارسی باشند دوباره از تاریخ جلالی برای فیلد های تاریخ استفاده میکنیم.</p>
+            <a href="https://github.com/mahd25/Django-E-booklet/edit/seasons-source/season-05.md" target="_blank" class="edit-icon">
+                <i class="fa-solid fa-pen-to-square"></i>
+            </a>
+        </div>
+    </div>
+</main>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="../seasons-css-&-js/Django-seasons.js"></script>
+<script src="../seasons-css-&-js/copy-icon.js"></script>
+<script src="../seasons-css-&-js/Footer-Copyright.js"></script>
 </body>
-
 </html>
+    
