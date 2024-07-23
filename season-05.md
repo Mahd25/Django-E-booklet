@@ -6,13 +6,13 @@
 
 ---
 
-##### download
+download
 
 از بخش دانلود وبسایت سیستم عامل خود (windows, linux, macOS)  را انتخاب میکنیم حالا روی لینک Download the installer  (نوشته شده در ابتدای صفحه) کلیک میکنیم و یکی از ورژن ها را دانلود میکنیم.
 
 ---
 
-##### installation
+installation
 
 مسیرهای نصبی را ترجیحاً همان مسیر پیشفرض مثله (C:\\Program File\\PostgreSQL\\<span class="en-text">\<version></span>) بگذارید باشد./ تیک گزینه ها را بگذارید به صورت پیشفرض فعال باشند.
 
@@ -181,77 +181,77 @@ create database <database-name>;
 
 وقتی وارد pgadmin میشویم از ما رمز درخواست میکند که همان رمز super-user میباشد(رمزی که در هنگام نصب وارد کردیم)
 
-<img src="https://res.cloudinary.com/dyjvqwy0s/image/upload/v1719213412/01-Enter-Password_nuidfx.png" alt="Enter-Password" class="edu-img" width="100%" height="auto">
+[![Enter-Password](https://res.cloudinary.com/am-er/image/upload/v1719213412/01-Enter-Password_nuidfx.png)](https://res.cloudinary.com/am-er/image/upload/v1719213412/01-Enter-Password_nuidfx.png)
 
 اپلیکیشن pgadmin حالت گرافیکی postgres برای کار و مدیریت کردن دیتابیس هست./ایجاد(database, user, table)، حذف و یا آپدیت آنها
 
 وقتی در محیط گرافیکی یکی از موارد بالا مثل ایجاد یک دیتابیس را انجام میدهیم کد SQL آن را هم به ما نشان میدهد که به درک و یا یادگیری ما کمک میکند.
 
-<img src="https://res.cloudinary.com/dyjvqwy0s/image/upload/v1719213431/02-Create-all_lnxm9f.png" alt="creating" class="edu-img" width="100%" height="auto">
+[![creating](https://res.cloudinary.com/am-er/image/upload/v1719213431/02-Create-all_lnxm9f.png)](https://res.cloudinary.com/am-er/image/upload/v1719213431/02-Create-all_lnxm9f.png)
 
 #### ایجاد دیتابیس
 
-##### مرحله 1:
+مرحله 1:
 
-<img src="https://res.cloudinary.com/dyjvqwy0s/image/upload/v1719213448/03-Create-Database-01_sgcwpg.png" alt="Create-Database-01" class="edu-img" width="100%" height="auto">
+[![Create-Database-01](https://res.cloudinary.com/am-er/image/upload/v1719213448/03-Create-Database-01_sgcwpg.png)](https://res.cloudinary.com/am-er/image/upload/v1719213448/03-Create-Database-01_sgcwpg.png)
 
-##### مرحله 2:
+مرحله 2:
 
-<img src="https://res.cloudinary.com/dyjvqwy0s/image/upload/v1719213464/04-Create-Database-02_mlrmjw.png" alt="Create-Database-02" class="edu-img" width="100%" height="auto">
+[![Create-Database-02](https://res.cloudinary.com/am-er/image/upload/v1719213464/04-Create-Database-02_mlrmjw.png)](https://res.cloudinary.com/am-er/image/upload/v1719213464/04-Create-Database-02_mlrmjw.png)
 
-##### نمایش ساختار SQL:
+نمایش ساختار SQL:
 
-<img src="https://res.cloudinary.com/dyjvqwy0s/image/upload/v1719213478/05-Create-Database-03_utmmrm.png" alt="Create-Database-03" class="edu-img" width="100%" height="auto">
+[![Create-Database-03](https://res.cloudinary.com/am-er/image/upload/v1719213478/05-Create-Database-03_utmmrm.png)](https://res.cloudinary.com/am-er/image/upload/v1719213478/05-Create-Database-03_utmmrm.png)
 
 #### ایجاد جدول در دیتابیس
 
 جداول هر دیتابیس در بخش Schemas آن دیتابیس وجود دارند.
 
-##### مرحله 1:
+مرحله 1:
 
-<img src="https://res.cloudinary.com/dyjvqwy0s/image/upload/v1719213479/06-Create-Table-01_puwfwb.png" alt="Create-Table-01" class="edu-img" width="100%" height="auto">
+[![Create-Table-01](https://res.cloudinary.com/am-er/image/upload/v1719213479/06-Create-Table-01_puwfwb.png)](https://res.cloudinary.com/am-er/image/upload/v1719213479/06-Create-Table-01_puwfwb.png)
 
-##### مرحله 2:
+مرحله 2:
 
-<img src="https://res.cloudinary.com/dyjvqwy0s/image/upload/v1719213480/07-Create-Table-02_podr0o.png" alt="Create-Table-02" class="edu-img" width="100%" height="auto">
+[![Create-Table-02](https://res.cloudinary.com/am-er/image/upload/v1719213480/07-Create-Table-02_podr0o.png)](https://res.cloudinary.com/am-er/image/upload/v1719213480/07-Create-Table-02_podr0o.png)
 
-##### مرحله 3:
+مرحله 3:
 
-<img src="https://res.cloudinary.com/dyjvqwy0s/image/upload/v1719213510/08-Create-Table-03_yanuqi.png" alt="Create-Table-03" class="edu-img" width="100%" height="auto">
+[![Create-Table-03](https://res.cloudinary.com/am-er/image/upload/v1719213510/08-Create-Table-03_yanuqi.png)](https://res.cloudinary.com/am-er/image/upload/v1719213510/08-Create-Table-03_yanuqi.png)
 
-##### مرحله 4:
+مرحله 4:
 
-<img src="https://res.cloudinary.com/dyjvqwy0s/image/upload/v1719213511/09-Create-Table-04_it71hb.png" alt="Create-Table-04" class="edu-img" width="100%" height="auto">
+[![Create-Table-04](https://res.cloudinary.com/am-er/image/upload/v1719213511/09-Create-Table-04_it71hb.png)](https://res.cloudinary.com/am-er/image/upload/v1719213511/09-Create-Table-04_it71hb.png)
 
-##### نمایش ساختار SQL:
+نمایش ساختار SQL:
 
-<img src="https://res.cloudinary.com/dyjvqwy0s/image/upload/v1719213511/10-Create-Table-05_cnsla0.png" alt="Create-Table-05" class="edu-img" width="100%" height="auto">
+[![Create-Table-05](https://res.cloudinary.com/am-er/image/upload/v1719213511/10-Create-Table-05_cnsla0.png)](https://res.cloudinary.com/am-er/image/upload/v1719213511/10-Create-Table-05_cnsla0.png)
 
 #### ایجاد User
 
-##### مرحله 1:
+مرحله 1:
 
-<img src="https://res.cloudinary.com/dyjvqwy0s/image/upload/v1719213553/11-Create-User-01_abjjbh.png" alt="Create-User-01" class="edu-img" width="100%" height="auto">
+[![Create-User-01](https://res.cloudinary.com/am-er/image/upload/v1719213553/11-Create-User-01_abjjbh.png)](https://res.cloudinary.com/am-er/image/upload/v1719213553/11-Create-User-01_abjjbh.png)
 
-##### مرحله 2:
+مرحله 2:
 
-<img src="https://res.cloudinary.com/dyjvqwy0s/image/upload/v1719213554/12-Create-User-02_o0f4aq.png" alt="Create-User-02" class="edu-img" width="100%" height="auto">
+[![Create-User-02](https://res.cloudinary.com/am-er/image/upload/v1719213554/12-Create-User-02_o0f4aq.png)](https://res.cloudinary.com/am-er/image/upload/v1719213554/12-Create-User-02_o0f4aq.png)
 
-##### مرحله 3:
+مرحله 3:
 
-<img src="https://res.cloudinary.com/dyjvqwy0s/image/upload/v1719213555/13-Create-User-03_mn9omw.png" alt="Create-User-03" class="edu-img" width="100%" height="auto">
+[![Create-User-03](https://res.cloudinary.com/am-er/image/upload/v1719213555/13-Create-User-03_mn9omw.png)](https://res.cloudinary.com/am-er/image/upload/v1719213555/13-Create-User-03_mn9omw.png)
 
-##### مرحله 4:
+مرحله 4:
 
-<img src="https://res.cloudinary.com/dyjvqwy0s/image/upload/v1719213556/14-Create-User-04_vupavc.png" alt="Create-User-04" class="edu-img" width="100%" height="auto">
+[![Create-User-04](https://res.cloudinary.com/am-er/image/upload/v1719213556/14-Create-User-04_vupavc.png)](https://res.cloudinary.com/am-er/image/upload/v1719213556/14-Create-User-04_vupavc.png)
 
-##### مرحله 5:
+مرحله 5:
 
-<img src="https://res.cloudinary.com/dyjvqwy0s/image/upload/v1719213557/15-Create-User-05_vllx8e.png" alt="Create-User-05" class="edu-img" width="100%" height="auto">
+[![Create-User-05](https://res.cloudinary.com/am-er/image/upload/v1719213557/15-Create-User-05_vllx8e.png)](https://res.cloudinary.com/am-er/image/upload/v1719213557/15-Create-User-05_vllx8e.png)
 
-##### نمایش ساختار SQL:
+نمایش ساختار SQL:
 
-<img src="https://res.cloudinary.com/dyjvqwy0s/image/upload/v1719213558/16-Create-User-06_zgdzq3.png" alt="Create-User-06" class="edu-img" width="100%" height="auto">
+[![Create-User-06](https://res.cloudinary.com/am-er/image/upload/v1719213558/16-Create-User-06_zgdzq3.png)](https://res.cloudinary.com/am-er/image/upload/v1719213558/16-Create-User-06_zgdzq3.png)
 
 > در این ساختار گرافیکی میتوان از کدهای SQL هم استفاده کرد.
 
@@ -267,7 +267,7 @@ create database <database-name>;
 
 ---
 
-##### در اینجا میخواهیم نحوه استخراج داده های دیتابیس قبلی و انتقال آنها روی دیتابیس جدید را توضیح دهیم چنانچه داده های قبلی را نیاز ندارید و فقط میخواهید دیتابیس جدید را به پروژه خود معرفی کنید میتوانید از این توضیحات صرف نظر کنید:
+در اینجا میخواهیم نحوه استخراج داده های دیتابیس قبلی و انتقال آنها روی دیتابیس جدید را توضیح دهیم چنانچه داده های قبلی را نیاز ندارید و فقط میخواهید دیتابیس جدید را به پروژه خود معرفی کنید میتوانید از این توضیحات صرف نظر کنید:
 
 اینها توی ترمینال استفاده میشوند./ توی پروژه جنگوی خود، ترمیتال را باز کرده و دستورات را اجرا میکنیم.
 
@@ -283,10 +283,10 @@ create database <database-name>;
 python -Xutf8 manage.py dumpdata --indent=4 --output=blog_data.json
 ```
 
-> دستور <span class="en-text">`-Xutf8`</span> برای جلوگیری از خطا و ارورهای احتمالی است، utf8-mode پایتون را فعال میکنیم تا دیتا به درستی ذخیره بشوند.
-
+> <span class="rtl-text">دستور <span class="en-text">`-Xutf8`</span> برای جلوگیری از خطا و ارورهای احتمالی است، utf8-mode پایتون را فعال میکنیم تا دیتا به درستی ذخیره بشوند.</span>
+>
 > با دستور <span class="en-text">`--indent=4`</span> برایش فاصله گذاری(دندانه گذاری) مشخص میکنیم تا ساختار فایل بهم ریختگی داشته باشد
-
+>
 > با دستور <span class="en-text">`--output=<name>.json`</span> مشخص میکنیم داده های استخراج شده در چه فایلی(با چه نامی) ذخیره شوند.
 
 این فایل خروجی در پروژه جنگو ما ذخیره میشود.
