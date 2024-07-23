@@ -919,7 +919,7 @@ class TicketForm(forms.Form):
 
 #### انواع فیلد در html:
 
-[!["types_of_input"](https://res.cloudinary.com/dyjvqwy0s/image/upload/v1719592877/types_of_input_q4slhv.png)](https://res.cloudinary.com/dyjvqwy0s/image/upload/v1719592877/types_of_input_q4slhv.png)
+[!["types_of_input"](https://res.cloudinary.com/am-er/image/upload/v1719592877/types_of_input_q4slhv.png)](https://res.cloudinary.com/am-er/image/upload/v1719592877/types_of_input_q4slhv.png)
 
 #### ساختار فرم به صورت دستی
 
