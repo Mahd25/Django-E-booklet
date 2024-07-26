@@ -72,7 +72,7 @@ $(document).ready(function () {
         const targetElement = document.getElementById(targetId);
 
         if (targetElement) {
-            const targetPosition = $(targetElement).offset().top - headerOffset;
+            const targetPosition = $(targetElement).offset().top - headerOffset - 13;
             $('html, body').animate({
                 scrollTop: targetPosition
             }, 750); // was 600
