@@ -53,7 +53,7 @@ p {
 }
 
 /* ----------------------- block quote ------------------------ */
-blockquote:has(span) {
+blockquote:has(.en-text) {
     direction: ltr;
     border-radius: 5px;
     border-inline-width: 5px;
@@ -74,6 +74,11 @@ blockquote, blockquote:has(blockquote), blockquote:has(.rtl-text) {
 span.en-text {
     display: inline-block;
     direction: ltr;
+}
+
+span.rtl-text {
+    display: inline-block;
+    direction: rtl;
 }
 
 @media (max-width:500px){
