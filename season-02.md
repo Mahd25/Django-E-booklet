@@ -20,7 +20,7 @@ python manage.py startapp app_name
 
 ```python
 INESTALLED_APPS=[
-    ...
+    # ...
     '<app_name>.apps.<App_name>Config',
 ]
 ```
@@ -29,7 +29,7 @@ INESTALLED_APPS=[
 
 ```python
 INESTALLED_APPS=[
-    ...
+    # ...
     'blog.apps.BlogConfig',
 ] 
 ```
@@ -48,7 +48,7 @@ INESTALLED_APPS=[
 
 ```python
 class TableName(models.Model):
-    fields and ...
+    # fields and ...
 ```
 
 برای نوشتن فیلد های هر جدول به صورت زیر عمل میکنیم:
@@ -77,9 +77,9 @@ class TableName(models.Model):
 
 ```python
 class TableName(models.Model):
-    ...
+    # ...
     class Meta:
-        ...
+        # ...
 ```
 
 حالا داخل بدنه کلاس «Meta» از متغیرهای «ordering» و  «indexes» استفاده میکنیم.
@@ -152,10 +152,10 @@ class Post(models.Model):
 class TableName(models.Model):
     class Name(models.TextChoices):
         names = 'values', 'labels'
-        ...
+        # ...
     
     class Meta:
-        ...
+        # ...
 ```
 
 name = اسم متغیر برای گزینه
@@ -458,7 +458,7 @@ from .models import *
 
 @admin.register(model_name)
 class Model_NameAdmin(admin.ModelAdmin):
-    ...
+    # ...
 ```
 
 #### شخصی سازی پنل => داخل کلاس «Model_Name Admin»
@@ -606,7 +606,7 @@ python manage.py shell
 
 ---
 
-متد all() : خواندن تمامی داده های یک جدول از دیتابیس
+متد <span class="en-text">all()</span> : خواندن تمامی داده های یک جدول از دیتابیس
 
 خروجی آن یک (کوئری ست)، شامل تمامی داده های آن جدول میباشد.(ساختار: <QuerySet [<model_name: __str__-function-output>]>)
 
@@ -636,7 +636,7 @@ python manage.py shell
 <QuerySet [<User: Mahdi>, <User: Ali>, <User: Reza26>]>
 ```
 
-با متد (save()) این تغییرات را توی دیتابیس ذخیره میکنیم.
+با متد <span class="en-text">save()</span> این تغییرات را توی دیتابیس ذخیره میکنیم.
 
 ---
 
@@ -671,7 +671,7 @@ python manage.py shell
 
 ---
 
-با استفاده از متد (delete()) داده را از دیتابیس پاک میکنیم
+با استفاده از متد <span class="en-text">delete()</span> داده را از دیتابیس پاک میکنیم
 
 ``shell:``
 
@@ -686,9 +686,9 @@ python manage.py shell
 
 ---
 
-ایجاد داده در جدول دیتابیس ، با استفاده از متد «create»
+ایجاد داده در جدول دیتابیس ، با استفاده از متد <span class="en-text">create()</span>
 
- برای «user» بهتره از متد خاص خودش یعنی «create_user» استفاده کنیم (در این روش دیگر نیازی به متد «save» نیست):
+ برای «user» بهتره از متد خاص خودش یعنی <span class="en-text">create_user()</span> استفاده کنیم (در این روش دیگر نیازی به متد <span class="en-text">save()</span> نیست):
 
 ```python
 # structure
@@ -725,7 +725,7 @@ User.objects.create_user()
 
 ---
 
-متد (get()): برای دریافت یک (object) از جدول (منطبق با شرایطی که در دستور برایش مشخص میکنیم) استفاده میشه.
+**متد <span class="en-text">get()</span>:** برای دریافت یک (object) از جدول (منطبق با شرایطی که در دستور برایش مشخص میکنیم) استفاده میشه.
 
 اگه شرطی که برایش مشخص میکنیم چند داده را شامل شود ارور میدهد(پس باید شرطی بیان کنیم که یک داده از جدول را شامل شود)
 
@@ -744,7 +744,7 @@ User.objects.create_user()
 
 اگر هم آن چیزی که برایش مشخص میکنیم وجود نداشته باشه ارور میدهد
 
-برای جلوگیری از ارور، میتوان از متد (get_or_create()) استفاده کرد
+برای جلوگیری از ارور، میتوان از متد <span class="en-text">get_or_create()</span> استفاده کرد
 
 با این متد اگه موردی، مطابق با شرایطی که مشخص میکنیم وجود نداشت آن آبجکت را ایجاد میکند.
 
@@ -752,7 +752,7 @@ User.objects.create_user()
 
  اولین مورد: آبجکت یافته شده و یا ایجاد شده میباشد و دومین مورد: (boolean) هست / اگه آبجکت را ایجاد کرده باشه (True) و چنانچه آبجکت از قبل وجود داشته باشه (False) را نمایش میده
 
-متد (get_or_create()):
+**متد <span class="en-text">get_or_create()</span>:**
 
 ```shell
 >>> Post.objects.get_or_create(author_id=1, title='C language')
@@ -764,7 +764,7 @@ User.objects.create_user()
 
 ---
 
-متد (filter()): براساس شرایطی که برایش مشخص میکنیم، مجموعه داده های جدول را فیلتر و محدود میکند.
+**متد <span class="en-text">filter()</span>:** براساس شرایطی که برایش مشخص میکنیم، مجموعه داده های جدول را فیلتر و محدود میکند.
 
 خروجی آن (کوئری ست) هستش.
 
@@ -775,7 +775,7 @@ User.objects.create_user()
 
 ---
 
-متد (exclude()): همه داده های جدول، بجز آنهایی که این شرط را دارند نمایش میدهد(داده هایی که این شرط را دارند نمایش داده نمیشوند)
+**متد <span class="en-text">exclude()</span>:** همه داده های جدول، بجز آنهایی که این شرط را دارند نمایش میدهد(داده هایی که این شرط را دارند نمایش داده نمیشوند)
 
 خروجی آن (کوئری ست) هستش.
 
@@ -788,7 +788,7 @@ User.objects.create_user()
 
 ---
 
-بااستفاده از متد (update) میتوان چند داده را ویرایش و آپدیت کرد.(برای (کوئری ست) کاربرد داره)
+بااستفاده از متد <span class="en-text">update()</span> میتوان چند داده را ویرایش و آپدیت کرد.(برای مجموعه (کوئری ست) کاربرد داره)
 
 ``shell:``
 
@@ -801,7 +801,7 @@ User.objects.create_user()
 
 ---
 
-با استفاده از متد (delete()) یک یا چند داده را از جدول پاک میکنیم.
+با استفاده از متد <span class="en-text">delete()</span> یک یا چند داده را از جدول پاک میکنیم.
 
 ``shell:``
 
@@ -819,7 +819,7 @@ User.objects.create_user()
 
 دسترسی به فیلدهای مختلف یک داده از دیتابیس:
 
-انتخاب یک داده 1. با متد (get) 2. استفاده از ایندکس برای (کوئری ست) و 3. حلقه روی (کوئری ست)
+انتخاب یک داده 1. با متد <span class="en-text">get()</span> 2. استفاده از ایندکس برای (کوئری ست) و 3. حلقه روی (کوئری ست)
 
 ``shell:``
 
@@ -856,15 +856,15 @@ Mr_milad
 >>> posts2 = User.objects.get(username='Mr_milad').posts.all()
 ```
 
-نوشتن متد (all()) مهمه.
+نوشتن متد <span class="en-text">all()</span> مهمه.
 
-عبارت (posts) قبل از متد (all()) اسم (related_name) فیلد (author) هستش.
+عبارت **posts** قبل از متد <span class="en-text">all()</span> اسم (related_name) فیلد (author) هستش.
 
 ما در این دو روش تمامی پست های یک کاربر را بدست آورده ایم./ حالا برای دسترسی به فیلدهای هر پست یا روی آن حلقه میزنیم یا با ایندکس، یک پست را انتخاب کرده و فیلد مدنظر را صدا میزنیم.
 
 ---
 
-استفاده از فیلدهای مدل در متدهایی مثله (get, filter, exclude):
+استفاده از فیلدهای مدل در متدهایی مثله (<span class="en-text">get()</span>, <span class="en-text">filter()</span>, <span class="en-text">exclude()</span>):
 
 ``shell:``
 
@@ -898,7 +898,7 @@ Mr_milad
 
 ---
 
-متد (order_by): کوئری ست را براساس یک فیلد مرتب سازی میکند.
+**متد <span class="en-text">order_by()</span>:** کوئری ست را براساس یک فیلد مرتب سازی میکند.
 
 ``shell:``
 
@@ -920,7 +920,7 @@ Mr_milad
 
 ---
 
-متد (values()): این متد مربوط به (کوئری ست) ها هستش. / یک (کوئری ست) شامل یک یا چند دیکشنری برمیگرداند
+**متد <span class="en-text">values()</span>:** این متد مربوط به (کوئری ست) ها هستش. / یک (کوئری ست) شامل یک یا چند دیکشنری برمیگرداند
 
 هر دیکشنری یک آبجکت از آن جدول میباشد. / آن دیکشنری تمام فیلدهای آن مدل (ستون های جدول) را نمایش میدهد.
 
@@ -949,7 +949,7 @@ Mr_milad
 
 ---
 
-متد (values_list()): این متد مشابه (values()) میباشد، با این تفاوت که بجای دیکشنری؛ تاپل برمیگرداند.
+**متد <span class="en-text">values_list()</span>:** این متد مشابه (values()) میباشد، با این تفاوت که بجای دیکشنری؛ تاپل برمیگرداند.
 
 هر تاپل شامل مقدار فیلد ها میباشد.
 
@@ -1001,16 +1001,16 @@ Mr_milad
 
 ```python
 class Field_NameManager(models.Manager):
-    ...
+    # ...
 
 
 class Post(models.Model):
-    ...
-    .
-    .
+    # ...
+    # .
+    # .
 ```
 
-حالا داخل آن کلاس متد (get_queryset) را (override) میکنیم
+حالا داخل آن کلاس متد <span class="en-text">get_queryset()</span> را **override** میکنیم
 
 `app directory/models.py`
 
@@ -1020,9 +1020,9 @@ class Field_NameManager(models.Manager):
         return super().get_queryset().filter(...)
 ```
 
-داخل پرانتز متد (filter) با تعیین فیلد یا فیلدهایی از مدل، (کوئری ست) خود را فیلتر میکنیم(محدود میکنیم)
+داخل پرانتز متد <span class="en-text">filter()</span> با تعیین فیلد یا فیلدهایی از مدل، (کوئری ست) خود را فیلتر میکنیم(محدود میکنیم)
 
-مثلا پست هایی را میخواهیم که وضعیت (publish) داشته باشند/ داخل متد (filter) مشخص میکنیم آنهایی که فیلد (status) برابره با (PUBLISHED) رو نمایش بده.
+مثلا پست هایی را میخواهیم که وضعیت (publish) داشته باشند/ داخل متد <span class="en-text">filter()</span> مشخص میکنیم آنهایی که فیلد (status) برابره با (PUBLISHED) رو نمایش بده.
 
 `app directory/models.py`
 
