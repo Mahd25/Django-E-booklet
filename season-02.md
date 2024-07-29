@@ -608,7 +608,7 @@ python manage.py shell
 
 متد <span class="en-text">all()</span> : خواندن تمامی داده های یک جدول از دیتابیس
 
-خروجی آن یک (کوئری ست)، شامل تمامی داده های آن جدول میباشد.(ساختار: <QuerySet [<model_name: __str__-function-output>]>)
+خروجی آن یک (کوئری ست)، شامل تمامی داده های آن جدول میباشد.(ساختار: \<QuerySet [\<model\_name: \_\_str\_\_\-function\-output\>]\>)
 
 عبارت queryset: مجموعه ای از داده های یک جدول در دیتابیس
 
@@ -1167,7 +1167,7 @@ urlpatterns = [
 ]
 ```
 
-توی url متغیر را به صورت \<name> یا \<data_type:name> بیان میکنیم
+توی url متغیر را به صورت \<name\> یا \<data\_type:name\> بیان میکنیم
 
 حالا وقتی این (url) را وارد میکنیم متغیر به (view) ارسال میشه
 
