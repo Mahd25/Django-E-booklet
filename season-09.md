@@ -159,7 +159,7 @@ def like_post(request):
 
 > **نکته:** با استفاده از اتریبیوت data-name برای هر تگ در html، میتوان داده هایی را ارسال کنیم.
 >
-> > <span class="en-text">\<div class="post" data-post-id="{{ post.id }}">\</div></span>
+> > <span class="en-text">\<div class="post" data-post-id="{{ post.id }}"\>\</div\></span>
 
 `templates/social/post_detail.html`
 
@@ -1702,23 +1702,23 @@ Post.objects.select_related('author').get(id=5).author.first_name
 
 1. پیچیدگی و دشواری در ردیابی
 
-سیگنال‌ها می‌توانند کد را پیچیده‌تر کنند و ردیابی و اشکال‌زدایی آن را دشوارتر سازند. زیرا اتصال بین سیگنال‌ها و گیرنده‌ها اغلب به صورت صریح در یکجا تعریف نمی‌شود و ممکن است در نقاط مختلف پروژه پراکنده باشند. این می‌تواند باعث شود که فهمیدن اینکه چه چیزی باعث فراخوانی یک سیگنال شده است، مشکل باشد.
+    سیگنال‌ها می‌توانند کد را پیچیده‌تر کنند و ردیابی و اشکال‌زدایی آن را دشوارتر سازند. زیرا اتصال بین سیگنال‌ها و گیرنده‌ها اغلب به صورت صریح در یکجا تعریف نمی‌شود و ممکن است در نقاط مختلف پروژه پراکنده باشند. این می‌تواند باعث شود که فهمیدن اینکه چه چیزی باعث فراخوانی یک سیگنال شده است، مشکل باشد.
 
 2. نامرئی بودن جریان کنترلی
 
-در کدهای معمولی، جریان کنترلی (flow control) مشخص و قابل پیش‌بینی است. اما سیگنال‌ها می‌توانند جریان کنترلی نامرئی ایجاد کنند که باعث می‌شود کد به صورت غیرمنتظره‌ای عمل کند. این نامرئی بودن می‌تواند مشکلاتی در پیش‌بینی رفتار برنامه ایجاد کند.
+    در کدهای معمولی، جریان کنترلی (flow control) مشخص و قابل پیش‌بینی است. اما سیگنال‌ها می‌توانند جریان کنترلی نامرئی ایجاد کنند که باعث می‌شود کد به صورت غیرمنتظره‌ای عمل کند. این نامرئی بودن می‌تواند مشکلاتی در پیش‌بینی رفتار برنامه ایجاد کند.
 
 3. احتمال مشکلات عملکردی
 
-سیگنال‌ها می‌توانند به طور غیرمستقیم باعث کاهش عملکرد (performance) شوند، به خصوص اگر تعداد زیادی گیرنده برای یک سیگنال ثبت شده باشند و هر کدام کارهای سنگینی انجام دهند. این می‌تواند منجر به تأخیر در عملیات اصلی شود.
+    سیگنال‌ها می‌توانند به طور غیرمستقیم باعث کاهش عملکرد (performance) شوند، به خصوص اگر تعداد زیادی گیرنده برای یک سیگنال ثبت شده باشند و هر کدام کارهای سنگینی انجام دهند. این می‌تواند منجر به تأخیر در عملیات اصلی شود.
 
 4. وابستگی‌ها و Coupling
 
-سیگنال‌ها می‌توانند باعث ایجاد وابستگی‌های غیرمنتظره بین بخش‌های مختلف کد شوند. این وابستگی‌ها می‌توانند مانع از تغییرات راحت در کد شوند و نگهداری و توسعه کد را مشکل‌تر کنند.
+    سیگنال‌ها می‌توانند باعث ایجاد وابستگی‌های غیرمنتظره بین بخش‌های مختلف کد شوند. این وابستگی‌ها می‌توانند مانع از تغییرات راحت در کد شوند و نگهداری و توسعه کد را مشکل‌تر کنند.
 
 5. تست‌پذیری پایین‌تر
 
-کدی که به شدت به سیگنال‌ها وابسته است، می‌تواند تست کردن را مشکل‌تر کند. چون سیگنال‌ها به طور غیرمستقیم فراخوانی می‌شوند، ممکن است متوجه نشوید که چه چیزی باید تست شود و یا چگونه باید این کار را انجام دهید. همچنین، تست کردن کدی که به سیگنال‌ها وابسته است، می‌تواند نیاز به ابزارها و روش‌های خاصی داشته باشد که کار تست را پیچیده‌تر می‌کند.
+    کدی که به شدت به سیگنال‌ها وابسته است، می‌تواند تست کردن را مشکل‌تر کند. چون سیگنال‌ها به طور غیرمستقیم فراخوانی می‌شوند، ممکن است متوجه نشوید که چه چیزی باید تست شود و یا چگونه باید این کار را انجام دهید. همچنین، تست کردن کدی که به سیگنال‌ها وابسته است، می‌تواند نیاز به ابزارها و روش‌های خاصی داشته باشد که کار تست را پیچیده‌تر می‌کند.
 
 **جایگزین‌های مناسب برای سیگنال‌ها:**
 
@@ -1911,13 +1911,13 @@ class SocialConfig(AppConfig):
 
 **توضیحات:**
 
-- داخل بدنه کلاس <span class="en-text">\<app_name\></span>Config(در اینجا SocialConfig) متد ready را override میکنیم.
+- داخل بدنه کلاس <span class="en-text">\<app\_name\></span>Config(در اینجا SocialConfig) متد ready را override میکنیم.
 
 - داخل بدنه متد ready فایل پایتونی سیگنال را ایمپورت میکنیم.
 
     > signals اسم فایل پایتونی هست که سیگنال ها را آنجا مینویسیم.
     >
-    > > <span class="en-text">import \<app_name\>.signals</span>
+    > > <span class="en-text">import \<app\_name\>.signals</span>
 
 ### کار با سیگنال ها (ارسال ایمیل حذف پست)
 
@@ -2098,99 +2098,99 @@ def ticket(request):
 
 1. **نصب کتابخانه django-debug-toolbar:**
 
-`Terminal`
+    `Terminal`
 
-```terminal
-pip install django-debug-toolbar
-```
+    ```terminal
+    pip install django-debug-toolbar
+    ```
 
 2. **بررسی پیش نیازها و الزامات:**
 
-**اول:**
+    **اول:**
 
-اطمینان حاصل کنید که 'django.contrib.staticfiles' در تنظیمات INSTALLED_APPS شما وجود دارد:
+    اطمینان حاصل کنید که 'django.contrib.staticfiles' در تنظیمات INSTALLED_APPS شما وجود دارد:
 
-`project directory/settings.py`
+    `project directory/settings.py`
 
-```python
-INSTALLED_APPS = [
-    # ...
-    "django.contrib.staticfiles",
-    # ...
-]
-
-STATIC_URL = "static/"
-```
-
-**دوم:**
-
-بررسی کنید که تنظیمات TEMPLATES شامل یک backend از نوع DjangoTemplates با گزینه APP_DIRS برابر با True باشد:
-
-`project directory/settings.py`
-
-```python
-TEMPLATES = [
-    {
-        "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "APP_DIRS": True,
+    ```python
+    INSTALLED_APPS = [
         # ...
-    }
-]
-```
+        "django.contrib.staticfiles",
+        # ...
+    ]
+
+    STATIC_URL = "static/"
+    ```
+
+    **دوم:**
+
+    بررسی کنید که تنظیمات TEMPLATES شامل یک backend از نوع DjangoTemplates با گزینه APP_DIRS برابر با True باشد:
+
+    `project directory/settings.py`
+
+    ```python
+    TEMPLATES = [
+        {
+            "BACKEND": "django.template.backends.django.DjangoTemplates",
+            "APP_DIRS": True,
+            # ...
+        }
+    ]
+    ```
 
 3. **افزودن app آن به اپ های پروژه:**
 
-`project directory/settings.py`
+    `project directory/settings.py`
 
-```python
-INSTALLED_APPS = [
-    # ...
-    "debug_toolbar",
-    # ...
-]
-```
+    ```python
+    INSTALLED_APPS = [
+        # ...
+        "debug_toolbar",
+        # ...
+    ]
+    ```
 
 4. **افزودن URL آن به urlهای پروژه:**
 
-URLهای django-debug-toolbar را به URLconf پروژه خود اضافه کنید:
+    URLهای django-debug-toolbar را به URLconf پروژه خود اضافه کنید:
 
-`project directory/urls.py`
+    `project directory/urls.py`
 
-```python
-urlpatterns = [
-    # ...
-    path('__debug__/', include('debug_toolbar.urls')),
-]
-```
+    ```python
+    urlpatterns = [
+        # ...
+        path('__debug__/', include('debug_toolbar.urls')),
+    ]
+    ```
 
 5. **اضافه کردن middleware آن:**
 
-Debug Toolbar به‌طور عمده در middleware پیاده‌سازی شده است. آن را به تنظیمات MIDDLEWARE اضافه کنید:
+    Debug Toolbar به‌طور عمده در middleware پیاده‌سازی شده است. آن را به تنظیمات MIDDLEWARE اضافه کنید:
 
-`project directory/settings.py`
+    `project directory/settings.py`
 
-```python
-MIDDLEWARE = [
-    "debug_toolbar.middleware.DebugToolbarMiddleware",
-    # ...
-]
-```
+    ```python
+    MIDDLEWARE = [
+        "debug_toolbar.middleware.DebugToolbarMiddleware",
+        # ...
+    ]
+    ```
 
-**هشدار:** ترتیب MIDDLEWARE مهم است. این middleware باید تا حد امکان در بالای لیست قرار گیرد، اما باید بعد از middlewareهایی که محتویات پاسخ را رمزگذاری می‌کنند، مانند GZipMiddleware، قرار گیرد. / در حال حاضر آنرا دربالاترین بخش قرار میدهیم.
+    **هشدار:** ترتیب MIDDLEWARE مهم است. این middleware باید تا حد امکان در بالای لیست قرار گیرد، اما باید بعد از middlewareهایی که محتویات پاسخ را رمزگذاری می‌کنند، مانند GZipMiddleware، قرار گیرد. / در حال حاضر آنرا دربالاترین بخش قرار میدهیم.
 
 6. **پیکربندی IPs داخلی:**
 
-Debug Toolbar فقط در صورتی نمایش داده می‌شود که آدرس IP شما در تنظیمات INTERNAL_IPS در Django لیست شده باشد. برای توسعه محلی، باید "127.0.0.1" را به INTERNAL_IPS اضافه کنید:
+    Debug Toolbar فقط در صورتی نمایش داده می‌شود که آدرس IP شما در تنظیمات INTERNAL_IPS در Django لیست شده باشد. برای توسعه محلی، باید "127.0.0.1" را به INTERNAL_IPS اضافه کنید:
 
-`project directory/settings.py`
+    `project directory/settings.py`
 
-```python
-INTERNAL_IPS = [
-    "127.0.0.1",
-]
-```
+    ```python
+    INTERNAL_IPS = [
+        "127.0.0.1",
+    ]
+    ```
 
-> پس از این تنظیمات پنل مدیریتی آن به پروژه اضافه خواهد شد، میتوان از آن در صفحات مختلف استفاده کرد.
+    > پس از این تنظیمات پنل مدیریتی آن به پروژه اضافه خواهد شد، میتوان از آن در صفحات مختلف استفاده کرد.
 
 **دستور debugsqlshell:**
 
@@ -2354,306 +2354,306 @@ function_name.short_description = "اسم دلخواه"
 
 1. **لازم است تا برای ticket و reply_to_ticket مدل هایی ایجاد کنیم:**
 
-`app directory/models.py`
+    `app directory/models.py`
 
-```python
-class Ticket(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='tickets')
+    ```python
+    class Ticket(models.Model):
+        user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='tickets')
 
-    subject = models.CharField(max_length=100)
-    content = models.TextField()
+        subject = models.CharField(max_length=100)
+        content = models.TextField()
 
-    is_opened = models.BooleanField(default=True)
+        is_opened = models.BooleanField(default=True)
 
-    created_at = models.DateTimeField(auto_now_add=True)
+        created_at = models.DateTimeField(auto_now_add=True)
 
-    class Meta:
-        ordering = ['-created_at']
-        indexes = [models.Index(fields=['-created_at'])]
+        class Meta:
+            ordering = ['-created_at']
+            indexes = [models.Index(fields=['-created_at'])]
 
-    def __str__(self):
-        return {self.subject}
+        def __str__(self):
+            return {self.subject}
 
-# ---------------------------------------------------------------------------
+    # ---------------------------------------------------------------------------
 
-class Reply(models.Model):
-    ticket = models.ForeignKey(Ticket, on_delete=models.CASCADE, related_name='reply_to_ticket')
-    reply = models.TextField()
+    class Reply(models.Model):
+        ticket = models.ForeignKey(Ticket, on_delete=models.CASCADE, related_name='reply_to_ticket')
+        reply = models.TextField()
 
-    responded_at = models.DateTimeField(auto_now_add=True)
+        responded_at = models.DateTimeField(auto_now_add=True)
 
-    class Meta:
-        ordering = ['-responded_at']
-        indexes = [models.Index(fields=['-responded_at'])]
-        unique_together = ('ticket', 'reply')
+        class Meta:
+            ordering = ['-responded_at']
+            indexes = [models.Index(fields=['-responded_at'])]
+            unique_together = ('ticket', 'reply')
 
-    def __str__(self):
-        return self.reply
-```
+        def __str__(self):
+            return self.reply
+    ```
 
 2. **ایجاد فرم برای تیکت و پاسخ به تیکت:**
 
-`app directory/forms.py`
+    `app directory/forms.py`
 
-```python
-class TicketForm(forms.ModelForm):
-    class Meta:
-        model = Ticket
-        fields = ['subject', 'content']
+    ```python
+    class TicketForm(forms.ModelForm):
+        class Meta:
+            model = Ticket
+            fields = ['subject', 'content']
 
 
-class ReplyForm(forms.ModelForm):
-    class Meta:
-        model = Reply
-        fields = ['reply']
-```
+    class ReplyForm(forms.ModelForm):
+        class Meta:
+            model = Reply
+            fields = ['reply']
+    ```
 
 3. **ایجاد URL برای تیکت و پاسخ تیکت:**
 
-`app directory/urls.py`
+    `app directory/urls.py`
 
-```python
-urlpatterns = [
-    path('ticket/', views.ticket, name='ticket'),
-    path('reply/<int:ticket_id>', views.reply_to_ticket, name='reply_ticket'),
-]
-```
+    ```python
+    urlpatterns = [
+        path('ticket/', views.ticket, name='ticket'),
+        path('reply/<int:ticket_id>', views.reply_to_ticket, name='reply_ticket'),
+    ]
+    ```
 
 4. **ایجاد view برای ارسال تیکت:**
 
-تیکت ارسال شده هم به ایمیل ادمین ارسال میشود و هم در دیتابیس ذخیره میشود.
+    تیکت ارسال شده هم به ایمیل ادمین ارسال میشود و هم در دیتابیس ذخیره میشود.
 
-`app directory/views.py`
+    `app directory/views.py`
 
-```python
-@login_required
-def ticket(request):
-    user = request.user
+    ```python
+    @login_required
+    def ticket(request):
+        user = request.user
 
-    if request.method == 'POST':
-        form = TicketForm(request.POST)
-        if form.is_valid():
+        if request.method == 'POST':
+            form = TicketForm(request.POST)
+            if form.is_valid():
 
-            ticket_obj = form.save(commit=False)
-            ticket_obj.user = user
-            ticket_obj.save()
+                ticket_obj = form.save(commit=False)
+                ticket_obj.user = user
+                ticket_obj.save()
 
-            cd = form.cleaned_data
-            message = (f"sender: {user},\n"
-                       f"content: {cd['content']}\n\n"
-                       f"email: {user.email}\n\n\n"
-                       f"reply to ticket: {request.build_absolute_uri(f'/reply/{ticket_obj.id}')}"
-                       )
+                cd = form.cleaned_data
+                message = (f"sender: {user},\n"
+                        f"content: {cd['content']}\n\n"
+                        f"email: {user.email}\n\n\n"
+                        f"reply to ticket: {request.build_absolute_uri(f'/reply/{ticket_obj.id}')}"
+                        )
 
-            send_mail(
-                cd['subject'],
-                message,
-                'sender@gmail.com',
-                ['admin@gmail.com'],
-                fail_silently=False,
-            )
+                send_mail(
+                    cd['subject'],
+                    message,
+                    'sender@gmail.com',
+                    ['admin@gmail.com'],
+                    fail_silently=False,
+                )
 
-            messages.success(request, 'your ticket has been sent')
-    else:
-        form = TicketForm()
+                messages.success(request, 'your ticket has been sent')
+        else:
+            form = TicketForm()
 
-    return render(request, 'forms/ticket_form.html', {"form": form})
-```
+        return render(request, 'forms/ticket_form.html', {"form": form})
+    ```
 
-**توضیحات:**
+    **توضیحات:**
 
 5. **ایجاد view برای پاسخ به تیکت:**
 
-`app directory/views.py`
+    `app directory/views.py`
 
-```python
-@staff_member_required()
-def reply_to_ticket(request, ticket_id):
-    sent_ticket = get_object_or_404(Ticket, pk=ticket_id)
+    ```python
+    @staff_member_required()
+    def reply_to_ticket(request, ticket_id):
+        sent_ticket = get_object_or_404(Ticket, pk=ticket_id)
 
-    if request.method == 'POST':
-        form = ReplyForm(request.POST)
-        if form.is_valid():
-            reply_obj = form.save(commit=False)
-            reply_obj.ticket = sent_ticket
-            reply_obj.save()
+        if request.method == 'POST':
+            form = ReplyForm(request.POST)
+            if form.is_valid():
+                reply_obj = form.save(commit=False)
+                reply_obj.ticket = sent_ticket
+                reply_obj.save()
 
-            messages.success(request, "reply has been sent to user.")
+                messages.success(request, "reply has been sent to user.")
 
-            sent_ticket.is_open = False
-            sent_ticket.save()
-    else:
-        form = ReplyForm()
+                sent_ticket.is_open = False
+                sent_ticket.save()
+        else:
+            form = ReplyForm()
 
-    return render(request, "forms/replies.html", {"form": form, "ticket": sent_ticket})
-```
+        return render(request, "forms/replies.html", {"form": form, "ticket": sent_ticket})
+    ```
 
-**توضیحات:**
+    **توضیحات:**
 
 6. **ایجاد URL برای نمایش لیست تیکت ها و پاسخ آنها**
 
-`app directory/urls.py`
+    `app directory/urls.py`
 
-```python
-urlpatterns = [
-    path('tickets_list/', tickets_list, name='tickets_list'),
-]
-```
+    ```python
+    urlpatterns = [
+        path('tickets_list/', tickets_list, name='tickets_list'),
+    ]
+    ```
 
 7. **ایجاد view برای نمایش لیست تیکت ها و پاسخ آنها**
 
-`app directory/views.py`
+    `app directory/views.py`
 
-```python
-def tickets_list(request):
-    user = request.user
+    ```python
+    def tickets_list(request):
+        user = request.user
 
-    if user.is_staff:
-        tickets = Ticket.objects.all()
-    else:
-        tickets = Ticket.objects.filter(user=user)
+        if user.is_staff:
+            tickets = Ticket.objects.all()
+        else:
+            tickets = Ticket.objects.filter(user=user)
 
-    return render(request, 'social/ticket_list.html', {'tickets': tickets})
-```
+        return render(request, 'social/ticket_list.html', {'tickets': tickets})
+    ```
 
 8. **ایجاد URL برای نمایش جزئیات تیکت:**
 
-`app directory/urls.py`
+    `app directory/urls.py`
 
-```python
-urlpatterns = [
-    path('ticket/<int:ticket_id>', ticket_detail, name='ticket_detail'),
-]
-```
+    ```python
+    urlpatterns = [
+        path('ticket/<int:ticket_id>', ticket_detail, name='ticket_detail'),
+    ]
+    ```
 
 9. **ایجاد view برای نمایش جزئیات تیکت:**
 
-`app directory/views.py`
+    `app directory/views.py`
 
-```python
-def ticket_detail(request, ticket_id):
-    ticket = get_object_or_404(Ticket, pk=ticket_id)
+    ```python
+    def ticket_detail(request, ticket_id):
+        ticket = get_object_or_404(Ticket, pk=ticket_id)
 
-    return render(request, "social/ticket_detail.html", {"ticket": ticket})
-```
+        return render(request, "social/ticket_detail.html", {"ticket": ticket})
+    ```
 
 10. **ایجاد قالب های html:**
 
-**1- ticket_form.html:**
+    **1- ticket_form.html:**
 
-`templates/forms/ticket_form.html`
+    `templates/forms/ticket_form.html`
 
-```jinja
-<h2>create ticket</h2>
+    ```jinja
+    <h2>create ticket</h2>
 
-<form method="post">
-    {% csrf_token %}
+    <form method="post">
+        {% csrf_token %}
 
-    <input type="text" name="subject" placeholder="Title">
+        <input type="text" name="subject" placeholder="Title">
 
-    <textarea name="content" cols="20" rows="10" placeholder="Your Content..."></textarea>
+        <textarea name="content" cols="20" rows="10" placeholder="Your Content..."></textarea>
 
-    <input type="submit" value="Send">
-</form>
+        <input type="submit" value="Send">
+    </form>
 
-{{ form.errors }}
+    {{ form.errors }}
 
-{% if messages %}
+    {% if messages %}
+        <ul>
+            {% for message in messages %}
+                <li class="{{ message.tags | default:"" }}">
+                    {{ message }} 
+                </li>
+            {% endfor %}
+        </ul>
+    {% endif %} 
+    ```
+
+    **2- replies.html:**
+
+    `templates/forms/replies.html`
+
+    ```jinja
+    <h2>Reply to Ticket</h2>
+
+    <div class="ticket">
+        User: {{ ticket.user }}<br>
+        Email: {{ ticket.email }}
+        <br><br><br>
+        title: {{ ticket.subject }}<br><br>
+        content: {{ ticket.body }}
+    </div>
+
+    <div class="reply">
+        <form method="post">
+            {% csrf_token %}
+            
+            <textarea name="reply" id="" cols="30" rows="10" placeholder="reply to ticket"></textarea>
+            <br><br>
+            <input type="submit" value="send reply">
+        </form>
+    </div>
+
+    <div class="messages">
+        {% if messages %}
+            {% for message in messages %}
+                {{ message }}
+            {% endfor %}
+        {% endif %} 
+    </div>
+
+    {{ form.errors }}
+    ```
+
+    **3- ticket_list.html:**
+
+    `templates/social/ticket_list.html`
+
+    ```jinja
+    <h2>tickets list</h2>
+
     <ul>
-        {% for message in messages %}
-            <li class="{{ message.tags | default:"" }}">
-                {{ message }} 
+        {% for ticket in tickets %}
+            <li>
+                <strong>{{ ticket.subject }}</strong> - {{ ticket.created_at }}
+                <br>
+                <a href="{% url 'social:ticket_detail' ticket.id %}">{{ ticket.content | truncatewords:10 }}</a>
+                <br>
+                {% if ticket.is_opened %}
+                    <em>it's open</em>
+                {% else %}
+                    <em>it closed</em>
+                {% endif %}
             </li>
         {% endfor %}
     </ul>
-{% endif %} 
-```
+    ```
 
-**2- replies.html:**
+    **4- ticket_detail.html:**
 
-`templates/forms/replies.html`
+    `templates/social/ticket_detail.html`
 
-```jinja
-<h2>Reply to Ticket</h2>
+    ```jinja
+    <h2>ticket: {{ ticket.subject }}</h2>
 
-<div class="ticket">
-    User: {{ ticket.user }}<br>
-    Email: {{ ticket.email }}
-    <br><br><br>
-    title: {{ ticket.subject }}<br><br>
-    content: {{ ticket.body }}
-</div>
+    <strong>Body:</strong> {{ ticket.content | linebreaks }}
+    <br>
+    {{ ticket.created_at }}
+    <hr>
+    {% if ticket.is_opened %}
+        <em>it's open</em>
+    {% else %}
+        <em>it closed</em>
+    {% endif %}
 
-<div class="reply">
-    <form method="post">
-        {% csrf_token %}
-        
-        <textarea name="reply" id="" cols="30" rows="10" placeholder="reply to ticket"></textarea>
-        <br><br>
-        <input type="submit" value="send reply">
-    </form>
-</div>
+    <h2>Reply:</h2>
 
-<div class="messages">
-    {% if messages %}
-        {% for message in messages %}
-            {{ message }}
+    <ul>
+        {% for response in ticket.reply_to_ticket.all %}
+            <li>{{ response.reply }} <br><hr> {{ response.responded_at }}</li>
         {% endfor %}
-    {% endif %} 
-</div>
-
-{{ form.errors }}
-```
-
-**3- ticket_list.html:**
-
-`templates/social/ticket_list.html`
-
-```jinja
-<h2>tickets list</h2>
-
-<ul>
-    {% for ticket in tickets %}
-        <li>
-            <strong>{{ ticket.subject }}</strong> - {{ ticket.created_at }}
-            <br>
-            <a href="{% url 'social:ticket_detail' ticket.id %}">{{ ticket.content | truncatewords:10 }}</a>
-            <br>
-            {% if ticket.is_opened %}
-                <em>it's open</em>
-            {% else %}
-                <em>it closed</em>
-            {% endif %}
-        </li>
-    {% endfor %}
-</ul>
-```
-
-**4- ticket_detail.html:**
-
-`templates/social/ticket_detail.html`
-
-```jinja
-<h2>ticket: {{ ticket.subject }}</h2>
-
-<strong>Body:</strong> {{ ticket.content | linebreaks }}
-<br>
-{{ ticket.created_at }}
-<hr>
-{% if ticket.is_opened %}
-    <em>it's open</em>
-{% else %}
-    <em>it closed</em>
-{% endif %}
-
-<h2>Reply:</h2>
-
-<ul>
-    {% for response in ticket.reply_to_ticket.all %}
-        <li>{{ response.reply }} <br><hr> {{ response.responded_at }}</li>
-    {% endfor %}
-</ul>
-```
+    </ul>
+    ```
 
 ------------------------------------------------------------------
 
@@ -2844,45 +2844,45 @@ hello I'm {{ user.get_full_name | default:user.username }}
 
 1. نصب پکیج **django-social-share**:
 
-`terminal`
+    `terminal`
 
-```terminal
-pip install django-social-share
-```
+    ```terminal
+    pip install django-social-share
+    ```
 
 2. پیکربندی ها و تنظیمات لازم:
 
-1- پس از نصب، نیاز است که این پکیج را به لیست اپلیکیشن‌های نصب‌شده اضافه کنید:
+    1- پس از نصب، نیاز است که این پکیج را به لیست اپلیکیشن‌های نصب‌شده اضافه کنید:
 
-`project directory/settings.py`
+    `project directory/settings.py`
 
-```python
-INSTALLED_APPS = [
-    # ...
-    'django_social_share',
-]
-```
+    ```python
+    INSTALLED_APPS = [
+        # ...
+        'django_social_share',
+    ]
+    ```
 
-2- همچنین باید django.template.context_processors.request را به لیست context_processors اضافه کنید تا تگ‌ها بتوانند از scheme  و host_name به طور صحیح استفاده کنند:
+    2- همچنین باید django.template.context_processors.request را به لیست context_processors اضافه کنید تا تگ‌ها بتوانند از scheme  و host_name به طور صحیح استفاده کنند:
 
-`project directory/settings.py`
+    `project directory/settings.py`
 
-```python
-TEMPLATES = [
-    {
-        'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR / 'templates']
-        ,
-        'APP_DIRS': True,
-        'OPTIONS': {
-            'context_processors': [
-                # ...
-                'django.template.context_processors.request',
-            ],
+    ```python
+    TEMPLATES = [
+        {
+            'BACKEND': 'django.template.backends.django.DjangoTemplates',
+            'DIRS': [BASE_DIR / 'templates']
+            ,
+            'APP_DIRS': True,
+            'OPTIONS': {
+                'context_processors': [
+                    # ...
+                    'django.template.context_processors.request',
+                ],
+            },
         },
-    },
-]
-```
+    ]
+    ```
 
 > **براساس توضیحات داکیومنت django-social-share:**
 >
@@ -2910,15 +2910,15 @@ TEMPLATES = [
 
 هر تگ قالب django-social-share یک یا چند پارامتر می‌پذیرد. این پارامترها می‌توانند شامل موارد زیر باشند:
 
-1. **متغیر <object_or_url>:** این پارامتر می‌تواند یک آبجکت مدل جنگو یا یک URL باشد. اگر یک آبجکت مدل را پاس بدهید، از متد get_absolute_url آن استفاده می‌شود. اگر از پکیج django_bitly استفاده کنید، URL کوتاه شده نیز تولید می‌شود.
+1. **متغیر \<object\_or\_url\>:** این پارامتر می‌تواند یک آبجکت مدل جنگو یا یک URL باشد. اگر یک آبجکت مدل را پاس بدهید، از متد get_absolute_url آن استفاده می‌شود. اگر از پکیج django_bitly استفاده کنید، URL کوتاه شده نیز تولید می‌شود.
 
-2. **متغیر <text_to_post>:** متنی که می‌خواهید در پست به اشتراک گذاشته شود. می‌تواند شامل کدهای قالب جنگو باشد.
+2. **متغیر \<text\_to\_post\>:** متنی که می‌خواهید در پست به اشتراک گذاشته شود. می‌تواند شامل کدهای قالب جنگو باشد.
 
-3. **متغیر <link_text>:** متن لینک که به عنوان متن anchor در تگ <a> استفاده می‌شود. اگر مشخص نشود، مقادیر پیش‌فرض مانند 'Post to Facebook' یا 'Post to Twitter' استفاده می‌شوند. / در مثال زیر آیکون شبکه های اجتماعی را نمایش میدهیم.
+3. **متغیر \<link\_text\>:** متن لینک که به عنوان متن anchor در تگ \<a\> استفاده می‌شود. اگر مشخص نشود، مقادیر پیش‌فرض مانند 'Post to Facebook' یا 'Post to Twitter' استفاده می‌شوند. / در مثال زیر آیکون شبکه های اجتماعی را نمایش میدهیم.
 
-4. **متغیر <link_class>:** کلاس‌های CSS که به لینک <a> اعمال می‌شوند. می‌توانید از آن برای استایل‌دهی به لینک‌های اشتراک‌گذاری استفاده کنید. / مثلا اگر مقدار social برایش مشخص کنیم، اسم کلاس تگ a ایجاد شده social خواهد بود.
+4. **متغیر \<link\_class\>:** کلاس‌های CSS که به لینک \<a\> اعمال می‌شوند. می‌توانید از آن برای استایل‌دهی به لینک‌های اشتراک‌گذاری استفاده کنید. / مثلا اگر مقدار social برایش مشخص کنیم، اسم کلاس تگ a ایجاد شده social خواهد بود.
 
-5. **متغیر <subject>:** موضوع ایمیل (برای تگ send_email). این می‌تواند شامل کدهای قالب جنگو نیز باشد.
+5. **متغیر \<subject\>:** موضوع ایمیل (برای تگ send_email). این می‌تواند شامل کدهای قالب جنگو نیز باشد.
 
 **بریم چند نمونه ببینیم:**
 
@@ -2949,218 +2949,218 @@ TEMPLATES = [
 
 1. **ایجاد مدل کامنت:**
 
-`app directory/models.py`
+    `app directory/models.py`
 
-```python
-class Comment(models.Model):
-    post = models.ForeignKey(Post, on_delete=models.CASCADE, related_name='post_comments')
+    ```python
+    class Comment(models.Model):
+        post = models.ForeignKey(Post, on_delete=models.CASCADE, related_name='post_comments')
 
-    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='user_comments')
-    content = models.TextField()
-    
-    created_at = models.DateTimeField(auto_now_add=True)
+        user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='user_comments')
+        content = models.TextField()
+        
+        created_at = models.DateTimeField(auto_now_add=True)
 
-    class Meta:
-        ordering = ['-created_at']
-        indexes = [models.Index(fields=['-created_at'])]
+        class Meta:
+            ordering = ['-created_at']
+            indexes = [models.Index(fields=['-created_at'])]
 
-    def __str__(self):
-        return self.content
-```
+        def __str__(self):
+            return self.content
+    ```
 
 2. **ایجاد فرم کامنت:**
 
-`app directory/forms.py`
+    `app directory/forms.py`
 
-```python
-class CommentForm(forms.ModelForm):
-    class Meta:
-        model = Comment
-        fields = ['content']
-```
+    ```python
+    class CommentForm(forms.ModelForm):
+        class Meta:
+            model = Comment
+            fields = ['content']
+    ```
 
 3. **ایجاد URL برای افزودن کامنت:**
 
-`app directory/urls.py`
+    `app directory/urls.py`
 
-```python
-urlpatterns = [
-    path('comments/<int:post_id>', views.add_comment, name='add_comment'),
-]
-```
+    ```python
+    urlpatterns = [
+        path('comments/<int:post_id>', views.add_comment, name='add_comment'),
+    ]
+    ```
 
 4. **تغییر view برای post_detail و ایجاد view برای افزدن کامنت:**
 
-`app directory/views.py`
+    `app directory/views.py`
 
-```python
-def post_detail(request, post_id):
-    post = get_object_or_404(Post, id=post_id)
+    ```python
+    def post_detail(request, post_id):
+        post = get_object_or_404(Post, id=post_id)
 
-    # for similar post's
-    post_tags_ids = post.tags.values_list('id', flat=True)
-    similar_posts = Post.objects.filter(tags__in=post_tags_ids)
-    similar_posts = similar_posts.annotate(same_tags=Count('tags')).exclude(id=pk).order_by('-same_tags', '-created')[:3]
+        # for similar post's
+        post_tags_ids = post.tags.values_list('id', flat=True)
+        similar_posts = Post.objects.filter(tags__in=post_tags_ids)
+        similar_posts = similar_posts.annotate(same_tags=Count('tags')).exclude(id=pk).order_by('-same_tags', '-created')[:3]
 
-    # for comment
-    comment_form = CommentForm()
+        # for comment
+        comment_form = CommentForm()
 
-    comments = post.post_comments.all()
+        comments = post.post_comments.all()
 
-    context = {
-        'post': post, 
-        'similar_posts': similar_posts,
-        'comment_form': comment_form,
-        'comments': comments,
-        }
-
-    return render(request, 'social/post_detail.html', context=context)
-
-# ————————————————————————————————————————————————————————————————————————
-def add_comment(request, post_id):
-    if request.method == 'POST':
-        form = CommentForm(request.POST)
-        if form.is_valid():
-            post = get_object_or_404(Post, pk=post_id)
-
-            comment = form.save(commit=False)
-            comment.post = post
-            comment.user = request.user
-            comment.save()
-
-            response = {
-                'user': comment.user.username,
-                'content': comment.content,
-                'created_at': comment.created_at.strftime('%Y-%m-%d %H:%M:%S'),
-                'comments_count': post.post_comments.count()
+        context = {
+            'post': post, 
+            'similar_posts': similar_posts,
+            'comment_form': comment_form,
+            'comments': comments,
             }
-            return JsonResponse(response)
-    else:
-        return JsonResponse({'status': 'error', 'errors': 'Invalid data!'})
-```
+
+        return render(request, 'social/post_detail.html', context=context)
+
+    # ————————————————————————————————————————————————————————————————————————
+    def add_comment(request, post_id):
+        if request.method == 'POST':
+            form = CommentForm(request.POST)
+            if form.is_valid():
+                post = get_object_or_404(Post, pk=post_id)
+
+                comment = form.save(commit=False)
+                comment.post = post
+                comment.user = request.user
+                comment.save()
+
+                response = {
+                    'user': comment.user.username,
+                    'content': comment.content,
+                    'created_at': comment.created_at.strftime('%Y-%m-%d %H:%M:%S'),
+                    'comments_count': post.post_comments.count()
+                }
+                return JsonResponse(response)
+        else:
+            return JsonResponse({'status': 'error', 'errors': 'Invalid data!'})
+    ```
 
 5. **تغییر تمپلیت post_detail-ارسال کامنت با ajax:**
 
-ساختار کد post_detail.html طولانی هست، برای درک راحت تر فقط کد مربوط به کامنت را نمایش میدهیم؛ کدهای مربوط به کامنت بعد از پست های مشابه نوشته میشود.
+    ساختار کد post_detail.html طولانی هست، برای درک راحت تر فقط کد مربوط به کامنت را نمایش میدهیم؛ کدهای مربوط به کامنت بعد از پست های مشابه نوشته میشود.
 
-`templates/social/post_detail.html`
+    `templates/social/post_detail.html`
 
-```jinja
-<h3>Comment Form</h3>
+    ```jinja
+    <h3>Comment Form</h3>
 
-<form id="comment-form" method="post">
-    {% csrf_token %}
+    <form id="comment-form" method="post">
+        {% csrf_token %}
 
-    {{ form.as_p }}<br><br>
-    <input type="submit" value="send comment">
-</form>
+        {{ form.as_p }}<br><br>
+        <input type="submit" value="send comment">
+    </form>
 
-<p class="comment-count">تعداد کامنت‌ها: {{ comments.count }}</p>
+    <p class="comment-count">تعداد کامنت‌ها: {{ comments.count }}</p>
 
-<h3>Comments List</h3>
+    <h3>Comments List</h3>
 
-<div id="comments">
-    {% for comment in comments %}
-        <p>User: {{ comment.user.username }}</p>
-        <div>{{ comment.content | linebreaks }} - {{ comment.created_at }}</div>
-        <hr>
-    {% empty %}
-        <p>هیچ کامنتی وجود ندارد.</p>
-    {% endfor %}
-</div>
+    <div id="comments">
+        {% for comment in comments %}
+            <p>User: {{ comment.user.username }}</p>
+            <div>{{ comment.content | linebreaks }} - {{ comment.created_at }}</div>
+            <hr>
+        {% empty %}
+            <p>هیچ کامنتی وجود ندارد.</p>
+        {% endfor %}
+    </div>
 
-<!-- ————————————————————————— Scripts ————————————————————————— -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <!-- ————————————————————————— Scripts ————————————————————————— -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
-<script>
-    $(document).ready(function() {
-        $('#comment-form').submit(function(event) {
-            event.preventDefault(); // جلوگیری از ارسال فرم به صورت پیش‌فرض
+    <script>
+        $(document).ready(function() {
+            $('#comment-form').submit(function(event) {
+                event.preventDefault(); // جلوگیری از ارسال فرم به صورت پیش‌فرض
 
-            let formData = $(this).serialize(); // دریافت داده‌های فرم
+                let formData = $(this).serialize(); // دریافت داده‌های فرم
 
-            $.ajax({
-                url: '{% url "social:add_comment" post.id %}', // آدرس view برای ارسال داده‌ها
-                type: 'POST',
-                data: formData,
-                success: function(response) {
-                    let commentUser = '<p>' + 'User: ' + response.user + '</p>';
-                    let commentContent = '<div>' + response.content + ' - ' + response.created_at + '</div>';
+                $.ajax({
+                    url: '{% url "social:add_comment" post.id %}', // آدرس view برای ارسال داده‌ها
+                    type: 'POST',
+                    data: formData,
+                    success: function(response) {
+                        let commentUser = '<p>' + 'User: ' + response.user + '</p>';
+                        let commentContent = '<div>' + response.content + ' - ' + response.created_at + '</div>';
 
-                    $('#comments').prepend(commentUser + commentContent + '<hr>');
+                        $('#comments').prepend(commentUser + commentContent + '<hr>');
 
-                    $('#comment-form')[0].reset(); // پاک کردن فرم برای ورود داده جدید
-                    $('.comment-count').text('تعداد کامنت ها: ' + response.comments_count)
-                },
-                error: function(xhr, status, error) {
-                    console.error('خطا در ارسال اطلاعات:', error);
-                    alert('خطایی در ارسال کامنت رخ داده است.');
-                }
+                        $('#comment-form')[0].reset(); // پاک کردن فرم برای ورود داده جدید
+                        $('.comment-count').text('تعداد کامنت ها: ' + response.comments_count)
+                    },
+                    error: function(xhr, status, error) {
+                        console.error('خطا در ارسال اطلاعات:', error);
+                        alert('خطایی در ارسال کامنت رخ داده است.');
+                    }
+                });
             });
         });
-    });
-</script>
-```
+    </script>
+    ```
 
 6. **تکمیل خودکار اطلاعات کاربر با مقادیر پیشفرض با استفاده از **signal**:**
 
-نوشتن سیگنال مدنظر در signals.py.
+    نوشتن سیگنال مدنظر در signals.py.
 
-`app directory/signals.py`
+    `app directory/signals.py`
 
-```python
-from django.db.models.signals import post_save
-from django.dispatch import receiver
-from .models import *
+    ```python
+    from django.db.models.signals import post_save
+    from django.dispatch import receiver
+    from .models import *
 
 
-@receiver(post_save, sender=User)
-def complete_profile(sender, instance, created, **kwargs):
-    if created:
-        instance.first_name = 'نام پیش‌فرض'
-        instance.last_name = 'نام خانوادگی پیش‌فرض'
-        instance.email = 'example@gmail.com'
-        instance.bio = 'توضیحات پیش‌فرض'
-        instance.job = 'شغل پیش‌فرض'
-        instance.birth_date = '2001-01-01'
+    @receiver(post_save, sender=User)
+    def complete_profile(sender, instance, created, **kwargs):
+        if created:
+            instance.first_name = 'نام پیش‌فرض'
+            instance.last_name = 'نام خانوادگی پیش‌فرض'
+            instance.email = 'example@gmail.com'
+            instance.bio = 'توضیحات پیش‌فرض'
+            instance.job = 'شغل پیش‌فرض'
+            instance.birth_date = '2001-01-01'
 
-        instance.save()
-```
+            instance.save()
+    ```
 
 7. **نوشتن اکشنی که وضعیت فعلی پست را نویسنده اش ایمیل کند:**
 
-`app directory/admin.py`
+    `app directory/admin.py`
 
-```python
-from django.core.mail import send_mail
+    ```python
+    from django.core.mail import send_mail
 
-# ——————————————————————————— Actions ———————————————————————————
-def post_status(modeladmin, request, queryset):
-    for post in queryset:
-        if post.active:
-            status = 'Active'
-        else:
-            status = 'Inactive'
+    # ——————————————————————————— Actions ———————————————————————————
+    def post_status(modeladmin, request, queryset):
+        for post in queryset:
+            if post.active:
+                status = 'Active'
+            else:
+                status = 'Inactive'
 
-        send_mail(
-            "Post_status",
-            f"your post with id: {post.id} => is {status}",
-            'sender@gmail.com',
-            [post.author.email],
-        )
+            send_mail(
+                "Post_status",
+                f"your post with id: {post.id} => is {status}",
+                'sender@gmail.com',
+                [post.author.email],
+            )
 
-    modeladmin.message_user(request, "Post status, was sent")
+        modeladmin.message_user(request, "Post status, was sent")
 
-# ————————————————————————— Model Admins —————————————————————————
+    # ————————————————————————— Model Admins —————————————————————————
 
-@admin.register(Post)
-class PostAdmin(admin.ModelAdmin):
-    list_display = ['author', 'updated', 'created']
-    ordering = ['-created', '-author']
-    search_fields = ['author', 'description']
+    @admin.register(Post)
+    class PostAdmin(admin.ModelAdmin):
+        list_display = ['author', 'updated', 'created']
+        ordering = ['-created', '-author']
+        search_fields = ['author', 'description']
 
-    actions = [deactivate_post, activate_post, post_status]
-```
+        actions = [deactivate_post, activate_post, post_status]
+    ```
 
 ------------------------------------------------------------------
 
