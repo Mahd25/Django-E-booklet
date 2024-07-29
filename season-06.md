@@ -1055,7 +1055,7 @@ INSTALLED_APPS = [
 
 #### 2- فیلد search براساس title و description تصویر هم جستجو را انجام دهد:
 
-کافیست فیلد های مدل Image را به صورت \<related_name\>\_\_\<field_name> در ساختار search جایی که فیلدها را مشخص میکردیم بنویسیم.
+کافیست فیلد های مدل Image را به صورت \<related\_name\>\_\_\<field\_name\> در ساختار search جایی که فیلدها را مشخص میکردیم بنویسیم.
 
 `app directory/views.py`
 
