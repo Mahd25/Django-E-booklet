@@ -32,12 +32,12 @@ def highlight_code(code, language):
 
 # Function to convert markdown to HTML
 def markdown_to_html(md_text):
-    code_block_re = re.compile(r'```(\w+)\n(.*?)\n```', re.DOTALL)
+    # Regex to match code blocks with optional indentation
+    code_block_re = re.compile(r'```(\w*)\s*(.*?)\s*```', re.DOTALL | re.MULTILINE)
 
     def code_block_replacer(match):
         language = match.group(1)
-        code = match.group(2)
-        # Do not escape HTML entities in code blocks
+        code = match.group(2).rstrip()  # Remove trailing whitespace from code
         return highlight_code(code, language)
 
     # Convert code blocks
@@ -100,7 +100,7 @@ def convert_markdown_file(input_file, output_file, title):
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
 <head>
-<title>Season {title}</title>    
+<title>Season {title}</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="Django e-booklet">
