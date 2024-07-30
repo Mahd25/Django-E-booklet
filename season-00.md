@@ -93,7 +93,7 @@
 
 ### 5. DNS (Domain Name Server)
 
-سیستم نام دامنه (DNS) سرویسی است که نام‌های دامنه قابل خواندن برای انسان (مثل \<www\.example\.com\>) را به آدرس‌های IP عددی تبدیل می‌کند. DNS مانند دفترچه تلفن اینترنت عمل می‌کند.
+سیستم نام دامنه (DNS) سرویسی است که نام‌های دامنه قابل خواندن برای انسان (مثل <www\.example\.com\>) را به آدرس‌های IP عددی تبدیل می‌کند. DNS مانند دفترچه تلفن اینترنت عمل می‌کند.
 
 ```plaintext
            Root Domain
@@ -108,7 +108,7 @@ https://www.exampledomain.com
 |     Component       |       example       |
 | --- | --- |
 |      Protocol       |        https        |
-|     Domain Name     |    \<www\.example\.com\>  |
+|     Domain Name     |    <www\.example\.com\>  |
 |      Subdomain      |        www          |
 |   Top Level Domain  |        .com         |
 | Second Level Domain |     example         |
@@ -129,7 +129,7 @@ username   password  https:// www.      example              .com              :
 | Component           | Example                 |
 | ---- | --- |
 | Protocol            | https                   |
-| Domain Name         | \<www\.example\.com\>         |
+| Domain Name         | <www\.example\.com\>         |
 | Subdomain           | www                     |
 | Top Level Domain    | com                     |
 | Second Level Domain | example                 |
@@ -170,7 +170,7 @@ username   password  https:// www.      example              .com              :
 
 ### 7. مفهوم دامنه
 
-دامنه نامی است که برای شناسایی یک وب‌سایت در اینترنت استفاده می‌شود، مانند \<www\.example\.com\>. دامنه‌ها به سطوح مختلف تقسیم می‌شوند:
+دامنه نامی است که برای شناسایی یک وب‌سایت در اینترنت استفاده می‌شود، مانند <www\.example\.com\>. دامنه‌ها به سطوح مختلف تقسیم می‌شوند:
 
 #### انواع پسوند دامنه (Domain Extensions)
 
