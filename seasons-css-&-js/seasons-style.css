@@ -53,7 +53,7 @@ p {
 }
 
 /* ----------------------- block quote ------------------------ */
-blockquote:has(.en-text) {
+blockquote:has(span) {
     direction: ltr;
     border-radius: 5px;
     border-inline-width: 5px;
