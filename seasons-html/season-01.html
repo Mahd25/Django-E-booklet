@@ -1,464 +1,320 @@
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
-
 <head>
-    <title>Season One</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Django e-booklet">
-    <meta name="keywords" content="django, django learning">
-    <meta name="author" content="Mahdi Rezaie, Ali Ebrahimian">
-    <link rel="icon" href="../Images/favicon.ico" type="image/ico">
+<title>Season One</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Django e-booklet">
+<meta name="keywords" content="django, django learning">
+<meta name="author" content="Mahdi Rezaie, Ali Ebrahimian">
+<link rel="icon" href="../Images/favicon.ico" type="image/ico">
 
-    <link rel="stylesheet" type="text/css" href="../seasons-css-&-js/seasons-style.css">
-    <link rel="stylesheet" type="text/css" href="../seasons-css-&-js/Footer-style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
-        integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
+<link rel="stylesheet" type="text/css" href="../seasons-css-&-js/seasons-style.css">
+<link rel="stylesheet" type="text/css" href="../seasons-css-&-js/Footer-style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
-
 <body>
-    <main>
-        <div class="container">
-            <div class="content">
-                <h2>فصل اول: نصب و راه اندازی</h2>
-                <div class="toc">
-                    <h3>فهرست مطالب</h3>
-                    <ul>
-                        <li><a href="#mrhl-wlyh-yjd-prwjh-jngw">مراحل اولیه ایجاد پروژه جنگو</a></li>
-                    </ul>
-                </div>
-                <h3 id="mrhl-wlyh-yjd-prwjh-jngw">مراحل اولیه ایجاد پروژه جنگو</h3>
-                <ol>
-                    <li>ایجاد محیط مجازی</li>
-                    <li>نصب پکیج جنگو</li>
-                    <li>ایجاد پروژه</li>
-                    <li>دستور migrate</li>
-                </ol>
-                <h4>1. ایجاد محیط مجازی</h4>
-                <p>با استفاده از ماژول های (venv) و یا (virtualenv) محیط مجازی را ایجاد میکنیم.</p>
-                <p>نصب و استفاده از (virtualenv)</p>
-                <p>بیشتر برای ورژن های قدیمی تر مورد استفاده میباشد.</p>
-                <p>نصب (virtualenv)</p>
-                <p><code>Terminal:</code></p>
-                <div class="code-box">
-                    <div class="code-info">
-                        <button class="copy-icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none"
-                                viewBox="0 0 24 24" class="icon-sm">
-                                <path fill="currentColor" fill-rule="evenodd"
-                                    d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z"
-                                    clip-rule="evenodd"></path>
-                            </svg>
-                            <span>Copy code</span>
-                        </button>
-                        <span class="language">powershell</span>
-                    </div>
-                    <pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">virtualenv</span>
-</pre>
-                </div>
-
-                <p>ایجاد محیط مجازی با (virtualenv)</p>
-                <p><code>Terminal:</code></p>
-                <div class="code-box">
-                    <div class="code-info">
-                        <button class="copy-icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none"
-                                viewBox="0 0 24 24" class="icon-sm">
-                                <path fill="currentColor" fill-rule="evenodd"
-                                    d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z"
-                                    clip-rule="evenodd"></path>
-                            </svg>
-                            <span>Copy code</span>
-                        </button>
-                        <span class="language">powershell</span>
-                    </div>
-                    <pre><span></span><span class="n">virtualenv</span> <span class="n">path</span><span class="p">\</span><span class="n">venv-name</span>
-</pre>
-                </div>
-
-                <p>نمونه کد از ایجاد محیط مجازی</p>
-                <div class="code-box">
-                    <div class="code-info">
-                        <button class="copy-icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none"
-                                viewBox="0 0 24 24" class="icon-sm">
-                                <path fill="currentColor" fill-rule="evenodd"
-                                    d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z"
-                                    clip-rule="evenodd"></path>
-                            </svg>
-                            <span>Copy code</span>
-                        </button>
-                        <span class="language">powershell</span>
-                    </div>
-                    <pre><span></span><span class="n">virtualenv</span> <span class="n">my-env</span>
-</pre>
-                </div>
-
-                <div class="code-box">
-                    <div class="code-info">
-                        <button class="copy-icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none"
-                                viewBox="0 0 24 24" class="icon-sm">
-                                <path fill="currentColor" fill-rule="evenodd"
-                                    d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z"
-                                    clip-rule="evenodd"></path>
-                            </svg>
-                            <span>Copy code</span>
-                        </button>
-                        <span class="language">powershell</span>
-                    </div>
-                    <pre><span></span><span class="n">virtualenv</span> <span class="n">Desktop</span><span class="p">/</span><span class="n">my-project</span><span class="p">/</span><span class="n">my-env</span>
-</pre>
-                </div>
-
-                <p>یا</p>
-                <p><code>Terminal:</code></p>
-                <div class="code-box">
-                    <div class="code-info">
-                        <button class="copy-icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none"
-                                viewBox="0 0 24 24" class="icon-sm">
-                                <path fill="currentColor" fill-rule="evenodd"
-                                    d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z"
-                                    clip-rule="evenodd"></path>
-                            </svg>
-                            <span>Copy code</span>
-                        </button>
-                        <span class="language">powershell</span>
-                    </div>
-                    <pre><span></span><span class="n">virtualenv</span> <span class="p">-</span><span class="n">-python</span><span class="p">=</span><span class="n">python-version</span> <span class="n">path</span><span class="p">\</span><span class="n">venv-name</span>
-</pre>
-                </div>
-
-                <p>نمونه کد از ایجاد محیط مجازی</p>
-                <div class="code-box">
-                    <div class="code-info">
-                        <button class="copy-icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none"
-                                viewBox="0 0 24 24" class="icon-sm">
-                                <path fill="currentColor" fill-rule="evenodd"
-                                    d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z"
-                                    clip-rule="evenodd"></path>
-                            </svg>
-                            <span>Copy code</span>
-                        </button>
-                        <span class="language">powershell</span>
-                    </div>
-                    <pre><span></span><span class="n">virtualenv</span> <span class="p">-</span><span class="n">-python</span><span class="p">=</span><span class="n">python3</span><span class="p">.</span><span class="n">11</span> <span class="n">my-env</span>
-</pre>
-                </div>
-
-                <div class="code-box">
-                    <div class="code-info">
-                        <button class="copy-icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none"
-                                viewBox="0 0 24 24" class="icon-sm">
-                                <path fill="currentColor" fill-rule="evenodd"
-                                    d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z"
-                                    clip-rule="evenodd"></path>
-                            </svg>
-                            <span>Copy code</span>
-                        </button>
-                        <span class="language">powershell</span>
-                    </div>
-                    <pre><span></span><span class="n">virtualenv</span> <span class="p">-</span><span class="n">-python</span><span class="p">=</span><span class="n">python3</span><span class="p">.</span><span class="n">11</span> <span class="n">Desktop</span><span class="p">/</span><span class="n">my-project</span><span class="p">/</span><span class="n">my-env</span>
-</pre>
-                </div>
-
-                <p>استفاده از (venv)</p>
-                <p><code>Terminal:</code></p>
-                <div class="code-box">
-                    <div class="code-info">
-                        <button class="copy-icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none"
-                                viewBox="0 0 24 24" class="icon-sm">
-                                <path fill="currentColor" fill-rule="evenodd"
-                                    d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z"
-                                    clip-rule="evenodd"></path>
-                            </svg>
-                            <span>Copy code</span>
-                        </button>
-                        <span class="language">powershell</span>
-                    </div>
-                    <pre><span></span><span class="n">python</span> <span class="n">-m</span> <span class="n">venv</span> <span class="n">path</span><span class="p">\</span><span class="n">venv-name</span>
-</pre>
-                </div>
-
-                <p>نمونه کد از ایجاد محیط مجازی</p>
-                <div class="code-box">
-                    <div class="code-info">
-                        <button class="copy-icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none"
-                                viewBox="0 0 24 24" class="icon-sm">
-                                <path fill="currentColor" fill-rule="evenodd"
-                                    d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z"
-                                    clip-rule="evenodd"></path>
-                            </svg>
-                            <span>Copy code</span>
-                        </button>
-                        <span class="language">powershell</span>
-                    </div>
-                    <pre><span></span><span class="n">python</span> <span class="n">-m</span> <span class="n">venv</span> <span class="n">my-env</span>
-</pre>
-                </div>
-
-                <div class="code-box">
-                    <div class="code-info">
-                        <button class="copy-icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none"
-                                viewBox="0 0 24 24" class="icon-sm">
-                                <path fill="currentColor" fill-rule="evenodd"
-                                    d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z"
-                                    clip-rule="evenodd"></path>
-                            </svg>
-                            <span>Copy code</span>
-                        </button>
-                        <span class="language">powershell</span>
-                    </div>
-                    <pre><span></span><span class="n">python</span> <span class="n">-m</span> <span class="n">venv</span> <span class="n">Desktop</span><span class="p">/</span><span class="n">my-project</span><span class="p">/</span><span class="n">my-env</span>
-</pre>
-                </div>
-
-                <p>یا</p>
-                <p><code>Terminal:</code></p>
-                <div class="code-box">
-                    <div class="code-info">
-                        <button class="copy-icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none"
-                                viewBox="0 0 24 24" class="icon-sm">
-                                <path fill="currentColor" fill-rule="evenodd"
-                                    d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z"
-                                    clip-rule="evenodd"></path>
-                            </svg>
-                            <span>Copy code</span>
-                        </button>
-                        <span class="language">powershell</span>
-                    </div>
-                    <pre><span></span><span class="n">py</span> <span class="n">-version</span> <span class="n">venv</span> <span class="n">path</span><span class="p">\</span><span class="n">venv-name</span>
-</pre>
-                </div>
-
-                <p>نمونه کد از ایجاد محیط مجازی</p>
-                <div class="code-box">
-                    <div class="code-info">
-                        <button class="copy-icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none"
-                                viewBox="0 0 24 24" class="icon-sm">
-                                <path fill="currentColor" fill-rule="evenodd"
-                                    d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z"
-                                    clip-rule="evenodd"></path>
-                            </svg>
-                            <span>Copy code</span>
-                        </button>
-                        <span class="language">powershell</span>
-                    </div>
-                    <pre><span></span><span class="n">py</span> <span class="p">-</span><span class="n">3</span><span class="p">.</span><span class="n">10</span> <span class="n">venv</span> <span class="n">my-env</span>
-</pre>
-                </div>
-
-                <div class="code-box">
-                    <div class="code-info">
-                        <button class="copy-icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none"
-                                viewBox="0 0 24 24" class="icon-sm">
-                                <path fill="currentColor" fill-rule="evenodd"
-                                    d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z"
-                                    clip-rule="evenodd"></path>
-                            </svg>
-                            <span>Copy code</span>
-                        </button>
-                        <span class="language">powershell</span>
-                    </div>
-                    <pre><span></span><span class="n">py</span> <span class="p">-</span><span class="n">3</span><span class="p">.</span><span class="n">10</span> <span class="n">venv</span> <span class="n">Desktop</span><span class="p">/</span><span class="n">my-project</span><span class="p">/</span><span class="n">my-env</span>
-</pre>
-                </div>
-
-                <p>فعال کردن محیط مجازی برای استفاده</p>
-                <p><code>CMD:</code></p>
-                <div class="code-box">
-                    <div class="code-info">
-                        <button class="copy-icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none"
-                                viewBox="0 0 24 24" class="icon-sm">
-                                <path fill="currentColor" fill-rule="evenodd"
-                                    d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z"
-                                    clip-rule="evenodd"></path>
-                            </svg>
-                            <span>Copy code</span>
-                        </button>
-                        <span class="language">powershell</span>
-                    </div>
-                    <pre><span></span><span class="n">path</span><span class="p">\</span><span class="n">venv-name</span><span class="p">\</span><span class="n">Scripts</span><span class="p">\</span><span class="n">activate</span><span class="p">.</span><span class="n">bat</span>
-</pre>
-                </div>
-
-                <p>or</p>
-                <div class="code-box">
-                    <div class="code-info">
-                        <button class="copy-icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none"
-                                viewBox="0 0 24 24" class="icon-sm">
-                                <path fill="currentColor" fill-rule="evenodd"
-                                    d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z"
-                                    clip-rule="evenodd"></path>
-                            </svg>
-                            <span>Copy code</span>
-                        </button>
-                        <span class="language">powershell</span>
-                    </div>
-                    <pre><span></span><span class="n">path</span><span class="p">\</span><span class="n">venv-name</span><span class="p">\</span><span class="n">Scripts</span><span class="p">\</span><span class="n">activate</span>
-</pre>
-                </div>
-
-                <p>نمونه کد</p>
-                <p><code>CMD:</code></p>
-                <div class="code-box">
-                    <div class="code-info">
-                        <button class="copy-icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none"
-                                viewBox="0 0 24 24" class="icon-sm">
-                                <path fill="currentColor" fill-rule="evenodd"
-                                    d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z"
-                                    clip-rule="evenodd"></path>
-                            </svg>
-                            <span>Copy code</span>
-                        </button>
-                        <span class="language">powershell</span>
-                    </div>
-                    <pre><span></span><span class="n">Desktop</span><span class="p">\</span><span class="n">my-project</span><span class="p">\</span><span class="n">my-env</span><span class="p">\</span><span class="n">Scripts</span><span class="p">\</span><span class="n">activate</span><span class="p">.</span><span class="n">bat</span>
-</pre>
-                </div>
-
-                <p>غیرفعال کردن محیط مجازی</p>
-                <p><code>Terminal:</code></p>
-                <div class="code-box">
-                    <div class="code-info">
-                        <button class="copy-icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none"
-                                viewBox="0 0 24 24" class="icon-sm">
-                                <path fill="currentColor" fill-rule="evenodd"
-                                    d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z"
-                                    clip-rule="evenodd"></path>
-                            </svg>
-                            <span>Copy code</span>
-                        </button>
-                        <span class="language">powershell</span>
-                    </div>
-                    <pre><span></span><span class="n">path</span><span class="p">\</span><span class="n">venv-name</span><span class="p">\</span><span class="n">Scripts</span><span class="p">\</span><span class="n">deactivate</span><span class="p">.</span><span class="n">bat</span>
-</pre>
-                </div>
-
-                <p>یا</p>
-                <div class="code-box">
-                    <div class="code-info">
-                        <button class="copy-icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none"
-                                viewBox="0 0 24 24" class="icon-sm">
-                                <path fill="currentColor" fill-rule="evenodd"
-                                    d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z"
-                                    clip-rule="evenodd"></path>
-                            </svg>
-                            <span>Copy code</span>
-                        </button>
-                        <span class="language">powershell</span>
-                    </div>
-                    <pre><span></span><span class="n">path</span><span class="p">\</span><span class="n">venv-name</span><span class="p">\</span><span class="n">Scripts</span><span class="p">\</span><span class="n">deactivate</span>
-</pre>
-                </div>
-
-                <p>نمونه کد</p>
-                <div class="code-box">
-                    <div class="code-info">
-                        <button class="copy-icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none"
-                                viewBox="0 0 24 24" class="icon-sm">
-                                <path fill="currentColor" fill-rule="evenodd"
-                                    d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z"
-                                    clip-rule="evenodd"></path>
-                            </svg>
-                            <span>Copy code</span>
-                        </button>
-                        <span class="language">powershell</span>
-                    </div>
-                    <pre><span></span><span class="n">Desktop</span><span class="p">\</span><span class="n">myp-roject</span><span class="p">\</span><span class="n">my-env</span><span class="p">\</span><span class="n">Scripts</span><span class="p">\</span><span class="n">deactivate</span>
-</pre>
-                </div>
-
-                <h4>2. نصب پکیج جنگو</h4>
-                <p>پس از فعال سازی محیط مجازی با دستور زیر جنگو را نصب میکنیم.</p>
-                <p><code>Terminal:</code></p>
-                <div class="code-box">
-                    <div class="code-info">
-                        <button class="copy-icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none"
-                                viewBox="0 0 24 24" class="icon-sm">
-                                <path fill="currentColor" fill-rule="evenodd"
-                                    d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z"
-                                    clip-rule="evenodd"></path>
-                            </svg>
-                            <span>Copy code</span>
-                        </button>
-                        <span class="language">powershell</span>
-                    </div>
-                    <pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">django</span>
-</pre>
-                </div>
-
-                <h4>3. ایجاد پروژه جنگو</h4>
-                <p><code>Terminal:</code></p>
-                <div class="code-box">
-                    <div class="code-info">
-                        <button class="copy-icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none"
-                                viewBox="0 0 24 24" class="icon-sm">
-                                <path fill="currentColor" fill-rule="evenodd"
-                                    d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z"
-                                    clip-rule="evenodd"></path>
-                            </svg>
-                            <span>Copy code</span>
-                        </button>
-                        <span class="language">powershell</span>
-                    </div>
-                    <pre><span></span><span class="n">django-admin</span> <span class="n">startproject</span> <span class="n">project_name</span>
-</pre>
-                </div>
-
-                <h4>4. دستور migrate</h4>
-                <p>دستور migrate که مسئول اعمال و عدم اعمال مهاجرت(migration) است.(یعنی تغییرات migration را روی دیتابیس
-                    اعمال میکنه)</p>
-                <p>باید در مسیری باشیم که فایل manage.py آنجا قرار دارد.</p>
-                <p><code>Terminal:</code></p>
-                <div class="code-box">
-                    <div class="code-info">
-                        <button class="copy-icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none"
-                                viewBox="0 0 24 24" class="icon-sm">
-                                <path fill="currentColor" fill-rule="evenodd"
-                                    d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z"
-                                    clip-rule="evenodd"></path>
-                            </svg>
-                            <span>Copy code</span>
-                        </button>
-                        <span class="language">powershell</span>
-                    </div>
-                    <pre><span></span><span class="n">python</span> <span class="n">manage</span><span class="p">.</span><span class="n">py</span> <span class="n">migrate</span>
-</pre>
-                </div>
-                <a href="https://github.com/mahd25/Django-E-booklet/edit/seasons-source/season-01.md" target="_blank"
-                    class="edit-icon">
-                    <i class="fa-solid fa-pen-to-square"></i>
-                </a>
-            </div>
+<main>
+    <div class="container">
+        <div class="content">
+            <h2>فصل اول: نصب و راه اندازی</h2><div class="toc"><h3>فهرست مطالب</h3><ul>
+<li><a href="#mrhl-wlyh-yjd-prwjh-jngw">مراحل اولیه ایجاد پروژه جنگو</a></li>
+</ul></div>
+<h3 id="mrhl-wlyh-yjd-prwjh-jngw">مراحل اولیه ایجاد پروژه جنگو</h3>
+<ol>
+<li>ایجاد محیط مجازی</li>
+<li>نصب پکیج جنگو</li>
+<li>ایجاد پروژه</li>
+<li>دستور migrate</li>
+</ol>
+<h4>1. ایجاد محیط مجازی</h4>
+<p>با استفاده از ماژول های (venv) و یا (virtualenv) محیط مجازی را ایجاد میکنیم.</p>
+<p>نصب و استفاده از (virtualenv)</p>
+<p>بیشتر برای ورژن های قدیمی تر مورد استفاده میباشد.</p>
+<p>نصب (virtualenv)</p>
+<p><code>Terminal:</code></p>
+<div class="code-box">
+        <div class="code-info">
+            <button class="copy-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" class="icon-sm"><path fill="currentColor" fill-rule="evenodd" d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z" clip-rule="evenodd"></path></svg>
+                <span>Copy code</span>
+            </button>
+            <span class="language">powershell</span>
         </div>
-    </main>
+    <pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">virtualenv</span>
+</pre></div>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
-        integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
-        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="../seasons-css-&-js/Django-seasons.js"></script>
-    <script src="../seasons-css-&-js/copy-icon.js"></script>
-    <script src="../seasons-css-&-js/Footer-Copyright.js"></script>
+<p>ایجاد محیط مجازی با (virtualenv)</p>
+<p><code>Terminal:</code></p>
+<div class="code-box">
+        <div class="code-info">
+            <button class="copy-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" class="icon-sm"><path fill="currentColor" fill-rule="evenodd" d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z" clip-rule="evenodd"></path></svg>
+                <span>Copy code</span>
+            </button>
+            <span class="language">powershell</span>
+        </div>
+    <pre><span></span><span class="n">virtualenv</span> <span class="n">path</span><span class="p">\</span><span class="n">venv-name</span>
+</pre></div>
+
+<p>نمونه کد از ایجاد محیط مجازی</p>
+<div class="code-box">
+        <div class="code-info">
+            <button class="copy-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" class="icon-sm"><path fill="currentColor" fill-rule="evenodd" d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z" clip-rule="evenodd"></path></svg>
+                <span>Copy code</span>
+            </button>
+            <span class="language">powershell</span>
+        </div>
+    <pre><span></span><span class="n">virtualenv</span> <span class="n">my-env</span>
+</pre></div>
+
+<div class="code-box">
+        <div class="code-info">
+            <button class="copy-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" class="icon-sm"><path fill="currentColor" fill-rule="evenodd" d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z" clip-rule="evenodd"></path></svg>
+                <span>Copy code</span>
+            </button>
+            <span class="language">powershell</span>
+        </div>
+    <pre><span></span><span class="n">virtualenv</span> <span class="n">Desktop</span><span class="p">/</span><span class="n">my-project</span><span class="p">/</span><span class="n">my-env</span>
+</pre></div>
+
+<p>یا</p>
+<p><code>Terminal:</code></p>
+<div class="code-box">
+        <div class="code-info">
+            <button class="copy-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" class="icon-sm"><path fill="currentColor" fill-rule="evenodd" d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z" clip-rule="evenodd"></path></svg>
+                <span>Copy code</span>
+            </button>
+            <span class="language">powershell</span>
+        </div>
+    <pre><span></span><span class="n">virtualenv</span> <span class="p">-</span><span class="n">-python</span><span class="p">=</span><span class="n">python-version</span> <span class="n">path</span><span class="p">\</span><span class="n">venv-name</span>
+</pre></div>
+
+<p>نمونه کد از ایجاد محیط مجازی</p>
+<div class="code-box">
+        <div class="code-info">
+            <button class="copy-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" class="icon-sm"><path fill="currentColor" fill-rule="evenodd" d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z" clip-rule="evenodd"></path></svg>
+                <span>Copy code</span>
+            </button>
+            <span class="language">powershell</span>
+        </div>
+    <pre><span></span><span class="n">virtualenv</span> <span class="p">-</span><span class="n">-python</span><span class="p">=</span><span class="n">python3</span><span class="p">.</span><span class="n">11</span> <span class="n">my-env</span>
+</pre></div>
+
+<div class="code-box">
+        <div class="code-info">
+            <button class="copy-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" class="icon-sm"><path fill="currentColor" fill-rule="evenodd" d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z" clip-rule="evenodd"></path></svg>
+                <span>Copy code</span>
+            </button>
+            <span class="language">powershell</span>
+        </div>
+    <pre><span></span><span class="n">virtualenv</span> <span class="p">-</span><span class="n">-python</span><span class="p">=</span><span class="n">python3</span><span class="p">.</span><span class="n">11</span> <span class="n">Desktop</span><span class="p">/</span><span class="n">my-project</span><span class="p">/</span><span class="n">my-env</span>
+</pre></div>
+
+<p>استفاده از (venv)</p>
+<p><code>Terminal:</code></p>
+<div class="code-box">
+        <div class="code-info">
+            <button class="copy-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" class="icon-sm"><path fill="currentColor" fill-rule="evenodd" d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z" clip-rule="evenodd"></path></svg>
+                <span>Copy code</span>
+            </button>
+            <span class="language">powershell</span>
+        </div>
+    <pre><span></span><span class="n">python</span> <span class="n">-m</span> <span class="n">venv</span> <span class="n">path</span><span class="p">\</span><span class="n">venv-name</span>
+</pre></div>
+
+<p>نمونه کد از ایجاد محیط مجازی</p>
+<div class="code-box">
+        <div class="code-info">
+            <button class="copy-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" class="icon-sm"><path fill="currentColor" fill-rule="evenodd" d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z" clip-rule="evenodd"></path></svg>
+                <span>Copy code</span>
+            </button>
+            <span class="language">powershell</span>
+        </div>
+    <pre><span></span><span class="n">python</span> <span class="n">-m</span> <span class="n">venv</span> <span class="n">my-env</span>
+</pre></div>
+
+<div class="code-box">
+        <div class="code-info">
+            <button class="copy-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" class="icon-sm"><path fill="currentColor" fill-rule="evenodd" d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z" clip-rule="evenodd"></path></svg>
+                <span>Copy code</span>
+            </button>
+            <span class="language">powershell</span>
+        </div>
+    <pre><span></span><span class="n">python</span> <span class="n">-m</span> <span class="n">venv</span> <span class="n">Desktop</span><span class="p">/</span><span class="n">my-project</span><span class="p">/</span><span class="n">my-env</span>
+</pre></div>
+
+<p>یا</p>
+<p><code>Terminal:</code></p>
+<div class="code-box">
+        <div class="code-info">
+            <button class="copy-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" class="icon-sm"><path fill="currentColor" fill-rule="evenodd" d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z" clip-rule="evenodd"></path></svg>
+                <span>Copy code</span>
+            </button>
+            <span class="language">powershell</span>
+        </div>
+    <pre><span></span><span class="n">py</span> <span class="n">-version</span> <span class="n">venv</span> <span class="n">path</span><span class="p">\</span><span class="n">venv-name</span>
+</pre></div>
+
+<p>نمونه کد از ایجاد محیط مجازی</p>
+<div class="code-box">
+        <div class="code-info">
+            <button class="copy-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" class="icon-sm"><path fill="currentColor" fill-rule="evenodd" d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z" clip-rule="evenodd"></path></svg>
+                <span>Copy code</span>
+            </button>
+            <span class="language">powershell</span>
+        </div>
+    <pre><span></span><span class="n">py</span> <span class="p">-</span><span class="n">3</span><span class="p">.</span><span class="n">10</span> <span class="n">venv</span> <span class="n">my-env</span>
+</pre></div>
+
+<div class="code-box">
+        <div class="code-info">
+            <button class="copy-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" class="icon-sm"><path fill="currentColor" fill-rule="evenodd" d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z" clip-rule="evenodd"></path></svg>
+                <span>Copy code</span>
+            </button>
+            <span class="language">powershell</span>
+        </div>
+    <pre><span></span><span class="n">py</span> <span class="p">-</span><span class="n">3</span><span class="p">.</span><span class="n">10</span> <span class="n">venv</span> <span class="n">Desktop</span><span class="p">/</span><span class="n">my-project</span><span class="p">/</span><span class="n">my-env</span>
+</pre></div>
+
+<p>فعال کردن محیط مجازی برای استفاده</p>
+<p><code>CMD:</code></p>
+<div class="code-box">
+        <div class="code-info">
+            <button class="copy-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" class="icon-sm"><path fill="currentColor" fill-rule="evenodd" d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z" clip-rule="evenodd"></path></svg>
+                <span>Copy code</span>
+            </button>
+            <span class="language">powershell</span>
+        </div>
+    <pre><span></span><span class="n">path</span><span class="p">\</span><span class="n">venv-name</span><span class="p">\</span><span class="n">Scripts</span><span class="p">\</span><span class="n">activate</span><span class="p">.</span><span class="n">bat</span>
+</pre></div>
+
+<p>or</p>
+<div class="code-box">
+        <div class="code-info">
+            <button class="copy-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" class="icon-sm"><path fill="currentColor" fill-rule="evenodd" d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z" clip-rule="evenodd"></path></svg>
+                <span>Copy code</span>
+            </button>
+            <span class="language">powershell</span>
+        </div>
+    <pre><span></span><span class="n">path</span><span class="p">\</span><span class="n">venv-name</span><span class="p">\</span><span class="n">Scripts</span><span class="p">\</span><span class="n">activate</span>
+</pre></div>
+
+<p>نمونه کد</p>
+<p><code>CMD:</code></p>
+<div class="code-box">
+        <div class="code-info">
+            <button class="copy-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" class="icon-sm"><path fill="currentColor" fill-rule="evenodd" d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z" clip-rule="evenodd"></path></svg>
+                <span>Copy code</span>
+            </button>
+            <span class="language">powershell</span>
+        </div>
+    <pre><span></span><span class="n">Desktop</span><span class="p">\</span><span class="n">my-project</span><span class="p">\</span><span class="n">my-env</span><span class="p">\</span><span class="n">Scripts</span><span class="p">\</span><span class="n">activate</span><span class="p">.</span><span class="n">bat</span>
+</pre></div>
+
+<p>غیرفعال کردن محیط مجازی</p>
+<p><code>Terminal:</code></p>
+<div class="code-box">
+        <div class="code-info">
+            <button class="copy-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" class="icon-sm"><path fill="currentColor" fill-rule="evenodd" d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z" clip-rule="evenodd"></path></svg>
+                <span>Copy code</span>
+            </button>
+            <span class="language">powershell</span>
+        </div>
+    <pre><span></span><span class="n">path</span><span class="p">\</span><span class="n">venv-name</span><span class="p">\</span><span class="n">Scripts</span><span class="p">\</span><span class="n">deactivate</span><span class="p">.</span><span class="n">bat</span>
+</pre></div>
+
+<p>یا</p>
+<div class="code-box">
+        <div class="code-info">
+            <button class="copy-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" class="icon-sm"><path fill="currentColor" fill-rule="evenodd" d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z" clip-rule="evenodd"></path></svg>
+                <span>Copy code</span>
+            </button>
+            <span class="language">powershell</span>
+        </div>
+    <pre><span></span><span class="n">path</span><span class="p">\</span><span class="n">venv-name</span><span class="p">\</span><span class="n">Scripts</span><span class="p">\</span><span class="n">deactivate</span>
+</pre></div>
+
+<p>نمونه کد</p>
+<div class="code-box">
+        <div class="code-info">
+            <button class="copy-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" class="icon-sm"><path fill="currentColor" fill-rule="evenodd" d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z" clip-rule="evenodd"></path></svg>
+                <span>Copy code</span>
+            </button>
+            <span class="language">powershell</span>
+        </div>
+    <pre><span></span><span class="n">Desktop</span><span class="p">\</span><span class="n">myp-roject</span><span class="p">\</span><span class="n">my-env</span><span class="p">\</span><span class="n">Scripts</span><span class="p">\</span><span class="n">deactivate</span>
+</pre></div>
+
+<h4>2. نصب پکیج جنگو</h4>
+<p>پس از فعال سازی محیط مجازی با دستور زیر جنگو را نصب میکنیم.</p>
+<p><code>Terminal:</code></p>
+<div class="code-box">
+        <div class="code-info">
+            <button class="copy-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" class="icon-sm"><path fill="currentColor" fill-rule="evenodd" d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z" clip-rule="evenodd"></path></svg>
+                <span>Copy code</span>
+            </button>
+            <span class="language">powershell</span>
+        </div>
+    <pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">django</span>
+</pre></div>
+
+<h4>3. ایجاد پروژه جنگو</h4>
+<p><code>Terminal:</code></p>
+<div class="code-box">
+        <div class="code-info">
+            <button class="copy-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" class="icon-sm"><path fill="currentColor" fill-rule="evenodd" d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z" clip-rule="evenodd"></path></svg>
+                <span>Copy code</span>
+            </button>
+            <span class="language">powershell</span>
+        </div>
+    <pre><span></span><span class="n">django-admin</span> <span class="n">startproject</span> <span class="n">project_name</span>
+</pre></div>
+
+<h4>4. دستور migrate</h4>
+<p>دستور migrate که مسئول اعمال و عدم اعمال مهاجرت(migration) است.(یعنی تغییرات migration را روی دیتابیس اعمال میکنه)</p>
+<p>باید در مسیری باشیم که فایل manage.py آنجا قرار دارد.</p>
+<p><code>Terminal:</code></p>
+<div class="code-box">
+        <div class="code-info">
+            <button class="copy-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" class="icon-sm"><path fill="currentColor" fill-rule="evenodd" d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z" clip-rule="evenodd"></path></svg>
+                <span>Copy code</span>
+            </button>
+            <span class="language">powershell</span>
+        </div>
+    <pre><span></span><span class="n">python</span> <span class="n">manage</span><span class="p">.</span><span class="n">py</span> <span class="n">migrate</span>
+</pre></div>
+            <a href="https://github.com/mahd25/Django-E-booklet/edit/seasons-source/season-01.md" target="_blank" class="edit-icon">
+                <i class="fa-solid fa-pen-to-square"></i>
+            </a>
+        </div>
+    </div>
+</main>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="../seasons-css-&-js/Django-seasons.js"></script>
+<script src="../seasons-css-&-js/copy-icon.js"></script>
+<script src="../seasons-css-&-js/Footer-Copyright.js"></script>
 </body>
-
 </html>
+    
