@@ -1,8 +1,7 @@
-
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
 <head>
-<title>Season Four</title>    
+<title>Season Four</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="Django e-booklet">
@@ -66,7 +65,7 @@
     <pre><span></span><span class="n">app_name</span> <span class="o">=</span> <span class="s1">&#39;blog&#39;</span>
 
 <span class="n">urlpatterns</span> <span class="o">=</span> <span class="p">[</span>
-    <span class="o">...</span>
+    <span class="c1"># ...</span>
     <span class="c1"># URL For Post-Detail</span>
     <span class="n">path</span><span class="p">(</span><span class="s1">&#39;posts/&lt;int:id&gt;&#39;</span><span class="p">,</span> <span class="n">views</span><span class="o">.</span><span class="n">post_detail</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;post_detail&quot;</span><span class="p">)</span>
 <span class="p">]</span>
@@ -765,7 +764,7 @@
             <span class="language">python</span>
         </div>
     <pre><span></span><span class="k">if</span> <span class="n">request</span><span class="o">.</span><span class="n">method</span> <span class="o">==</span> <span class="s1">&#39;POST&#39;</span><span class="p">:</span>
-    <span class="o">...</span>
+    <span class="c1"># ...</span>
 </pre></div>
 
 <p>وقتی اطلاعات به url ارسال شدند با استفاده از request.POST آنها را دریافت میکنیم. | اطلاعات در قالب دیکشنری ذخیره میشوند. کلیدها، اسم فیلدها هستند و مقادیر، محتوای فیلد هستند که توسط کاربر وارد شده اند.</p>
@@ -1082,9 +1081,9 @@
             <span class="language">python</span>
         </div>
     <pre><span></span><span class="k">class</span> <span class="nc">TicketForm</span><span class="p">(</span><span class="n">forms</span><span class="o">.</span><span class="n">Form</span><span class="p">):</span>
-    <span class="o">...</span>
+    <span class="c1"># ...</span>
     <span class="n">full_name</span> <span class="o">=</span> <span class="n">forms</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">250</span><span class="p">)</span>
-    <span class="o">...</span>
+    <span class="c1"># ...</span>
 </pre></div>
 
 <p><code>templates/forms/ticket.html</code></p>
@@ -1249,7 +1248,7 @@
 <p>اعتبارسنجی فرم ها را در فایل forms.py انجام می دهیم. | در کلاس فرم مربوطه اعتبارسنجی را انجام میدهیم.</p>
 <p>برای اعتبارسنجی فیلدها دو حالت وجود دارد:</p>
 <blockquote>
-<p><span class="rtl-text">اعتبارسنجی را با یکی از متدهای <span class="en-text">clean_<field_name>()</span> و یا <span class="en-text">clean()</span> انجام میدهیم.</span></p>
+<p><span class="rtl-text">اعتبارسنجی را با یکی از متدهای <span class="en-text">clean_&lt;field_name&gt;()</span> و یا <span class="en-text">clean()</span> انجام میدهیم.</span></p>
 </blockquote>
 <h4>حالت اول</h4>
 <p><code>app directory/forms.py</code></p>
@@ -1263,7 +1262,7 @@
         </div>
     <pre><span></span><span class="c1"># structure:</span>
 <span class="k">def</span> <span class="nf">clean_FieldName</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-    <span class="o">...</span>
+    <span class="c1"># ...</span>
 <span class="c1"># ________________________________</span>
 <span class="k">def</span> <span class="nf">clean_phone</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
     <span class="n">phone</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cleaned_data</span><span class="p">[</span><span class="s2">&quot;phone&quot;</span><span class="p">]</span>
@@ -1275,8 +1274,8 @@
         <span class="k">return</span> <span class="n">phone</span>
 </pre></div>
 
-<p>متدهای <span class="en-text">clean_<field_name>()</span> برای اعتبارسنجی فیلدهای خاص در فرم‌ها استفاده می‌شوند(یعنی برای اعتبارسنجی هر فیلد از یک متد <span class="en-text">clean_<field_name>()</span> استفاده میکنیم | هرفیلد جداگانه اعتبارسنجی میشود).</p>
-<p>\<fieldname> باید با نام فیلد در فرم مطابقت داشته باشد.</p>
+<p>متدهای <span class="en-text">clean_&lt;field_name&gt;()</span> برای اعتبارسنجی فیلدهای خاص در فرم‌ها استفاده می‌شوند(یعنی برای اعتبارسنجی هر فیلد از یک متد <span class="en-text">clean_&lt;field_name&gt;()</span> استفاده میکنیم | هرفیلد جداگانه اعتبارسنجی میشود).</p>
+<p><strong>نکته:</strong> &lt;field-name&gt; باید با نام فیلد در فرم مطابقت داشته باشد.</p>
 <p>1- حالا مقدار آن فیلد را از دیکشنری cleaned_data دریافت کرده و در یک متغیر ذخیره میکنیم.</p>
 <p>2- اکنون بررسی میکنیم که فیلد مورد نظر مقدار دارد یا نه؟!(اگر خالی باشه شرط False خواهد بود.) | برای اعتبارسنجی باید فیلد مقدار داشته باشد مگرنه ارور میدهد.</p>
 <p>3- حالا وقتشه اعتبارسنجی های مدنظر را پیاده سازی کنیم.</p>
@@ -1297,7 +1296,7 @@
     <pre><span></span><span class="c1"># structure:</span>
 <span class="k">def</span> <span class="nf">clean</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
     <span class="n">cleaned_data</span> <span class="o">=</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">clean</span><span class="p">()</span>
-    <span class="o">...</span>
+    <span class="c1"># ...</span>
 
     <span class="k">return</span> <span class="n">cleaned_data</span>
 <span class="c1"># ________________________________</span>
@@ -1326,7 +1325,7 @@
 </pre></div>
 
 <p>متد <span class="en-text">clean()</span> برای اعتبارسنجی داده‌های کل فرم استفاده می‌شود.</p>
-<p>در این متد، اعتبارسنجی‌های بین فیلدی (برای اعتبارسنجی چند فیلد همزمان) انجام می‌شود. البته می‌توان در این متد فقط یک فیلد را نیز اعتبارسنجی کرد، اما اعتبارسنجی یک فیلد بهتر است به‌طور جداگانه در متدهای <span class="en-text">clean_<field_name>()</span> انجام شود.</p>
+<p>در این متد، اعتبارسنجی‌های بین فیلدی (برای اعتبارسنجی چند فیلد همزمان) انجام می‌شود. البته می‌توان در این متد فقط یک فیلد را نیز اعتبارسنجی کرد، اما اعتبارسنجی یک فیلد بهتر است به‌طور جداگانه در متدهای <span class="en-text">clean_&lt;field_name&gt;()</span> انجام شود.</p>
 <blockquote>
 <p>این متد به شما امکان می‌دهد که اعتبارسنجی‌های بین فیلدی را انجام دهید؛ یعنی اعتبارسنجی‌هایی که به بیش از یک فیلد وابسته هستند. مثلا اعتبارسنجی password و repeat_password</p>
 </blockquote>
@@ -1364,9 +1363,11 @@
 <h4>یادآوری:</h4>
 <p># تمام کامنت های یک پست    </p>
 <blockquote>
-<p><span class="en-text">post.comments.all()</span> <br />
-# تشخیص پست برای یک کامنت  <br />
-<span class="en-text">comment.post</span></p>
+<p><span class="en-text">post.comments.all()</span>   </p>
+</blockquote>
+<p># تشخیص پست برای یک کامنت    </p>
+<blockquote>
+<p><span class="en-text">comment.post</span></p>
 </blockquote>
 </blockquote>
 <p>دستور makemigrations و migrate فراموش نشه!</p>
@@ -1463,7 +1464,7 @@
 
 <span class="nd">@require_POST</span>
 <span class="k">def</span> <span class="nf">post_comment</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="n">post_id</span><span class="p">):</span>
-    <span class="o">...</span>
+    <span class="c1"># ...</span>
 </pre></div>
 
 <p>پستی که برایش کامنت گذاشته میشود را باید مشخص کنیم.</p>
@@ -1485,9 +1486,9 @@
 </pre></div>
 
 <p>زمانی که فرم خود را از ModelForm ایجاد کرده ایم، برای ذخیره کردن اطلاعات توی دیتابیس ، چون کلاس فرم به مدل متصل شده است دیگه نیاز نیست که از مدل، آبجکت ایجاد کنیم بلکه فقط کافیست برای فرم از متد <span class="en-text">save()</span> استفاده کنیم تا اطلاعات توی دیتابیس ذخیره بشوند.</p>
-<p>متد save ابتدا یک آبجکت از آن مدل ایجاد میکند و سپس آنرا در دیتابیس ذخیره میکند، ولی اگه از آرگومان commit=False استفاده کنیم آبجکت را ایجاد میکنه اما آنرا در دیتابیس ذخیره نمیکنه بنابراین ما میتوانیم تغییراتی در آبجکت ایجاد کرده و سپس آنرا در دیتابیس ذخیره کنیم.</p>
+<p>متد <span class="en-text">save()</span> ابتدا یک آبجکت از آن مدل ایجاد میکند و سپس آنرا در دیتابیس ذخیره میکند، ولی اگه از آرگومان commit=False استفاده کنیم آبجکت را ایجاد میکنه اما آنرا در دیتابیس ذخیره نمیکنه بنابراین ما میتوانیم تغییراتی در آبجکت ایجاد کرده و سپس آنرا در دیتابیس ذخیره کنیم.</p>
 <blockquote>
-<p>وقتی میخواهیم اطلاعات فیلدی را تغییر بدیم یا اطلاعاتی را دستی به دیتابیس اضافه کنیم برای متد save از آرگومان commit=False استفاده کرده و تغییرات را اعمال میکنیم و در پایان با متد save اطلاعات را در دیتابیس ذخیره میکنیم |  مثلا توی کامنت فیلد پست باید اتوماتیک مشخص بشه پس برایش تعیین میکنیم که فیلد پست را همین پست که در بالا مشخص کردیم انتخاب کن.</p>
+<p><span class="rtl-text">وقتی میخواهیم اطلاعات فیلدی را تغییر بدیم یا اطلاعاتی را دستی به دیتابیس اضافه کنیم برای متد <span class="en-text">save()</span> از آرگومان commit=False استفاده کرده و تغییرات را اعمال میکنیم و در پایان با متد <span class="en-text">save()</span> اطلاعات را در دیتابیس ذخیره میکنیم |  مثلا توی کامنت فیلد پست باید اتوماتیک مشخص بشه پس برایش تعیین میکنیم که فیلد پست را همین پست که در بالا مشخص کردیم انتخاب کن.</span></p>
 </blockquote>
 <h4>کد کامل view کامنت</h4>
 <p><code>app directory/views.py</code></p>
@@ -1802,7 +1803,7 @@
 <p>برای هر تمپلیت تگ، یک تابع ایجاد میکنیم و داخل بدنه اش کاری که میخواهیم را انجام میدهیم در ضمن باید برای هر تمپلیت تگ از دکوراتور simple_tag استفاده کنیم.</p>
 <blockquote>
 <p>اگر اسمی در پرانتزهای simple_tag مشخص کنیم، اسم تمپلیت تگ آن اسم خواهد بود ولی اگر اسمی مشخص نکنیم، اسم تابع را به صورت پیشفرض انتخاب میکند.</p>
-<p>@register.simple_tag(name="\<favorite-name>")</p>
+<p>@register.simple_tag(name="&lt;favorite-name&gt;")</p>
 </blockquote>
 <h4>کد مربوط به ایجاد تمپلیت تگ سفارشی</h4>
 <p><code>app directory/templatetags/blog_tags.py</code></p>
@@ -2262,7 +2263,7 @@
 <p>در ساختار ModelForm یکم داستان فرق میکنه.</p>
 <p>در کلاس Meta، از «اتریبیوت کلاس widgets» استفاده میکنیم؛ مقداری که برایش مشخص میکنیم یک دیکشنری است.</p>
 <blockquote>
-<p><span class="rtl-text">کلیدهای این دیکشنری اسم فیلدهای فرم هستند؛ حالا برای اینکه برای هر فیلد اتریبیوتی که میخواهیم اضافه کنیم، به عنوان value برای آن فیلد از ساختار <span class="en-text">forms.\<type-of-widget>()</span> استفاده کرده و حالا مثل حالت قبلی از آرگومان attrs استفاده کرده و برایش یک دیکشنری مشخص میکنیم حالا اتریبیوت های مدنظر را اضافه میکنیم.</span></p>
+<p><span class="rtl-text">کلیدهای این دیکشنری اسم فیلدهای فرم هستند؛ حالا برای اینکه برای هر فیلد اتریبیوتی که میخواهیم اضافه کنیم، به عنوان value برای آن فیلد از ساختار <span class="en-text">forms.&lt;type-of-widget&gt;()</span> استفاده کرده و حالا مثل حالت قبلی از آرگومان attrs استفاده کرده و برایش یک دیکشنری مشخص میکنیم حالا اتریبیوت های مدنظر را اضافه میکنیم.</span></p>
 </blockquote>
 <h4>خب بریم برای فیلدهای فرم کامنت، اتریبیوت class اضافه کنیم</h4>
 <p><code>app directory/forms.py</code></p>
