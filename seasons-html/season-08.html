@@ -1,8 +1,7 @@
-
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
 <head>
-<title>Season eight</title>    
+<title>Season Eight</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="Django e-booklet">
@@ -31,15 +30,1723 @@
 <li><a href="#tmrynt-fsl-hshtm-mhm">تمرینات فصل هشتم (مهم)</a></li>
 </ul></div>
 <h3 id="yjd-plykhyshn-w-shkhsy-szy-user">ایجاد اپلیکیشن و شخصی سازی User</h3>
+<p><strong>در این فصل میخواهیم یک اپلیکیشن شبکه اجتماعی ایجاد کنیم؛ بدلیل اینکه این پروژه  نسبت به پروژه وبلاگ تفاوت های زیادی دارد، برای همین یک پروژه جنگو جدید ایجاد میکنیم.</strong></p>
+<p>1- با توجه به توضیحات فصل 1، برای اپلیکیشن شبکه اجتماعی یک پروژه جدید ایجاد میکنیم، سپس یک اپ(app) ساخته و آنرا به پروژه معرفی میکنیم.</p>
+<p>2- در دایرکتوری اپ (app)، یک فایل پایتونی بنام urls.py ایجاد میکنیم تا URL های مربوط به app را آنجا ایجاد کنیم.</p>
+<p><code>app directory/urls.py</code></p>
+<div class="code-box">
+        <div class="code-info">
+            <button class="copy-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" class="icon-sm"><path fill="currentColor" fill-rule="evenodd" d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z" clip-rule="evenodd"></path></svg>
+                <span>Copy code</span>
+            </button>
+            <span class="language">python</span>
+        </div>
+    <pre><span></span><span class="kn">from</span> <span class="nn">django.urls</span> <span class="kn">import</span> <span class="n">path</span>
+<span class="kn">from</span> <span class="nn">.</span> <span class="kn">import</span> <span class="n">views</span>
+
+<span class="n">app_name</span> <span class="o">=</span> <span class="s1">&#39;social&#39;</span>
+
+<span class="n">urlpatterns</span> <span class="o">=</span> <span class="p">[]</span>
+</pre></div>
+
+<p>3- برای اینکه url های ایجاد شده کار کنند لازم است در فایل urls.py <strong>پروژه</strong>، url های اپ(app) را معرفی کنیم.</p>
+<p><code>project directory/urls.py</code></p>
+<div class="code-box">
+        <div class="code-info">
+            <button class="copy-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" class="icon-sm"><path fill="currentColor" fill-rule="evenodd" d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z" clip-rule="evenodd"></path></svg>
+                <span>Copy code</span>
+            </button>
+            <span class="language">python</span>
+        </div>
+    <pre><span></span><span class="kn">from</span> <span class="nn">django.contrib</span> <span class="kn">import</span> <span class="n">admin</span>
+<span class="kn">from</span> <span class="nn">django.urls</span> <span class="kn">import</span> <span class="n">path</span><span class="p">,</span> <span class="n">include</span>
+
+<span class="n">urlpatterns</span> <span class="o">=</span> <span class="p">[</span><span class="n">Z</span>
+    <span class="n">path</span><span class="p">(</span><span class="s1">&#39;admin/&#39;</span><span class="p">,</span> <span class="n">admin</span><span class="o">.</span><span class="n">site</span><span class="o">.</span><span class="n">urls</span><span class="p">),</span>
+    <span class="n">path</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">include</span><span class="p">(</span><span class="s1">&#39;social.urls&#39;</span><span class="p">),</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;social&#39;</span><span class="p">),</span>
+<span class="p">]</span>
+</pre></div>
+
+<p>برای شخصی سازی مدل User و اضافه کردن فیلدهای دلخواه به آن، باید از یکی از کلاس های AbstractUser و یا AbstractBaseUser ارث بری کنیم.</p>
+<blockquote>
+<p><center></p>
+<p><strong><em>AbstractBaseUser</em></strong></p>
+<p></center></p>
+<p>برای شخصی سازی خیلی زیاد، از AbstractBaseUser استفاده میکنیم.</p>
+<p>تمام فیلدها را خودمان بای تعریف کنیم. / پسورد و احراز هویت را خودش پشتیبانی میکند.</p>
+<p>برای AbstractBaseUser حتما باید یک manager بنویسیم.    </p>
+<p><center></p>
+<p><strong><em>AbstractUser</em></strong></p>
+<p></center></p>
+<p>استفاده از AbstractUser ساده تر هست.</p>
+<p>این کلاس فیلدهای username, password, firstname, lastname, email را دارد؛ بنابراین فقط کافیست فیلدهای جدید را به آنها اضافه کنیم.</p>
+</blockquote>
+<p>1- برای شخصی سازی مدل User، AbstractUser را ایمپورت میکنیم.</p>
+<p>2- یک کلاس(مدل) جدید ایجاد میکنیم، که از AbstractUser ارث بری میکند.</p>
+<blockquote>
+<p>پس از ارث بری کلاس جدید تمام فیلدهای username, password, firstname, lastname, email را خواهد داشت.</p>
+</blockquote>
+<p>3- حالا فیلدهای جدید را به مدل User شخصی سازی شده اضافه میکنیم.</p>
+<p><code>app directory/models.py</code></p>
+<div class="code-box">
+        <div class="code-info">
+            <button class="copy-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" class="icon-sm"><path fill="currentColor" fill-rule="evenodd" d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z" clip-rule="evenodd"></path></svg>
+                <span>Copy code</span>
+            </button>
+            <span class="language">python</span>
+        </div>
+    <pre><span></span><span class="kn">from</span> <span class="nn">django.db</span> <span class="kn">import</span> <span class="n">models</span>
+<span class="kn">from</span> <span class="nn">django.contrib.auth.models</span> <span class="kn">import</span> <span class="n">AbstractUser</span>
+
+<span class="k">class</span> <span class="nc">User</span><span class="p">(</span><span class="n">AbstractUser</span><span class="p">):</span>
+    <span class="n">profile_image</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">ImageField</span><span class="p">(</span><span class="n">upload_to</span><span class="o">=</span><span class="s1">&#39;profile_images&#39;</span><span class="p">,</span> <span class="n">blank</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">null</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">bio</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">TextField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">500</span><span class="p">,</span> <span class="n">blank</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">null</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">birth_date</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">DateField</span><span class="p">(</span><span class="n">blank</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">null</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">job</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">blank</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">null</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">phone_number</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">11</span><span class="p">,</span> <span class="n">blank</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">null</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+
+    <span class="k">class</span> <span class="nc">Meta</span><span class="p">:</span>
+        <span class="n">ordering</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;-username&#39;</span><span class="p">]</span>
+        <span class="n">indexes</span> <span class="o">=</span> <span class="p">[</span><span class="n">models</span><span class="o">.</span><span class="n">Index</span><span class="p">(</span><span class="n">fields</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;-username&#39;</span><span class="p">])]</span>
+
+    <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">username</span>
+</pre></div>
+
+<p><strong>پس از ایجاد مدل User شخصی سازی شده، لازم است آن مدل را به پروژه معرفی کنیم:</strong></p>
+<p>در انتهای settings.py یک متغیر بنام AUTH_USER_MODEL ایجاد کرده و مدل User را بهش معرفی میکنیم.</p>
+<p><code>project directory/settings.py</code></p>
+<div class="code-box">
+        <div class="code-info">
+            <button class="copy-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" class="icon-sm"><path fill="currentColor" fill-rule="evenodd" d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z" clip-rule="evenodd"></path></svg>
+                <span>Copy code</span>
+            </button>
+            <span class="language">python</span>
+        </div>
+    <pre><span></span><span class="n">AUTH_USER_MODEL</span> <span class="o">=</span> <span class="s1">&#39;app_name.model_name&#39;</span>
+<span class="c1"># --------------------------------------</span>
+<span class="n">AUTH_USER_MODEL</span> <span class="o">=</span> <span class="s1">&#39;social.User&#39;</span>
+</pre></div>
+
+<p>چون در مدل از تصویر استفاده میکنیم لازم است pillow نصب شود.</p>
+<p><code>terminal</code></p>
+<div class="code-box">
+        <div class="code-info">
+            <button class="copy-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" class="icon-sm"><path fill="currentColor" fill-rule="evenodd" d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z" clip-rule="evenodd"></path></svg>
+                <span>Copy code</span>
+            </button>
+            <span class="language">python</span>
+        </div>
+    <pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">pillow</span>
+</pre></div>
+
+<p>دستورات makemigrations و migrate فراموش نشه!!!</p>
+<p><strong>تنظیمات مربوط به تصاویر (MEDIA_URL, MEDIA_ROOT) را باید برای پروژه انجام دهیم:</strong></p>
+<p>1- تغییرات در settings.py:</p>
+<p><code>project directory/settings.py</code></p>
+<div class="code-box">
+        <div class="code-info">
+            <button class="copy-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" class="icon-sm"><path fill="currentColor" fill-rule="evenodd" d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z" clip-rule="evenodd"></path></svg>
+                <span>Copy code</span>
+            </button>
+            <span class="language">python</span>
+        </div>
+    <pre><span></span><span class="n">MEDIA_URL</span> <span class="o">=</span> <span class="s1">&#39;/images/&#39;</span>
+<span class="n">MEDIA_ROOT</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">BASE_DIR</span><span class="p">,</span> <span class="s1">&#39;images&#39;</span><span class="p">)</span>
+</pre></div>
+
+<p>2- تغییرات در urls.py:</p>
+<p><code>project directory/urls.py</code></p>
+<div class="code-box">
+        <div class="code-info">
+            <button class="copy-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" class="icon-sm"><path fill="currentColor" fill-rule="evenodd" d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z" clip-rule="evenodd"></path></svg>
+                <span>Copy code</span>
+            </button>
+            <span class="language">python</span>
+        </div>
+    <pre><span></span><span class="c1"># changes 1:</span>
+<span class="kn">from</span> <span class="nn">django.conf.urls.static</span> <span class="kn">import</span> <span class="n">static</span>
+<span class="kn">from</span> <span class="nn">django.conf</span> <span class="kn">import</span> <span class="n">settings</span>
+<span class="c1"># ----------------------------------------</span>
+
+<span class="n">urlpatterns</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="n">path</span><span class="p">(</span><span class="s1">&#39;admin/&#39;</span><span class="p">,</span> <span class="n">admin</span><span class="o">.</span><span class="n">site</span><span class="o">.</span><span class="n">urls</span><span class="p">),</span>
+    <span class="n">path</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">include</span><span class="p">(</span><span class="s1">&#39;social.urls&#39;</span><span class="p">),</span> <span class="n">namespace</span><span class="o">=</span><span class="s1">&#39;social&#39;</span><span class="p">),</span>
+<span class="p">]</span>
+
+<span class="c1"># changes 2:</span>
+<span class="n">urlpatterns</span> <span class="o">+=</span> <span class="n">static</span><span class="p">(</span><span class="n">settings</span><span class="o">.</span><span class="n">MEDIA_URL</span><span class="p">,</span> <span class="n">document_root</span><span class="o">=</span><span class="n">settings</span><span class="o">.</span><span class="n">MEDIA_ROOT</span><span class="p">)</span>
+</pre></div>
+
+<h4><strong>نمایش User شخصی سازی شده در پنل ادمین:</strong></h4>
+<p>در admin.py مواردی باید ایمپورت شوند:</p>
+<p><code>app directory/admin.py</code></p>
+<div class="code-box">
+        <div class="code-info">
+            <button class="copy-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" class="icon-sm"><path fill="currentColor" fill-rule="evenodd" d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z" clip-rule="evenodd"></path></svg>
+                <span>Copy code</span>
+            </button>
+            <span class="language">python</span>
+        </div>
+    <pre><span></span><span class="kn">from</span> <span class="nn">django.contrib</span> <span class="kn">import</span> <span class="n">admin</span>
+<span class="kn">from</span> <span class="nn">django.contrib.auth.admin</span> <span class="kn">import</span> <span class="n">UserAdmin</span>
+<span class="kn">from</span> <span class="nn">.models</span> <span class="kn">import</span> <span class="o">*</span>
+</pre></div>
+
+<p><strong>برای نمایش فیلدهای جدید (شخصی سازی شده)، در پنل ادمین لازم است در admin.py اقداماتی انجام دهیم:</strong></p>
+<blockquote>
+<p>از fieldset برای گروه بندی مجموعه ای از فیلدها استفاده میشود.</p>
+</blockquote>
+<p><code>app directory/admin.py</code></p>
+<div class="code-box">
+        <div class="code-info">
+            <button class="copy-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" class="icon-sm"><path fill="currentColor" fill-rule="evenodd" d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z" clip-rule="evenodd"></path></svg>
+                <span>Copy code</span>
+            </button>
+            <span class="language">python</span>
+        </div>
+    <pre><span></span><span class="nd">@admin</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="n">User</span><span class="p">)</span>
+<span class="k">class</span> <span class="nc">UserAdmin</span><span class="p">(</span><span class="n">UserAdmin</span><span class="p">):</span>
+    <span class="n">list_display</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;username&#39;</span><span class="p">,</span> <span class="s1">&#39;profile_image&#39;</span><span class="p">,</span> <span class="s1">&#39;first_name&#39;</span><span class="p">,</span> <span class="s1">&#39;last_name&#39;</span><span class="p">,</span> <span class="s1">&#39;phone_number&#39;</span><span class="p">)</span>
+    <span class="n">fieldsets</span> <span class="o">=</span> <span class="n">UserAdmin</span><span class="o">.</span><span class="n">fieldsets</span> <span class="o">+</span> <span class="p">(</span>
+        <span class="p">(</span><span class="s1">&#39;additional info&#39;</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;fields&#39;</span><span class="p">:</span> <span class="p">(</span><span class="s1">&#39;profile_image&#39;</span><span class="p">,</span> <span class="s1">&#39;bio&#39;</span><span class="p">,</span> <span class="s1">&#39;birth_date&#39;</span><span class="p">,</span> <span class="s1">&#39;job&#39;</span><span class="p">,</span> <span class="s1">&#39;location&#39;</span><span class="p">,</span> <span class="s1">&#39;gender&#39;</span><span class="p">,</span> <span class="s1">&#39;phone_number&#39;</span><span class="p">)}),</span>
+    <span class="p">)</span>
+</pre></div>
+
+<p><strong>توضیحات:</strong></p>
+<p>1- از اتریبیوت fieldsets برای نمایش فیلدهای جدید در پنل ادمین استفاده میکنیم.</p>
+<blockquote>
+<p>در پنل ادمین فیلدها در fieldset های مختلفی وجود دارند؛ حالا برای نمایش فیلدهای جدید در پنل ادمین باید یک fieldset جدید  به مجموعه fieldset های مدل User اضافه کنیم و فیلدهای جدید را در آن نمایش دهیم.</p>
+</blockquote>
+<p>2- حالا باید یک fieldset جدید اضافه کنیم؛ برای این کار با دستور UserAdmin.fieldsets همه فیلدست ها را فراخوانی کرده و یک tupple به مجموعه تاپل های آن اضافه میکنیم.</p>
+<blockquote>
+<p>fieldset ها به صورت تاپل میباشند.</p>
+</blockquote>
+<p>3- داخل تاپلی که در مرحله 2 ایجاد کردیم، یک تاپل دیگه ایجاد میکنیم؛ حالا داخل این یکی تاپل، باید فیلدست جدید را معرفی کنیم.</p>
+<blockquote>
+<p><span class="en-text">(fieldset_name, {"fields": (fields_name, ...)})</span>    </p>
+<p>این تاپل دو مقدار دارد:</p>
+<p>مقدار اول: اسم فیلدست میباشد
+مقدار دوم: یک دیکشنری میباشد که فیلدها در آن نوشته میشوند.</p>
+</blockquote>
+<p>4- این دیکشنری، یک کلید و مقدار دارد:</p>
+<p>کلید آن عبارت "fields" میباشد.
+ومقدار آن یک تاپل هست. / داخل این تاپل اسم فیلدهای جدید را مینویسیم.</p>
 <h3 id="stfdh-hmzmn-z-shmrh-tlfn-w-ywzr-nym-bry-lgyn">استفاده همزمان از شماره تلفن و یوزر نیم برای لاگین</h3>
+<p>میخواهیم قابلیت لاگین کردن با شماره تلفن و یا ایمیل را به پروژه اضافه کنیم. / کاربرها بتوانند افزون بر username با شماره تلفن و یا ایمیل هم لاگین کنند.</p>
+<blockquote>
+<p>ساختار پیشفرض جنگو برای لاگین کردن در وبسایت، استفاده از username و password میباشد.</p>
+<p>که از تنظیمات مسیر زیر استفاده میکند.</p>
+<blockquote>
+<p><span class="en-text">django.contrib.auth.backends.ModelBackend</span></p>
+</blockquote>
+</blockquote>
+<p><strong>برای اینکه بتوانیم با ایمیل و شماره تلفن هم در وبسایت لاگین کنیم، باید مراحل زیر را انجام دهیم:</strong></p>
+<p>1- در یک فایل پایتونی که در ادامه ایجاد میکنیم، برای هر روش لاگین کردن یک کلاس ایجاد میکنیم؛ سپس داخل بدنه این کلاس ها از دو متد <strong>authenticate</strong> و  <strong>get_user</strong> استفاده میکنیم.</p>
+<p>2- بعد باید این کلاس های ایجاد شده را به پروژه معرفی کنیم.</p>
+<p>لاگین و لاگ اوت را به این پروژه هم اضافه میکنیم. / url, form, template, view</p>
+<p><strong>مراحل بالا را در ادامه انجام خواهیم داد ولی قبلش login , logout را به پروژه اضافه کنیم:</strong></p>
+<blockquote>
+<p>با ارث بری فرم login از AuthenticationForm اعتبارسنجی های لازم به صورت خودکار اعمال میوند.</p>
+</blockquote>
+<p><strong>اضافه کردن فرم لاگین:</strong></p>
+<p><code>app directory/forms.py</code></p>
+<div class="code-box">
+        <div class="code-info">
+            <button class="copy-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" class="icon-sm"><path fill="currentColor" fill-rule="evenodd" d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z" clip-rule="evenodd"></path></svg>
+                <span>Copy code</span>
+            </button>
+            <span class="language">python</span>
+        </div>
+    <pre><span></span><span class="kn">from</span> <span class="nn">django</span> <span class="kn">import</span> <span class="n">forms</span>
+<span class="kn">from</span> <span class="nn">django.contrib.auth.forms</span> <span class="kn">import</span> <span class="n">AuthenticationForm</span>
+<span class="kn">from</span> <span class="nn">.models</span> <span class="kn">import</span> <span class="o">*</span>
+
+
+<span class="k">class</span> <span class="nc">LoginForm</span><span class="p">(</span><span class="n">AuthenticationForm</span><span class="p">):</span>
+    <span class="n">username</span> <span class="o">=</span> <span class="n">forms</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;Username&#39;</span><span class="p">,</span> <span class="n">required</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">password</span> <span class="o">=</span> <span class="n">forms</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;Password&#39;</span><span class="p">,</span> <span class="n">required</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">widget</span><span class="o">=</span><span class="n">forms</span><span class="o">.</span><span class="n">PasswordInput</span><span class="p">)</span>
+</pre></div>
+
+<p><strong>ایجاد view برای logout:</strong></p>
+<p><code>app directory/views.py</code></p>
+<div class="code-box">
+        <div class="code-info">
+            <button class="copy-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" class="icon-sm"><path fill="currentColor" fill-rule="evenodd" d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z" clip-rule="evenodd"></path></svg>
+                <span>Copy code</span>
+            </button>
+            <span class="language">python</span>
+        </div>
+    <pre><span></span><span class="kn">from</span> <span class="nn">django.contrib.auth</span> <span class="kn">import</span> <span class="n">logout</span>
+<span class="kn">from</span> <span class="nn">django.shortcuts</span> <span class="kn">import</span> <span class="n">redirect</span>
+
+<span class="k">def</span> <span class="nf">log_out</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+    <span class="n">logout</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="s1">&#39;social:login&#39;</span><span class="p">)</span>
+</pre></div>
+
+<p><strong>URL های لاگین و لاگ اوت:</strong></p>
+<p><code>app directory/urls.py</code></p>
+<div class="code-box">
+        <div class="code-info">
+            <button class="copy-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" class="icon-sm"><path fill="currentColor" fill-rule="evenodd" d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z" clip-rule="evenodd"></path></svg>
+                <span>Copy code</span>
+            </button>
+            <span class="language">python</span>
+        </div>
+    <pre><span></span><span class="n">urlpatterns</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="n">path</span><span class="p">(</span><span class="s1">&#39;login/&#39;</span><span class="p">,</span> <span class="n">auth_views</span><span class="o">.</span><span class="n">LoginView</span><span class="o">.</span><span class="n">as_view</span><span class="p">(</span><span class="n">authentication_form</span><span class="o">=</span><span class="n">LoginForm</span><span class="p">),</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;login&#39;</span><span class="p">),</span>
+    <span class="c1"># path(&#39;logout/&#39;, auth_views.LogoutView.as_view(), name=&#39;logout&#39;),</span>
+    <span class="n">path</span><span class="p">(</span><span class="s1">&#39;logout/&#39;</span><span class="p">,</span> <span class="n">views</span><span class="o">.</span><span class="n">log_out</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;logout&#39;</span><span class="p">),</span>  
+<span class="p">]</span>
+</pre></div>
+
+<p><strong>ایجاد url برای صفحه پروفایل:</strong></p>
+<p><code>app directory/urls.py</code></p>
+<div class="code-box">
+        <div class="code-info">
+            <button class="copy-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" class="icon-sm"><path fill="currentColor" fill-rule="evenodd" d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z" clip-rule="evenodd"></path></svg>
+                <span>Copy code</span>
+            </button>
+            <span class="language">python</span>
+        </div>
+    <pre><span></span><span class="n">urlpatterns</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="n">path</span><span class="p">(</span><span class="s1">&#39;profile/&#39;</span><span class="p">,</span> <span class="n">views</span><span class="o">.</span><span class="n">profile</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;profile&#39;</span><span class="p">),</span>
+<span class="p">]</span>
+</pre></div>
+
+<p><strong>اعمال تنظیمات مربوطه جهت شناسایی url های لاگین و لاگ اوت:</strong></p>
+<p><code>project directory/settings.py</code></p>
+<div class="code-box">
+        <div class="code-info">
+            <button class="copy-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" class="icon-sm"><path fill="currentColor" fill-rule="evenodd" d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z" clip-rule="evenodd"></path></svg>
+                <span>Copy code</span>
+            </button>
+            <span class="language">python</span>
+        </div>
+    <pre><span></span><span class="n">LOGIN_REDIRECT_URL</span> <span class="o">=</span> <span class="s2">&quot;/profile/&quot;</span>
+<span class="n">LOGIN_URL</span> <span class="o">=</span> <span class="s2">&quot;/login/&quot;</span>
+<span class="n">LOGOUT_URL</span> <span class="o">=</span> <span class="s2">&quot;/logout/&quot;</span>
+</pre></div>
+
+<p><strong>قابلیت لاگین با شماره تلفن و ایمیل:</strong></p>
+<p>1- در دایرکتوری app یک فایل پایتونی بنام authentication.py ایجاد میکنیم.</p>
+<blockquote>
+<p>مدل User را باید ایمپورت کنیم.</p>
+</blockquote>
+<p>2- برای لاگین کردن با شماره تلفن یک کلاس ایجاد میکنیم. / این کلاس از کلاس دیگری ارث بری نمیکند.</p>
+<p>حالا از دو متد <strong>get_user</strong> و <strong>authenticate</strong> در کلاس استفاده میکنیم:</p>
+<blockquote>
+<ul>
+<li>
+<p>authenticate: برای لاگین کردن کاربر به سیستم استفاده می‌شود. این متد در فرآیند احراز هویت استفاده می‌شود تا بررسی کند آیا اطلاعات وارد شده توسط کاربر معتبر است یا خیر.</p>
+</li>
+<li>
+<p>get_user: برای بازیابی اطلاعات کاربر از دیتابیس با استفاده از شناسه کاربر. این متد می‌تواند در بخش‌های مختلف سیستم برای دسترسی به اطلاعات کاربر استفاده شود، مثل زمان‌هایی که سیستم نیاز دارد اطلاعات کاربر لاگین شده را از session ID دریافت کند.</p>
+</li>
+</ul>
+</blockquote>
+<p>3- در متد <strong>authenticate</strong>، آرگومان های username, password درواقع اسم فیلدهای فرم login هستند. / مقادیر این آرگومان ها را اتوماتیک از فرم دریافت میکند.</p>
+<ul>
+<li>
+<p>خب الآن میخواهیم با شماره تلفن لاگین کنیم بنابراین بررسی میکنیم کاربری با شماره تلفن وارد شده(در آرگومان username) وجود دارد یا نه!</p>
+</li>
+<li>
+<p>اگه کاربر وجود داشت؛ بررسی میکنیم که پسورد وارد شده ، تطابق دارد یا نه اگه تطابق داشت که کاربر را برمیگرداند و کاربر در وبسایت لاگین میشود. / اگر هم پسورد تطابق نداشت None را برمیگرداند.</p>
+</li>
+</ul>
+<blockquote>
+<p><span class="rtl-text">با متد <span class="en-text">checkpassword()</span> بررسی میکند که آیا هش پسورد وارد شده با هش پسورد ذخیره شده در دیتابیس؛ برای آن کاربر برابر هست یا نه!</span></p>
+</blockquote>
+<ul>
+<li>حالا اگر کاربر وجود نداشت و یا چند کاربر با آن شماره تلفن وارد شده وجود داشت، None  را برمیگرداند.</li>
+</ul>
+<p>4- در متد <strong>get_user</strong> بررسی میکنیم کاربری با این id وجود دارد یا نه!</p>
+<p><code>app directory/authentication.py</code></p>
+<div class="code-box">
+        <div class="code-info">
+            <button class="copy-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" class="icon-sm"><path fill="currentColor" fill-rule="evenodd" d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z" clip-rule="evenodd"></path></svg>
+                <span>Copy code</span>
+            </button>
+            <span class="language">python</span>
+        </div>
+    <pre><span></span><span class="kn">from</span> <span class="nn">.models</span> <span class="kn">import</span> <span class="n">User</span>
+
+
+<span class="c1"># login with phone-number:</span>
+<span class="k">class</span> <span class="nc">PhoneAuthBackend</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">authenticate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">request</span><span class="p">,</span> <span class="n">username</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">password</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="c1"># username = phoneNumber</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">user</span> <span class="o">=</span> <span class="n">User</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">phone_number</span><span class="o">=</span><span class="n">username</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">user</span><span class="o">.</span><span class="n">check_password</span><span class="p">(</span><span class="n">password</span><span class="p">):</span>
+                <span class="k">return</span> <span class="n">user</span>
+            <span class="k">return</span> <span class="kc">None</span>
+        <span class="k">except</span> <span class="p">(</span><span class="n">User</span><span class="o">.</span><span class="n">DoesNotExist</span><span class="p">,</span> <span class="n">User</span><span class="o">.</span><span class="n">MultipleObjectsReturned</span><span class="p">):</span>
+            <span class="k">return</span> <span class="kc">None</span>
+
+    <span class="k">def</span> <span class="nf">get_user</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">user_id</span><span class="p">):</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">User</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">pk</span><span class="o">=</span><span class="n">user_id</span><span class="p">)</span>
+        <span class="k">except</span> <span class="n">User</span><span class="o">.</span><span class="n">DoesNotExist</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">None</span>
+
+<span class="c1"># login with Email:</span>
+<span class="k">class</span> <span class="nc">EmailAuthBackend</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">authenticate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">request</span><span class="p">,</span> <span class="n">username</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">password</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="c1"># username = Email</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">user</span> <span class="o">=</span> <span class="n">User</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">email</span><span class="o">=</span><span class="n">username</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">user</span><span class="o">.</span><span class="n">check_password</span><span class="p">(</span><span class="n">password</span><span class="p">):</span>
+                <span class="k">return</span> <span class="n">user</span>
+            <span class="k">return</span> <span class="kc">None</span>
+        <span class="k">except</span> <span class="p">(</span><span class="n">User</span><span class="o">.</span><span class="n">DoesNotExist</span><span class="p">,</span> <span class="n">User</span><span class="o">.</span><span class="n">MultipleObjectsReturned</span><span class="p">):</span>
+            <span class="k">return</span> <span class="kc">None</span>
+
+    <span class="k">def</span> <span class="nf">get_user</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">user_id</span><span class="p">):</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">User</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">pk</span><span class="o">=</span><span class="n">user_id</span><span class="p">)</span>
+        <span class="k">except</span> <span class="n">User</span><span class="o">.</span><span class="n">DoesNotExist</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">None</span>
+</pre></div>
+
+<p><strong>معرفی روش های لاگین کردن به پروژه:</strong></p>
+<p>یک متغیر بنام AUTHENTICATION_BACKENDS در انتهای تنظیمات اضافه میکنیم؛ حالا روش های لاگین کردن را در لیست، برایش مشخص میکنیم، اولین مورد حالت پیشفرض لاگین با  username هست بعد از آن لاگین با ایمیل و شماره تلفن را مشخص میکنیم.</p>
+<p>روش های لاگین با ایمیل و شماره تلفن را به صورت زیر به پروژه معرفی میکینم:</p>
+<div class="code-box">
+        <div class="code-info">
+            <button class="copy-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" class="icon-sm"><path fill="currentColor" fill-rule="evenodd" d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z" clip-rule="evenodd"></path></svg>
+                <span>Copy code</span>
+            </button>
+            <span class="language">python</span>
+        </div>
+    <pre><span></span><span class="c1"># structure:</span>
+<span class="s1">&#39;app_name.script_name.class_name&#39;</span>
+</pre></div>
+
+<p><code>project directory/settings.py</code></p>
+<div class="code-box">
+        <div class="code-info">
+            <button class="copy-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" class="icon-sm"><path fill="currentColor" fill-rule="evenodd" d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z" clip-rule="evenodd"></path></svg>
+                <span>Copy code</span>
+            </button>
+            <span class="language">python</span>
+        </div>
+    <pre><span></span><span class="n">AUTHENTICATION_BACKENDS</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s1">&#39;django.contrib.auth.backends.ModelBackend&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;social.authentication.PhoneAuthBackend&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;social.authentication.EmailAuthBackend&#39;</span><span class="p">,</span>
+<span class="p">]</span>
+</pre></div>
+
 <h3 id="thbt-nm-w-tbr-snjy-shmrh-mwbyl-w-ywzrnym">ثبت نام و اعتبار سنجی شماره موبایل و یوزرنیم</h3>
+<p>میخواهیم از ثبت شماره تلفن تکراری در پروژه جلوگیری کنیم.</p>
+<blockquote>
+<p>فرم ثبت نام و ویرایش اطلاعات شخصی را به این پروژه نیز اضافه میکنیم. / url, view, form, template</p>
+</blockquote>
+<p><strong>ایجاد URL های ثبت نام و ادیت اطلاعات کاربری:</strong></p>
+<p><code>app diectory/urls.py</code></p>
+<div class="code-box">
+        <div class="code-info">
+            <button class="copy-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" class="icon-sm"><path fill="currentColor" fill-rule="evenodd" d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z" clip-rule="evenodd"></path></svg>
+                <span>Copy code</span>
+            </button>
+            <span class="language">python</span>
+        </div>
+    <pre><span></span><span class="n">urlpatterns</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="n">path</span><span class="p">(</span><span class="s1">&#39;register/&#39;</span><span class="p">,</span> <span class="n">views</span><span class="o">.</span><span class="n">register</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;register&#39;</span><span class="p">),</span>
+    <span class="n">path</span><span class="p">(</span><span class="s1">&#39;user/edit/&#39;</span><span class="p">,</span> <span class="n">views</span><span class="o">.</span><span class="n">edit_profile</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;edit_profile&#39;</span><span class="p">),</span>
+<span class="p">]</span>
+</pre></div>
+
+<p><strong>ایجاد فرم برای ثبت نام:</strong></p>
+<p>فرم را از مدل User ایجاد میکنیم ولی فیلدهای پسورد و تکرار پسورد را مجزا ایجاد میکنیم:</p>
+<p><code>app directory/forms.py</code></p>
+<div class="code-box">
+        <div class="code-info">
+            <button class="copy-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" class="icon-sm"><path fill="currentColor" fill-rule="evenodd" d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z" clip-rule="evenodd"></path></svg>
+                <span>Copy code</span>
+            </button>
+            <span class="language">python</span>
+        </div>
+    <pre><span></span><span class="k">class</span> <span class="nc">RegisterForm</span><span class="p">(</span><span class="n">forms</span><span class="o">.</span><span class="n">ModelForm</span><span class="p">):</span>
+    <span class="n">password</span> <span class="o">=</span> <span class="n">forms</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">widget</span><span class="o">=</span><span class="n">forms</span><span class="o">.</span><span class="n">PasswordInput</span><span class="p">,</span> <span class="n">required</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">password_repeat</span> <span class="o">=</span> <span class="n">forms</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">widget</span><span class="o">=</span><span class="n">forms</span><span class="o">.</span><span class="n">PasswordInput</span><span class="p">,</span> <span class="n">required</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+    <span class="k">class</span> <span class="nc">Meta</span><span class="p">:</span>
+        <span class="n">model</span> <span class="o">=</span> <span class="n">User</span>
+        <span class="n">fields</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;username&#39;</span><span class="p">,</span> <span class="s1">&#39;email&#39;</span><span class="p">,</span> <span class="s1">&#39;phone_number&#39;</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">clean_password_repeat</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">password</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cleaned_data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;password&#39;</span><span class="p">)</span>
+        <span class="n">password_repeat</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cleaned_data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;password_repeat&#39;</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">password</span> <span class="o">!=</span> <span class="n">password_repeat</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">forms</span><span class="o">.</span><span class="n">ValidationError</span><span class="p">(</span><span class="s1">&#39;Passwords must match&#39;</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">password_repeat</span>
+
+    <span class="c1"># جلوگیری از ثبت نام با شماره تکراری</span>
+    <span class="k">def</span> <span class="nf">clean_phone_number</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">phone</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cleaned_data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;phone_number&#39;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">User</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">phone_number</span><span class="o">=</span><span class="n">phone</span><span class="p">)</span><span class="o">.</span><span class="n">exists</span><span class="p">():</span>
+            <span class="k">raise</span> <span class="n">forms</span><span class="o">.</span><span class="n">ValidationError</span><span class="p">(</span><span class="s1">&#39;Phone number already exists&#39;</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">phone</span>
+</pre></div>
+
+<p>برای جلوگیری از ثبت شماره تلفن تکراری؛ بررسی میکنیم که آیا کاربری با این شماره تلفن  در دیتابیس وجود دارد یا نه !</p>
+<blockquote>
+<p>اگر شماره تلفن وجود داشت که به کاربر یک خطا نمایش میدهد که نمیتوانید با این شماره ثبت نام کنید؛ اگر هم وجود نداشت کاربر میتواند ثبت نام کند.</p>
+</blockquote>
+<p><strong>ایجاد view برای ثبت نام:</strong></p>
+<p><code>app directory/views.py</code></p>
+<div class="code-box">
+        <div class="code-info">
+            <button class="copy-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" class="icon-sm"><path fill="currentColor" fill-rule="evenodd" d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z" clip-rule="evenodd"></path></svg>
+                <span>Copy code</span>
+            </button>
+            <span class="language">python</span>
+        </div>
+    <pre><span></span><span class="k">def</span> <span class="nf">register</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">request</span><span class="o">.</span><span class="n">method</span> <span class="o">==</span> <span class="s1">&#39;POST&#39;</span><span class="p">:</span>
+        <span class="n">form</span> <span class="o">=</span> <span class="n">RegisterForm</span><span class="p">(</span><span class="n">request</span><span class="o">.</span><span class="n">POST</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">form</span><span class="o">.</span><span class="n">is_valid</span><span class="p">():</span>
+            <span class="n">user</span> <span class="o">=</span> <span class="n">form</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">commit</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+            <span class="n">user</span><span class="o">.</span><span class="n">set_password</span><span class="p">(</span><span class="n">form</span><span class="o">.</span><span class="n">cleaned_data</span><span class="p">[</span><span class="s1">&#39;password&#39;</span><span class="p">])</span>
+            <span class="n">user</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
+            <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="s1">&#39;social:profile&#39;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">form</span> <span class="o">=</span> <span class="n">RegisterForm</span><span class="p">()</span>
+
+    <span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s1">&#39;registration/register.html&#39;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;form&quot;</span><span class="p">:</span> <span class="n">form</span><span class="p">})</span>
+</pre></div>
+
+<p><strong>اعتبارسنجی فرم ویرایش اطلاعات شخصی:</strong></p>
+<p>در زمان ثبت نام(ایجاد کاربر جدید)، اگه username که وارد میکنیم از قبل وجود داشته باشد، اجازه ثبت نام نمیدهد ولی در فرم ویرایش اطلاعات ایرادی نمیگیرد بنابراین لازم است در کنار اعتبارسنجی شماره تلفن، username را هم اعتبارسنجی کنیم تا از وارد کردن(ثبت) اطلاعات تکراری جلوگیری کند.</p>
+<h4>فرم ویرایش اطلاعات شخصی</h4>
+<p>فیلدهای مربوطه را جهت ویرایش مشخص میکنیم.</p>
+<p><code>app directory/forms.py</code></p>
+<div class="code-box">
+        <div class="code-info">
+            <button class="copy-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" class="icon-sm"><path fill="currentColor" fill-rule="evenodd" d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z" clip-rule="evenodd"></path></svg>
+                <span>Copy code</span>
+            </button>
+            <span class="language">python</span>
+        </div>
+    <pre><span></span><span class="k">class</span> <span class="nc">EditProfileForm</span><span class="p">(</span><span class="n">forms</span><span class="o">.</span><span class="n">ModelForm</span><span class="p">):</span>
+    <span class="k">class</span> <span class="nc">Meta</span><span class="p">:</span>
+        <span class="n">model</span> <span class="o">=</span> <span class="n">User</span>
+        <span class="n">fields</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;profile_image&#39;</span><span class="p">,</span> <span class="s1">&#39;username&#39;</span><span class="p">,</span> <span class="s1">&#39;first_name&#39;</span><span class="p">,</span> <span class="s1">&#39;last_name&#39;</span><span class="p">,</span> <span class="s1">&#39;email&#39;</span><span class="p">,</span> <span class="s1">&#39;phone_number&#39;</span><span class="p">,</span> <span class="s1">&#39;bio&#39;</span><span class="p">,</span> <span class="s1">&#39;job&#39;</span><span class="p">,</span>
+                  <span class="s1">&#39;location&#39;</span><span class="p">,</span> <span class="s1">&#39;gender&#39;</span><span class="p">,</span> <span class="s1">&#39;birth_date&#39;</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">clean_phone_number</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">phone</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cleaned_data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;phone_number&#39;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">User</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">exclude</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">instance</span><span class="o">.</span><span class="n">id</span><span class="p">)</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">phone_number</span><span class="o">=</span><span class="n">phone</span><span class="p">)</span><span class="o">.</span><span class="n">exists</span><span class="p">():</span>
+            <span class="k">raise</span> <span class="n">forms</span><span class="o">.</span><span class="n">ValidationError</span><span class="p">(</span><span class="s1">&#39;Phone number already exists&#39;</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">phone</span>
+
+    <span class="k">def</span> <span class="nf">clean_username</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">username</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cleaned_data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;username&#39;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">User</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">exclude</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">instance</span><span class="o">.</span><span class="n">id</span><span class="p">)</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">username</span><span class="o">=</span><span class="n">username</span><span class="p">)</span><span class="o">.</span><span class="n">exists</span><span class="p">():</span>
+            <span class="k">raise</span> <span class="n">forms</span><span class="o">.</span><span class="n">ValidationError</span><span class="p">(</span><span class="s1">&#39;Username already exists&#39;</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">username</span>
+</pre></div>
+
+<blockquote>
+<p>آرگومان instance از طریق view به فرم ارسال میشود و برای استفاده از مقدار آن از دستور self.instance استفاده میکنیم که در اینجا کاربر فعلی در وبسایت میباشد.</p>
+</blockquote>
+<p>اعتبارسنجی شماره تلفن و username شبیه به اعتبارسنجی در فرم ثبت نام هست ولی یه تفاوت مهم دارد.</p>
+<blockquote>
+<p>شماره تلفن و username کاربر در دیتابیس وجود دارد؛ بنابراین حتی اگر کاربر آنها را تغییر ندهد چون مشخص کردیم اگه کاربری با این شماره تلفن و یا username وجود داشت خطا نمایش دهد؛ کاربر را به عنوان مورد تکراری تشخیص داده و به کاربر خطا نشان میدهد.</p>
+<p><span class="rtl-text">برای جلوگیری از این مشکل از متد <span class="en-text">exclude()</span> استفاده کرده و مشخص میکنیم که بجز این کاربر جستجو کن ببین اطلاعات تکراری وجود دارد یا نه!!!</span></p>
+</blockquote>
+<p><strong>ایجاد view برای فرم ویرایش اطلاعات شخصی:</strong></p>
+<p><code>app directory/views.py</code></p>
+<div class="code-box">
+        <div class="code-info">
+            <button class="copy-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" class="icon-sm"><path fill="currentColor" fill-rule="evenodd" d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z" clip-rule="evenodd"></path></svg>
+                <span>Copy code</span>
+            </button>
+            <span class="language">python</span>
+        </div>
+    <pre><span></span><span class="nd">@login_required</span>
+<span class="k">def</span> <span class="nf">edit_profile</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">request</span><span class="o">.</span><span class="n">method</span> <span class="o">==</span> <span class="s1">&#39;POST&#39;</span><span class="p">:</span>
+        <span class="n">form</span> <span class="o">=</span> <span class="n">EditProfileForm</span><span class="p">(</span><span class="n">request</span><span class="o">.</span><span class="n">POST</span><span class="p">,</span> <span class="n">files</span><span class="o">=</span><span class="n">request</span><span class="o">.</span><span class="n">FILES</span><span class="p">,</span> <span class="n">instance</span><span class="o">=</span><span class="n">request</span><span class="o">.</span><span class="n">user</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">form</span><span class="o">.</span><span class="n">is_valid</span><span class="p">():</span>
+            <span class="n">form</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
+            <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="s1">&#39;social:profile&#39;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">form</span> <span class="o">=</span> <span class="n">EditProfileForm</span><span class="p">(</span><span class="n">instance</span><span class="o">=</span><span class="n">request</span><span class="o">.</span><span class="n">user</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s1">&#39;registration/edit_profile.html&#39;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;form&quot;</span><span class="p">:</span> <span class="n">form</span><span class="p">})</span>
+</pre></div>
+
 <h3 id="rsl-ymyl-b-jngw-rsl-tykht-b-smtp">ارسال ایمیل با جنگو (ارسال تیکت با smtp)</h3>
+<p>ارسال ایمیل از طریق SMTP انجام میشود. / SMTP یک پروتکل میباشد.</p>
+<p>عبارت SMTP مخفف: Simple Mail Transfer Protocol میباشد.</p>
+<p>میخواهیم تیکتی که کاربر مینویسد را به ایمیل خود ارسال کنیم. / پس form, template, url, view تیکت را ایجاد میکنیم.</p>
+<p><strong>ایجاد URL برای تیکت:</strong></p>
+<p><code>app directory/urls.py</code></p>
+<div class="code-box">
+        <div class="code-info">
+            <button class="copy-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" class="icon-sm"><path fill="currentColor" fill-rule="evenodd" d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z" clip-rule="evenodd"></path></svg>
+                <span>Copy code</span>
+            </button>
+            <span class="language">python</span>
+        </div>
+    <pre><span></span><span class="n">urlpatterns</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="n">path</span><span class="p">(</span><span class="s1">&#39;ticket/&#39;</span><span class="p">,</span> <span class="n">views</span><span class="o">.</span><span class="n">ticket</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;ticket&#39;</span><span class="p">),</span>
+<span class="p">]</span>
+</pre></div>
+
+<p><strong>ایجاد form برای تیکت:</strong></p>
+<p><code>app directory/forms.py</code></p>
+<div class="code-box">
+        <div class="code-info">
+            <button class="copy-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" class="icon-sm"><path fill="currentColor" fill-rule="evenodd" d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z" clip-rule="evenodd"></path></svg>
+                <span>Copy code</span>
+            </button>
+            <span class="language">python</span>
+        </div>
+    <pre><span></span><span class="k">class</span> <span class="nc">TicketForm</span><span class="p">(</span><span class="n">forms</span><span class="o">.</span><span class="n">Form</span><span class="p">):</span>
+    <span class="n">title</span> <span class="o">=</span> <span class="n">forms</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">required</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="n">forms</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">required</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">content</span> <span class="o">=</span> <span class="n">forms</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">widget</span><span class="o">=</span><span class="n">forms</span><span class="o">.</span><span class="n">Textarea</span><span class="p">,</span> <span class="n">required</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">email</span> <span class="o">=</span> <span class="n">forms</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">required</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+
+<p><strong>انجام تنظیمات مربوطه، برای ارسال ایمیل:</strong></p>
+<p><code>project directory/settings.py</code></p>
+<div class="code-box">
+        <div class="code-info">
+            <button class="copy-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" class="icon-sm"><path fill="currentColor" fill-rule="evenodd" d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z" clip-rule="evenodd"></path></svg>
+                <span>Copy code</span>
+            </button>
+            <span class="language">python</span>
+        </div>
+    <pre><span></span><span class="n">EMAIL_HOST</span> <span class="o">=</span> <span class="s1">&#39;smtp.gmail.com&#39;</span>
+<span class="n">EMAIL_HOST_USER</span> <span class="o">=</span> <span class="s1">&#39;example@gmail.com&#39;</span>
+<span class="n">EMAIL_PORT</span> <span class="o">=</span> <span class="mi">587</span>
+<span class="n">EMAIL_USE_TLS</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="n">EMAIL_HOST_PASSWORD</span> <span class="o">=</span> <span class="s1">&#39;---- ---- ---- ----&#39;</span>
+<span class="n">EMAIL_BACKEND</span> <span class="o">=</span> <span class="s1">&#39;django.core.mail.backends.smtp.EmailBackend&#39;</span>
+</pre></div>
+
+<p><strong>توضیحات:</strong></p>
+<p>1- EMAIL_HOST: مشخص میکنیم از چه سروری، برای خدمات ایمیل استفاده میکنیم؛ در حال حاضر از جیمیل استفاده میکنیم.</p>
+<p>2- EMAIL_HOST_USER: آدرس جیمیلی که میخواهیم از آن برای ارسال ایمیل استفاده کنیم. / (فرستنده ایمیل)</p>
+<p>3- EMAIL_PORT: مقدار ثابت 587 را برایش مشخص میکنیم.</p>
+<p>4- EMAIL_USE_TLS و EMAIL_USE_SSL: برای موارد امنیتی استفاده میشود. / TLS پرکاربردتر میباشد.</p>
+<p>5- EMAIL_BACKEND: مشخص میکنیم که از smtp برای ارسال ایمیل استفاده کند.</p>
+<p>6- EMAIL_HOST_PASSWORD: این پسورد را در ادامه بدست می آوریم</p>
+<p><strong>بدست آوردن پسورد برای EMAIL_HOST_PASSWORD:</strong></p>
+<ul>
+<li>
+<p>وارد My_Account حساب جیمیلی که برای EMAIL_HOST_USER مشخص کردیم میشویم.</p>
+</li>
+<li>
+<p>منوی security را انتخاب میکینم.</p>
+</li>
+</ul>
+<blockquote>
+<p><strong>نکته:</strong> تایید دو مرحله ای باید فعال باشه در غیر این صورت پسوردی برای ما، ست نمیکند.</p>
+</blockquote>
+<ul>
+<li>
+<p>عبارت app password را در فیلد search، جستجو میکنیم. / پس از وارد کردن پسورد حساب وارد app password میشود.</p>
+</li>
+<li>
+<p>یک اسم دلخواه برای app password مشخص کرده و اپ خود را ایجاد میکنیم، یک پسورد برای ما ایجاد میکند؛ آنرا کپی کرده و برای EMAIL_HOST_PASSWORD تنظیمش میکینم.</p>
+</li>
+</ul>
+<p><strong>ایجاد view برای تیکت:</strong></p>
+<p><code>app directory/views.py</code></p>
+<div class="code-box">
+        <div class="code-info">
+            <button class="copy-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" class="icon-sm"><path fill="currentColor" fill-rule="evenodd" d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z" clip-rule="evenodd"></path></svg>
+                <span>Copy code</span>
+            </button>
+            <span class="language">python</span>
+        </div>
+    <pre><span></span><span class="kn">from</span> <span class="nn">django.core.mail</span> <span class="kn">import</span> <span class="n">send_mail</span>
+
+<span class="k">def</span> <span class="nf">ticket</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+    <span class="n">sent</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="k">if</span> <span class="n">request</span><span class="o">.</span><span class="n">method</span> <span class="o">==</span> <span class="s1">&#39;POST&#39;</span><span class="p">:</span>
+        <span class="n">form</span> <span class="o">=</span> <span class="n">TicketForm</span><span class="p">(</span><span class="n">request</span><span class="o">.</span><span class="n">POST</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">form</span><span class="o">.</span><span class="n">is_valid</span><span class="p">():</span>
+            <span class="n">cd</span> <span class="o">=</span> <span class="n">form</span><span class="o">.</span><span class="n">cleaned_data</span>
+
+            <span class="n">message</span> <span class="o">=</span> <span class="p">(</span><span class="sa">f</span><span class="s2">&quot;sender: </span><span class="si">{</span><span class="n">cd</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">,</span><span class="se">\n</span><span class="s2">&quot;</span>
+                       <span class="sa">f</span><span class="s2">&quot;email: </span><span class="si">{</span><span class="n">cd</span><span class="p">[</span><span class="s1">&#39;email&#39;</span><span class="p">]</span><span class="si">}</span><span class="se">\n\n</span><span class="s2">&quot;</span>
+                       <span class="sa">f</span><span class="s2">&quot;content: </span><span class="si">{</span><span class="n">cd</span><span class="p">[</span><span class="s1">&#39;content&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span>
+            <span class="p">)</span>
+
+            <span class="n">send_mail</span><span class="p">(</span>
+                <span class="n">subject</span><span class="o">=</span><span class="n">cd</span><span class="p">[</span><span class="s1">&#39;title&#39;</span><span class="p">],</span>
+                <span class="n">message</span><span class="o">=</span><span class="n">message</span><span class="p">,</span>
+                <span class="n">from_email</span><span class="o">=</span><span class="s1">&#39;sender@gmail.com&#39;</span><span class="p">,</span>
+                <span class="n">recipient_list</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;recipient@gmail.com&#39;</span><span class="p">],</span>
+                <span class="n">fail_silently</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+            <span class="p">)</span>
+
+            <span class="n">sent</span> <span class="o">=</span> <span class="kc">True</span>
+            <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="s2">&quot;social:index&quot;</span><span class="p">)</span>
+
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">form</span> <span class="o">=</span> <span class="n">TicketForm</span><span class="p">()</span>
+
+    <span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s1">&#39;forms/ticket.html&#39;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;form&quot;</span><span class="p">:</span> <span class="n">form</span><span class="p">,</span> <span class="s2">&quot;sent&quot;</span><span class="p">:</span> <span class="n">sent</span><span class="p">})</span>
+</pre></div>
+
+<p>برای ارسال ایمیل از پکیج send_mail استفاده میکنیم.</p>
+<p>بریم با برخی از آرگومان های send_mail آشنا بشیم:</p>
+<p>1- subject: موضوع ایمیل را برایش مشخص میکنیم.</p>
+<p>2- message: محتوای متن ایمیل که ارسال میشود.</p>
+<p>3- from_email: فرستنده ایمیل میباشد؛ این همان ایمیلی هست که در تنظیمات مشخص کردیم. / نباید ایمیل دیگری وارد شود مگر اینکه تنظیمات را تغییر دهیم.</p>
+<p>4- recipient_list: یک لیست از گیرندگان میباشد. / میتوانیم یک یا چند ایمیل برایش مشخص کنیم.</p>
+<p>5- fail_silently=False: اگر خطایی وجود داشته باشد آنرا نمایش میدهد.</p>
+<blockquote>
+<p>با استفاده از متغیر sent در تمپلیت، یک شرط میگذاریم که وقتی  True بود پیغام "تیکت شما برای پشتیبانی ارسال شد" را نمایش دهد.</p>
+</blockquote>
 <h3 id="tgyyr-w-bznshny-pswrd-b-ymyl">تغییر و بازنشانی پسورد با ایمیل</h3>
+<p>تغییر و بازنشانی پسورد را برای این پروژه نیز پیاده سازی میکنیم.</p>
+<p><code>app directory/urls.py</code></p>
+<div class="code-box">
+        <div class="code-info">
+            <button class="copy-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" class="icon-sm"><path fill="currentColor" fill-rule="evenodd" d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z" clip-rule="evenodd"></path></svg>
+                <span>Copy code</span>
+            </button>
+            <span class="language">python</span>
+        </div>
+    <pre><span></span><span class="n">urlpatterns</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="c1"># password_change</span>
+    <span class="n">path</span><span class="p">(</span><span class="s1">&#39;password-change/&#39;</span><span class="p">,</span> <span class="n">auth_views</span><span class="o">.</span><span class="n">PasswordChangeView</span><span class="o">.</span><span class="n">as_view</span><span class="p">(</span><span class="n">success_url</span><span class="o">=</span><span class="s1">&#39;done&#39;</span><span class="p">),</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;password_change&#39;</span><span class="p">),</span>
+    <span class="n">path</span><span class="p">(</span><span class="s1">&#39;password-change/done/&#39;</span><span class="p">,</span> <span class="n">auth_views</span><span class="o">.</span><span class="n">PasswordChangeDoneView</span><span class="o">.</span><span class="n">as_view</span><span class="p">(),</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;password_change_done&#39;</span><span class="p">),</span>
+
+    <span class="c1"># password_reset</span>
+    <span class="n">path</span><span class="p">(</span><span class="s1">&#39;password-reset&#39;</span><span class="p">,</span> <span class="n">auth_views</span><span class="o">.</span><span class="n">PasswordResetView</span><span class="o">.</span><span class="n">as_view</span><span class="p">(</span><span class="n">success_url</span><span class="o">=</span><span class="s1">&#39;/password-reset/done&#39;</span><span class="p">),</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;password_reset&#39;</span><span class="p">),</span>
+    <span class="n">path</span><span class="p">(</span><span class="s1">&#39;password-reset/done/&#39;</span><span class="p">,</span> <span class="n">auth_views</span><span class="o">.</span><span class="n">PasswordResetDoneView</span><span class="o">.</span><span class="n">as_view</span><span class="p">(),</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;password_reset_done&#39;</span><span class="p">),</span>
+    <span class="n">path</span><span class="p">(</span><span class="s1">&#39;password-reset/confirm/&lt;uidb64&gt;/&lt;token&gt;/&#39;</span><span class="p">,</span> <span class="n">auth_views</span><span class="o">.</span><span class="n">PasswordResetConfirmView</span><span class="o">.</span><span class="n">as_view</span><span class="p">(</span><span class="n">success_url</span><span class="o">=</span><span class="s1">&#39;/password-reset/complete&#39;</span><span class="p">),</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;password_reset_confirm&#39;</span><span class="p">),</span>
+    <span class="n">path</span><span class="p">(</span><span class="s1">&#39;password-reset/complete/&#39;</span><span class="p">,</span> <span class="n">auth_views</span><span class="o">.</span><span class="n">PasswordResetCompleteView</span><span class="o">.</span><span class="n">as_view</span><span class="p">(),</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;password_reset_complete&#39;</span><span class="p">),</span>
+<span class="p">]</span>
+</pre></div>
+
+<p>تمپلیت ها را در دایرکتوری registration ایجاد میکنیم.</p>
+<p><strong>نکته 1:</strong> برای اینکه تمپلیت های ما را نمایش دهد باید در بخش INSTALLED_APPS اپ(app) را در بالا قرار دهیم.</p>
+<p><strong>نکته 2:</strong> همان طور که قبلا هم گفته شد؛ اگر کاربر ایمیلی ثبت نکرده باشد، ایمیل ارسال نمیشود.</p>
 <h3 id="pydh-szy-systm-tg-bry-pst-h">پیاده سازی سیستم تگ برای پست ها</h3>
+<p>برای ایجاد تگ زیر پست ها؛ بجای اینکه یک مدل برای تگ ها از نوع رابطه Many To Many ایجاد کنیم، از سیستم django-taggit استفاده میکنیم.</p>
+<p>برای استفاده از تگ لازم است یک مدل برای پست های خود ایجاد کنیم:</p>
+<p><code>app directory/models.py</code></p>
+<div class="code-box">
+        <div class="code-info">
+            <button class="copy-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" class="icon-sm"><path fill="currentColor" fill-rule="evenodd" d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z" clip-rule="evenodd"></path></svg>
+                <span>Copy code</span>
+            </button>
+            <span class="language">python</span>
+        </div>
+    <pre><span></span><span class="k">class</span> <span class="nc">Post</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">author</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">ForeignKey</span><span class="p">(</span><span class="n">User</span><span class="p">,</span> <span class="n">on_delete</span><span class="o">=</span><span class="n">models</span><span class="o">.</span><span class="n">CASCADE</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;user_posts&#39;</span><span class="p">)</span>
+    <span class="n">description</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">TextField</span><span class="p">()</span>
+
+    <span class="n">created</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">DateTimeField</span><span class="p">(</span><span class="n">auto_now_add</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">updated</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">DateTimeField</span><span class="p">(</span><span class="n">auto_now</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+    <span class="c1"># ordering &amp; indexing</span>
+    <span class="k">class</span> <span class="nc">Meta</span><span class="p">:</span>
+        <span class="n">ordering</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;-created&#39;</span><span class="p">]</span>
+        <span class="n">indexes</span> <span class="o">=</span> <span class="p">[</span>
+            <span class="n">models</span><span class="o">.</span><span class="n">Index</span><span class="p">(</span><span class="n">fields</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;-created&#39;</span><span class="p">]),</span>
+            <span class="n">models</span><span class="o">.</span><span class="n">Index</span><span class="p">(</span><span class="n">fields</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;-total_likes&#39;</span><span class="p">]),</span>
+        <span class="p">]</span>
+
+    <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">description</span>
+</pre></div>
+
+<p><strong>نمایش مدل Post در پنل ادمین:</strong></p>
+<p><code>app directory/admin.py</code></p>
+<div class="code-box">
+        <div class="code-info">
+            <button class="copy-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" class="icon-sm"><path fill="currentColor" fill-rule="evenodd" d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z" clip-rule="evenodd"></path></svg>
+                <span>Copy code</span>
+            </button>
+            <span class="language">python</span>
+        </div>
+    <pre><span></span><span class="nd">@admin</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="n">Post</span><span class="p">)</span>
+<span class="k">class</span> <span class="nc">PostAdmin</span><span class="p">(</span><span class="n">admin</span><span class="o">.</span><span class="n">ModelAdmin</span><span class="p">):</span>
+    <span class="n">list_display</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;author&#39;</span><span class="p">,</span> <span class="s1">&#39;updated&#39;</span><span class="p">,</span> <span class="s1">&#39;created&#39;</span><span class="p">]</span>
+    <span class="n">ordering</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;-created&#39;</span><span class="p">,</span> <span class="s1">&#39;-author&#39;</span><span class="p">]</span>
+    <span class="n">search_fields</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;author&#39;</span><span class="p">,</span> <span class="s1">&#39;description&#39;</span><span class="p">]</span>
+</pre></div>
+
+<p><strong>ایجاد URL برای لیست پست ها:</strong></p>
+<p><code>app directory/urls.py</code></p>
+<div class="code-box">
+        <div class="code-info">
+            <button class="copy-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" class="icon-sm"><path fill="currentColor" fill-rule="evenodd" d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z" clip-rule="evenodd"></path></svg>
+                <span>Copy code</span>
+            </button>
+            <span class="language">python</span>
+        </div>
+    <pre><span></span><span class="n">urlpatterns</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="n">path</span><span class="p">(</span><span class="s1">&#39;posts-list/&#39;</span><span class="p">,</span> <span class="n">views</span><span class="o">.</span><span class="n">post_list</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;post_list&#39;</span><span class="p">),</span>
+<span class="p">]</span>
+</pre></div>
+
+<p><strong>ایجاد view برای لیست پست ها:</strong></p>
+<p><code>app directory/views.py</code></p>
+<div class="code-box">
+        <div class="code-info">
+            <button class="copy-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" class="icon-sm"><path fill="currentColor" fill-rule="evenodd" d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z" clip-rule="evenodd"></path></svg>
+                <span>Copy code</span>
+            </button>
+            <span class="language">python</span>
+        </div>
+    <pre><span></span><span class="k">def</span> <span class="nf">post_list</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+
+    <span class="n">posts</span> <span class="o">=</span> <span class="n">Post</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
+
+    <span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s1">&#39;social/post_list.html&#39;</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;posts&#39;</span><span class="p">:</span> <span class="n">posts</span><span class="p">})</span>
+</pre></div>
+
+<p>برای استفاده از taggit باید آنرا نصب کنیم:</p>
+<div class="code-box">
+        <div class="code-info">
+            <button class="copy-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" class="icon-sm"><path fill="currentColor" fill-rule="evenodd" d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z" clip-rule="evenodd"></path></svg>
+                <span>Copy code</span>
+            </button>
+            <span class="language">terminal</span>
+        </div>
+    <pre><span></span>pip install django-taggit
+</pre></div>
+
+<p>پس از نصب باید آنرا به پروژه معرفی کنیم:</p>
+<p><code>project directory/settings.py</code></p>
+<div class="code-box">
+        <div class="code-info">
+            <button class="copy-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" class="icon-sm"><path fill="currentColor" fill-rule="evenodd" d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z" clip-rule="evenodd"></path></svg>
+                <span>Copy code</span>
+            </button>
+            <span class="language">python</span>
+        </div>
+    <pre><span></span><span class="n">INSTALLED_APPS</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="c1"># ...</span>
+    <span class="s1">&#39;taggit&#39;</span><span class="p">,</span>
+<span class="p">]</span>
+</pre></div>
+
+<p>برای ایجاد فیلد tags در مدل Post باید TaggableManager را ایمپورت کنیم.</p>
+<p><code>app directory/models.py</code></p>
+<div class="code-box">
+        <div class="code-info">
+            <button class="copy-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" class="icon-sm"><path fill="currentColor" fill-rule="evenodd" d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z" clip-rule="evenodd"></path></svg>
+                <span>Copy code</span>
+            </button>
+            <span class="language">python</span>
+        </div>
+    <pre><span></span><span class="kn">from</span> <span class="nn">taggit.managers</span> <span class="kn">import</span> <span class="n">TaggableManager</span>
+</pre></div>
+
+<p>حالا از آن استفاده کرده و فیلد tags را در مدل Post ایجاد میکنیم:</p>
+<p><code>app directory/models.py</code></p>
+<div class="code-box">
+        <div class="code-info">
+            <button class="copy-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" class="icon-sm"><path fill="currentColor" fill-rule="evenodd" d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z" clip-rule="evenodd"></path></svg>
+                <span>Copy code</span>
+            </button>
+            <span class="language">python</span>
+        </div>
+    <pre><span></span><span class="kn">from</span> <span class="nn">taggit.managers</span> <span class="kn">import</span> <span class="n">TaggableManager</span>
+
+
+<span class="k">class</span> <span class="nc">Post</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">author</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">ForeignKey</span><span class="p">(</span><span class="n">User</span><span class="p">,</span> <span class="n">on_delete</span><span class="o">=</span><span class="n">models</span><span class="o">.</span><span class="n">CASCADE</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;user_posts&#39;</span><span class="p">)</span>
+    <span class="n">description</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">TextField</span><span class="p">()</span>
+
+    <span class="n">created</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">DateTimeField</span><span class="p">(</span><span class="n">auto_now_add</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">updated</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">DateTimeField</span><span class="p">(</span><span class="n">auto_now</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+    <span class="n">tags</span> <span class="o">=</span> <span class="n">TaggableManager</span><span class="p">()</span>
+
+    <span class="c1"># ordering &amp; indexing</span>
+    <span class="k">class</span> <span class="nc">Meta</span><span class="p">:</span>
+        <span class="n">ordering</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;-created&#39;</span><span class="p">]</span>
+        <span class="n">indexes</span> <span class="o">=</span> <span class="p">[</span>
+            <span class="n">models</span><span class="o">.</span><span class="n">Index</span><span class="p">(</span><span class="n">fields</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;-created&#39;</span><span class="p">]),</span>
+            <span class="n">models</span><span class="o">.</span><span class="n">Index</span><span class="p">(</span><span class="n">fields</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;-total_likes&#39;</span><span class="p">]),</span>
+        <span class="p">]</span>
+
+    <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">description</span>
+</pre></div>
+
+<blockquote>
+<p><span class="rtl-text">با استفاده از متدهای <span class="en-text">remove()</span>, <span class="en-text">add()</span>, <span class="en-text">all()</span> میتوانیم، تگ اضافه و یا حذف کنیم یا اینکه تمام تگ ها را نمایش دهیم.</span></p>
+<blockquote>
+<p><span class="en-text">post.tags.add("holidays")</span></p>
+<p><span class="en-text">post.tags.remove("Halloween")</span></p>
+<p><span class="en-text">post.tags.all()</span></p>
+</blockquote>
+</blockquote>
+<p><strong>ایجاد تمپلیت برای لیست پست ها:</strong></p>
+<p><code>templates/social/post_list.html</code></p>
+<div class="code-box">
+        <div class="code-info">
+            <button class="copy-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" class="icon-sm"><path fill="currentColor" fill-rule="evenodd" d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z" clip-rule="evenodd"></path></svg>
+                <span>Copy code</span>
+            </button>
+            <span class="language">jinja</span>
+        </div>
+    <pre><span></span><span class="cp">{%</span> <span class="k">for</span> <span class="nv">post</span> <span class="k">in</span> <span class="nv">posts</span> <span class="cp">%}</span>
+<span class="x">    </span><span class="cp">{{</span> <span class="nv">post.description</span> <span class="o">|</span> <span class="nf">truncatewords</span><span class="o">:</span><span class="m">20</span> <span class="o">|</span> <span class="nf">linebreaks</span> <span class="cp">}}</span>
+<span class="x">    &lt;br&gt;</span>
+<span class="x">    published at </span><span class="cp">{{</span> <span class="nv">post.created</span> <span class="cp">}}</span><span class="x"> by </span><span class="cp">{{</span> <span class="nv">post.author</span> <span class="cp">}}</span>
+<span class="x">    &lt;br&gt;</span>
+
+<span class="x">    </span><span class="cp">{{</span> <span class="nv">post.tags.all</span> <span class="o">|</span> <span class="nf">join</span><span class="s1">:&#39;, &#39;</span> <span class="cp">}}</span>
+<span class="cp">{%</span> <span class="k">endfor</span> <span class="cp">%}</span>
+</pre></div>
+
+<p>برای نمایش تمام تگ ها، فیلد tags را برای post صدا زده و با متد <span class="en-text">all()</span> همه تگ ها را نمایش میدهیم.</p>
 <h3 id="nmysh-tmm-pst-hy-ykh-tg">نمایش تمام پست های یک تگ</h3>
+<p>میخواهیم کاری شبیه به ساختار دسته بندی (category) که در فصل های قبل اجرا کردیم را پیاده سازی کنیم.</p>
+<ul>
+<li>یک url دیگه برای لیست پست ها ایجاد میکنیم؛ این URL متغیر tag_slug را برای view ارسال میکند.</li>
+</ul>
+<p><code>app directory/urls.py</code></p>
+<div class="code-box">
+        <div class="code-info">
+            <button class="copy-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" class="icon-sm"><path fill="currentColor" fill-rule="evenodd" d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z" clip-rule="evenodd"></path></svg>
+                <span>Copy code</span>
+            </button>
+            <span class="language">python</span>
+        </div>
+    <pre><span></span><span class="n">urlpatterns</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="n">path</span><span class="p">(</span><span class="s1">&#39;posts-list/&#39;</span><span class="p">,</span> <span class="n">views</span><span class="o">.</span><span class="n">post_list</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;post_list&#39;</span><span class="p">),</span>
+    <span class="n">path</span><span class="p">(</span><span class="s1">&#39;posts-list/&lt;slug:tag_slug&gt;&#39;</span><span class="p">,</span> <span class="n">views</span><span class="o">.</span><span class="n">post_list</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;post_list_tags&#39;</span><span class="p">),</span>
+<span class="p">]</span>
+</pre></div>
+
+<blockquote>
+<p><strong>نکته:</strong> رابطه بین تگ و پست از نوع Many To Many میباشد.</p>
+<p>کلاس Tag باید ایمپورت شود.</p>
+</blockquote>
+<ul>
+<li>برای view لیست پست ها، یک آرگومان اختیاری بنام tag_slug با مقدار None مشخص میکنیم. / تا زمانیکه تگ ارسال شد بتوانیم با استفاده از آن، پست های مربوط به آن تگ را نمایش دهیم.</li>
+</ul>
+<p><code>app directory/views.py</code></p>
+<div class="code-box">
+        <div class="code-info">
+            <button class="copy-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" class="icon-sm"><path fill="currentColor" fill-rule="evenodd" d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z" clip-rule="evenodd"></path></svg>
+                <span>Copy code</span>
+            </button>
+            <span class="language">python</span>
+        </div>
+    <pre><span></span><span class="kn">from</span> <span class="nn">taggit.models</span> <span class="kn">import</span> <span class="n">Tag</span>
+
+
+<span class="k">def</span> <span class="nf">post_list</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="n">tag_slug</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="n">tag</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">posts</span> <span class="o">=</span> <span class="n">Post</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
+
+    <span class="k">if</span> <span class="n">tag_slug</span><span class="p">:</span>
+        <span class="n">tag</span> <span class="o">=</span> <span class="n">get_object_or_404</span><span class="p">(</span><span class="n">Tag</span><span class="p">,</span> <span class="n">slug</span><span class="o">=</span><span class="n">tag_slug</span><span class="p">)</span>
+        <span class="n">posts</span> <span class="o">=</span> <span class="n">Post</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">tags__in</span><span class="o">=</span><span class="p">[</span><span class="n">tag</span><span class="p">])</span>
+
+    <span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s1">&#39;social/post_list.html&#39;</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;posts&#39;</span><span class="p">:</span> <span class="n">posts</span><span class="p">,</span> <span class="s1">&#39;tag&#39;</span><span class="p">:</span> <span class="n">tag</span><span class="p">})</span>
+</pre></div>
+
+<p><strong>چون حالا در تمپلیت لیست پست ها؛ پست ها به دو صورت نمایش داده میشوند، تغییراتی در تمپلیت ایجاد میکنیم:</strong></p>
+<p><code>templates/social/post_list.html</code></p>
+<div class="code-box">
+        <div class="code-info">
+            <button class="copy-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" class="icon-sm"><path fill="currentColor" fill-rule="evenodd" d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z" clip-rule="evenodd"></path></svg>
+                <span>Copy code</span>
+            </button>
+            <span class="language">jinja</span>
+        </div>
+    <pre><span></span><span class="cp">{%</span> <span class="k">if</span> <span class="nv">tag</span> <span class="cp">%}</span>
+<span class="x">    &lt;h2&gt;posts tagged with </span><span class="cp">{{</span> <span class="nv">tag.name</span> <span class="cp">}}</span><span class="x">&lt;/h2&gt;</span>
+<span class="cp">{%</span> <span class="k">endif</span> <span class="cp">%}</span><span class="x"> </span>
+
+<span class="cp">{%</span> <span class="k">for</span> <span class="nv">post</span> <span class="k">in</span> <span class="nv">posts</span> <span class="cp">%}</span>
+<span class="x">    </span><span class="cp">{{</span> <span class="nv">post.description</span> <span class="o">|</span> <span class="nf">truncatewords</span><span class="o">:</span><span class="m">20</span> <span class="o">|</span> <span class="nf">linebreaks</span> <span class="cp">}}</span>
+<span class="x">    published at </span><span class="cp">{{</span> <span class="nv">post.created</span> <span class="cp">}}</span><span class="x"> by </span><span class="cp">{{</span> <span class="nv">post.author</span> <span class="cp">}}</span>
+<span class="x">    &lt;br&gt;</span>
+<span class="x">    </span>
+<span class="x">    </span><span class="cp">{%</span> <span class="k">for</span> <span class="nv">tag</span> <span class="k">in</span> <span class="nv">post.tags.all</span> <span class="cp">%}</span>
+<span class="x">        &lt;a href=&quot;</span><span class="cp">{%</span> <span class="k">url</span> <span class="s1">&#39;social:post_list_tags&#39;</span> <span class="nv">tag.slug</span> <span class="cp">%}</span><span class="x">&quot;&gt;</span><span class="cp">{{</span> <span class="nv">tag.name</span> <span class="cp">}}</span><span class="x">&lt;/a&gt;</span>
+<span class="x">        </span>
+<span class="x">        </span><span class="cp">{%</span> <span class="k">if</span> <span class="k">not</span> <span class="nb">forloop</span><span class="nv">.last</span> <span class="cp">%}</span><span class="x">, </span><span class="cp">{%</span> <span class="k">endif</span> <span class="cp">%}</span><span class="x"> </span>
+<span class="x">    </span><span class="cp">{%</span> <span class="k">endfor</span> <span class="cp">%}</span>
+<span class="cp">{%</span> <span class="k">endfor</span> <span class="cp">%}</span>
+</pre></div>
+
 <h3 id="dhkhyrh-tg-h-hngm-yjd-pst">ذخیره تگ ها هنگام ایجاد پست</h3>
+<p>میخواهیم فرمی برای ایجاد پست نوشته و برای پست تگ ها هم ذخیره کنیم.</p>
+<p><strong>ایجاد URL برای افزودن پست:</strong></p>
+<p><code>app directory/urls.py</code></p>
+<div class="code-box">
+        <div class="code-info">
+            <button class="copy-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" class="icon-sm"><path fill="currentColor" fill-rule="evenodd" d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z" clip-rule="evenodd"></path></svg>
+                <span>Copy code</span>
+            </button>
+            <span class="language">python</span>
+        </div>
+    <pre><span></span><span class="n">urlpatterns</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="n">path</span><span class="p">(</span><span class="s1">&#39;create-post/&#39;</span><span class="p">,</span> <span class="n">views</span><span class="o">.</span><span class="n">create_post</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;create_post&#39;</span><span class="p">),</span>
+<span class="p">]</span>
+</pre></div>
+
+<p><strong>ایجاد form برای افزودن پست:</strong></p>
+<p><code>app directory/forms.py</code></p>
+<div class="code-box">
+        <div class="code-info">
+            <button class="copy-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" class="icon-sm"><path fill="currentColor" fill-rule="evenodd" d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z" clip-rule="evenodd"></path></svg>
+                <span>Copy code</span>
+            </button>
+            <span class="language">python</span>
+        </div>
+    <pre><span></span><span class="k">class</span> <span class="nc">CreatePostForm</span><span class="p">(</span><span class="n">forms</span><span class="o">.</span><span class="n">ModelForm</span><span class="p">):</span>
+    <span class="k">class</span> <span class="nc">Meta</span><span class="p">:</span>
+        <span class="n">model</span> <span class="o">=</span> <span class="n">Post</span>
+        <span class="n">fields</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;description&#39;</span><span class="p">,</span> <span class="s1">&#39;tags&#39;</span><span class="p">)</span>
+</pre></div>
+
+<p><strong>ایجاد view برای افزودن پست:</strong></p>
+<p><code>app directory/views.py</code></p>
+<div class="code-box">
+        <div class="code-info">
+            <button class="copy-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" class="icon-sm"><path fill="currentColor" fill-rule="evenodd" d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z" clip-rule="evenodd"></path></svg>
+                <span>Copy code</span>
+            </button>
+            <span class="language">python</span>
+        </div>
+    <pre><span></span><span class="nd">@login_required</span>
+<span class="k">def</span> <span class="nf">create_post</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">request</span><span class="o">.</span><span class="n">method</span> <span class="o">==</span> <span class="s1">&#39;POST&#39;</span><span class="p">:</span>
+        <span class="n">form</span> <span class="o">=</span> <span class="n">CreatePostForm</span><span class="p">(</span><span class="n">request</span><span class="o">.</span><span class="n">POST</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">form</span><span class="o">.</span><span class="n">is_valid</span><span class="p">():</span>
+            <span class="n">post</span> <span class="o">=</span> <span class="n">form</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">commit</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+            <span class="n">post</span><span class="o">.</span><span class="n">author</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">user</span>
+            <span class="n">post</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
+
+            <span class="n">form</span><span class="o">.</span><span class="n">save_m2m</span><span class="p">()</span>
+            <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="s1">&#39;social:post_list&#39;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">form</span> <span class="o">=</span> <span class="n">CreatePostForm</span><span class="p">()</span>
+
+    <span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s1">&#39;forms/create_post.html&#39;</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;form&#39;</span><span class="p">:</span> <span class="n">form</span><span class="p">})</span>
+</pre></div>
+
+<p>همان طور که گفته شد رابطه بین Tag و Post از نوع Many To Many میباشد.</p>
+<p>زمانی که میخواهیم یک فیلد m2m را ذخیره کنیم، <strong>چنانچه از آرگومان "commit=False" برای متد <span class="en-text">save()</span>  استفاده کرده باشیم</strong>؛ پس از ذخیره اطلاعات در دیتابیس، <strong>باید</strong> از متد <span class="en-text">save_m2m()</span> برای آن فرم استفاده کنیم.</p>
 <h3 id="nmysh-mshbh-tryn-pst-h-b-khmkh-tg">نمایش مشابه ترین پست ها با کمک تگ</h3>
+<p>خب بریم برای این پروژه هم جزئیات پست را اضافه کنیم.</p>
+<p><strong>ایجاد URL برای post_detail:</strong></p>
+<p><code>app directory/urls.py</code></p>
+<div class="code-box">
+        <div class="code-info">
+            <button class="copy-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" class="icon-sm"><path fill="currentColor" fill-rule="evenodd" d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z" clip-rule="evenodd"></path></svg>
+                <span>Copy code</span>
+            </button>
+            <span class="language">python</span>
+        </div>
+    <pre><span></span><span class="n">urlpatterns</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="n">path</span><span class="p">(</span><span class="s1">&#39;posts/detail/&lt;int:post_id&gt;&#39;</span><span class="p">,</span> <span class="n">views</span><span class="o">.</span><span class="n">post_detail</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;post_detail&#39;</span><span class="p">),</span>
+<span class="p">]</span>
+</pre></div>
+
+<p><strong>ایجاد لینک برای پست ها در تمپلیت post_list:</strong></p>
+<p><code>templates/social/post_list.html</code></p>
+<div class="code-box">
+        <div class="code-info">
+            <button class="copy-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" class="icon-sm"><path fill="currentColor" fill-rule="evenodd" d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z" clip-rule="evenodd"></path></svg>
+                <span>Copy code</span>
+            </button>
+            <span class="language">jinja</span>
+        </div>
+    <pre><span></span><span class="cp">{%</span> <span class="k">if</span> <span class="nv">tag</span> <span class="cp">%}</span>
+<span class="x">    &lt;h2&gt;posts tagged with </span><span class="cp">{{</span> <span class="nv">tag.name</span> <span class="cp">}}</span><span class="x">&lt;/h2&gt;</span>
+<span class="cp">{%</span> <span class="k">endif</span> <span class="cp">%}</span><span class="x"> </span>
+
+<span class="cp">{%</span> <span class="k">for</span> <span class="nv">post</span> <span class="k">in</span> <span class="nv">posts</span> <span class="cp">%}</span>
+
+<span class="x">    &lt;!-- لینک انتقال به صفحه جزئیات پست --&gt;</span>
+<span class="x">    &lt;a href=&quot;</span><span class="cp">{%</span> <span class="k">url</span> <span class="s1">&#39;social:post_detail&#39;</span> <span class="nv">post.id</span> <span class="cp">%}</span><span class="x">&quot;&gt;</span>
+<span class="x">        </span><span class="cp">{{</span> <span class="nv">post.description</span> <span class="o">|</span> <span class="nf">truncatewords</span><span class="o">:</span><span class="m">20</span> <span class="o">|</span> <span class="nf">linebreaks</span> <span class="cp">}}</span>
+<span class="x">    &lt;/a&gt;</span>
+
+<span class="x">    published at </span><span class="cp">{{</span> <span class="nv">post.created</span> <span class="cp">}}</span><span class="x"> by </span><span class="cp">{{</span> <span class="nv">post.author</span> <span class="cp">}}</span>
+<span class="x">    &lt;br&gt;</span>
+<span class="x">    </span>
+<span class="x">    </span><span class="cp">{%</span> <span class="k">for</span> <span class="nv">tag</span> <span class="k">in</span> <span class="nv">post.tags.all</span> <span class="cp">%}</span>
+<span class="x">        &lt;a href=&quot;</span><span class="cp">{%</span> <span class="k">url</span> <span class="s1">&#39;social:post_list_tags&#39;</span> <span class="nv">tag.slug</span> <span class="cp">%}</span><span class="x">&quot;&gt;</span><span class="cp">{{</span> <span class="nv">tag.name</span> <span class="cp">}}</span><span class="x">&lt;/a&gt;</span>
+<span class="x">        </span>
+<span class="x">        </span><span class="cp">{%</span> <span class="k">if</span> <span class="k">not</span> <span class="nb">forloop</span><span class="nv">.last</span> <span class="cp">%}</span><span class="x">, </span><span class="cp">{%</span> <span class="k">endif</span> <span class="cp">%}</span><span class="x"> </span>
+<span class="x">    </span><span class="cp">{%</span> <span class="k">endfor</span> <span class="cp">%}</span>
+<span class="cp">{%</span> <span class="k">endfor</span> <span class="cp">%}</span>
+</pre></div>
+
+<p>میخواهیم در تمپلیت post_detail چند پست مشابه را نمایش دهیم؛ (پست هایی که تعداد تگ مشابه بیشتری دارند.)</p>
+<p><strong>ایجاد view برای post_detail:</strong></p>
+<p><code>app directory/views.py</code></p>
+<div class="code-box">
+        <div class="code-info">
+            <button class="copy-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" class="icon-sm"><path fill="currentColor" fill-rule="evenodd" d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z" clip-rule="evenodd"></path></svg>
+                <span>Copy code</span>
+            </button>
+            <span class="language">python</span>
+        </div>
+    <pre><span></span><span class="k">def</span> <span class="nf">post_detail</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="n">post_id</span><span class="p">):</span>
+    <span class="n">post</span> <span class="o">=</span> <span class="n">get_object_or_404</span><span class="p">(</span><span class="n">Post</span><span class="p">,</span> <span class="n">pk</span><span class="o">=</span><span class="n">pk</span><span class="p">)</span>
+
+    <span class="n">post_tags_ids</span> <span class="o">=</span> <span class="n">post</span><span class="o">.</span><span class="n">tags</span><span class="o">.</span><span class="n">values_list</span><span class="p">(</span><span class="s1">&#39;id&#39;</span><span class="p">,</span> <span class="n">flat</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+    <span class="n">similar_posts</span> <span class="o">=</span> <span class="n">Post</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">tags__in</span><span class="o">=</span><span class="n">post_tags_ids</span><span class="p">)</span>
+
+    <span class="n">similar_posts</span> <span class="o">=</span> <span class="n">similar_posts</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="n">same_tags</span><span class="o">=</span><span class="n">Count</span><span class="p">(</span><span class="s1">&#39;tags&#39;</span><span class="p">))</span><span class="o">.</span><span class="n">exclude</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="n">pk</span><span class="p">)</span><span class="o">.</span><span class="n">order_by</span><span class="p">(</span><span class="s1">&#39;-same_tags&#39;</span><span class="p">,</span> <span class="s1">&#39;-created&#39;</span><span class="p">)[:</span><span class="mi">3</span><span class="p">]</span>
+
+    <span class="n">context</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s1">&#39;post&#39;</span><span class="p">:</span> <span class="n">post</span><span class="p">,</span> 
+        <span class="s1">&#39;similar_posts&#39;</span><span class="p">:</span> <span class="n">similar_posts</span>
+        <span class="p">}</span>
+
+    <span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s1">&#39;social/post_detail.html&#39;</span><span class="p">,</span> <span class="n">context</span><span class="o">=</span><span class="n">context</span><span class="p">)</span>
+</pre></div>
+
+<p><strong>توضیحات:</strong></p>
+<p>1- با استفاده از id ارسال شده توسط url، آن پست را در صورت وجود، از دیتابیس دریافت میکنیم.</p>
+<p>2- id تگ های پست را به کمک متد <span class="en-text">values_list()</span> دریافت میکنیم. / اگه از flat استفاده نکنیم در خروجی هر id به صورت تاپل خواهد بود که استفاده ازش کمی سخت میشود.</p>
+<p>3- با استفاده از field lookups(فیلد لوکاپ) tags__in، تمام پست هایی که حداقل یک تگ مشابه، با تگ های پست فعلی دارند را دریافت کرده و در یک متغیر ذخیره میکنیم.</p>
+<p><strong>برخی از پست ها ممکن است چند تگ مشابه داشته باشند، در نتیجه برخی پست ها به صورت تکراری در این کوئری ست وجود خواهند داشت.</strong></p>
+<p>4- حالا روی کوئری ستی که در مرحله قبل بدست آوردیم، از <span class="en-text">annotate(same_tags=Count('tags'))</span> استفاده میکنیم تا تعداد تگ های مشترک برای هر پست را محاسبه کنیم، و این مقدار را به عنوان  same_tags به پست های کوئری ست اضافه میکنیم.</p>
+<blockquote>
+<p><span class="rtl-text">از متد <span class="en-text">exclude()</span> استفاده میکنیم تا پست فعلی را جز پست های مشابه انتخاب نکند.</span>    </p>
+<p><span class="rtl-text">تابع <span class="en-text">Count('tags')</span> در اینجا حساب میکند هر پست، چند بار در کوئری ست تکرار شده است؛ و چون هر پست به تعداد تگ های مشابهی که دارد تکرار میشود، در نتیجه عددی که نشان میدهد تعداد تگ های مشابه میباشد.</span></p>
+<ul>
+<li><span class="rtl-text">با استفاده از متد <span class="en-text">order_by()</span>، نتایج را براساس تعداد تگ های مشابه مرتب سازی میکنیم و چنانچه تعداد تگ مشابه یکسان بود، براساس تاریخ ایجاد مرتب میکنیم.</span></li>
+</ul>
+<p>حالا پست هایی که تعداد تگ مشابه بیشتری دارند به این پست شبیه تر خواهند بود.</p>
+</blockquote>
+<p><strong>نمایش پست های مشابه در تمپلیت post_detail:</strong></p>
+<p><code>templates/social/post_detail.html</code></p>
+<div class="code-box">
+        <div class="code-info">
+            <button class="copy-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" class="icon-sm"><path fill="currentColor" fill-rule="evenodd" d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z" clip-rule="evenodd"></path></svg>
+                <span>Copy code</span>
+            </button>
+            <span class="language">jinja</span>
+        </div>
+    <pre><span></span><span class="cp">{{</span> <span class="nv">post.description</span> <span class="o">|</span> <span class="nf">truncatewords</span><span class="o">:</span><span class="m">20</span> <span class="o">|</span> <span class="nf">linebreaks</span> <span class="cp">}}</span>
+
+<span class="x">published at </span><span class="cp">{{</span> <span class="nv">post.created</span> <span class="cp">}}</span><span class="x"> by </span><span class="cp">{{</span> <span class="nv">post.author</span> <span class="cp">}}</span>
+<span class="x">&lt;br&gt;</span>
+
+<span class="cp">{%</span> <span class="k">for</span> <span class="nv">tag</span> <span class="k">in</span> <span class="nv">post.tags.all</span> <span class="cp">%}</span>
+<span class="x">    &lt;a href=&quot;</span><span class="cp">{%</span> <span class="k">url</span> <span class="s1">&#39;social:post_list_tags&#39;</span> <span class="nv">tag.slug</span> <span class="cp">%}</span><span class="x">&quot;&gt;</span><span class="cp">{{</span> <span class="nv">tag.name</span> <span class="cp">}}</span><span class="x">&lt;/a&gt;</span>
+<span class="x">    </span>
+<span class="x">    </span><span class="cp">{%</span> <span class="k">if</span> <span class="k">not</span> <span class="nb">forloop</span><span class="nv">.last</span> <span class="cp">%}</span><span class="x">, </span><span class="cp">{%</span> <span class="k">endif</span> <span class="cp">%}</span><span class="x"> </span>
+<span class="cp">{%</span> <span class="k">endfor</span> <span class="cp">%}</span>
+
+<span class="x">&lt;h2&gt;Similar Posts&lt;/h2&gt;</span>
+
+<span class="cp">{%</span> <span class="k">for</span> <span class="nv">post</span> <span class="k">in</span> <span class="nv">similar_posts</span> <span class="cp">%}</span>
+<span class="x">    &lt;p&gt;</span>
+<span class="x">        &lt;a href=&quot;</span><span class="cp">{%</span> <span class="k">url</span> <span class="s1">&#39;social:post_detail&#39;</span> <span class="nv">post.id</span> <span class="cp">%}</span><span class="x">&quot;&gt;</span>
+<span class="x">            </span><span class="cp">{{</span> <span class="nv">post.description</span> <span class="o">|</span> <span class="nf">truncatewords</span><span class="o">:</span><span class="m">10</span> <span class="o">|</span> <span class="nf">linebreaks</span> <span class="cp">}}</span>
+<span class="x">        &lt;/a&gt;</span>
+<span class="x">    &lt;/p&gt;</span>
+<span class="cp">{%</span> <span class="k">empty</span> <span class="cp">%}</span>
+<span class="x">    There are no similar posts!</span>
+<span class="cp">{%</span> <span class="k">endfor</span> <span class="cp">%}</span>
+</pre></div>
+
 <h3 id="tmrynt-fsl-hshtm-mhm">تمرینات فصل هشتم (مهم)</h3>
+<h4>1- پیاده سازی قابلیت جستجو(براساس توضیحات و تگ های پست):</h4>
+<p>همانند پروژه قبلی، تمپلیت پایه(base.html) را برای این پروژه نیز ایجاد میکنیم.</p>
+<p><strong>باید برای جستجو یک فرم ایجاد کنیم و آنرا در تمپلیت base.html قرار دهیم تا در همه صفحات دیده شود.</strong></p>
+<p><strong>ایجاد فرم برای جستجو:</strong></p>
+<p><code>app directory/forms.py</code></p>
+<div class="code-box">
+        <div class="code-info">
+            <button class="copy-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" class="icon-sm"><path fill="currentColor" fill-rule="evenodd" d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z" clip-rule="evenodd"></path></svg>
+                <span>Copy code</span>
+            </button>
+            <span class="language">python</span>
+        </div>
+    <pre><span></span><span class="k">class</span> <span class="nc">SearchForm</span><span class="p">(</span><span class="n">forms</span><span class="o">.</span><span class="n">Form</span><span class="p">):</span>
+    <span class="n">query</span> <span class="o">=</span> <span class="n">forms</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">250</span><span class="p">)</span>
+</pre></div>
+
+<p><strong>ایجاد url برای جستجو:</strong></p>
+<p><code>app directory/urls.py</code></p>
+<div class="code-box">
+        <div class="code-info">
+            <button class="copy-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" class="icon-sm"><path fill="currentColor" fill-rule="evenodd" d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z" clip-rule="evenodd"></path></svg>
+                <span>Copy code</span>
+            </button>
+            <span class="language">python</span>
+        </div>
+    <pre><span></span><span class="n">urlpatterns</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="n">path</span><span class="p">(</span><span class="s1">&#39;search/&#39;</span><span class="p">,</span> <span class="n">views</span><span class="o">.</span><span class="n">post_search</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;post_search&#39;</span><span class="p">),</span>
+<span class="p">]</span>
+</pre></div>
+
+<p><strong>ایجاد view برای جستجو:</strong></p>
+<p><code>app directory/views.py</code></p>
+<div class="code-box">
+        <div class="code-info">
+            <button class="copy-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" class="icon-sm"><path fill="currentColor" fill-rule="evenodd" d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z" clip-rule="evenodd"></path></svg>
+                <span>Copy code</span>
+            </button>
+            <span class="language">python</span>
+        </div>
+    <pre><span></span><span class="k">def</span> <span class="nf">post_search</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+    <span class="n">query</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">results</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="k">if</span> <span class="s1">&#39;query&#39;</span> <span class="ow">in</span> <span class="n">request</span><span class="o">.</span><span class="n">GET</span><span class="p">:</span>
+        <span class="n">form</span> <span class="o">=</span> <span class="n">SearchForm</span><span class="p">(</span><span class="n">request</span><span class="o">.</span><span class="n">GET</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">form</span><span class="o">.</span><span class="n">is_valid</span><span class="p">():</span>
+            <span class="n">query</span> <span class="o">=</span> <span class="n">form</span><span class="o">.</span><span class="n">cleaned_data</span><span class="p">[</span><span class="s1">&#39;query&#39;</span><span class="p">]</span>
+
+            <span class="n">results</span> <span class="o">=</span> <span class="n">Post</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span>
+                <span class="n">similarity</span><span class="o">=</span><span class="n">TrigramSimilarity</span><span class="p">(</span><span class="s1">&#39;tags&#39;</span><span class="p">,</span> <span class="n">query</span><span class="p">)</span> <span class="o">+</span> 
+                           <span class="n">TrigramSimilarity</span><span class="p">(</span><span class="s1">&#39;description&#39;</span><span class="p">,</span> <span class="n">query</span><span class="p">))</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">similarity__gt</span><span class="o">=</span><span class="mf">0.18</span><span class="p">)</span><span class="o">.</span><span class="n">order_by</span><span class="p">(</span><span class="s1">&#39;-similarity&#39;</span><span class="p">)</span>
+
+    <span class="n">context</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s2">&quot;query&quot;</span><span class="p">:</span> <span class="n">query</span><span class="p">,</span>
+        <span class="s2">&quot;results&quot;</span><span class="p">:</span> <span class="n">results</span><span class="p">,</span>
+    <span class="p">}</span>
+
+    <span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s1">&#39;blog/search_result.html&#39;</span><span class="p">,</span> <span class="n">context</span><span class="o">=</span><span class="n">context</span><span class="p">)</span>
+</pre></div>
+
+<p>برای استفاده از قابلیت های postgres لازمه توی settings.py و بخش INSTALLED_APPS آنرا معرفی کنیم.</p>
+<p><code>project directory/settings.py</code></p>
+<div class="code-box">
+        <div class="code-info">
+            <button class="copy-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" class="icon-sm"><path fill="currentColor" fill-rule="evenodd" d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z" clip-rule="evenodd"></path></svg>
+                <span>Copy code</span>
+            </button>
+            <span class="language">python</span>
+        </div>
+    <pre><span></span><span class="n">INSTALLED_APPS</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="c1"># ...</span>
+    <span class="s1">&#39;django.contrib.postgres&#39;</span><span class="p">,</span>
+<span class="p">]</span>
+</pre></div>
+
+<h4>2- پیاده سازی قابلیت کامنت گذاشتن برای پست ها:</h4>
+<p>برای قابلیت کامنت گذاری لازم است، model, url, view, form ایجاد کنیم:</p>
+<p><strong>ایجاد مدل برای کامنت گذاشتن:</strong></p>
+<p><code>app directory/models.py</code></p>
+<div class="code-box">
+        <div class="code-info">
+            <button class="copy-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" class="icon-sm"><path fill="currentColor" fill-rule="evenodd" d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z" clip-rule="evenodd"></path></svg>
+                <span>Copy code</span>
+            </button>
+            <span class="language">python</span>
+        </div>
+    <pre><span></span><span class="k">class</span> <span class="nc">Comment</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">post</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">ForeignKey</span><span class="p">(</span><span class="n">Post</span><span class="p">,</span> <span class="n">on_delete</span><span class="o">=</span><span class="n">models</span><span class="o">.</span><span class="n">CASCADE</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;comments&#39;</span><span class="p">)</span>
+
+    <span class="n">name</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">250</span><span class="p">)</span>
+    <span class="n">content</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">TextField</span><span class="p">()</span>
+    <span class="c1"># date</span>
+    <span class="n">created</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">DateTimeField</span><span class="p">(</span><span class="n">auto_now_add</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+    <span class="c1"># status for show in template</span>
+    <span class="n">active</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">BooleanField</span><span class="p">(</span><span class="n">default</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+    <span class="k">class</span> <span class="nc">Meta</span><span class="p">:</span>
+        <span class="n">ordering</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;-created&#39;</span><span class="p">]</span>
+        <span class="n">indexes</span> <span class="o">=</span> <span class="p">[</span><span class="n">models</span><span class="o">.</span><span class="n">Index</span><span class="p">(</span><span class="n">fields</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;-created&#39;</span><span class="p">])]</span>
+
+    <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s1">&#39;Written by: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="se">\n</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">post</span><span class="si">}</span><span class="s1"> Post&#39;</span>
+</pre></div>
+
+<p><strong>ایجاد فرم برای کامنت:</strong></p>
+<p><code>app directory/forms.py</code></p>
+<div class="code-box">
+        <div class="code-info">
+            <button class="copy-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" class="icon-sm"><path fill="currentColor" fill-rule="evenodd" d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z" clip-rule="evenodd"></path></svg>
+                <span>Copy code</span>
+            </button>
+            <span class="language">python</span>
+        </div>
+    <pre><span></span><span class="k">class</span> <span class="nc">CommentForm</span><span class="p">(</span><span class="n">forms</span><span class="o">.</span><span class="n">ModelForm</span><span class="p">):</span>
+    <span class="k">class</span> <span class="nc">Meta</span><span class="p">:</span>
+        <span class="n">model</span> <span class="o">=</span> <span class="n">Comment</span>
+        <span class="n">fields</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="s1">&#39;content&#39;</span><span class="p">]</span>
+</pre></div>
+
+<p><strong>ایجاد URL برای کامنت:</strong></p>
+<p><code>app directory/urls.py</code></p>
+<div class="code-box">
+        <div class="code-info">
+            <button class="copy-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" class="icon-sm"><path fill="currentColor" fill-rule="evenodd" d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z" clip-rule="evenodd"></path></svg>
+                <span>Copy code</span>
+            </button>
+            <span class="language">python</span>
+        </div>
+    <pre><span></span><span class="n">urlpatterns</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="n">path</span><span class="p">(</span><span class="s1">&#39;post-detail/&lt;int:post_id&gt;/comment/&#39;</span><span class="p">,</span> <span class="n">views</span><span class="o">.</span><span class="n">post_comment</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;post_comment&#39;</span><span class="p">),</span>
+<span class="p">]</span>
+</pre></div>
+
+<p><strong>ایجاد view برای کامنت:</strong></p>
+<p><code>app directory/views.py</code></p>
+<div class="code-box">
+        <div class="code-info">
+            <button class="copy-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" class="icon-sm"><path fill="currentColor" fill-rule="evenodd" d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z" clip-rule="evenodd"></path></svg>
+                <span>Copy code</span>
+            </button>
+            <span class="language">python</span>
+        </div>
+    <pre><span></span><span class="k">def</span> <span class="nf">post_comment</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="n">post_id</span><span class="p">):</span>
+    <span class="n">post</span> <span class="o">=</span> <span class="n">get_object_or_404</span><span class="p">(</span><span class="n">Post</span><span class="p">,</span> <span class="nb">id</span><span class="o">=</span><span class="n">post_id</span><span class="p">)</span>
+    <span class="n">comment</span> <span class="o">=</span> <span class="kc">None</span>
+
+    <span class="k">if</span> <span class="n">request</span><span class="o">.</span><span class="n">method</span> <span class="o">==</span> <span class="s1">&#39;POST&#39;</span><span class="p">:</span>
+        <span class="n">form</span> <span class="o">=</span> <span class="n">CommentForm</span><span class="p">(</span><span class="n">request</span><span class="o">.</span><span class="n">POST</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">form</span><span class="o">.</span><span class="n">is_valid</span><span class="p">():</span>
+            <span class="n">comment</span> <span class="o">=</span> <span class="n">form</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">commit</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+            <span class="n">comment</span><span class="o">.</span><span class="n">post</span> <span class="o">=</span> <span class="n">post</span>
+            <span class="n">comment</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">form</span> <span class="o">=</span> <span class="n">CommentForm</span><span class="p">()</span>
+
+    <span class="n">context</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s1">&#39;comment&#39;</span><span class="p">:</span> <span class="n">comment</span><span class="p">,</span>
+        <span class="s1">&#39;post&#39;</span><span class="p">:</span> <span class="n">post</span><span class="p">,</span>
+        <span class="s1">&#39;form&#39;</span><span class="p">:</span> <span class="n">form</span>
+    <span class="p">}</span>
+
+    <span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s2">&quot;forms/comment.html&quot;</span><span class="p">,</span> <span class="n">context</span><span class="o">=</span><span class="n">context</span><span class="p">)</span>
+</pre></div>
+
+<h4>3- صفحه بندی برای پست ها</h4>
+<p><strong>ایجاد ساختار تمپلیت صفحه بندی:</strong></p>
+<p><code>templates/partials/pagination.html</code></p>
+<div class="code-box">
+        <div class="code-info">
+            <button class="copy-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" class="icon-sm"><path fill="currentColor" fill-rule="evenodd" d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z" clip-rule="evenodd"></path></svg>
+                <span>Copy code</span>
+            </button>
+            <span class="language">jinja</span>
+        </div>
+    <pre><span></span><span class="cp">{%</span> <span class="k">load</span> <span class="nv">static</span> <span class="cp">%}</span>
+<span class="x">&lt;link rel=&quot;stylesheet&quot; href=&quot;</span><span class="cp">{%</span> <span class="k">static</span> <span class="s1">&#39;css/pagination.css&#39;</span> <span class="cp">%}</span><span class="x">&quot;&gt;</span>
+
+<span class="x">&lt;nav class=&quot;my-5&quot; aria-label=&quot;navigation&quot;&gt;</span>
+<span class="x">    &lt;ul class=&quot;pagination d-inline-block d-md-flex justify-content-center&quot;&gt;</span>
+
+<span class="x">        </span><span class="cp">{%</span> <span class="k">if</span> <span class="nv">page.has_previous</span> <span class="cp">%}</span>
+<span class="x">            &lt;li class=&quot;page-item&quot;&gt;</span>
+<span class="x">                &lt;a class=&quot;page-link1&quot; href=&quot;?page=</span><span class="cp">{{</span> <span class="nv">page.previous_page_number</span> <span class="cp">}}</span><span class="x">&quot; tabindex=&quot;-1&quot; aria-disabled=&quot;true&quot;&gt;«&lt;/a&gt;</span>
+<span class="x">            &lt;/li&gt;</span>
+
+<span class="x">            </span><span class="cp">{%</span> <span class="k">if</span> <span class="nv">page.number</span> <span class="o">&gt;</span> <span class="m">3</span> <span class="cp">%}</span>
+<span class="x">                &lt;li class=&quot;page-item&quot;&gt;&lt;a class=&quot;page-link&quot; href=&quot;?page=1&quot;&gt;1&lt;/a&gt;&lt;/li&gt;</span>
+<span class="x">                </span><span class="cp">{%</span> <span class="k">if</span> <span class="nv">page.number</span> <span class="o">&gt;</span> <span class="m">4</span> <span class="cp">%}</span>
+<span class="x">                    &lt;li class=&quot;page-item disabled&quot;&gt;&lt;a class=&quot;page-link&quot; href=&quot;#&quot;&gt;...&lt;/a&gt;&lt;/li&gt;</span>
+<span class="x">                </span><span class="cp">{%</span> <span class="k">endif</span> <span class="cp">%}</span>
+<span class="x">            </span><span class="cp">{%</span> <span class="k">endif</span> <span class="cp">%}</span>
+
+<span class="x">        </span><span class="cp">{%</span> <span class="k">endif</span> <span class="cp">%}</span>
+
+<span class="x">        </span><span class="cp">{%</span> <span class="k">for</span> <span class="nv">num</span> <span class="k">in</span> <span class="nv">page.paginator.page_range</span> <span class="cp">%}</span>
+<span class="x">            </span><span class="cp">{%</span> <span class="k">if</span> <span class="nv">page.number</span> <span class="o">==</span> <span class="nv">num</span> <span class="cp">%}</span>
+<span class="x">                &lt;li class=&quot;page-item&quot;&gt;&lt;a class=&quot;page-link active&quot; href=&quot;?page=</span><span class="cp">{{</span> <span class="nv">num</span> <span class="cp">}}</span><span class="x">&quot;&gt;</span><span class="cp">{{</span> <span class="nv">num</span> <span class="cp">}}</span><span class="x">&lt;/a&gt;&lt;/li&gt;</span>
+<span class="x">            </span><span class="cp">{%</span> <span class="k">elif</span> <span class="nv">num</span> <span class="o">&gt;</span> <span class="nv">page.number</span><span class="o">|</span><span class="nf">add</span><span class="s1">:&#39;-3&#39;</span> <span class="k">and</span> <span class="nv">num</span> <span class="o">&lt;</span> <span class="nv">page.number</span><span class="o">|</span><span class="nf">add</span><span class="s1">:&#39;3&#39;</span> <span class="cp">%}</span>
+<span class="x">                &lt;li class=&quot;page-item&quot;&gt;&lt;a class=&quot;page-link&quot; href=&quot;?page=</span><span class="cp">{{</span> <span class="nv">num</span> <span class="cp">}}</span><span class="x">&quot;&gt;</span><span class="cp">{{</span> <span class="nv">num</span> <span class="cp">}}</span><span class="x">&lt;/a&gt;&lt;/li&gt;</span>
+<span class="x">            </span><span class="cp">{%</span> <span class="k">endif</span> <span class="cp">%}</span>
+<span class="x">        </span><span class="cp">{%</span> <span class="k">endfor</span> <span class="cp">%}</span>
+
+<span class="x">        </span><span class="cp">{%</span> <span class="k">if</span> <span class="nv">page.has_next</span> <span class="cp">%}</span>
+<span class="x">            </span><span class="cp">{%</span> <span class="k">if</span> <span class="nv">page.number</span> <span class="o">&lt;</span> <span class="nv">page.paginator.num_pages</span><span class="o">|</span><span class="nf">add</span><span class="s1">:&#39;-3&#39;</span> <span class="cp">%}</span>
+<span class="x">                &lt;li class=&quot;page-item disabled&quot;&gt;&lt;a class=&quot;page-link&quot; href=&quot;#&quot;&gt;...&lt;/a&gt;&lt;/li&gt;</span>
+<span class="x">                &lt;li class=&quot;page-item&quot;&gt;&lt;a class=&quot;page-link&quot; href=&quot;?page=</span><span class="cp">{{</span> <span class="nv">page.paginator.num_pages</span> <span class="cp">}}</span><span class="x">&quot;&gt;</span><span class="cp">{{</span> <span class="nv">page.paginator.num_pages</span> <span class="cp">}}</span><span class="x">&lt;/a&gt;&lt;/li&gt;</span>
+<span class="x">            </span><span class="cp">{%</span> <span class="k">elif</span> <span class="nv">page.number</span> <span class="o">&lt;</span> <span class="nv">page.paginator.num_pages</span><span class="o">|</span><span class="nf">add</span><span class="s1">:&#39;-2&#39;</span> <span class="cp">%}</span>
+<span class="x">                &lt;li class=&quot;page-item&quot;&gt;&lt;a class=&quot;page-link&quot; href=&quot;?page=</span><span class="cp">{{</span> <span class="nv">page.paginator.num_pages</span> <span class="cp">}}</span><span class="x">&quot;&gt;</span><span class="cp">{{</span> <span class="nv">page.paginator.num_pages</span> <span class="cp">}}</span><span class="x">&lt;/a&gt;&lt;/li&gt;</span>
+
+<span class="x">            </span><span class="cp">{%</span> <span class="k">endif</span> <span class="cp">%}</span>
+<span class="x">            &lt;li class=&quot;page-item&quot;&gt;</span>
+<span class="x">                &lt;a class=&quot;page-link1&quot; href=&quot;?page=</span><span class="cp">{{</span> <span class="nv">page.next_page_number</span> <span class="cp">}}</span><span class="x">&quot;&gt;»&lt;/a&gt;</span>
+<span class="x">            &lt;/li&gt;</span>
+<span class="x">        </span><span class="cp">{%</span> <span class="k">endif</span> <span class="cp">%}</span>
+
+<span class="x">    &lt;/ul&gt;</span>
+<span class="x">&lt;/nav&gt;</span>
+</pre></div>
+
+<p><strong>افزودن ساختار pagination به تمپلیت post_list:</strong></p>
+<p><code>templates/social/post_list.html</code></p>
+<div class="code-box">
+        <div class="code-info">
+            <button class="copy-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" class="icon-sm"><path fill="currentColor" fill-rule="evenodd" d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z" clip-rule="evenodd"></path></svg>
+                <span>Copy code</span>
+            </button>
+            <span class="language">jinja</span>
+        </div>
+    <pre><span></span><span class="cp">{%</span> <span class="k">if</span> <span class="nv">tag</span> <span class="cp">%}</span>
+<span class="x">    &lt;h2&gt;posts tagged with </span><span class="cp">{{</span> <span class="nv">tag.name</span> <span class="cp">}}</span><span class="x">&lt;/h2&gt;</span>
+<span class="cp">{%</span> <span class="k">endif</span> <span class="cp">%}</span><span class="x"> </span>
+
+<span class="cp">{%</span> <span class="k">for</span> <span class="nv">post</span> <span class="k">in</span> <span class="nv">posts</span> <span class="cp">%}</span>
+
+<span class="x">    &lt;!-- لینک انتقال به صفحه جزئیات پست --&gt;</span>
+<span class="x">    &lt;a href=&quot;</span><span class="cp">{%</span> <span class="k">url</span> <span class="s1">&#39;social:post_detail&#39;</span> <span class="nv">post.id</span> <span class="cp">%}</span><span class="x">&quot;&gt;</span>
+<span class="x">        </span><span class="cp">{{</span> <span class="nv">post.description</span> <span class="o">|</span> <span class="nf">truncatewords</span><span class="o">:</span><span class="m">20</span> <span class="o">|</span> <span class="nf">linebreaks</span> <span class="cp">}}</span>
+<span class="x">    &lt;/a&gt;</span>
+
+<span class="x">    published at </span><span class="cp">{{</span> <span class="nv">post.created</span> <span class="cp">}}</span><span class="x"> by </span><span class="cp">{{</span> <span class="nv">post.author</span> <span class="cp">}}</span>
+<span class="x">    &lt;br&gt;</span>
+<span class="x">    </span>
+<span class="x">    </span><span class="cp">{%</span> <span class="k">for</span> <span class="nv">tag</span> <span class="k">in</span> <span class="nv">post.tags.all</span> <span class="cp">%}</span>
+<span class="x">        &lt;a href=&quot;</span><span class="cp">{%</span> <span class="k">url</span> <span class="s1">&#39;social:post_list_tags&#39;</span> <span class="nv">tag.slug</span> <span class="cp">%}</span><span class="x">&quot;&gt;</span><span class="cp">{{</span> <span class="nv">tag.name</span> <span class="cp">}}</span><span class="x">&lt;/a&gt;</span>
+<span class="x">        </span>
+<span class="x">        </span><span class="cp">{%</span> <span class="k">if</span> <span class="k">not</span> <span class="nb">forloop</span><span class="nv">.last</span> <span class="cp">%}</span><span class="x">, </span><span class="cp">{%</span> <span class="k">endif</span> <span class="cp">%}</span><span class="x"> </span>
+<span class="x">    </span><span class="cp">{%</span> <span class="k">endfor</span> <span class="cp">%}</span>
+<span class="cp">{%</span> <span class="k">endfor</span> <span class="cp">%}</span>
+
+<span class="x">&lt;!-- ساختار صفحه بندی --&gt;</span>
+<span class="cp">{%</span> <span class="k">include</span> <span class="s1">&#39;partials/pagination.html&#39;</span> <span class="k">with</span> <span class="nv">page</span><span class="o">=</span><span class="nv">posts</span> <span class="cp">%}</span>
+</pre></div>
+
+<p><strong>تغییر view برای لیست پست ها:</strong></p>
+<p><code>app directory/views.py</code></p>
+<div class="code-box">
+        <div class="code-info">
+            <button class="copy-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" class="icon-sm"><path fill="currentColor" fill-rule="evenodd" d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z" clip-rule="evenodd"></path></svg>
+                <span>Copy code</span>
+            </button>
+            <span class="language">python</span>
+        </div>
+    <pre><span></span><span class="kn">from</span> <span class="nn">taggit.models</span> <span class="kn">import</span> <span class="n">Tag</span>
+<span class="kn">from</span> <span class="nn">django.core.paginator</span> <span class="kn">import</span> <span class="n">Paginator</span><span class="p">,</span> <span class="n">EmptyPage</span><span class="p">,</span> <span class="n">PageNotAnInteger</span>
+
+
+<span class="k">def</span> <span class="nf">post_list</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="n">tag_slug</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="n">tag</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">posts</span> <span class="o">=</span> <span class="n">Post</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
+
+    <span class="k">if</span> <span class="n">tag_slug</span><span class="p">:</span>
+        <span class="n">tag</span> <span class="o">=</span> <span class="n">get_object_or_404</span><span class="p">(</span><span class="n">Tag</span><span class="p">,</span> <span class="n">slug</span><span class="o">=</span><span class="n">tag_slug</span><span class="p">)</span>
+        <span class="n">posts</span> <span class="o">=</span> <span class="n">Post</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">tags__in</span><span class="o">=</span><span class="p">[</span><span class="n">tag</span><span class="p">])</span>
+
+    <span class="c1"># صفحه بندی برای پست ها</span>
+    <span class="n">paginator</span> <span class="o">=</span> <span class="n">Paginator</span><span class="p">(</span><span class="n">posts</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+    <span class="n">page_number</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">GET</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;page&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">posts</span> <span class="o">=</span> <span class="n">paginator</span><span class="o">.</span><span class="n">page</span><span class="p">(</span><span class="n">page_number</span><span class="p">)</span>
+    <span class="k">except</span> <span class="n">EmptyPage</span><span class="p">:</span>
+        <span class="n">posts</span> <span class="o">=</span> <span class="n">paginator</span><span class="o">.</span><span class="n">page</span><span class="p">(</span><span class="n">paginator</span><span class="o">.</span><span class="n">num_pages</span><span class="p">)</span>
+    <span class="k">except</span> <span class="n">PageNotAnInteger</span><span class="p">:</span>
+        <span class="n">posts</span> <span class="o">=</span> <span class="n">paginator</span><span class="o">.</span><span class="n">page</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s1">&#39;social/post_list.html&#39;</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;posts&#39;</span><span class="p">:</span> <span class="n">posts</span><span class="p">,</span> <span class="s1">&#39;tag&#39;</span><span class="p">:</span> <span class="n">tag</span><span class="p">})</span>
+</pre></div>
+
+<blockquote>
+<p>همان طور که قبلا هم گفته شد؛ متغیر posts که در try, except ایجاد شده یک آبجکت از صفحه میباشد که اطلاعات صفحه و پست ها را در خود دارد.</p>
+</blockquote>
+<h4>4- پیاده سازی قابلیت ویرایش و حذف برای پست ها:</h4>
+<p><strong>ویرایش اطلاعات پست:</strong></p>
+<p>برای ویرایش پست از فرم و تمپلیت ایجاد پست استفاده میکنیم.</p>
+<p><strong>ایجاد URL برای ویرایش پست:</strong></p>
+<p><code>app directory/urls.py</code></p>
+<div class="code-box">
+        <div class="code-info">
+            <button class="copy-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" class="icon-sm"><path fill="currentColor" fill-rule="evenodd" d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z" clip-rule="evenodd"></path></svg>
+                <span>Copy code</span>
+            </button>
+            <span class="language">python</span>
+        </div>
+    <pre><span></span><span class="n">urlpatterns</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="n">path</span><span class="p">(</span><span class="s1">&#39;profile/edit-post/&lt;post_id&gt;&#39;</span><span class="p">,</span> <span class="n">views</span><span class="o">.</span><span class="n">edit_post</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;edit_post&#39;</span><span class="p">),</span>
+<span class="p">]</span>
+</pre></div>
+
+<p><strong>ایجاد view برای ویرایش پست:</strong></p>
+<p><code>app directory/views.py</code></p>
+<div class="code-box">
+        <div class="code-info">
+            <button class="copy-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" class="icon-sm"><path fill="currentColor" fill-rule="evenodd" d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z" clip-rule="evenodd"></path></svg>
+                <span>Copy code</span>
+            </button>
+            <span class="language">python</span>
+        </div>
+    <pre><span></span><span class="kn">from</span> <span class="nn">django.contrib.auth.decorators</span> <span class="kn">import</span> <span class="n">login_required</span>
+
+<span class="nd">@login_required</span>
+<span class="k">def</span> <span class="nf">edit_post</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="n">post_id</span><span class="p">):</span>
+    <span class="n">post</span> <span class="o">=</span> <span class="n">get_object_or_404</span><span class="p">(</span><span class="n">Post</span><span class="p">,</span> <span class="n">pk</span><span class="o">=</span><span class="n">post_id</span><span class="p">,</span> <span class="n">author</span><span class="o">=</span><span class="n">request</span><span class="o">.</span><span class="n">user</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">request</span><span class="o">.</span><span class="n">method</span> <span class="o">==</span> <span class="s1">&#39;POST&#39;</span><span class="p">:</span>
+        <span class="n">form</span> <span class="o">=</span> <span class="n">CreatePostForm</span><span class="p">(</span><span class="n">request</span><span class="o">.</span><span class="n">POST</span><span class="p">,</span> <span class="n">instance</span><span class="o">=</span><span class="n">post</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">form</span><span class="o">.</span><span class="n">is_valid</span><span class="p">():</span>
+            <span class="n">post</span> <span class="o">=</span> <span class="n">form</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">commit</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+            <span class="n">post</span><span class="o">.</span><span class="n">author</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">user</span>
+            <span class="n">post</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
+
+            <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="s1">&#39;social:index&#39;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">form</span> <span class="o">=</span> <span class="n">CreatePostForm</span><span class="p">(</span><span class="n">instance</span><span class="o">=</span><span class="n">post</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s1">&#39;forms/create_post.html&#39;</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;post&#39;</span><span class="p">:</span> <span class="n">post</span><span class="p">,</span> <span class="s1">&#39;form&#39;</span><span class="p">:</span> <span class="n">form</span><span class="p">})</span>
+</pre></div>
+
+<blockquote>
+<p>برای پستی که دریافت میکنیم، مشخص میکنیم که نویسنده(author) آن، کاربر فعلی باشد؛ چون هر کاربر فقط میتواند پست های خود را ویرایش کند نه پست های دیگری را.</p>
+</blockquote>
+<p><strong>حذف پست:</strong></p>
+<p>ایجاد url برای حذف پست ها:</p>
+<p><code>app directory/urls.py</code></p>
+<div class="code-box">
+        <div class="code-info">
+            <button class="copy-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" class="icon-sm"><path fill="currentColor" fill-rule="evenodd" d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z" clip-rule="evenodd"></path></svg>
+                <span>Copy code</span>
+            </button>
+            <span class="language">python</span>
+        </div>
+    <pre><span></span><span class="n">urlpatterns</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="n">path</span><span class="p">(</span><span class="s1">&#39;profile/delete-post/&lt;post_id&gt;&#39;</span><span class="p">,</span> <span class="n">views</span><span class="o">.</span><span class="n">delete_post</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;delete_post&#39;</span><span class="p">),</span>
+<span class="p">]</span>
+</pre></div>
+
+<p>برای هر پست یک دکمه حذف ایجاد میکنیم:</p>
+<p><code>templates/social/post_list.html</code></p>
+<div class="code-box">
+        <div class="code-info">
+            <button class="copy-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" class="icon-sm"><path fill="currentColor" fill-rule="evenodd" d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z" clip-rule="evenodd"></path></svg>
+                <span>Copy code</span>
+            </button>
+            <span class="language">jinja</span>
+        </div>
+    <pre><span></span><span class="cp">{%</span> <span class="k">if</span> <span class="nv">tag</span> <span class="cp">%}</span>
+<span class="x">    &lt;h2&gt;posts tagged with </span><span class="cp">{{</span> <span class="nv">tag.name</span> <span class="cp">}}</span><span class="x">&lt;/h2&gt;</span>
+<span class="cp">{%</span> <span class="k">endif</span> <span class="cp">%}</span><span class="x"> </span>
+
+<span class="cp">{%</span> <span class="k">for</span> <span class="nv">post</span> <span class="k">in</span> <span class="nv">posts</span> <span class="cp">%}</span>
+
+<span class="x">    &lt;!-- لینک انتقال به صفحه جزئیات پست --&gt;</span>
+<span class="x">    &lt;a href=&quot;</span><span class="cp">{%</span> <span class="k">url</span> <span class="s1">&#39;social:post_detail&#39;</span> <span class="nv">post.id</span> <span class="cp">%}</span><span class="x">&quot;&gt;</span>
+<span class="x">        </span><span class="cp">{{</span> <span class="nv">post.description</span> <span class="o">|</span> <span class="nf">truncatewords</span><span class="o">:</span><span class="m">20</span> <span class="o">|</span> <span class="nf">linebreaks</span> <span class="cp">}}</span>
+<span class="x">    &lt;/a&gt;</span>
+
+<span class="x">    published at </span><span class="cp">{{</span> <span class="nv">post.created</span> <span class="cp">}}</span><span class="x"> by </span><span class="cp">{{</span> <span class="nv">post.author</span> <span class="cp">}}</span>
+<span class="x">    &lt;br&gt;</span>
+<span class="x">    </span>
+<span class="x">    </span><span class="cp">{%</span> <span class="k">for</span> <span class="nv">tag</span> <span class="k">in</span> <span class="nv">post.tags.all</span> <span class="cp">%}</span>
+<span class="x">        &lt;a href=&quot;</span><span class="cp">{%</span> <span class="k">url</span> <span class="s1">&#39;social:post_list_tags&#39;</span> <span class="nv">tag.slug</span> <span class="cp">%}</span><span class="x">&quot;&gt;</span><span class="cp">{{</span> <span class="nv">tag.name</span> <span class="cp">}}</span><span class="x">&lt;/a&gt;</span>
+<span class="x">        </span>
+<span class="x">        </span><span class="cp">{%</span> <span class="k">if</span> <span class="k">not</span> <span class="nb">forloop</span><span class="nv">.last</span> <span class="cp">%}</span><span class="x">, </span><span class="cp">{%</span> <span class="k">endif</span> <span class="cp">%}</span><span class="x"> </span>
+<span class="x">    </span><span class="cp">{%</span> <span class="k">endfor</span> <span class="cp">%}</span>
+
+<span class="x">    &lt;a href=&quot;</span><span class="cp">{%</span> <span class="k">url</span> <span class="s1">&#39;social:delete_post&#39;</span> <span class="nv">post.id</span> <span class="cp">%}</span><span class="x">&quot;&gt;delete post&lt;/a&gt;</span>
+<span class="cp">{%</span> <span class="k">endfor</span> <span class="cp">%}</span>
+
+<span class="x">&lt;!-- ساختار صفحه بندی --&gt;</span>
+<span class="cp">{%</span> <span class="k">include</span> <span class="s1">&#39;partials/pagination.html&#39;</span> <span class="k">with</span> <span class="nv">page</span><span class="o">=</span><span class="nv">posts</span> <span class="cp">%}</span>
+</pre></div>
+
+<p><strong>ایجاد view برای حذف پست ها:</strong></p>
+<p><code>app directory/views.py</code></p>
+<div class="code-box">
+        <div class="code-info">
+            <button class="copy-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" class="icon-sm"><path fill="currentColor" fill-rule="evenodd" d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z" clip-rule="evenodd"></path></svg>
+                <span>Copy code</span>
+            </button>
+            <span class="language">python</span>
+        </div>
+    <pre><span></span><span class="k">def</span> <span class="nf">delete_post</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="n">post_id</span><span class="p">):</span>
+    <span class="n">post</span> <span class="o">=</span> <span class="n">get_object_or_404</span><span class="p">(</span><span class="n">Post</span><span class="p">,</span> <span class="n">pk</span><span class="o">=</span><span class="n">post_id</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">request</span><span class="o">.</span><span class="n">method</span> <span class="o">==</span> <span class="s1">&#39;POST&#39;</span><span class="p">:</span>
+        <span class="n">post</span><span class="o">.</span><span class="n">delete</span><span class="p">()</span>
+
+        <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="s1">&#39;social:post_list&#39;</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s1">&#39;forms/delete-post.html&#39;</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;post&#39;</span><span class="p">:</span> <span class="n">post</span><span class="p">})</span>
+</pre></div>
+
+<p><strong>ایجاد template برای حذف پست ها:</strong></p>
+<p><code>templates/forms/delete_post.html</code></p>
+<div class="code-box">
+        <div class="code-info">
+            <button class="copy-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" class="icon-sm"><path fill="currentColor" fill-rule="evenodd" d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z" clip-rule="evenodd"></path></svg>
+                <span>Copy code</span>
+            </button>
+            <span class="language">jinja</span>
+        </div>
+    <pre><span></span><span class="x">&lt;h2&gt;آیا از حذف پست مطمئن هستید؟!&lt;/h2&gt;</span>
+<span class="x">&lt;br&gt;</span>
+
+<span class="x">&lt;a href=&quot;</span><span class="cp">{%</span> <span class="k">url</span> <span class="s1">&#39;social:post_list&#39;</span> <span class="cp">%}</span><span class="x">&quot;&gt;بازگشت به صفحه لیست پست ها&lt;/a&gt;</span>
+
+<span class="x">&lt;form method=&quot;post&quot;&gt;</span>
+<span class="x">    </span><span class="cp">{%</span> <span class="k">csrf_token</span> <span class="cp">%}</span>
+
+<span class="x">    &lt;input type=&quot;submit&quot; value=&quot;حذف&quot;&gt;</span>
+<span class="x">&lt;/form&gt;</span>
+</pre></div>
+
+<h4>5- قابلیت افزودن تصویر برای پست ها:</h4>
+<p><strong>ایجاد مدل Images برای ذخیره تصاویر:</strong></p>
+<p><code>app directory/models.py</code></p>
+<div class="code-box">
+        <div class="code-info">
+            <button class="copy-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" class="icon-sm"><path fill="currentColor" fill-rule="evenodd" d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z" clip-rule="evenodd"></path></svg>
+                <span>Copy code</span>
+            </button>
+            <span class="language">python</span>
+        </div>
+    <pre><span></span><span class="k">class</span> <span class="nc">Image</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">post</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">ForeignKey</span><span class="p">(</span><span class="n">Post</span><span class="p">,</span> <span class="n">on_delete</span><span class="o">=</span><span class="n">models</span><span class="o">.</span><span class="n">CASCADE</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;images&#39;</span><span class="p">,</span> <span class="n">null</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">blank</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+    <span class="n">image</span> <span class="o">=</span> <span class="n">ResizedImageField</span><span class="p">(</span><span class="n">upload_to</span><span class="o">=</span><span class="s1">&#39;post_images/&#39;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="p">[</span><span class="mi">125</span><span class="p">,</span> <span class="mi">125</span><span class="p">],</span> <span class="n">scale</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">crop</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;middle&#39;</span><span class="p">,</span> <span class="s1">&#39;center&#39;</span><span class="p">],</span> <span class="n">null</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">blank</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">title</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">250</span><span class="p">,</span> <span class="n">null</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">blank</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">description</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">TextField</span><span class="p">(</span><span class="n">null</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">blank</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">created</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">DateTimeField</span><span class="p">(</span><span class="n">auto_now_add</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+    <span class="k">class</span> <span class="nc">Meta</span><span class="p">:</span>
+        <span class="n">ordering</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;-created&#39;</span><span class="p">]</span>
+        <span class="n">indexes</span> <span class="o">=</span> <span class="p">[</span><span class="n">models</span><span class="o">.</span><span class="n">Index</span><span class="p">(</span><span class="n">fields</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;-created&#39;</span><span class="p">])]</span>
+
+    <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;Title: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">title</span><span class="si">}</span><span class="s2">&quot;</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">title</span> <span class="k">else</span> <span class="sa">f</span><span class="s2">&quot;Image_name: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">image</span><span class="si">}</span><span class="s2">&quot;</span>
+</pre></div>
+
+<p><strong>تغییر فرم ایجاد پست برای افزودن تصویر به آن:</strong></p>
+<p><code>app directory/forms.py</code></p>
+<div class="code-box">
+        <div class="code-info">
+            <button class="copy-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" class="icon-sm"><path fill="currentColor" fill-rule="evenodd" d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z" clip-rule="evenodd"></path></svg>
+                <span>Copy code</span>
+            </button>
+            <span class="language">python</span>
+        </div>
+    <pre><span></span><span class="k">class</span> <span class="nc">CreatePostForm</span><span class="p">(</span><span class="n">forms</span><span class="o">.</span><span class="n">ModelForm</span><span class="p">):</span>
+    <span class="n">img1</span> <span class="o">=</span> <span class="n">forms</span><span class="o">.</span><span class="n">ImageField</span><span class="p">(</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;pic1&#39;</span><span class="p">,</span> <span class="n">required</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="n">img2</span> <span class="o">=</span> <span class="n">forms</span><span class="o">.</span><span class="n">ImageField</span><span class="p">(</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;pic2&#39;</span><span class="p">,</span> <span class="n">required</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+    <span class="k">class</span> <span class="nc">Meta</span><span class="p">:</span>
+        <span class="n">model</span> <span class="o">=</span> <span class="n">Post</span>
+        <span class="n">fields</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;description&#39;</span><span class="p">,</span> <span class="s1">&#39;tags&#39;</span><span class="p">)</span>
+</pre></div>
+
+<p><strong>تغییر view برای ایجاد پست:</strong></p>
+<p><code>app directory/views.py</code></p>
+<div class="code-box">
+        <div class="code-info">
+            <button class="copy-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" class="icon-sm"><path fill="currentColor" fill-rule="evenodd" d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z" clip-rule="evenodd"></path></svg>
+                <span>Copy code</span>
+            </button>
+            <span class="language">python</span>
+        </div>
+    <pre><span></span><span class="nd">@login_required</span>
+<span class="k">def</span> <span class="nf">create_post</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">request</span><span class="o">.</span><span class="n">method</span> <span class="o">==</span> <span class="s1">&#39;POST&#39;</span><span class="p">:</span>
+        <span class="n">form</span> <span class="o">=</span> <span class="n">CreatePostForm</span><span class="p">(</span><span class="n">request</span><span class="o">.</span><span class="n">POST</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">form</span><span class="o">.</span><span class="n">is_valid</span><span class="p">():</span>
+            <span class="n">post</span> <span class="o">=</span> <span class="n">form</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">commit</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+            <span class="n">post</span><span class="o">.</span><span class="n">author</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">user</span>
+            <span class="n">post</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
+
+            <span class="n">form</span><span class="o">.</span><span class="n">save_m2m</span><span class="p">()</span>
+
+            <span class="c1"># اسم فیلدهای تصویر در فرم</span>
+            <span class="n">all_images</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;img1&#39;</span><span class="p">,</span> <span class="s1">&#39;img2&#39;</span><span class="p">]</span>
+
+            <span class="k">for</span> <span class="n">img</span> <span class="ow">in</span> <span class="n">all_images</span><span class="p">:</span>
+                <span class="n">img_file</span> <span class="o">=</span> <span class="n">form</span><span class="o">.</span><span class="n">cleaned_data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">img</span><span class="p">)</span>
+                <span class="k">if</span> <span class="n">img_file</span><span class="p">:</span>
+                    <span class="n">Image</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="n">image</span><span class="o">=</span><span class="n">img_file</span><span class="p">,</span> <span class="n">post</span><span class="o">=</span><span class="n">post</span><span class="p">)</span>
+
+            <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="s1">&#39;social:post_list&#39;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">form</span> <span class="o">=</span> <span class="n">CreatePostForm</span><span class="p">()</span>
+
+    <span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s1">&#39;forms/create_post.html&#39;</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;form&#39;</span><span class="p">:</span> <span class="n">form</span><span class="p">})</span>
+</pre></div>
             <a href="https://github.com/mahd25/Django-E-booklet/edit/seasons-source/season-08.md" target="_blank" class="edit-icon">
                 <i class="fa-solid fa-pen-to-square"></i>
             </a>
