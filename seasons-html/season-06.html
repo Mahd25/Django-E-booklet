@@ -1,8 +1,7 @@
-
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
 <head>
-<title>Season six</title>    
+<title>Season Six</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="Django e-booklet">
@@ -30,14 +29,1554 @@
 <li><a href="#tmrynt-fsl-shshm-mhm">تمرینات فصل ششم (مهم)</a></li>
 </ul></div>
 <h3 id="jstjwy-sdh-b-field-lookups-w-mlgr-hy-khwyry">جستجوی ساده با field lookups و عملگر های کوئری</h3>
+<p>میخواهیم به پروژه خود قابلیت جستجو ساده اضافه کنیم.</p>
+<blockquote>
+<p>برای این کار لازمه برای آن form، URL، view ایجاد کنیم.</p>
+</blockquote>
+<h4>بریم برای فیلد جستجو، یک URL ایجاد کنیم.</h4>
+<p><code>app directory/urls.py</code></p>
+<div class="code-box">
+        <div class="code-info">
+            <button class="copy-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" class="icon-sm"><path fill="currentColor" fill-rule="evenodd" d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z" clip-rule="evenodd"></path></svg>
+                <span>Copy code</span>
+            </button>
+            <span class="language">python</span>
+        </div>
+    <pre><span></span><span class="n">urlpatterns</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="c1"># ...</span>
+    <span class="n">path</span><span class="p">(</span><span class="s1">&#39;search/&#39;</span><span class="p">,</span> <span class="n">views</span><span class="o">.</span><span class="n">post_search</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;post_search&#39;</span><span class="p">),</span>
+<span class="p">]</span>
+</pre></div>
+
+<blockquote>
+<p>برای جستجو نیازی به مدل نیست؛ چون قرار نیست چیزی توی دیتابیس ذخیره شود.</p>
+</blockquote>
+<h4>خب بریم در forms.py فرم آن را ایجاد کنیم:</h4>
+<p>چون مدل نداریم فقط میشه فرم را از forms.Form ایجاد کرد.</p>
+<p>یک فیلد برای جستجو ایجاد میکنیم.</p>
+<p><code>app directory/form.py</code></p>
+<div class="code-box">
+        <div class="code-info">
+            <button class="copy-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" class="icon-sm"><path fill="currentColor" fill-rule="evenodd" d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z" clip-rule="evenodd"></path></svg>
+                <span>Copy code</span>
+            </button>
+            <span class="language">python</span>
+        </div>
+    <pre><span></span><span class="k">class</span> <span class="nc">SearchForm</span><span class="p">(</span><span class="n">forms</span><span class="o">.</span><span class="n">Form</span><span class="p">):</span>
+    <span class="n">query</span> <span class="o">=</span> <span class="n">forms</span><span class="o">.</span><span class="n">CharField</span><span class="p">()</span>
+</pre></div>
+
+<p>خب حالا وقتشه فرم جستجو را در تمپلیت ایجاد کنیم؛ چون فیلد جستجو باید در تمام صفحات نمایش داده شود این فرم را در تمپلیت پایه یعنی base.html نمایش میدهیم. | فرم را در header.html ایجاد میکنیم که به base.html اضافه خواهد شد.</p>
+<p><code>templates/partials/header.html</code></p>
+<div class="code-box">
+        <div class="code-info">
+            <button class="copy-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" class="icon-sm"><path fill="currentColor" fill-rule="evenodd" d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z" clip-rule="evenodd"></path></svg>
+                <span>Copy code</span>
+            </button>
+            <span class="language">jinja</span>
+        </div>
+    <pre><span></span><span class="x">&lt;form action=&quot;</span><span class="cp">{%</span> <span class="k">url</span> <span class="s1">&#39;Blog:post_search&#39;</span> <span class="cp">%}</span><span class="x">&quot; method=&quot;get&quot;&gt;</span>
+<span class="x">    &lt;input type=&quot;text&quot; name=&quot;query&quot; required placeholder=&quot;عبارت مدنظر را وارد کنید&quot;&gt;</span>
+<span class="x">    &lt;input type=&quot;submit&quot; value=&quot;search&quot;&gt;</span>
+<span class="x">&lt;/form&gt;</span>
+</pre></div>
+
+<p>اترییوت method</p>
+<blockquote>
+<p>متد فرم را get انتخاب میکنیم؛ چون حالت محرمانگی ندارد و قرار نیست در دیتابیس ذخیره شود، صرفا یک عبارت هست که میتواند در URL نمایش داده شود.</p>
+</blockquote>
+<p>اتریبیوت action</p>
+<blockquote>
+<p>اطلاعات فرم باید به URL که برای جستجو نوشتیم ارسال شود، پس از اتریبیوت action استفاده کرده و آن URL را برایش مشخص میکنیم.</p>
+<p><strong>نکته:</strong>  <br />
+در این فرم چون متد get بوده و نیازی به امنیت ندارد از {% csrf_token %} استفاده نمیکنیم.</p>
+</blockquote>
+<h4>نوشتن view مربوط به search</h4>
+<blockquote>
+<p>query: عبارت جستجو شده  <br />
+results: نتیجه جستجو    </p>
+<p>این دو مورد باید در هر صورت به تمپلیت ارسال شوند پس حالت خالی(بدون محتوا) آنها را هم ایجاد میکنیم، تا در تمپلیت نمایش دهیم، مثلا مشخص کنیم "هیچ نتیجه ای یافت نشد."</p>
+</blockquote>
+<p>یه نکته درمورد request.GET:</p>
+<blockquote>
+<p>در فرم، برای فیلد search از اسم query استفاده کرده ایم، بنابراین وقتی عبارتی جستجو شود در خروجی request.GET کلمه query وجود خواهد داشت.</p>
+</blockquote>
+<div class="code-box">
+        <div class="code-info">
+            <button class="copy-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" class="icon-sm"><path fill="currentColor" fill-rule="evenodd" d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z" clip-rule="evenodd"></path></svg>
+                <span>Copy code</span>
+            </button>
+            <span class="language">python</span>
+        </div>
+    <pre><span></span><span class="p">{</span><span class="s1">&#39;query&#39;</span><span class="p">:</span> <span class="p">[</span><span class="n">عبارت</span> <span class="n">جستجو</span> <span class="n">شده</span><span class="p">]}</span>
+</pre></div>
+
+<p><code>app directory/views.py</code></p>
+<div class="code-box">
+        <div class="code-info">
+            <button class="copy-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" class="icon-sm"><path fill="currentColor" fill-rule="evenodd" d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z" clip-rule="evenodd"></path></svg>
+                <span>Copy code</span>
+            </button>
+            <span class="language">python</span>
+        </div>
+    <pre><span></span><span class="k">def</span> <span class="nf">post_search</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+    <span class="n">query</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">results</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="k">if</span> <span class="s1">&#39;query&#39;</span> <span class="ow">in</span> <span class="n">request</span><span class="o">.</span><span class="n">GET</span><span class="p">:</span>
+        <span class="n">form</span> <span class="o">=</span> <span class="n">SearchForm</span><span class="p">(</span><span class="n">request</span><span class="o">.</span><span class="n">GET</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">form</span><span class="o">.</span><span class="n">is_valid</span><span class="p">():</span>
+            <span class="n">query</span> <span class="o">=</span> <span class="n">form</span><span class="o">.</span><span class="n">cleaned_data</span><span class="p">[</span><span class="s1">&#39;query&#39;</span><span class="p">]</span>
+
+            <span class="n">results</span> <span class="o">=</span> <span class="n">Post</span><span class="o">.</span><span class="n">published</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">description__icontains</span><span class="o">=</span><span class="n">query</span><span class="p">)</span>
+
+    <span class="n">context</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s2">&quot;query&quot;</span><span class="p">:</span> <span class="n">query</span><span class="p">,</span>
+        <span class="s2">&quot;results&quot;</span><span class="p">:</span> <span class="n">results</span><span class="p">,</span>
+    <span class="p">}</span>
+
+    <span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s1">&#39;blog/search_result.html&#39;</span><span class="p">,</span> <span class="n">context</span><span class="o">=</span><span class="n">context</span><span class="p">)</span>
+</pre></div>
+
+<p>1- اگر شرط اول برقرار باشد (درنتیجه query در request.GET باشد)، یعنی عبارتی جستجو شده است(عبارتی به view ارسال شده است).</p>
+<p>2- حالا یک نمونه از فرم ایجاد کرده و request.GET را به آن ارسال میکنیم.</p>
+<p>3- اگر با متد <span class="en-text">is_valid()</span> معتبر بودن فیلدهای فرم را بررسی نکنیم؛ <strong>cleaned_data</strong> کار نخواهد کرد!</p>
+<blockquote>
+<p><strong>پس لازمه که با استفاده از is_valid فرم را بررسی کنیم.</strong></p>
+</blockquote>
+<p><strong>خب حالا نتایج جستجو را براساس عبارت جستجو شده بدست بیاوریم:</strong></p>
+<ul>
+<li><em>قبلش بهتره با field_lookups آشنا بشیم!</em></li>
+</ul>
+<p>جنگو برای فیلتر کردن یکسری آپشن بنام field_lookups در اختیار ما قرار داده است | این موارد جستجو و فیلتر کردن را برای ما ساده تر میکنند.</p>
+<blockquote>
+<p>میتوانید در document جنگو به آدرس <a href="https://docs.djangoproject.com/en/5.0/ref/models/querysets/#field-lookups">field_lookups</a> اطلاعات بیشتری درمورد field_lookups و انواع آن بدست بیاورید.</p>
+</blockquote>
+<p>بریم با چند تا از field_lookups آشنا بشیم...</p>
+<blockquote>
+<p>contains و icontains: یک مقدار برایشان مشخص میکنیم حالا همان طور که از اسمشان پیداست؛ داده هایی که شامل آن مقدار باشند را نمایش میدهد.(به کمک آن دو داده هایی که <strong>شامل</strong> عبارت مدنظر ما هستند را بدست می آوریم)</p>
+<p>تفاوت آن دو در این است که contains نسبت به کوچک ویا بزرگ بودن حروف حساس است(Case-sensitive) ولی icontains حساسیتی ندارد(Case-insensitive)</p>
+</blockquote>
+<p>ساختار استفاده از field_lookups به صورت زیر است:</p>
+<div class="code-box">
+        <div class="code-info">
+            <button class="copy-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" class="icon-sm"><path fill="currentColor" fill-rule="evenodd" d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z" clip-rule="evenodd"></path></svg>
+                <span>Copy code</span>
+            </button>
+            <span class="language">python</span>
+        </div>
+    <pre><span></span><span class="o">&lt;</span><span class="n">field</span><span class="o">-</span><span class="n">name</span><span class="o">&gt;</span><span class="n">__</span><span class="o">&lt;</span><span class="n">field</span><span class="o">-</span><span class="n">lookups</span><span class="o">&gt;</span>
+
+<span class="n">title__icontains</span><span class="o">=</span><span class="s1">&#39;python&#39;</span>
+</pre></div>
+
+<blockquote>
+<p><span class="rtl-text">از field_lookups میتوان در متدهای <span class="en-text">get()</span>, <span class="en-text">filter()</span>, <span class="en-text">exclude()</span> استفاده کرد.</span></p>
+</blockquote>
+<p>4- <strong>حالا توی view به کمک icontains پست هایی که توی description آنها عبارت جستجو شده  وجود دارد را یافته و در متغیر results ذخیره میکنیم تا به تمپلیت ارسال کنیم.</strong></p>
+<h4>حالا برای نمایش نتایج جستجو یک تمپلیت ایجاد میکنیم</h4>
+<p><code>templates/blog/search_result.html</code></p>
+<div class="code-box">
+        <div class="code-info">
+            <button class="copy-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" class="icon-sm"><path fill="currentColor" fill-rule="evenodd" d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z" clip-rule="evenodd"></path></svg>
+                <span>Copy code</span>
+            </button>
+            <span class="language">jinja</span>
+        </div>
+    <pre><span></span><span class="cp">{%</span> <span class="k">extends</span> <span class="s1">&#39;parent/base.html&#39;</span> <span class="cp">%}</span>
+
+<span class="cp">{%</span> <span class="k">block</span> <span class="nv">title</span> <span class="cp">%}</span><span class="x"> Post search </span><span class="cp">{%</span> <span class="k">endblock</span> <span class="cp">%}</span>
+
+<span class="cp">{%</span> <span class="k">block</span> <span class="nv">content</span> <span class="cp">%}</span>
+
+<span class="x">    </span><span class="cp">{%</span> <span class="k">if</span> <span class="nv">query</span> <span class="cp">%}</span>
+<span class="x">        </span><span class="cp">{{</span> <span class="nv">results.count</span> <span class="cp">}}</span><span class="x"> search results for: </span><span class="cp">{{</span> <span class="nv">query</span> <span class="cp">}}</span>
+<span class="x">    </span><span class="cp">{%</span> <span class="k">endif</span> <span class="cp">%}</span>
+<span class="x">    &lt;br&gt;</span>
+
+<span class="x">    &lt;div&gt;</span>
+<span class="x">        </span><span class="cp">{%</span> <span class="k">for</span> <span class="nv">post</span> <span class="k">in</span> <span class="nv">results</span> <span class="cp">%}</span>
+<span class="x">            &lt;a href=&quot;</span><span class="cp">{{</span> <span class="nv">post.get_absolute_url</span> <span class="cp">}}</span><span class="x">&quot;&gt;</span><span class="cp">{{</span> <span class="nv">post.title</span> <span class="cp">}}</span><span class="x">&lt;/a&gt;</span>
+<span class="x">            &lt;p&gt;description:&lt;br&gt;</span><span class="cp">{{</span> <span class="nv">post.description</span> <span class="cp">}}</span><span class="x">&lt;/p&gt;</span>
+<span class="x">            &lt;br&gt;&lt;hr&gt;</span>
+<span class="x">        </span><span class="cp">{%</span> <span class="k">empty</span> <span class="cp">%}</span>
+<span class="x">            Nothing found...</span>
+<span class="x">        </span><span class="cp">{%</span> <span class="k">endfor</span> <span class="cp">%}</span>
+<span class="x">    &lt;/div&gt;</span>
+
+<span class="cp">{%</span> <span class="k">endblock</span> <span class="cp">%}</span>
+</pre></div>
+
+<p>اپراتورها برای کوئری ست ها:</p>
+<blockquote>
+<ul>
+<li><span class="en-text">and: &amp;</span>    </li>
+<li><span class="en-text">or: |</span>    </li>
+<li><span class="en-text">xor: ^</span>    </li>
+</ul>
+<p><span class="rtl-text">xor: یعنی یا اولی یا دومی ولی هردو نه</span></p>
+</blockquote>
+<p><code>app directory/views.py</code></p>
+<div class="code-box">
+        <div class="code-info">
+            <button class="copy-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" class="icon-sm"><path fill="currentColor" fill-rule="evenodd" d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z" clip-rule="evenodd"></path></svg>
+                <span>Copy code</span>
+            </button>
+            <span class="language">python</span>
+        </div>
+    <pre><span></span><span class="k">def</span> <span class="nf">post_search</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+    <span class="n">query</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">results</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="k">if</span> <span class="s1">&#39;query&#39;</span> <span class="ow">in</span> <span class="n">request</span><span class="o">.</span><span class="n">GET</span><span class="p">:</span>
+        <span class="n">form</span> <span class="o">=</span> <span class="n">SearchForm</span><span class="p">(</span><span class="n">request</span><span class="o">.</span><span class="n">GET</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">form</span><span class="o">.</span><span class="n">is_valid</span><span class="p">():</span>
+            <span class="n">query</span> <span class="o">=</span> <span class="n">form</span><span class="o">.</span><span class="n">cleaned_data</span><span class="p">[</span><span class="s1">&#39;query&#39;</span><span class="p">]</span>
+
+            <span class="n">results1</span> <span class="o">=</span> <span class="n">Post</span><span class="o">.</span><span class="n">published</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">title__icontains</span><span class="o">=</span><span class="n">query</span><span class="p">)</span>
+            <span class="n">results2</span> <span class="o">=</span> <span class="n">Post</span><span class="o">.</span><span class="n">published</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">description__icontains</span><span class="o">=</span><span class="n">query</span><span class="p">)</span>
+
+            <span class="n">results</span> <span class="o">=</span> <span class="n">results1</span> <span class="o">^</span> <span class="n">results2</span>
+
+    <span class="n">context</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s2">&quot;query&quot;</span><span class="p">:</span> <span class="n">query</span><span class="p">,</span>
+        <span class="s2">&quot;results&quot;</span><span class="p">:</span> <span class="n">results</span><span class="p">,</span>
+    <span class="p">}</span>
+
+    <span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s1">&#39;blog/search_result.html&#39;</span><span class="p">,</span> <span class="n">context</span><span class="o">=</span><span class="n">context</span><span class="p">)</span>
+</pre></div>
+
 <h3 id="khr-b-q-objects">کار با Q objects</h3>
+<p>از Q objects میتوان برای استفاده از عملگرهای and, or, xor, not با انعطاف پذیری بالاتر و استفاده ساده تر بهره برد.</p>
+<blockquote>
+<ul>
+<li><span class="en-text">and: &amp;</span>    </li>
+<li><span class="en-text">or: |</span>    </li>
+<li><span class="en-text">xor: ^</span>    </li>
+<li><span class="en-text">not: ~</span></li>
+</ul>
+</blockquote>
+<p>برای استفاده لازمه آنرا ایمپورت کنیم.</p>
+<p><code>app directory/views.py</code></p>
+<div class="code-box">
+        <div class="code-info">
+            <button class="copy-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" class="icon-sm"><path fill="currentColor" fill-rule="evenodd" d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z" clip-rule="evenodd"></path></svg>
+                <span>Copy code</span>
+            </button>
+            <span class="language">python</span>
+        </div>
+    <pre><span></span><span class="kn">from</span> <span class="nn">django.db.models</span> <span class="kn">import</span> <span class="n">Q</span>
+</pre></div>
+
+<p>از Q objects به صورت زیر استفاده میکنیم:</p>
+<div class="code-box">
+        <div class="code-info">
+            <button class="copy-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" class="icon-sm"><path fill="currentColor" fill-rule="evenodd" d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z" clip-rule="evenodd"></path></svg>
+                <span>Copy code</span>
+            </button>
+            <span class="language">python</span>
+        </div>
+    <pre><span></span><span class="o">~</span><span class="n">Q</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+
+<span class="n">Q</span><span class="p">(</span><span class="n">value1</span><span class="p">)</span> <span class="o">&amp;</span> <span class="n">Q</span><span class="p">(</span><span class="n">value2</span><span class="p">)</span>
+<span class="n">Q</span><span class="p">(</span><span class="n">value1</span><span class="p">)</span> <span class="o">|</span> <span class="n">Q</span><span class="p">(</span><span class="n">value2</span><span class="p">)</span>
+<span class="n">Q</span><span class="p">(</span><span class="n">value1</span><span class="p">)</span> <span class="o">^</span> <span class="n">Q</span><span class="p">(</span><span class="n">value2</span><span class="p">)</span>
+
+<span class="n">Post</span><span class="o">.</span><span class="n">published</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">Q</span><span class="p">(</span><span class="n">title__icontains</span><span class="o">=</span><span class="n">query</span><span class="p">)</span> <span class="o">&amp;</span> <span class="n">Q</span><span class="p">(</span><span class="n">description__icontains</span><span class="o">=</span><span class="n">query</span><span class="p">))</span>
+</pre></div>
+
+<p>علامت ~ به معنای not بوده و نتیجه را برعکس میکنه، مثلا Post.published.filter(~Q(title__icontains='python')) یعنی همه پست ها <strong>بجز</strong> آنهایی که عنوان python  دارند را انتخاب کن.</p>
+<blockquote>
+<p>اگر خواستیم هم از حالت عادی field_lookups و هم Q objects استفاده کنیم اول باید Q objects نوشته بشوند و بعد حالت عادی مثله حالت زیر:
+</p>
+</blockquote>
+<div class="code-box">
+        <div class="code-info">
+            <button class="copy-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" class="icon-sm"><path fill="currentColor" fill-rule="evenodd" d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z" clip-rule="evenodd"></path></svg>
+                <span>Copy code</span>
+            </button>
+            <span class="language">python</span>
+        </div>
+    <pre><span></span><span class="n">Post</span><span class="o">.</span><span class="n">published</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">Q</span><span class="p">(</span><span class="o">...</span><span class="p">)</span> <span class="o">|</span> <span class="n">Q</span><span class="p">(</span><span class="o">...</span><span class="p">),</span> <span class="n">title__startswith</span><span class="o">=</span><span class="s1">&#39;django&#39;</span><span class="p">)</span>
+</pre></div>
+
 <h3 id="pydh-szy-fts-w-khr-b-searchvector-jstjw-byn-chnd-fyld">پیاده سازی FTS و کار با SearchVector (جستجو بین چند فیلد)</h3>
+<blockquote>
+<p>FTS: مخفف Full Text Search میباشد.</p>
+<p>این ویژگی مربوط به postgres میباشد.</p>
+</blockquote>
+<p>توی جستجوی ساده که پیاده سازی کردیم، عینا عبارتی که نوشته ایم را جستجو میکنه(دنبال تطابق <span class="en-text">100%</span> میباشد حتی تمام space ها را هم در نظر میگیرد).</p>
+<p>برای استفاده از قابلیت های postgres لازمه توی settings.py و بخش INSTALLED_APPS آنرا معرفی کنیم.</p>
+<p><code>project directory/settings.py</code></p>
+<div class="code-box">
+        <div class="code-info">
+            <button class="copy-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" class="icon-sm"><path fill="currentColor" fill-rule="evenodd" d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z" clip-rule="evenodd"></path></svg>
+                <span>Copy code</span>
+            </button>
+            <span class="language">python</span>
+        </div>
+    <pre><span></span><span class="n">INSTALLED_APPS</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="c1"># ...</span>
+    <span class="s1">&#39;django.contrib.postgres&#39;</span><span class="p">,</span>
+<span class="p">]</span>
+</pre></div>
+
+<p><strong>search</strong> field_lookups ساده ترین و اولین حالت FTS میباشد.</p>
+<div class="code-box">
+        <div class="code-info">
+            <button class="copy-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" class="icon-sm"><path fill="currentColor" fill-rule="evenodd" d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z" clip-rule="evenodd"></path></svg>
+                <span>Copy code</span>
+            </button>
+            <span class="language">python</span>
+        </div>
+    <pre><span></span><span class="c1"># structure of search field_lookups</span>
+<span class="n">field</span><span class="o">-</span><span class="n">name__search</span><span class="o">=</span><span class="n">query</span>
+
+<span class="n">description__search</span><span class="o">=</span><span class="s2">&quot;django framwork&quot;</span>
+</pre></div>
+
+<blockquote>
+<p>space های اضافی را در نظر نمیگیرد.</p>
+</blockquote>
+<p>برای جستجو بین چندین فیلد بهتره از SearchVector استفاده کنیم. | با این حال میتوان یک فیلد هم برایش مشخص کرد.</p>
+<p>قبل از استفاده باید آنرا ایمپورت کنیم:</p>
+<p><code>app directory/views.py</code></p>
+<div class="code-box">
+        <div class="code-info">
+            <button class="copy-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" class="icon-sm"><path fill="currentColor" fill-rule="evenodd" d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z" clip-rule="evenodd"></path></svg>
+                <span>Copy code</span>
+            </button>
+            <span class="language">python</span>
+        </div>
+    <pre><span></span><span class="kn">from</span> <span class="nn">django.contrib.postgres.search</span> <span class="kn">import</span> <span class="n">SearchVector</span>
+</pre></div>
+
+<p>برای استفاده از SearchVector از annotate استفاده میکنیم.</p>
+<p><code>app directory/views.py</code></p>
+<div class="code-box">
+        <div class="code-info">
+            <button class="copy-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" class="icon-sm"><path fill="currentColor" fill-rule="evenodd" d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z" clip-rule="evenodd"></path></svg>
+                <span>Copy code</span>
+            </button>
+            <span class="language">python</span>
+        </div>
+    <pre><span></span><span class="c1"># How to use SearchVector</span>
+<span class="n">ModelName</span><span class="o">.</span><span class="n">manager</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="n">search</span><span class="o">=</span><span class="n">SearchVector</span><span class="p">(</span><span class="o">&lt;</span><span class="n">fields</span><span class="o">-</span><span class="n">name</span><span class="o">&gt;</span><span class="p">))</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">search</span><span class="o">=</span><span class="n">query_search</span><span class="p">)</span>
+
+<span class="n">Post</span><span class="o">.</span><span class="n">published</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="n">search</span><span class="o">=</span><span class="n">SearchVector</span><span class="p">(</span><span class="s1">&#39;title&#39;</span><span class="p">,</span> <span class="s1">&#39;description&#39;</span><span class="p">))</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">search</span><span class="o">=</span><span class="n">query</span><span class="p">)</span>
+</pre></div>
+
+<p>با استفاده از annotate یک فیلد بنام search اضافه میکنیم، آن فیلد از SearchVector ایجاد شده است(داخل پرانتزهای SearchVector فیلدهایی که باید جستجو شوند را مشخص میکنیم).</p>
+<p>حالا از متد <span class="en-text">filter()</span> استفاده کرده و عبارت جستجو شده(query) را به فیلد ایجاد شده(search)  می دهیم تا پست هایی که title, description شامل آن query هستند را بیابد.</p>
+<p><code>app directory/views.py</code></p>
+<div class="code-box">
+        <div class="code-info">
+            <button class="copy-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" class="icon-sm"><path fill="currentColor" fill-rule="evenodd" d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z" clip-rule="evenodd"></path></svg>
+                <span>Copy code</span>
+            </button>
+            <span class="language">python</span>
+        </div>
+    <pre><span></span><span class="k">def</span> <span class="nf">post_search</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+    <span class="n">query</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">results</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="k">if</span> <span class="s1">&#39;query&#39;</span> <span class="ow">in</span> <span class="n">request</span><span class="o">.</span><span class="n">GET</span><span class="p">:</span>
+        <span class="n">form</span> <span class="o">=</span> <span class="n">SearchForm</span><span class="p">(</span><span class="n">request</span><span class="o">.</span><span class="n">GET</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">form</span><span class="o">.</span><span class="n">is_valid</span><span class="p">():</span>
+            <span class="n">query</span> <span class="o">=</span> <span class="n">form</span><span class="o">.</span><span class="n">cleaned_data</span><span class="p">[</span><span class="s1">&#39;query&#39;</span><span class="p">]</span>
+
+            <span class="n">results</span> <span class="o">=</span> <span class="n">Post</span><span class="o">.</span><span class="n">published</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="n">search</span><span class="o">=</span><span class="n">SearchVector</span><span class="p">(</span><span class="s1">&#39;title&#39;</span><span class="p">,</span> <span class="s1">&#39;description&#39;</span><span class="p">))</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">search</span><span class="o">=</span><span class="n">query</span><span class="p">)</span>
+
+    <span class="n">context</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s2">&quot;query&quot;</span><span class="p">:</span> <span class="n">query</span><span class="p">,</span>
+        <span class="s2">&quot;results&quot;</span><span class="p">:</span> <span class="n">results</span><span class="p">,</span>
+    <span class="p">}</span>
+
+    <span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s1">&#39;blog/search_result.html&#39;</span><span class="p">,</span> <span class="n">context</span><span class="o">=</span><span class="n">context</span><span class="p">)</span>
+</pre></div>
+
 <h3 id="pydh-szy-fts-w-khr-b-searchrank-w-searchquery-rtbh-bndy-ntyj">پیاده سازی FTS و کار با SearchRank و SearchQuery (رتبه بندی نتایج)</h3>
+<h4><strong>SearchQuery</strong></h4>
+<p>SearchQuery بجای این query  که یک رشته ساده هست استفاده میشه و یکسری مزیت ها به همراه میاره.</p>
+<blockquote>
+<p>یکی از کارهایی که میکنه ریشه یابی کلمه جستجو شده میباشد.</p>
+</blockquote>
+<p>نکته: در حالت عادی red tomato و tomato red برایش فرقی ندارد مگر اینکه برایش <span class="en-text">search_type='phrase'</span> استفاده کنیم.</p>
+<div class="code-box">
+        <div class="code-info">
+            <button class="copy-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" class="icon-sm"><path fill="currentColor" fill-rule="evenodd" d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z" clip-rule="evenodd"></path></svg>
+                <span>Copy code</span>
+            </button>
+            <span class="language">python</span>
+        </div>
+    <pre><span></span><span class="n">SearchQuery</span><span class="p">(</span><span class="s1">&#39;red tomato&#39;</span><span class="p">,</span> <span class="n">search_type</span><span class="o">=</span><span class="s1">&#39;phrase&#39;</span><span class="p">)</span>
+</pre></div>
+
+<p><code>app directory/views.py</code></p>
+<div class="code-box">
+        <div class="code-info">
+            <button class="copy-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" class="icon-sm"><path fill="currentColor" fill-rule="evenodd" d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z" clip-rule="evenodd"></path></svg>
+                <span>Copy code</span>
+            </button>
+            <span class="language">python</span>
+        </div>
+    <pre><span></span><span class="kn">from</span> <span class="nn">django.contrib.postgres.search</span> <span class="kn">import</span> <span class="n">SearchVector</span><span class="p">,</span> <span class="n">SearchQuery</span>
+</pre></div>
+
+<p>حالا بجای عبارت query از SearchQuery(query) استفاده میکنیم.</p>
+<p><code>app directory/views.py</code></p>
+<div class="code-box">
+        <div class="code-info">
+            <button class="copy-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" class="icon-sm"><path fill="currentColor" fill-rule="evenodd" d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z" clip-rule="evenodd"></path></svg>
+                <span>Copy code</span>
+            </button>
+            <span class="language">python</span>
+        </div>
+    <pre><span></span><span class="k">def</span> <span class="nf">post_search</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+    <span class="n">query</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">results</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="k">if</span> <span class="s1">&#39;query&#39;</span> <span class="ow">in</span> <span class="n">request</span><span class="o">.</span><span class="n">GET</span><span class="p">:</span>
+        <span class="n">form</span> <span class="o">=</span> <span class="n">SearchForm</span><span class="p">(</span><span class="n">request</span><span class="o">.</span><span class="n">GET</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">form</span><span class="o">.</span><span class="n">is_valid</span><span class="p">():</span>
+            <span class="n">query</span> <span class="o">=</span> <span class="n">form</span><span class="o">.</span><span class="n">cleaned_data</span><span class="p">[</span><span class="s1">&#39;query&#39;</span><span class="p">]</span>
+
+            <span class="n">search_query</span> <span class="o">=</span> <span class="n">SearchQuery</span><span class="p">(</span><span class="n">query</span><span class="p">)</span>
+
+            <span class="n">results</span> <span class="o">=</span> <span class="n">Post</span><span class="o">.</span><span class="n">published</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="n">search</span><span class="o">=</span><span class="n">SearchVector</span><span class="p">(</span><span class="s1">&#39;title&#39;</span><span class="p">,</span> <span class="s1">&#39;description&#39;</span><span class="p">))</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">search</span><span class="o">=</span><span class="n">search_query</span><span class="p">)</span>
+
+    <span class="n">context</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s2">&quot;query&quot;</span><span class="p">:</span> <span class="n">query</span><span class="p">,</span>
+        <span class="s2">&quot;results&quot;</span><span class="p">:</span> <span class="n">results</span><span class="p">,</span>
+    <span class="p">}</span>
+
+    <span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s1">&#39;blog/search_result.html&#39;</span><span class="p">,</span> <span class="n">context</span><span class="o">=</span><span class="n">context</span><span class="p">)</span>
+</pre></div>
+
+<blockquote>
+<p>برای SearchQuery هم میتوان از عملگرهای and, or, xor استفاده کرد.</p>
+</blockquote>
+<div class="code-box">
+        <div class="code-info">
+            <button class="copy-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" class="icon-sm"><path fill="currentColor" fill-rule="evenodd" d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z" clip-rule="evenodd"></path></svg>
+                <span>Copy code</span>
+            </button>
+            <span class="language">pyton</span>
+        </div>
+    <pre><span></span>~SearchQuery(&quot;...&quot;)
+
+SearchQuery(&quot;...&quot;) &amp; SearchQuery(&quot;...&quot;)
+SearchQuery(&quot;...&quot;) | SearchQuery(&quot;...&quot;)
+SearchQuery(&quot;...&quot;) ^ SearchQuery(&quot;...&quot;)
+</pre></div>
+
+<blockquote>
+<p>عملگرها در اینجا کاربردشون روی عبارات  جستجو شده هست، مثلا در and یعنی هردو عبارت وجود داشته باشه.</p>
+</blockquote>
+<p>نکته: برای استفاده از SearchQuery باید از SearchVector  هم استفاده کنیم.</p>
+<blockquote>
+<p>با استفاده از آرگومان config برای SearchQuery و SearchVector میتوان زبان مدنظر که برای جستجو بکار میرود را مشخص کنیم، ولی تا این لحظه زبان فارسی را پشتیبانی نمیکند.</p>
+</blockquote>
+<h4><strong>SearchRank</strong></h4>
+<p>SearchRank نتایج جستجو را رتبه بندی و مرتب میکند و براساس این چیدمان آنها را نمایش میدهد.</p>
+<blockquote>
+<p>1- رتبه بندی براساس تعداد تکرار عبارت، 2- اینکه آن عبارت در کجای متن وجود دارد(ابتدای متن هست یا انتهای متن)، 3- میزان شباهت عبارت متن با عبارت جستجو شده.</p>
+</blockquote>
+<p>SearchRank را هم کنار SearchQuery و SearchVector ایمپورت میکنیم:</p>
+<p><code>app directory/views.py</code></p>
+<div class="code-box">
+        <div class="code-info">
+            <button class="copy-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" class="icon-sm"><path fill="currentColor" fill-rule="evenodd" d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z" clip-rule="evenodd"></path></svg>
+                <span>Copy code</span>
+            </button>
+            <span class="language">python</span>
+        </div>
+    <pre><span></span><span class="kn">from</span> <span class="nn">django.contrib.postgres.search</span> <span class="kn">import</span> <span class="n">SearchVector</span><span class="p">,</span> <span class="n">SearchQuery</span><span class="p">,</span> <span class="n">SearchRank</span>
+</pre></div>
+
+<p>1- برای نمایش بهتر، SearchVector را در قالب یک متغیر، کنار متغیر search_query تعریف میکنیم و حالا از آن متغیر در متد <span class="en-text">annotate()</span> استفاده میکنیم.</p>
+<p>2- در متد <span class="en-text">annotate()</span> کنار فیلد search یک فیلد دیگر بنام rank ایجاد میکنیم، برای این فیلد از SearchRank استفاده میکنیم.</p>
+<p>3- SearchRank دو ورودی میگیرد، اولی: SearchVector و دومی: SearchQuery هست.</p>
+<p>4- در متد <span class="en-text">filter()</span> همانند قبل از search=search_query استفاده میکنیم.</p>
+<p>5- حالا وقتشه نتایج را مرتب سازی کنیم؛ به این منظور از order_by استفاده کرده و براساس فیلد rank، نتایج را مرتب میکنیم.</p>
+<p><code>app directory/views.py</code></p>
+<div class="code-box">
+        <div class="code-info">
+            <button class="copy-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" class="icon-sm"><path fill="currentColor" fill-rule="evenodd" d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z" clip-rule="evenodd"></path></svg>
+                <span>Copy code</span>
+            </button>
+            <span class="language">python</span>
+        </div>
+    <pre><span></span><span class="k">def</span> <span class="nf">post_search</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+    <span class="n">query</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">results</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="k">if</span> <span class="s1">&#39;query&#39;</span> <span class="ow">in</span> <span class="n">request</span><span class="o">.</span><span class="n">GET</span><span class="p">:</span>
+        <span class="n">form</span> <span class="o">=</span> <span class="n">SearchForm</span><span class="p">(</span><span class="n">request</span><span class="o">.</span><span class="n">GET</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">form</span><span class="o">.</span><span class="n">is_valid</span><span class="p">():</span>
+            <span class="n">query</span> <span class="o">=</span> <span class="n">form</span><span class="o">.</span><span class="n">cleaned_data</span><span class="p">[</span><span class="s1">&#39;query&#39;</span><span class="p">]</span>
+
+            <span class="n">search_query</span> <span class="o">=</span> <span class="n">SearchQuery</span><span class="p">(</span><span class="n">query</span><span class="p">)</span>
+            <span class="n">search_vector</span> <span class="o">=</span> <span class="n">SearchVector</span><span class="p">(</span><span class="s1">&#39;title&#39;</span><span class="p">,</span> <span class="s1">&#39;description&#39;</span><span class="p">)</span>
+
+            <span class="n">results</span> <span class="o">=</span> <span class="n">Post</span><span class="o">.</span><span class="n">published</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="n">search</span><span class="o">=</span><span class="n">search_vector</span><span class="p">,</span> <span class="n">rank</span><span class="o">=</span><span class="n">SearchRank</span><span class="p">(</span><span class="n">search_vector</span><span class="p">,</span> <span class="n">search_query</span><span class="p">))</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">search</span><span class="o">=</span><span class="n">search_query</span><span class="p">)</span><span class="o">.</span><span class="n">order_by</span><span class="p">(</span><span class="s1">&#39;-rank&#39;</span><span class="p">)</span>
+
+    <span class="n">context</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s2">&quot;query&quot;</span><span class="p">:</span> <span class="n">query</span><span class="p">,</span>
+        <span class="s2">&quot;results&quot;</span><span class="p">:</span> <span class="n">results</span><span class="p">,</span>
+    <span class="p">}</span>
+
+    <span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s1">&#39;blog/search_result.html&#39;</span><span class="p">,</span> <span class="n">context</span><span class="o">=</span><span class="n">context</span><span class="p">)</span>
+</pre></div>
+
+<p>در روش جستجو با SearchRank میتوانیم مشخص کنیم که کدام فیلد امتیاز بالاتری داشته باشد تا در نتیجه ی جستجو اهمیت و رتبه بالاتری داشته باشد.</p>
+<blockquote>
+<p>مثلا اگر title امتیاز بالاتری داشته باشد نتایجی را اول نمایش میدهد که آن عبارت جستجو شده در title آنهاست.</p>
+</blockquote>
+<p>با تعیین این امتیاز دهی نتایج جستجو را اولویت بندی میکنه؛ بریم ببینیم:</p>
+<p><code>app directory/views.py</code></p>
+<div class="code-box">
+        <div class="code-info">
+            <button class="copy-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" class="icon-sm"><path fill="currentColor" fill-rule="evenodd" d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z" clip-rule="evenodd"></path></svg>
+                <span>Copy code</span>
+            </button>
+            <span class="language">python</span>
+        </div>
+    <pre><span></span><span class="k">def</span> <span class="nf">post_search</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+    <span class="n">query</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">results</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="k">if</span> <span class="s1">&#39;query&#39;</span> <span class="ow">in</span> <span class="n">request</span><span class="o">.</span><span class="n">GET</span><span class="p">:</span>
+        <span class="n">form</span> <span class="o">=</span> <span class="n">SearchForm</span><span class="p">(</span><span class="n">request</span><span class="o">.</span><span class="n">GET</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">form</span><span class="o">.</span><span class="n">is_valid</span><span class="p">():</span>
+            <span class="n">query</span> <span class="o">=</span> <span class="n">form</span><span class="o">.</span><span class="n">cleaned_data</span><span class="p">[</span><span class="s1">&#39;query&#39;</span><span class="p">]</span>
+
+            <span class="n">search_query</span> <span class="o">=</span> <span class="n">SearchQuery</span><span class="p">(</span><span class="n">query</span><span class="p">)</span>
+            <span class="n">search_vector</span> <span class="o">=</span> <span class="n">SearchVector</span><span class="p">(</span><span class="s1">&#39;title&#39;</span><span class="p">,</span> <span class="n">weight</span><span class="o">=</span><span class="s2">&quot;A&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">SearchVector</span><span class="p">(</span><span class="s1">&#39;description&#39;</span><span class="p">,</span> <span class="n">weight</span><span class="o">=</span><span class="s2">&quot;B&quot;</span><span class="p">)</span>
+
+            <span class="n">results</span> <span class="o">=</span> <span class="n">Post</span><span class="o">.</span><span class="n">published</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="n">search</span><span class="o">=</span><span class="n">search_vector</span><span class="p">,</span> <span class="n">rank</span><span class="o">=</span><span class="n">SearchRank</span><span class="p">(</span><span class="n">search_vector</span><span class="p">,</span> <span class="n">search_query</span><span class="p">))</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">search</span><span class="o">=</span><span class="n">search_query</span><span class="p">)</span><span class="o">.</span><span class="n">order_by</span><span class="p">(</span><span class="s1">&#39;-rank&#39;</span><span class="p">)</span>
+
+    <span class="n">context</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s2">&quot;query&quot;</span><span class="p">:</span> <span class="n">query</span><span class="p">,</span>
+        <span class="s2">&quot;results&quot;</span><span class="p">:</span> <span class="n">results</span><span class="p">,</span>
+    <span class="p">}</span>
+
+    <span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s1">&#39;blog/search_result.html&#39;</span><span class="p">,</span> <span class="n">context</span><span class="o">=</span><span class="n">context</span><span class="p">)</span>
+</pre></div>
+
+<p>برای تعیین امتیازدهی، برای هر فیلد یک SearchVector نوشته و در آن با استفاده از آرگومان weight، امتیاز و وزن فیلد را مشخص میکنیم. | میتوان بجای حروف الفبا با استفاده از عدد در بازه <span class="en-text">(0.1, 1)</span> این امتیاز را مشخص کنیم.</p>
+<blockquote>
+<p><span class="rtl-text">میتوانیم در متد <span class="en-text">filter()</span> مشخص کنیم، نتایجی را انتخاب کند که امتیاز(rank) آنها از یه مقداری بیشتر باشد.</span></p>
+</blockquote>
+<p><code>app directory/views.py</code></p>
+<div class="code-box">
+        <div class="code-info">
+            <button class="copy-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" class="icon-sm"><path fill="currentColor" fill-rule="evenodd" d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z" clip-rule="evenodd"></path></svg>
+                <span>Copy code</span>
+            </button>
+            <span class="language">python</span>
+        </div>
+    <pre><span></span><span class="n">results</span> <span class="o">=</span> <span class="n">Post</span><span class="o">.</span><span class="n">published</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="n">search</span><span class="o">=</span><span class="n">search_vector</span><span class="p">,</span> <span class="n">rank</span><span class="o">=</span><span class="n">SearchRank</span><span class="p">(</span><span class="n">search_vector</span><span class="p">,</span> <span class="n">search_query</span><span class="p">))</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">rank__gte</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span><span class="o">.</span><span class="n">order_by</span><span class="p">(</span><span class="s1">&#39;-rank&#39;</span><span class="p">)</span>
+</pre></div>
+
+<p>بریم کد کاملش را هم ببینیم:</p>
+<p><code>app directory/views.py</code></p>
+<div class="code-box">
+        <div class="code-info">
+            <button class="copy-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" class="icon-sm"><path fill="currentColor" fill-rule="evenodd" d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z" clip-rule="evenodd"></path></svg>
+                <span>Copy code</span>
+            </button>
+            <span class="language">python</span>
+        </div>
+    <pre><span></span><span class="k">def</span> <span class="nf">post_search</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+    <span class="n">query</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">results</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="k">if</span> <span class="s1">&#39;query&#39;</span> <span class="ow">in</span> <span class="n">request</span><span class="o">.</span><span class="n">GET</span><span class="p">:</span>
+        <span class="n">form</span> <span class="o">=</span> <span class="n">SearchForm</span><span class="p">(</span><span class="n">request</span><span class="o">.</span><span class="n">GET</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">form</span><span class="o">.</span><span class="n">is_valid</span><span class="p">():</span>
+            <span class="n">query</span> <span class="o">=</span> <span class="n">form</span><span class="o">.</span><span class="n">cleaned_data</span><span class="p">[</span><span class="s1">&#39;query&#39;</span><span class="p">]</span>
+
+            <span class="n">search_query</span> <span class="o">=</span> <span class="n">SearchQuery</span><span class="p">(</span><span class="n">query</span><span class="p">)</span>
+            <span class="n">search_vector</span> <span class="o">=</span> <span class="n">SearchVector</span><span class="p">(</span><span class="s1">&#39;title&#39;</span><span class="p">,</span> <span class="n">weight</span><span class="o">=</span><span class="s2">&quot;A&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">SearchVector</span><span class="p">(</span><span class="s1">&#39;description&#39;</span><span class="p">,</span> <span class="n">weight</span><span class="o">=</span><span class="s2">&quot;B&quot;</span><span class="p">)</span>
+
+            <span class="n">results</span> <span class="o">=</span> <span class="n">Post</span><span class="o">.</span><span class="n">published</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="n">search</span><span class="o">=</span><span class="n">search_vector</span><span class="p">,</span> <span class="n">rank</span><span class="o">=</span><span class="n">SearchRank</span><span class="p">(</span><span class="n">search_vector</span><span class="p">,</span> <span class="n">search_query</span><span class="p">))</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">rank__gte</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span><span class="o">.</span><span class="n">order_by</span><span class="p">(</span><span class="s1">&#39;-rank&#39;</span><span class="p">)</span>
+
+    <span class="n">context</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s2">&quot;query&quot;</span><span class="p">:</span> <span class="n">query</span><span class="p">,</span>
+        <span class="s2">&quot;results&quot;</span><span class="p">:</span> <span class="n">results</span><span class="p">,</span>
+    <span class="p">}</span>
+
+    <span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s1">&#39;blog/search_result.html&#39;</span><span class="p">,</span> <span class="n">context</span><span class="o">=</span><span class="n">context</span><span class="p">)</span>
+</pre></div>
+
+<p><strong>چنانچه در جستجوی خود غلط املایی داشته باشیم مثلا اشتباهی یک حرف دیگر تایپ کرده باشیم در جستجو به مشکل میخورد.</strong></p>
 <h3 id="pydh-szy-fts-w-khr-b-trigramsimilarity-snjsh-mshbht">پیاده سازی FTS و کار با TrigramSimilarity (سنجش مشابهت)</h3>
+<p>برای استفاده از Trigram؛ باید افزونه(اکستنشن) pg_trgm را در postgres نصب کنیم.</p>
+<blockquote>
+<p>برای نصب اکستنشن pg_trgm میتوان هم از sql shell و هم از pgadmin استفاده کرد.</p>
+</blockquote>
+<p>دستور SQL آن در sql shell:</p>
+<div class="code-box">
+        <div class="code-info">
+            <button class="copy-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" class="icon-sm"><path fill="currentColor" fill-rule="evenodd" d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z" clip-rule="evenodd"></path></svg>
+                <span>Copy code</span>
+            </button>
+            <span class="language">sqlshell</span>
+        </div>
+    <pre><span></span>create extention pg_trgm
+</pre></div>
+
+<p>1- در pgadmin روی databae کلیک راست کرده و مراحل زیر را انجام میدهیم:</p>
+<p><span class="en-text">2- create &gt; Extention...</span></p>
+<p>3- سپس در کادر باز شده اسم اکستنشن(pg_trgm) را وارد کرده و save را میزنیم.</p>
+<p>حالا برای استفاده از TrigramSimilarity باید آنرا ایمپورت کنیم:</p>
+<p><code>app directory/views.py</code></p>
+<div class="code-box">
+        <div class="code-info">
+            <button class="copy-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" class="icon-sm"><path fill="currentColor" fill-rule="evenodd" d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z" clip-rule="evenodd"></path></svg>
+                <span>Copy code</span>
+            </button>
+            <span class="language">python</span>
+        </div>
+    <pre><span></span><span class="kn">from</span> <span class="nn">django.contrib.postgres.search</span> <span class="kn">import</span> <span class="n">TrigramSimilarity</span>
+</pre></div>
+
+<p>شیوه استفاده از TrigramSimilarity:</p>
+<p>1- با استفاده از متد <span class="en-text">annotate()</span> یک فیلد ایجاد میکنیم ، برای این فیلد از TrigramSimilarity استفاده میکنیم.</p>
+<p>2- TrigramSimilarity دو ورودی میگیره اولی: اسم فیلد و دومی: عبارت جستجو شده(query)</p>
+<p><code>app directory/views.py</code></p>
+<div class="code-box">
+        <div class="code-info">
+            <button class="copy-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" class="icon-sm"><path fill="currentColor" fill-rule="evenodd" d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z" clip-rule="evenodd"></path></svg>
+                <span>Copy code</span>
+            </button>
+            <span class="language">python</span>
+        </div>
+    <pre><span></span><span class="k">def</span> <span class="nf">post_search</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+    <span class="n">query</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">results</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="k">if</span> <span class="s1">&#39;query&#39;</span> <span class="ow">in</span> <span class="n">request</span><span class="o">.</span><span class="n">GET</span><span class="p">:</span>
+        <span class="n">form</span> <span class="o">=</span> <span class="n">SearchForm</span><span class="p">(</span><span class="n">request</span><span class="o">.</span><span class="n">GET</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">form</span><span class="o">.</span><span class="n">is_valid</span><span class="p">():</span>
+            <span class="n">query</span> <span class="o">=</span> <span class="n">form</span><span class="o">.</span><span class="n">cleaned_data</span><span class="p">[</span><span class="s1">&#39;query&#39;</span><span class="p">]</span>
+
+            <span class="n">results</span> <span class="o">=</span> <span class="n">Post</span><span class="o">.</span><span class="n">published</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="n">similarity</span><span class="o">=</span><span class="n">TrigramSimilarity</span><span class="p">(</span><span class="s1">&#39;title&#39;</span><span class="p">,</span> <span class="n">query</span><span class="p">))</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">similarity__gt</span><span class="o">=</span><span class="mf">0.1</span><span class="p">)</span><span class="o">.</span><span class="n">order_by</span><span class="p">(</span><span class="s1">&#39;-similarity&#39;</span><span class="p">)</span>
+
+    <span class="n">context</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s2">&quot;query&quot;</span><span class="p">:</span> <span class="n">query</span><span class="p">,</span>
+        <span class="s2">&quot;results&quot;</span><span class="p">:</span> <span class="n">results</span><span class="p">,</span>
+    <span class="p">}</span>
+
+    <span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s1">&#39;blog/search_result.html&#39;</span><span class="p">,</span> <span class="n">context</span><span class="o">=</span><span class="n">context</span><span class="p">)</span>
+</pre></div>
+
+<p>3- حالا در متد <span class="en-text">filter()</span> میزان شباهت را مشخص میکنیم(برای فیلد similarity ایجاد شده میزان شباهت را تعیین میکنیم).</p>
+<blockquote>
+<p>هرچقدر این میزان similarity بالاتر باشد(به 1 نزدیکتر باشد) سخت گیری بیشتر میشود، یعنی بیشتر نسبت به تطابق عبارت جستجو شده با عبارت موجود در متن حساسیت نشان میدهد(میخواد تا حدامکان شبیه یکدیگر باشند). | پس بهتر است از اعداد پایین تر مثله 0.1 استفاده کنیم.</p>
+</blockquote>
+<h4>جستجو بین چند فیلد با ساختار TrigramSimilarity</h4>
+<p><strong>حالت اول:</strong></p>
+<p><code>app directory/views.py</code></p>
+<div class="code-box">
+        <div class="code-info">
+            <button class="copy-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" class="icon-sm"><path fill="currentColor" fill-rule="evenodd" d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z" clip-rule="evenodd"></path></svg>
+                <span>Copy code</span>
+            </button>
+            <span class="language">python</span>
+        </div>
+    <pre><span></span><span class="k">def</span> <span class="nf">post_search</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+    <span class="n">query</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">results</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="k">if</span> <span class="s1">&#39;query&#39;</span> <span class="ow">in</span> <span class="n">request</span><span class="o">.</span><span class="n">GET</span><span class="p">:</span>
+        <span class="n">form</span> <span class="o">=</span> <span class="n">SearchForm</span><span class="p">(</span><span class="n">request</span><span class="o">.</span><span class="n">GET</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">form</span><span class="o">.</span><span class="n">is_valid</span><span class="p">():</span>
+            <span class="n">query</span> <span class="o">=</span> <span class="n">form</span><span class="o">.</span><span class="n">cleaned_data</span><span class="p">[</span><span class="s1">&#39;query&#39;</span><span class="p">]</span>
+
+            <span class="n">result1</span> <span class="o">=</span> <span class="n">Post</span><span class="o">.</span><span class="n">published</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="n">similarity</span><span class="o">=</span><span class="n">TrigramSimilarity</span><span class="p">(</span><span class="s1">&#39;title&#39;</span><span class="p">,</span> <span class="n">query</span><span class="p">))</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">similarity__gt</span><span class="o">=</span><span class="mf">0.1</span><span class="p">)</span>
+            <span class="n">result2</span> <span class="o">=</span> <span class="n">Post</span><span class="o">.</span><span class="n">published</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="n">similarity</span><span class="o">=</span><span class="n">TrigramSimilarity</span><span class="p">(</span><span class="s1">&#39;description&#39;</span><span class="p">,</span> <span class="n">query</span><span class="p">))</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">similarity__gt</span><span class="o">=</span><span class="mf">0.1</span><span class="p">)</span>
+
+            <span class="n">results</span> <span class="o">=</span> <span class="p">(</span><span class="n">result1</span> <span class="o">|</span> <span class="n">result2</span><span class="p">)</span><span class="o">.</span><span class="n">order_by</span><span class="p">(</span><span class="s1">&#39;-similarity&#39;</span><span class="p">)</span>
+
+    <span class="n">context</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s2">&quot;query&quot;</span><span class="p">:</span> <span class="n">query</span><span class="p">,</span>
+        <span class="s2">&quot;results&quot;</span><span class="p">:</span> <span class="n">results</span><span class="p">,</span>
+    <span class="p">}</span>
+
+    <span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s1">&#39;blog/search_result.html&#39;</span><span class="p">,</span> <span class="n">context</span><span class="o">=</span><span class="n">context</span><span class="p">)</span>
+</pre></div>
+
+<p><strong>حالت دوم:</strong></p>
+<p><code>app directory/views.py</code></p>
+<div class="code-box">
+        <div class="code-info">
+            <button class="copy-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" class="icon-sm"><path fill="currentColor" fill-rule="evenodd" d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z" clip-rule="evenodd"></path></svg>
+                <span>Copy code</span>
+            </button>
+            <span class="language">python</span>
+        </div>
+    <pre><span></span><span class="k">def</span> <span class="nf">post_search</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+    <span class="n">query</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">results</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="k">if</span> <span class="s1">&#39;query&#39;</span> <span class="ow">in</span> <span class="n">request</span><span class="o">.</span><span class="n">GET</span><span class="p">:</span>
+        <span class="n">form</span> <span class="o">=</span> <span class="n">SearchForm</span><span class="p">(</span><span class="n">request</span><span class="o">.</span><span class="n">GET</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">form</span><span class="o">.</span><span class="n">is_valid</span><span class="p">():</span>
+            <span class="n">query</span> <span class="o">=</span> <span class="n">form</span><span class="o">.</span><span class="n">cleaned_data</span><span class="p">[</span><span class="s1">&#39;query&#39;</span><span class="p">]</span>
+
+            <span class="n">results</span> <span class="o">=</span> <span class="n">Post</span><span class="o">.</span><span class="n">published</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span>
+                <span class="n">similarity_title</span><span class="o">=</span><span class="n">TrigramSimilarity</span><span class="p">(</span><span class="s1">&#39;title&#39;</span><span class="p">,</span> <span class="n">query</span><span class="p">),</span>
+                <span class="n">similarity_description</span><span class="o">=</span><span class="n">TrigramSimilarity</span><span class="p">(</span><span class="s1">&#39;description&#39;</span><span class="p">,</span> <span class="n">query</span><span class="p">))</span>
+                <span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">Q</span><span class="p">(</span><span class="n">similarity_titlegt</span><span class="o">=</span><span class="mf">0.1</span><span class="p">)</span> <span class="o">|</span> <span class="n">Q</span><span class="p">(</span><span class="n">similarity_descriptiongt</span><span class="o">=</span><span class="mf">0.1</span><span class="p">)</span> <span class="o">|</span> <span class="n">Q</span><span class="p">(</span><span class="n">similarity_slug__gt</span><span class="o">=</span><span class="mf">0.1</span><span class="p">))</span><span class="o">.</span><span class="n">order_by</span><span class="p">(</span><span class="s1">&#39;-similarity&#39;</span><span class="p">)</span>
+
+    <span class="n">context</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s2">&quot;query&quot;</span><span class="p">:</span> <span class="n">query</span><span class="p">,</span>
+        <span class="s2">&quot;results&quot;</span><span class="p">:</span> <span class="n">results</span><span class="p">,</span>
+    <span class="p">}</span>
+
+    <span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s1">&#39;blog/search_result.html&#39;</span><span class="p">,</span> <span class="n">context</span><span class="o">=</span><span class="n">context</span><span class="p">)</span>
+</pre></div>
+
+<p><strong>حالت سوم:</strong></p>
+<p><code>app directory/views.py</code></p>
+<div class="code-box">
+        <div class="code-info">
+            <button class="copy-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" class="icon-sm"><path fill="currentColor" fill-rule="evenodd" d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z" clip-rule="evenodd"></path></svg>
+                <span>Copy code</span>
+            </button>
+            <span class="language">python</span>
+        </div>
+    <pre><span></span><span class="k">def</span> <span class="nf">post_search</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+    <span class="n">query</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">results</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="k">if</span> <span class="s1">&#39;query&#39;</span> <span class="ow">in</span> <span class="n">request</span><span class="o">.</span><span class="n">GET</span><span class="p">:</span>
+        <span class="n">form</span> <span class="o">=</span> <span class="n">SearchForm</span><span class="p">(</span><span class="n">request</span><span class="o">.</span><span class="n">GET</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">form</span><span class="o">.</span><span class="n">is_valid</span><span class="p">():</span>
+            <span class="n">query</span> <span class="o">=</span> <span class="n">form</span><span class="o">.</span><span class="n">cleaned_data</span><span class="p">[</span><span class="s1">&#39;query&#39;</span><span class="p">]</span>
+
+            <span class="n">results</span> <span class="o">=</span> <span class="n">Post</span><span class="o">.</span><span class="n">published</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span>
+                <span class="n">similarity</span><span class="o">=</span><span class="n">TrigramSimilarity</span><span class="p">(</span><span class="s1">&#39;title&#39;</span><span class="p">,</span> <span class="n">query</span><span class="p">)</span> <span class="o">+</span> 
+                           <span class="n">TrigramSimilarity</span><span class="p">(</span><span class="s1">&#39;description&#39;</span><span class="p">,</span> <span class="n">query</span><span class="p">))</span>
+                           <span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">similarity__gt</span><span class="o">=</span><span class="mf">0.2</span><span class="p">)</span><span class="o">.</span><span class="n">order_by</span><span class="p">(</span><span class="s1">&#39;-similarity&#39;</span><span class="p">)</span>
+
+    <span class="n">context</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s2">&quot;query&quot;</span><span class="p">:</span> <span class="n">query</span><span class="p">,</span>
+        <span class="s2">&quot;results&quot;</span><span class="p">:</span> <span class="n">results</span><span class="p">,</span>
+    <span class="p">}</span>
+
+    <span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s1">&#39;blog/search_result.html&#39;</span><span class="p">,</span> <span class="n">context</span><span class="o">=</span><span class="n">context</span><span class="p">)</span>
+</pre></div>
+
 <h3 id="fzwdn-fyld-tswyr-w-tnzymt-n">افزودن فیلد تصویر و تنظیمات آن</h3>
+<p>اضافه کردن تصویر به مدل Post | برای اینکه چند تصویر برای هر پست داشته باشیم، یک مدل بنام Image ایجاد میکنیم و آنرا به مدل Post متصل میکنیم.</p>
+<blockquote>
+<p>رابطه بین تصاویر و پست، از نوع Many To One میباشد پس از فیلد ForeignKey استفاده میکنیم.</p>
+</blockquote>
+<p><code>app directory/models.py</code></p>
+<div class="code-box">
+        <div class="code-info">
+            <button class="copy-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" class="icon-sm"><path fill="currentColor" fill-rule="evenodd" d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z" clip-rule="evenodd"></path></svg>
+                <span>Copy code</span>
+            </button>
+            <span class="language">python</span>
+        </div>
+    <pre><span></span><span class="k">class</span> <span class="nc">Image</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">post</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">ForeignKey</span><span class="p">(</span><span class="n">Post</span><span class="p">,</span> <span class="n">on_delete</span><span class="o">=</span><span class="n">models</span><span class="o">.</span><span class="n">CASCADE</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;images&#39;</span><span class="p">)</span>
+
+    <span class="n">img_file</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">ImageField</span><span class="p">(</span><span class="n">upload_to</span><span class="o">=</span><span class="s2">&quot;post_images/&quot;</span><span class="p">)</span>
+    <span class="n">title</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">250</span><span class="p">,</span> <span class="n">null</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">blank</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">description</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">TextField</span><span class="p">(</span><span class="n">null</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">blank</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">created</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">DateTimeField</span><span class="p">(</span><span class="n">auto_now_add</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+    <span class="k">class</span> <span class="nc">Meta</span><span class="p">:</span>
+        <span class="n">ordering</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;created&#39;</span><span class="p">]</span>
+        <span class="n">indexes</span> <span class="o">=</span> <span class="p">[</span><span class="n">models</span><span class="o">.</span><span class="n">Index</span><span class="p">(</span><span class="n">fields</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;created&#39;</span><span class="p">])]</span>
+
+    <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">title</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">title</span> <span class="k">else</span> <span class="s2">&quot;None&quot;</span>
+</pre></div>
+
+<p>برای تصویر از ImageField استفاده میکنیم، در آرگومان upload_to مسیری که میخواهیم تصویر آنجا ذخیره شود را مشخص میکنیم.</p>
+<blockquote>
+<p>با استفاده از آرگومان های null=True و blank=True مشخص میکنیم که این فیلد میتواند null و خالی باشد(یعنی اجباری در پرکردن آن نیست).</p>
+</blockquote>
+<p><strong>نکته:</strong> پس از ایجاد مدل Image لازم است از دستورات makemigrations و migrate استفاده کنیم.</p>
+<h4>برای استفاده از ImageField و ذخیره تصاویر در پروژه  لازم است در settings.py تغییراتی ایجاد کنیم:</h4>
+<blockquote>
+<p>مثله دایرکتوری static، که جنگو آن را میشناسد ، برای تصاویر هم در settings.py، با استفاده از  MEDIA_ROOT یک دایرکتوری مشخص میکنیم تا جنگو آن را بشناسد.</p>
+</blockquote>
+<p>برای تنظیمات و پیکربندی تصاویر، از MEDIA_URL و MEDIA_ROOT استفاده میکنیم.</p>
+<p>در انتهای settings.py این دو متغیر را اضافه میکنیم:</p>
+<p><code>project directory/settings.py</code></p>
+<div class="code-box">
+        <div class="code-info">
+            <button class="copy-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" class="icon-sm"><path fill="currentColor" fill-rule="evenodd" d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z" clip-rule="evenodd"></path></svg>
+                <span>Copy code</span>
+            </button>
+            <span class="language">python</span>
+        </div>
+    <pre><span></span><span class="c1"># ...</span>
+<span class="n">MEDIA_URL</span> <span class="o">=</span> <span class="s1">&#39;/media/&#39;</span>
+<span class="n">MEDIA_ROOT</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">BASE_DIR</span><span class="p">,</span> <span class="s1">&#39;media&#39;</span><span class="p">)</span>
+</pre></div>
+
+<p>از MEDIA_URL برای شروع مسیر url  آن تصویر استفاده میشود.</p>
+<p>از MEDIA_ROOT استفاده میکنیم تا  یک دایرکتوری برای ذخیره تصاویر در پروژه مشخص کنیم.</p>
+<blockquote>
+<p>برای استفاده از تصویر در پایتون(جنگو) لازم است، ماژول pillow را نصب کنیم:</p>
+</blockquote>
+<div class="code-box">
+        <div class="code-info">
+            <button class="copy-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" class="icon-sm"><path fill="currentColor" fill-rule="evenodd" d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z" clip-rule="evenodd"></path></svg>
+                <span>Copy code</span>
+            </button>
+            <span class="language">python</span>
+        </div>
+    <pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">pillow</span>
+</pre></div>
+
+<p>تعیین url برای تگ img در تمپلیت:</p>
+<blockquote>
+<p>با استفاده از images برای یک پست، تمام تصاویر آن پست را بدست می آوریم.(images اسم related_name برای فیلد post در مدل Image میباشد.)</p>
+</blockquote>
+<div class="code-box">
+        <div class="code-info">
+            <button class="copy-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" class="icon-sm"><path fill="currentColor" fill-rule="evenodd" d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z" clip-rule="evenodd"></path></svg>
+                <span>Copy code</span>
+            </button>
+            <span class="language">python</span>
+        </div>
+    <pre><span></span><span class="n">post</span><span class="o">.</span><span class="n">images</span>
+</pre></div>
+
+<p>با استفاده از متد <span class="en-text">first()</span> اولین تصویر ایجاد شده را انتخاب میکنیم:</p>
+<div class="code-box">
+        <div class="code-info">
+            <button class="copy-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" class="icon-sm"><path fill="currentColor" fill-rule="evenodd" d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z" clip-rule="evenodd"></path></svg>
+                <span>Copy code</span>
+            </button>
+            <span class="language">python</span>
+        </div>
+    <pre><span></span><span class="n">post</span><span class="o">.</span><span class="n">images</span><span class="o">.</span><span class="n">first</span><span class="p">()</span>
+</pre></div>
+
+<p>در مثال بالا یک نمونه از مدل Image داریم، پس میتوانیم به تمام فیلدهای آن دسترسی داشته باشیم، (تصاویر در فیلد img_file ذخیره میشوند پس با استفاده از آن میتوانیم به تصویر دسترسی داشته باشیم)</p>
+<div class="code-box">
+        <div class="code-info">
+            <button class="copy-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" class="icon-sm"><path fill="currentColor" fill-rule="evenodd" d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z" clip-rule="evenodd"></path></svg>
+                <span>Copy code</span>
+            </button>
+            <span class="language">python</span>
+        </div>
+    <pre><span></span><span class="n">post</span><span class="o">.</span><span class="n">images</span><span class="o">.</span><span class="n">first</span><span class="o">.</span><span class="n">img_file</span>
+</pre></div>
+
+<p>این فیلد(img_file) اسم فایل تصویر را برمیگرداند برای استفاده از url آن تصویر از متد url استفاده میکنیم:</p>
+<div class="code-box">
+        <div class="code-info">
+            <button class="copy-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" class="icon-sm"><path fill="currentColor" fill-rule="evenodd" d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z" clip-rule="evenodd"></path></svg>
+                <span>Copy code</span>
+            </button>
+            <span class="language">jinja</span>
+        </div>
+    <pre><span></span><span class="x">&lt;img src=&quot;post.images.first.img_file.url&quot; alt=&quot;post.images.first.title&quot;&gt;</span>
+</pre></div>
+
+<p>جهت نمایش مدل Image در پنل ادمین لازم ست از آن در admin.py استفاده کنیم:</p>
+<p><code>app directory/admin.py</code></p>
+<div class="code-box">
+        <div class="code-info">
+            <button class="copy-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" class="icon-sm"><path fill="currentColor" fill-rule="evenodd" d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z" clip-rule="evenodd"></path></svg>
+                <span>Copy code</span>
+            </button>
+            <span class="language">python</span>
+        </div>
+    <pre><span></span><span class="nd">@admin</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="n">Image</span><span class="p">)</span>
+<span class="k">class</span> <span class="nc">ImageAdmin</span><span class="p">(</span><span class="n">admin</span><span class="o">.</span><span class="n">ModelAdmin</span><span class="p">):</span>
+    <span class="n">list_display</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;title&#39;</span><span class="p">,</span> <span class="s1">&#39;post&#39;</span><span class="p">,</span> <span class="s1">&#39;created&#39;</span><span class="p">]</span>
+</pre></div>
+
+<h4>نمایش تصاویر در post_list و post_detail</h4>
+<p><code>templates/blog/post_list.html</code></p>
+<div class="code-box">
+        <div class="code-info">
+            <button class="copy-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" class="icon-sm"><path fill="currentColor" fill-rule="evenodd" d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z" clip-rule="evenodd"></path></svg>
+                <span>Copy code</span>
+            </button>
+            <span class="language">jinja</span>
+        </div>
+    <pre><span></span><span class="cp">{%</span> <span class="k">extends</span> <span class="s1">&#39;parent/base.html&#39;</span> <span class="cp">%}</span>
+<span class="cp">{%</span> <span class="k">load</span> <span class="nv">static</span> <span class="cp">%}</span>
+
+<span class="cp">{%</span> <span class="k">block</span> <span class="nv">title</span> <span class="cp">%}</span><span class="x"> Post Lists </span><span class="cp">{%</span> <span class="k">endblock</span> <span class="cp">%}</span>
+
+<span class="cp">{%</span> <span class="k">block</span> <span class="nv">head</span> <span class="cp">%}</span>
+<span class="x">    &lt;link rel=&quot;stylesheet&quot; href=&quot;</span><span class="cp">{%</span> <span class="k">static</span> <span class="s1">&#39;css/style.css&#39;</span> <span class="cp">%}</span><span class="x">&quot;&gt;</span>
+<span class="cp">{%</span> <span class="k">endblock</span> <span class="cp">%}</span>
+
+<span class="cp">{%</span> <span class="k">block</span> <span class="nv">content</span> <span class="cp">%}</span>
+<span class="x">    &lt;div class=&quot;container&quot;&gt;</span>
+<span class="x">        </span><span class="cp">{%</span> <span class="k">for</span> <span class="nv">post</span> <span class="k">in</span> <span class="nv">page_obj</span> <span class="cp">%}</span>
+<span class="x">            &lt;div class=&quot;post&quot;&gt;</span>
+<span class="x">                &lt;img src=&quot;post.images.first.img_file.url&quot; alt=&quot;post.images.first.title&quot;&gt;</span>
+<span class="x">                &lt;a href=&quot;</span><span class="cp">{%</span> <span class="k">url</span> <span class="nv">blog</span><span class="o">:</span><span class="nv">post_detil</span> <span class="nv">post.id</span> <span class="cp">%}</span><span class="x">&quot;&gt;</span><span class="cp">{{</span> <span class="nv">post.title</span> <span class="cp">}}</span><span class="x">&lt;/a&gt;</span>
+<span class="x">                &lt;p&gt;</span><span class="cp">{{</span> <span class="nv">post.description</span><span class="o">|</span><span class="nf">truncatewords</span><span class="o">:</span><span class="m">5</span> <span class="cp">}}</span><span class="x">&lt;/p&gt;</span>
+<span class="x">            &lt;/div&gt;</span>
+<span class="x">        </span><span class="cp">{%</span> <span class="k">endfor</span> <span class="cp">%}</span>
+<span class="x">    &lt;/div&gt;</span>
+
+<span class="x">    </span><span class="cp">{%</span> <span class="k">include</span> <span class="s1">&#39;partials/pagination.html&#39;</span> <span class="k">with</span> <span class="nv">page</span><span class="o">=</span><span class="nv">page_obj</span> <span class="cp">%}</span>
+
+<span class="cp">{%</span> <span class="k">endblock</span> <span class="cp">%}</span>
+</pre></div>
+
+<p><code>templates/blog/post_detail.html</code></p>
+<div class="code-box">
+        <div class="code-info">
+            <button class="copy-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" class="icon-sm"><path fill="currentColor" fill-rule="evenodd" d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z" clip-rule="evenodd"></path></svg>
+                <span>Copy code</span>
+            </button>
+            <span class="language">jinja</span>
+        </div>
+    <pre><span></span><span class="cp">{%</span> <span class="k">extends</span> <span class="s1">&#39;parent/base.html&#39;</span> <span class="cp">%}</span>
+<span class="cp">{%</span> <span class="k">load</span> <span class="nv">blog_tags</span> <span class="cp">%}</span>
+<span class="cp">{%</span> <span class="k">block</span> <span class="nv">title</span> <span class="cp">%}</span><span class="x"> post detail </span><span class="cp">{%</span> <span class="k">endblock</span> <span class="cp">%}</span>
+
+<span class="cp">{%</span> <span class="k">block</span> <span class="nv">content</span> <span class="cp">%}</span>
+<span class="x">    &lt;h3&gt;Author: &lt;i&gt;</span><span class="cp">{{</span> <span class="nv">post.author</span> <span class="cp">}}</span><span class="x">&lt;/i&gt;&lt;/h3&gt;</span>
+<span class="x">    &lt;br&gt;&lt;br&gt;</span>
+<span class="x">    &lt;h2&gt;Title: </span><span class="cp">{{</span> <span class="nv">post.title</span> <span class="cp">}}</span><span class="x">&lt;/h2&gt;</span>
+<span class="x">    &lt;h3&gt;description:&lt;/h3&gt;</span>
+<span class="x">    &lt;p&gt;</span><span class="cp">{{</span> <span class="nv">post.description</span> <span class="o">|</span> <span class="nf">linebreaks</span> <span class="cp">}}</span><span class="x">&lt;/p&gt;</span>
+<span class="x">    &lt;p&gt;</span><span class="cp">{{</span> <span class="nv">post.publish</span> <span class="cp">}}</span><span class="x">&lt;/p&gt;</span>
+<span class="x">    &lt;br&gt;&lt;hr&gt;&lt;br&gt;</span>
+
+<span class="x">    &lt;!-- نمایش تمام تصاویر مربوط به پست --&gt;</span>
+<span class="x">    &lt;div class=&quot;images&quot;&gt;</span>
+<span class="x">        </span><span class="cp">{%</span> <span class="k">for</span> <span class="nv">IMG</span> <span class="k">in</span> <span class="nv">post.images.all</span> <span class="cp">%}</span>
+<span class="x">            &lt;img src=&quot;IMG.img_file.url&quot; alt=&quot;IMG.title&quot;&gt;</span>
+<span class="x">        </span><span class="cp">{%</span> <span class="k">endfor</span> <span class="cp">%}</span>
+<span class="x">    &lt;/div&gt;</span>
+
+<span class="x">    &lt;form action=&quot;</span><span class="cp">{%</span> <span class="k">url</span> <span class="s1">&#39;Blog:post_comment&#39;</span> <span class="nv">post.id</span> <span class="cp">%}</span><span class="x">&quot; method=&quot;post&quot;&gt;</span>
+<span class="x">        </span><span class="cp">{%</span> <span class="k">csrf_token</span> <span class="cp">%}</span>
+<span class="x">    </span>
+<span class="x">        &lt;input type=&quot;text&quot; id=&quot;name&quot; placeholder=&quot;name&quot; name=&quot;name&quot;&gt;</span>
+<span class="x">        </span>
+<span class="x">        &lt;br&gt;&lt;br&gt;</span>
+<span class="x">        </span>
+<span class="x">        &lt;textarea name=&quot;letter&quot; cols=&quot;30&quot; rows=&quot;10&quot; placeholder=&quot;your comment...&quot;&gt;&lt;/textarea&gt;</span>
+<span class="x">    </span>
+<span class="x">        &lt;input type=&quot;submit&quot; value=&quot;send&quot;&gt;</span>
+<span class="x">    &lt;/form&gt;</span>
+
+<span class="x">    &lt;!-- نمایش تعداد کامنت ها --&gt;</span>
+<span class="x">    &lt;div&gt;</span>
+<span class="x">        </span><span class="cp">{%</span> <span class="k">with</span> <span class="nv">comments.count</span> <span class="k">as</span> <span class="nv">cm_count</span> <span class="cp">%}</span>
+<span class="x">            </span><span class="cp">{{</span> <span class="nv">cm_count</span> <span class="cp">}}</span><span class="x"> comment</span><span class="cp">{{</span> <span class="nv">cm_count</span><span class="o">|</span><span class="nf">pluralize</span> <span class="cp">}}</span>
+<span class="x">        </span><span class="cp">{%</span> <span class="k">endwith</span> <span class="cp">%}</span>
+<span class="x">    &lt;/div&gt;</span>
+
+<span class="x">    &lt;!-- نمایش کامنت ها --&gt;</span>
+<span class="x">    </span><span class="cp">{%</span> <span class="k">for</span> <span class="nv">cm</span> <span class="k">in</span> <span class="nv">comments</span> <span class="cp">%}</span>
+<span class="x">        &lt;div&gt;</span>
+<span class="x">            Name: </span><span class="cp">{{</span> <span class="nv">cm.name</span> <span class="cp">}}</span>
+<span class="x">            &lt;br&gt;</span>
+<span class="x">            </span><span class="cp">{{</span> <span class="nv">cm.letter</span><span class="o">|</span><span class="nf">linebreaks</span> <span class="cp">}}</span><span class="x"> </span>
+<span class="x">        &lt;/div&gt;</span>
+<span class="x">    </span><span class="cp">{%</span> <span class="k">empty</span> <span class="cp">%}</span>
+<span class="x">        کامنتی وجود ندارد</span>
+<span class="x">    </span><span class="cp">{%</span> <span class="k">endfor</span> <span class="cp">%}</span>
+<span class="x">    </span>
+<span class="cp">{%</span> <span class="k">endblock</span> <span class="cp">%}</span>
+</pre></div>
+
+<blockquote>
+<p><span class="rtl-text">در تمپلیت بالا برای حلقه for جهت نمایش تمام تصاویر، استفاده از متد <span class="en-text">all()</span> فراموش نشه!</span></p>
+<p>مگرنه ارور میدهد.</p>
+</blockquote>
+<p>با انجام تمام این مراحل تصاویر نمایش داده نمیشوند، چون لازم است در فایل urls.py <strong>پروژه</strong> MEDIA_URL و MEDIA_ROOT را برایش مشخص کنیم.</p>
+<p>static و settings باید ایمپورت شوند:</p>
+<p><code>project directory/urls.py</code></p>
+<div class="code-box">
+        <div class="code-info">
+            <button class="copy-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" class="icon-sm"><path fill="currentColor" fill-rule="evenodd" d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z" clip-rule="evenodd"></path></svg>
+                <span>Copy code</span>
+            </button>
+            <span class="language">python</span>
+        </div>
+    <pre><span></span><span class="kn">from</span> <span class="nn">django.conf.urls.static</span> <span class="kn">import</span> <span class="n">static</span>
+<span class="kn">from</span> <span class="nn">django.conf</span> <span class="kn">import</span> <span class="n">settings</span>
+</pre></div>
+
+<p>خب حالا بریم ساختار کامل urls.py را ببینیم:</p>
+<p><code>project directory/urls.py</code></p>
+<div class="code-box">
+        <div class="code-info">
+            <button class="copy-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" class="icon-sm"><path fill="currentColor" fill-rule="evenodd" d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z" clip-rule="evenodd"></path></svg>
+                <span>Copy code</span>
+            </button>
+            <span class="language">python</span>
+        </div>
+    <pre><span></span><span class="kn">from</span> <span class="nn">django.contrib</span> <span class="kn">import</span> <span class="n">admin</span>
+<span class="kn">from</span> <span class="nn">django.urls</span> <span class="kn">import</span> <span class="n">path</span><span class="p">,</span> <span class="n">include</span>
+<span class="kn">from</span> <span class="nn">django.conf.urls.static</span> <span class="kn">import</span> <span class="n">static</span>
+<span class="kn">from</span> <span class="nn">django.conf</span> <span class="kn">import</span> <span class="n">settings</span>
+
+
+<span class="n">urlpatterns</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="n">path</span><span class="p">(</span><span class="s1">&#39;admin/&#39;</span><span class="p">,</span> <span class="n">admin</span><span class="o">.</span><span class="n">site</span><span class="o">.</span><span class="n">urls</span><span class="p">),</span>
+    <span class="n">path</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">include</span><span class="p">(</span><span class="s1">&#39;blog.urls&#39;</span><span class="p">,</span> <span class="n">namespace</span><span class="o">=</span><span class="s1">&#39;blog&#39;</span><span class="p">))</span>
+<span class="p">]</span>
+
+<span class="n">urlpatterns</span> <span class="o">+=</span> <span class="n">static</span><span class="p">(</span><span class="n">settings</span><span class="o">.</span><span class="n">MEDIA_URL</span><span class="p">,</span> <span class="n">document_root</span><span class="o">=</span><span class="n">settings</span><span class="o">.</span><span class="n">MEDIA_ROOT</span><span class="p">)</span>
+</pre></div>
+
+<p>حالا تصاویر به درستی نمایش داده میشوند.</p>
 <h3 id="khr-b-inlinemodeladmin">کار با InlineModelAdmin</h3>
+<p>این قابلیت مربوط به مدل های ForeignKey میباشد.</p>
+<p>InlineModel ها برای نمایش مدل ها در پنل ادمین هستند پس در فایل admin.py نوشته میشوند.</p>
+<blockquote>
+<p>مدل‌های داخلی یا Inline Models در جنگو، به شما امکان می‌دهند که مدل‌هایی را که با یک مدل اصلی (Parent Model) ارتباط دارند را در صفحه ی "ویرایش یا ایجاد" این مدل اصلی، در پنل ادمین نمایش دهید. این امکان به شما کمک می‌کند تا ارتباطات بین مدل‌ها را به صورت منظم و کارآمد در یک صفحه مدیریت کنید. | میتوان مدل های مرتبط را در همان مدل اصلی ویرایش و یا ایجاد کرد.</p>
+</blockquote>
+<p>بگذارید با مثال توضیح دهیم، هر پست میتواند چندین کامنت و تصویر داشته باشد ولی مدیریت این کامنت ها و تصاویر در حال حاضر مشکل است چون هر کدام در بخش مجزایی وجود دارد؛ InlineModelAdmin به ما کمک میکند تا تمام کامنت ها و تصاویر مربوط به هر پست را در پنل همان پست نمایش دهیم به این ترتیب مدیریت آنها ساده تر خواهد بود.</p>
+<blockquote>
+<p>استفاده از inline models به صورت اصولی برای مدل‌های ForeignKey مناسب است، زیرا ارتباطات بین یک مدل اصلی (یکی به چند) با مدل‌های دیگر را نمایش می‌دهد و امکان ویرایش و مدیریت آن‌ها را در یک صفحه فراهم می‌کند.  </p>
+<p>با توجه به رابطه Many To One، پست میشه مدل یکی و کامنت ها و تصاویر هر کدام مدل چندتایی هستند، مدل های چندتایی inline model هستند که درپنل ادمین در بخش مدل یکی یعنی پست نمایش داده میشوند.</p>
+</blockquote>
+<p>برای ایجاد inline model از StackedInline و یا TabularInline استفاده میکنیم.</p>
+<p><code>app directory/admin.py</code></p>
+<div class="code-box">
+        <div class="code-info">
+            <button class="copy-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" class="icon-sm"><path fill="currentColor" fill-rule="evenodd" d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z" clip-rule="evenodd"></path></svg>
+                <span>Copy code</span>
+            </button>
+            <span class="language">python</span>
+        </div>
+    <pre><span></span><span class="c1"># inlines</span>
+<span class="c1"># first way:</span>
+<span class="k">class</span> <span class="nc">ImageInline</span><span class="p">(</span><span class="n">admin</span><span class="o">.</span><span class="n">TabularInline</span><span class="p">):</span>
+    <span class="n">model</span> <span class="o">=</span> <span class="n">Image</span>
+
+
+<span class="k">class</span> <span class="nc">CommentInline</span><span class="p">(</span><span class="n">admin</span><span class="o">.</span><span class="n">TabularInline</span><span class="p">):</span>
+    <span class="n">model</span> <span class="o">=</span> <span class="n">Comment</span>
+
+<span class="c1"># ________________________________________</span>
+
+<span class="c1"># second way</span>
+<span class="k">class</span> <span class="nc">ImageInline</span><span class="p">(</span><span class="n">admin</span><span class="o">.</span><span class="n">StackedInline</span><span class="p">):</span>
+    <span class="n">model</span> <span class="o">=</span> <span class="n">Image</span>
+
+
+<span class="k">class</span> <span class="nc">CommentInline</span><span class="p">(</span><span class="n">admin</span><span class="o">.</span><span class="n">StackedInline</span><span class="p">):</span>
+    <span class="n">model</span> <span class="o">=</span> <span class="n">Comment</span>
+</pre></div>
+
+<blockquote>
+<p>تفاوت StackedInline و TabularInline در ظاهر است.</p>
+<p>TabularInline: برای نمایش اطلاعات به صورت جدولی، مناسب برای مدل‌های با تعداد فیلدهای کم و جزئیات محدود.</p>
+<p>StackedInline: برای نمایش اطلاعات به صورت پشته‌ای (ستونی و پشت‌سرهم)، مناسب برای نمایش جزئیات بیشتر و فیلدهای بیشتر در هر ردیف.</p>
+</blockquote>
+<h4>توضیح ساختار inline models</h4>
+<p>برای هر inline model یک کلاس تعریف میکنیم که از StackedInline  یا TabularInline ارث بری میکند؛ حالا داخل بدنه آن، مدل مربوطه را مشخص میکنیم مثلا برای تصویر مدل Image میباشد.</p>
+<p>خب ما inline model های خود را ایجاد کردیم حالا باید آنها را به مدلی که قرار است آنجا نمایش داده شوند(یعنی مدل پست) معرفی کنیم.</p>
+<p><code>app directory/admin.py</code></p>
+<div class="code-box">
+        <div class="code-info">
+            <button class="copy-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" class="icon-sm"><path fill="currentColor" fill-rule="evenodd" d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z" clip-rule="evenodd"></path></svg>
+                <span>Copy code</span>
+            </button>
+            <span class="language">python</span>
+        </div>
+    <pre><span></span><span class="nd">@admin</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="n">Post</span><span class="p">)</span>
+<span class="k">class</span> <span class="nc">PostAdmin</span><span class="p">(</span><span class="n">admin</span><span class="o">.</span><span class="n">ModelAdmin</span><span class="p">):</span>
+    <span class="c1"># ...</span>
+
+    <span class="n">inlines</span> <span class="o">=</span> <span class="p">[</span><span class="n">ImageInline</span><span class="p">,</span> <span class="n">CommentInline</span><span class="p">]</span>
+</pre></div>
+
+<p>کد کاملش هم ببینیم:</p>
+<p><code>app directory/admin.py</code></p>
+<div class="code-box">
+        <div class="code-info">
+            <button class="copy-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" class="icon-sm"><path fill="currentColor" fill-rule="evenodd" d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z" clip-rule="evenodd"></path></svg>
+                <span>Copy code</span>
+            </button>
+            <span class="language">python</span>
+        </div>
+    <pre><span></span><span class="nd">@admin</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="n">Post</span><span class="p">)</span>
+<span class="k">class</span> <span class="nc">PostAdmin</span><span class="p">(</span><span class="n">admin</span><span class="o">.</span><span class="n">ModelAdmin</span><span class="p">):</span>
+    <span class="n">list_display</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;author&#39;</span><span class="p">,</span> <span class="s1">&#39;title&#39;</span><span class="p">,</span> <span class="s1">&#39;publish&#39;</span><span class="p">,</span> <span class="s1">&#39;status&#39;</span><span class="p">]</span>
+    <span class="n">ordering</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;-publish&#39;</span><span class="p">,</span> <span class="s1">&#39;-author&#39;</span><span class="p">]</span>
+    <span class="n">list_filter</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;status&#39;</span><span class="p">,</span> <span class="s1">&#39;publish&#39;</span><span class="p">,</span> <span class="s1">&#39;author&#39;</span><span class="p">]</span>
+    <span class="n">search_fields</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;title&#39;</span><span class="p">,</span> <span class="s1">&#39;description&#39;</span><span class="p">]</span>
+    <span class="n">raw_id_fields</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;author&#39;</span><span class="p">]</span>
+    <span class="n">date_hierarchy</span> <span class="o">=</span> <span class="s1">&#39;publish&#39;</span>
+    <span class="n">prepopulated_fields</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;slug&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;title&#39;</span><span class="p">]}</span>
+    <span class="n">list_editable</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;status&#39;</span><span class="p">]</span>
+
+    <span class="n">inlines</span> <span class="o">=</span> <span class="p">[</span><span class="n">ImageInline</span><span class="p">,</span> <span class="n">CommentInline</span><span class="p">]</span>
+</pre></div>
+
+<p>از اتریبیوت کلاس inlines استفاده میکنیم و در لیست آن؛ inline model های ایجاد شده(مربوط به این مدل) را مشخص میکنیم.</p>
+<p><strong>بریم چندتا ویژگی جدید به inline model ها اضافه کنیم:</strong></p>
+<p><code>app directory/admin.py</code></p>
+<div class="code-box">
+        <div class="code-info">
+            <button class="copy-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" class="icon-sm"><path fill="currentColor" fill-rule="evenodd" d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z" clip-rule="evenodd"></path></svg>
+                <span>Copy code</span>
+            </button>
+            <span class="language">python</span>
+        </div>
+    <pre><span></span><span class="c1"># inlines</span>
+<span class="k">class</span> <span class="nc">ImageInline</span><span class="p">(</span><span class="n">admin</span><span class="o">.</span><span class="n">TabularInline</span><span class="p">):</span>
+    <span class="n">model</span> <span class="o">=</span> <span class="n">Image</span>
+    <span class="n">extra</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">readonly_fields</span> <span class="o">=</span> <span class="p">(</span><span class="o">&lt;</span><span class="n">fields</span><span class="o">&gt;</span><span class="p">)</span>
+
+
+<span class="k">class</span> <span class="nc">CommentInline</span><span class="p">(</span><span class="n">admin</span><span class="o">.</span><span class="n">TabularInline</span><span class="p">):</span>
+    <span class="n">model</span> <span class="o">=</span> <span class="n">Comment</span>
+    <span class="n">extra</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">readonly_fields</span> <span class="o">=</span> <span class="p">(</span><span class="o">&lt;</span><span class="n">fields</span><span class="o">&gt;</span><span class="p">)</span>
+</pre></div>
+
+<p>با extra مشخص میکنیم چند فرم برای اضافه کردن وجود داشته باشد. | مثلا برای تصویر و یا کامنت جدید چند فرم وجود داشته باشد.</p>
+<p>با readonly_fields مشخص میکنیم که کدام فیلدها در این بخش قابل ویرایش نباشند و فقط نمایش داده شوند.</p>
 <h3 id="bhynh-szy-khwdkhr-tswyr">بهینه سازی خودکار تصاویر</h3>
+<p>در این بخش کنترل (کیفیت، سایز، پسوند و امثال اینها) را برای فیلد تصویر خواهیم داشت.</p>
+<p>برای این تنظیمات از پکیج django-resized استفاده میکنیم. | لازم است که آنرا نصب کنیم.</p>
+<div class="code-box">
+        <div class="code-info">
+            <button class="copy-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" class="icon-sm"><path fill="currentColor" fill-rule="evenodd" d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z" clip-rule="evenodd"></path></svg>
+                <span>Copy code</span>
+            </button>
+            <span class="language">python</span>
+        </div>
+    <pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">django</span><span class="o">-</span><span class="n">resized</span>
+</pre></div>
+
+<p><strong>برای استفاده از این پکیج باید یکسری اقدامات انجام بدهیم(برخی اختیاری هستند):</strong></p>
+<p><strong>پیکربندی اختیاری:</strong> مواردی را به عنوان پیشفرض این پکیج، برای تصاویر مشخص میکنیم. | موارد زیر</p>
+<p>این موارد را در settings.py، در انتهای فایل اضافه میکنیم. | هرکدام را براساس نیاز و سلیقه خود مشخص میکنیم.</p>
+<p><code>project directory/settings.py</code></p>
+<div class="code-box">
+        <div class="code-info">
+            <button class="copy-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" class="icon-sm"><path fill="currentColor" fill-rule="evenodd" d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z" clip-rule="evenodd"></path></svg>
+                <span>Copy code</span>
+            </button>
+            <span class="language">python</span>
+        </div>
+    <pre><span></span><span class="n">DJANGORESIZED_DEFAULT_SIZE</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1920</span><span class="p">,</span> <span class="mi">1080</span><span class="p">]</span>
+<span class="n">DJANGORESIZED_DEFAULT_SCALE</span> <span class="o">=</span> <span class="mf">0.5</span>
+<span class="n">DJANGORESIZED_DEFAULT_QUALITY</span> <span class="o">=</span> <span class="mi">75</span>
+<span class="n">DJANGORESIZED_DEFAULT_KEEP_META</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="n">DJANGORESIZED_DEFAULT_FORCE_FORMAT</span> <span class="o">=</span> <span class="s1">&#39;JPEG&#39;</span>
+<span class="n">DJANGORESIZED_DEFAULT_FORMAT_EXTENSIONS</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;JPEG&#39;</span><span class="p">:</span> <span class="s2">&quot;.jpg&quot;</span><span class="p">}</span>
+<span class="n">DJANGORESIZED_DEFAULT_NORMALIZE_ROTATION</span> <span class="o">=</span> <span class="kc">False</span>
+</pre></div>
+
+<blockquote>
+<p>برای استفاده از آن باید در مدل ها ایمپورت شود.</p>
+</blockquote>
+<p><code>app directory/models.py</code></p>
+<div class="code-box">
+        <div class="code-info">
+            <button class="copy-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" class="icon-sm"><path fill="currentColor" fill-rule="evenodd" d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z" clip-rule="evenodd"></path></svg>
+                <span>Copy code</span>
+            </button>
+            <span class="language">python</span>
+        </div>
+    <pre><span></span><span class="kn">from</span> <span class="nn">django_resized</span> <span class="kn">import</span> <span class="n">ResizedImageField</span>
+</pre></div>
+
+<p>توی models.py هرجا نیاز به فیلد تصویر باشه، از ResizedImageField بجای ImageField استفاده میکنیم.</p>
+<p><strong>این فیلد یکسری آپشن برای بهینه سازی و مدیریت تصاویر دارد:</strong></p>
+<h4>آپشن ها</h4>
+<ul>
+<li>
+<p><strong>size</strong> - حداکثر عرض و ارتفاع تصویر را مشخص میکند، به عنوان مثال [640، 480]. اگر یکی از ابعاد None باشد، تصویر با استفاده از مقدار دیگر و با حفظ نسبت ابعاد تصویر، تغییر اندازه لحاظ می‌شود. اگر برای size مقداری مشخص نکنیم، اندازه اصلی تصویر حفظ می‌شود.</p>
+</li>
+<li>
+<p><strong>scale</strong> - یک عدد اعشاری، اگر None نباشد، تصویر پس از تغییر اندازه مجدداً مقیاس‌بندی می‌شود.</p>
+</li>
+<li>
+<p><strong>crop</strong> - تغییر اندازه و برش. ['بالا'، 'چپ'] - گوشه بالا سمت چپ، ['وسط'، 'مرکز'] - برش مرکز، ['پایین'، 'راست'] - برش گوشه پایین سمت راست.</p>
+</li>
+<li>
+<p><strong>quality</strong> - کیفیت تصویر تغییر اندازه داده شده 0..100، -1 به معنی پیش‌فرض</p>
+</li>
+<li>
+<p><strong>keep_meta</strong> - حفظ اطلاعات EXIF و سایر داده‌های متا، پیش‌فرض True</p>
+</li>
+<li>
+<p><strong>force_format</strong> - اجبار فرمت تصویر تغییر اندازه داده شده، فرمت‌های موجود توسط pillow پشتیبانی می‌شوند، پیش‌فرض None</p>
+</li>
+</ul>
 <h3 id="tmrynt-fsl-shshm-mhm">تمرینات فصل ششم (مهم)</h3>
+<h4>1- وقتی پست حذف شد، تصاویر مربوط به آن هم از پروژه حذف شوند:</h4>
+<p><strong>برای این کار از دو روش پیشنهادی استفاده میکنیم:</strong></p>
+<p><strong>روش اول:</strong></p>
+<p>بازنویسی (override) متد <span class="en-text">delete()</span> برای کلاس مربوطه(Post):</p>
+<p><code>app directory/models.py</code></p>
+<div class="code-box">
+        <div class="code-info">
+            <button class="copy-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" class="icon-sm"><path fill="currentColor" fill-rule="evenodd" d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z" clip-rule="evenodd"></path></svg>
+                <span>Copy code</span>
+            </button>
+            <span class="language">python</span>
+        </div>
+    <pre><span></span><span class="k">class</span> <span class="nc">Post</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
+    <span class="c1"># ...</span>
+
+    <span class="k">def</span> <span class="nf">delete</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">img</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">images</span><span class="o">.</span><span class="n">all</span><span class="p">():</span>
+            <span class="n">storage</span><span class="p">,</span> <span class="n">path</span> <span class="o">=</span> <span class="n">img</span><span class="o">.</span><span class="n">img_file</span><span class="o">.</span><span class="n">storage</span><span class="p">,</span> <span class="n">img</span><span class="o">.</span><span class="n">img_file</span><span class="o">.</span><span class="n">path</span>
+
+            <span class="n">storage</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+</pre></div>
+
+<p><strong>روش دوم:</strong></p>
+<p>استفاده از پکیج django-cleanup:</p>
+<p><strong>Ⅰ- پکیج django-cleanup را نصب میکنیم.</strong></p>
+<div class="code-box">
+        <div class="code-info">
+            <button class="copy-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" class="icon-sm"><path fill="currentColor" fill-rule="evenodd" d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z" clip-rule="evenodd"></path></svg>
+                <span>Copy code</span>
+            </button>
+            <span class="language">python</span>
+        </div>
+    <pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">django</span><span class="o">-</span><span class="n">cleanup</span>
+</pre></div>
+
+<p><strong>Ⅱ- خب حالا باید پیکربندی لازم را انجام دهیم:</strong></p>
+<p>باید django-cleanup را به پایین بخش INSTALLED_APPS در settings.py اضافه کنیم.</p>
+<p><code>project directory/settings.py</code></p>
+<div class="code-box">
+        <div class="code-info">
+            <button class="copy-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" class="icon-sm"><path fill="currentColor" fill-rule="evenodd" d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z" clip-rule="evenodd"></path></svg>
+                <span>Copy code</span>
+            </button>
+            <span class="language">python</span>
+        </div>
+    <pre><span></span><span class="n">INSTALLED_APPS</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="c1"># ...,</span>
+    <span class="s1">&#39;django_cleanup.apps.CleanupConfig&#39;</span><span class="p">,</span>
+<span class="p">]</span>
+</pre></div>
+
+<blockquote>
+<p>همین و تمام، پیکربندی دیگری لازم نیست!!!</p>
+</blockquote>
+<p>بدین ترتیب وقتی پست حذف بشه تمام تصاویر مربوط به آن هم حذف میشوند.</p>
+<blockquote>
+<ul>
+<li>
+<p><span class="rtl-text"> استفاده از بازنویسی متد <span class="en-text">delete()</span> مناسب است وقتی که شما نیاز دارید که عملیات حذف فایل‌ها را به طور دقیق کنترل کنید یا نیاز به انجام عملیات دیگری در همان زمان حذف دارید.</span></p>
+</li>
+<li>
+<p>استفاده از Django-cleanup مناسب است اگر به دنبال راه حلی ساده و خودکار برای مدیریت فایل‌ها هستید و نیاز به نوشتن کدهای بیشتر ندارید.</p>
+</li>
+</ul>
+</blockquote>
+<h4>2- فیلد search براساس title و description تصویر هم جستجو را انجام دهد:</h4>
+<p>کافیست فیلد های مدل Image را به صورت &lt;related_name&gt;__&lt;field_name&gt; در ساختار search جایی که فیلدها را مشخص میکردیم بنویسیم.</p>
+<p><code>app directory/views.py</code></p>
+<div class="code-box">
+        <div class="code-info">
+            <button class="copy-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" class="icon-sm"><path fill="currentColor" fill-rule="evenodd" d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z" clip-rule="evenodd"></path></svg>
+                <span>Copy code</span>
+            </button>
+            <span class="language">python</span>
+        </div>
+    <pre><span></span><span class="k">def</span> <span class="nf">post_search</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+    <span class="n">query</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">results</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="k">if</span> <span class="s1">&#39;query&#39;</span> <span class="ow">in</span> <span class="n">request</span><span class="o">.</span><span class="n">GET</span><span class="p">:</span>
+        <span class="n">form</span> <span class="o">=</span> <span class="n">SearchForm</span><span class="p">(</span><span class="n">request</span><span class="o">.</span><span class="n">GET</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">form</span><span class="o">.</span><span class="n">is_valid</span><span class="p">():</span>
+            <span class="n">query</span> <span class="o">=</span> <span class="n">form</span><span class="o">.</span><span class="n">cleaned_data</span><span class="p">[</span><span class="s1">&#39;query&#39;</span><span class="p">]</span>
+
+            <span class="n">results</span> <span class="o">=</span> <span class="n">Post</span><span class="o">.</span><span class="n">published</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span>
+                <span class="n">similarity</span><span class="o">=</span><span class="n">TrigramSimilarity</span><span class="p">(</span><span class="s1">&#39;title&#39;</span><span class="p">,</span> <span class="n">query</span><span class="p">)</span> <span class="o">+</span> 
+                           <span class="n">TrigramSimilarity</span><span class="p">(</span><span class="s1">&#39;description&#39;</span><span class="p">,</span> <span class="n">query</span><span class="p">)</span> <span class="o">+</span> 
+                           <span class="n">TrigramSimilarity</span><span class="p">(</span><span class="s1">&#39;images__title&#39;</span><span class="p">,</span> <span class="n">query</span><span class="p">)</span> <span class="o">+</span> 
+                           <span class="n">TrigramSimilarity</span><span class="p">(</span><span class="s1">&#39;images__description&#39;</span><span class="p">,</span> <span class="n">query</span><span class="p">))</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">similarity__gt</span><span class="o">=</span><span class="mf">0.2</span><span class="p">)</span><span class="o">.</span><span class="n">order_by</span><span class="p">(</span><span class="s1">&#39;-similarity&#39;</span><span class="p">)</span>
+
+    <span class="n">context</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s2">&quot;query&quot;</span><span class="p">:</span> <span class="n">query</span><span class="p">,</span>
+        <span class="s2">&quot;results&quot;</span><span class="p">:</span> <span class="n">results</span><span class="p">,</span>
+    <span class="p">}</span>
+
+    <span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s1">&#39;blog/search_result.html&#39;</span><span class="p">,</span> <span class="n">context</span><span class="o">=</span><span class="n">context</span><span class="p">)</span>
+</pre></div>
+
+<p>با این ساختار هم برای عنوان و توضیحات پست جستجو صورت میگیره و هم براساس عنوان و توضیحات "تصاویر پست ها"، ولی در خروجی پست را نمایش میدهد نه تصویر را.</p>
+<blockquote>
+<p>در سایر روش های جستجو هم میتوان به همین روش عمل کرد.</p>
+</blockquote>
+<h4>3- دایرکتوری ذخیره تصاویر، براساس "تاریخ" آن روز ایجاد شود. | دایرکتوری ذخیره تصاویر، براساس "نام کاربری نویسنده پست" ایجاد شود:</h4>
+<p>میخواهیم برای آرگومان upload_to برای هر روزی که تصویری آپلود میشود یک دایرکتوری همنام با آن تاریخ ایجاد کنیم.</p>
+<p><code>app directory/models.py</code></p>
+<div class="code-box">
+        <div class="code-info">
+            <button class="copy-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" class="icon-sm"><path fill="currentColor" fill-rule="evenodd" d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z" clip-rule="evenodd"></path></svg>
+                <span>Copy code</span>
+            </button>
+            <span class="language">python</span>
+        </div>
+    <pre><span></span><span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">date</span>
+
+
+<span class="n">Date</span> <span class="o">=</span> <span class="n">date</span><span class="o">.</span><span class="n">today</span><span class="p">()</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;%B </span><span class="si">%d</span><span class="s2">, %Y&quot;</span><span class="p">)</span>
+
+<span class="k">class</span> <span class="nc">Image</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">image</span> <span class="o">=</span> <span class="n">ResizedImageField</span><span class="p">(</span><span class="n">upload_to</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">Date</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="p">[</span><span class="mi">125</span><span class="p">,</span> <span class="mi">125</span><span class="p">],</span> <span class="n">scale</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">crop</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;middle&#39;</span><span class="p">,</span> <span class="s1">&#39;center&#39;</span><span class="p">],</span> <span class="n">null</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">blank</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+    <span class="c1"># ...سایر فیلدها را برای سادگی حذف کردیم</span>
+    <span class="c1"># ...</span>
+</pre></div>
+
+<blockquote>
+<p>در فایل models.py خارج از کلاس ها  می‌توانید با تعریف یک تابع، مسیر ذخیره‌سازی فایل‌ها را سفارشی‌سازی کنید</p>
+<p>ساختار به صورت زیر میباشد:</p>
+</blockquote>
+<p><code>app directory/models.py</code></p>
+<div class="code-box">
+        <div class="code-info">
+            <button class="copy-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" class="icon-sm"><path fill="currentColor" fill-rule="evenodd" d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z" clip-rule="evenodd"></path></svg>
+                <span>Copy code</span>
+            </button>
+            <span class="language">python</span>
+        </div>
+    <pre><span></span><span class="k">def</span> <span class="nf">func_name</span><span class="p">(</span><span class="n">instance</span><span class="p">,</span> <span class="n">filename</span><span class="p">):</span>
+    <span class="c1"># ...</span>
+</pre></div>
+
+<p>Ⅰ- پارامتر instnce یک نمونه از آن کلاسی است که این تابع آنجا استفاده میشود.</p>
+<p>Ⅱ- پارامتر filename نام اصلی فایلی است که آپلود شده و قرار است در پروژه ذخیره شود.</p>
+<p><strong>خب بریم با این تابع، مسیر ذخیره سازی را یکبار براساس "تاریخ" آپلود و بار دیگر با "نام کاربری نویسنده پست" سفارشی سازی کنیم:</strong></p>
+<blockquote>
+<p><strong>نکته مهم:</strong> برای اینکه تصویر آپلودی را تشخیص دهد و آنرا در مسیر مشخص شده  ذخیره کند باید از filename استفاده کنیم.</p>
+</blockquote>
+<h4>مشخص کردن مسیر ذخیره سازی بر اساس تاریخ آپلود:</h4>
+<p><code>app directory/models.py</code></p>
+<div class="code-box">
+        <div class="code-info">
+            <button class="copy-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" class="icon-sm"><path fill="currentColor" fill-rule="evenodd" d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z" clip-rule="evenodd"></path></svg>
+                <span>Copy code</span>
+            </button>
+            <span class="language">python</span>
+        </div>
+    <pre><span></span><span class="k">def</span> <span class="nf">date_directory_path</span><span class="p">(</span><span class="n">instance</span><span class="p">,</span> <span class="n">filename</span><span class="p">):</span>
+    <span class="n">today</span> <span class="o">=</span> <span class="n">date</span><span class="o">.</span><span class="n">today</span><span class="p">()</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;%B </span><span class="si">%d</span><span class="s2">, %Y&quot;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;post_images/</span><span class="si">{</span><span class="n">today</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">filename</span><span class="si">}</span><span class="s2">&quot;</span>
+
+
+<span class="k">class</span> <span class="nc">Image</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">image</span> <span class="o">=</span> <span class="n">ResizedImageField</span><span class="p">(</span><span class="n">upload_to</span><span class="o">=</span><span class="n">date_directory_path</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="p">[</span><span class="mi">125</span><span class="p">,</span> <span class="mi">125</span><span class="p">],</span> <span class="n">scale</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">crop</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;middle&#39;</span><span class="p">,</span> <span class="s1">&#39;center&#39;</span><span class="p">],</span> <span class="n">null</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">blank</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+
+<h4>مشخص کردن مسیر ذخیره سازی براساس نام کاربری نویسنده پست:</h4>
+<p><code>app directory/models.py</code></p>
+<div class="code-box">
+        <div class="code-info">
+            <button class="copy-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" class="icon-sm"><path fill="currentColor" fill-rule="evenodd" d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z" clip-rule="evenodd"></path></svg>
+                <span>Copy code</span>
+            </button>
+            <span class="language">python</span>
+        </div>
+    <pre><span></span><span class="k">def</span> <span class="nf">user_directory_path</span><span class="p">(</span><span class="n">instance</span><span class="p">,</span> <span class="n">filename</span><span class="p">):</span>
+    <span class="n">user</span> <span class="o">=</span> <span class="n">instance</span><span class="o">.</span><span class="n">post</span><span class="o">.</span><span class="n">author</span><span class="o">.</span><span class="n">username</span>
+    <span class="k">return</span> <span class="sa">f</span><span class="s1">&#39;post_images/</span><span class="si">{</span><span class="n">user</span><span class="si">}</span><span class="s1">/</span><span class="si">{</span><span class="n">filename</span><span class="si">}</span><span class="s1">&#39;</span>
+
+
+<span class="k">class</span> <span class="nc">Image</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">image</span> <span class="o">=</span> <span class="n">ResizedImageField</span><span class="p">(</span><span class="n">upload_to</span><span class="o">=</span><span class="n">user_directory_path</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="p">[</span><span class="mi">125</span><span class="p">,</span> <span class="mi">125</span><span class="p">],</span> <span class="n">scale</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">crop</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;middle&#39;</span><span class="p">,</span> <span class="s1">&#39;center&#39;</span><span class="p">],</span> <span class="n">null</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">blank</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+
+<p>پس از ایجاد تابع، آن تابع را برای آرگومان upload_to صدا میزنیم. | پرانتز لازم نیست خودش تشخیص میدهد.</p>
+<h4>4- برای متد __str__ عنوان(title) تصویر نمایش داده شود و در صورتی که title وجود نداشت اسم آن فایل نمایش داده شود:</h4>
+<p><code>app directory/models.py</code></p>
+<div class="code-box">
+        <div class="code-info">
+            <button class="copy-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" class="icon-sm"><path fill="currentColor" fill-rule="evenodd" d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z" clip-rule="evenodd"></path></svg>
+                <span>Copy code</span>
+            </button>
+            <span class="language">python</span>
+        </div>
+    <pre><span></span><span class="k">class</span> <span class="nc">Image</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
+    <span class="c1"># ...</span>
+
+    <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;title: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">title</span><span class="si">}</span><span class="s2">&quot;</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">title</span> <span class="k">else</span> <span class="sa">f</span><span class="s2">&quot;image_name: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">img_file</span><span class="si">}</span><span class="s2">&quot;</span>
+</pre></div>
+
+<h4>5- در تمپلیت post_detail، تصاویر پست در مکان های مختلف نمایش داده شوند:</h4>
+<p>برای اینکه تصاویر پست را در بخش های مختلف نمایش دهیم از ایندکس استفاده میکنیم:</p>
+<div class="code-box">
+        <div class="code-info">
+            <button class="copy-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" class="icon-sm"><path fill="currentColor" fill-rule="evenodd" d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z" clip-rule="evenodd"></path></svg>
+                <span>Copy code</span>
+            </button>
+            <span class="language">jinja</span>
+        </div>
+    <pre><span></span><span class="cp">{{</span> <span class="nv">post.images.index</span><span class="o">-</span><span class="nv">number</span> <span class="cp">}}</span>
+
+<span class="x">&lt;img src=&quot;</span><span class="cp">{{</span> <span class="nv">post.images.2.img_file.url</span> <span class="cp">}}</span><span class="x">&quot;&gt;</span>
+</pre></div>
+
+<h4>ساختار تمپلیت post_detail برای نمایش تصاویر در بخش های مختلف:</h4>
+<blockquote>
+<p><span class="rtl-text"> اول با متد <span class="en-text">exists()</span> بررسی میکنیم که هیچ تصویری وجود داره یا نه اگه وجود داشت، ابتدا تصویر اول و سپس مابقی را نمایش میدهیم.</span>    </p>
+</blockquote>
+<p>در تمپلیت، 4 تصویر را نمایش میدهیم(در صورت وجود).</p>
+<p><code>templates/blog/post_detail.html</code></p>
+<div class="code-box">
+        <div class="code-info">
+            <button class="copy-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" class="icon-sm"><path fill="currentColor" fill-rule="evenodd" d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z" clip-rule="evenodd"></path></svg>
+                <span>Copy code</span>
+            </button>
+            <span class="language">jinja</span>
+        </div>
+    <pre><span></span><span class="cp">{%</span> <span class="k">extends</span> <span class="s1">&#39;parent/base.html&#39;</span> <span class="cp">%}</span>
+<span class="cp">{%</span> <span class="k">load</span> <span class="nv">blog_tags</span> <span class="cp">%}</span>
+<span class="cp">{%</span> <span class="k">block</span> <span class="nv">title</span> <span class="cp">%}</span><span class="x"> post detail </span><span class="cp">{%</span> <span class="k">endblock</span> <span class="cp">%}</span>
+
+<span class="cp">{%</span> <span class="k">block</span> <span class="nv">content</span> <span class="cp">%}</span>
+
+<span class="x">    &lt;!-- نمایش تصاویر در بخش های مختلف --&gt;</span>
+<span class="x">    </span><span class="cp">{%</span> <span class="k">if</span> <span class="nv">post.images.exists</span> <span class="cp">%}</span>
+<span class="x">        &lt;!-- اولین تصویر --&gt;</span>
+<span class="x">        &lt;img src=&quot;</span><span class="cp">{{</span> <span class="nv">post.images.first.image.url</span> <span class="cp">}}</span><span class="x">&quot; alt=&quot;First Image&quot;&gt;</span>
+
+<span class="x">        &lt;h3&gt;Author: &lt;i&gt;</span><span class="cp">{{</span> <span class="nv">post.author</span> <span class="cp">}}</span><span class="x">&lt;/i&gt;&lt;/h3&gt;</span>
+<span class="x">        &lt;br&gt;&lt;br&gt;</span>
+
+<span class="x">        &lt;!-- دومین تصویر --&gt;</span>
+<span class="x">        </span><span class="cp">{%</span> <span class="k">if</span> <span class="nv">post.images.count</span> <span class="o">&gt;</span> <span class="m">2</span> <span class="cp">%}</span>
+<span class="x">            &lt;img src=&quot;</span><span class="cp">{{</span> <span class="nv">post.images.1.image.url</span> <span class="cp">}}</span><span class="x">&quot; alt=&quot;Second Image&quot;&gt;</span>
+<span class="x">        </span><span class="cp">{%</span> <span class="k">endif</span> <span class="cp">%}</span>
+
+<span class="x">        &lt;h2&gt;Title: </span><span class="cp">{{</span> <span class="nv">post.title</span> <span class="cp">}}</span><span class="x">&lt;/h2&gt;</span>
+<span class="x">        &lt;h3&gt;description:&lt;/h3&gt;</span>
+<span class="x">        &lt;p&gt;</span><span class="cp">{{</span> <span class="nv">post.description</span> <span class="o">|</span> <span class="nf">linebreaks</span> <span class="cp">}}</span><span class="x">&lt;/p&gt;</span>
+<span class="x">        &lt;p&gt;</span><span class="cp">{{</span> <span class="nv">post.publish</span> <span class="cp">}}</span><span class="x">&lt;/p&gt;</span>
+
+<span class="x">        &lt;!-- سومین تصویر --&gt;</span>
+<span class="x">        </span><span class="cp">{%</span> <span class="k">if</span> <span class="nv">post.images.count</span> <span class="o">&gt;</span> <span class="m">3</span> <span class="cp">%}</span>
+<span class="x">            &lt;img src=&quot;</span><span class="cp">{{</span> <span class="nv">post.images.2.image.url</span> <span class="cp">}}</span><span class="x">&quot; alt=&quot;Third Image&quot;&gt;</span>
+<span class="x">        </span><span class="cp">{%</span> <span class="k">endif</span> <span class="cp">%}</span>
+
+<span class="x">        &lt;br&gt;</span>
+
+<span class="x">        &lt;!-- آخرین تصویر --&gt;</span>
+<span class="x">        </span><span class="cp">{%</span> <span class="k">if</span> <span class="nv">post.images.count</span> <span class="o">&gt;</span> <span class="m">1</span> <span class="cp">%}</span>
+<span class="x">            &lt;img src=&quot;</span><span class="cp">{{</span> <span class="nv">post.images.last.image.url</span> <span class="cp">}}</span><span class="x">&quot; alt=&quot;Last Image&quot;&gt;</span>
+<span class="x">        </span><span class="cp">{%</span> <span class="k">endif</span> <span class="cp">%}</span>
+<span class="x">        &lt;br&gt;&lt;hr&gt;&lt;br&gt;</span>
+<span class="x">    </span><span class="cp">{%</span> <span class="k">endif</span> <span class="cp">%}</span>
+
+<span class="x">    &lt;form action=&quot;</span><span class="cp">{%</span> <span class="k">url</span> <span class="s1">&#39;Blog:post_comment&#39;</span> <span class="nv">post.id</span> <span class="cp">%}</span><span class="x">&quot; method=&quot;post&quot;&gt;</span>
+<span class="x">        </span><span class="cp">{%</span> <span class="k">csrf_token</span> <span class="cp">%}</span>
+<span class="x">    </span>
+<span class="x">        &lt;input type=&quot;text&quot; id=&quot;name&quot; placeholder=&quot;name&quot; name=&quot;name&quot;&gt;</span>
+<span class="x">        </span>
+<span class="x">        &lt;br&gt;&lt;br&gt;</span>
+<span class="x">        </span>
+<span class="x">        &lt;textarea name=&quot;letter&quot; cols=&quot;30&quot; rows=&quot;10&quot; placeholder=&quot;your comment...&quot;&gt;&lt;/textarea&gt;</span>
+<span class="x">    </span>
+<span class="x">        &lt;input type=&quot;submit&quot; value=&quot;send&quot;&gt;</span>
+<span class="x">    &lt;/form&gt;</span>
+
+<span class="x">    &lt;!-- نمایش تعداد کامنت ها --&gt;</span>
+<span class="x">    &lt;div&gt;</span>
+<span class="x">        </span><span class="cp">{%</span> <span class="k">with</span> <span class="nv">comments.count</span> <span class="k">as</span> <span class="nv">cm_count</span> <span class="cp">%}</span>
+<span class="x">            </span><span class="cp">{{</span> <span class="nv">cm_count</span> <span class="cp">}}</span><span class="x"> comment</span><span class="cp">{{</span> <span class="nv">cm_count</span><span class="o">|</span><span class="nf">pluralize</span> <span class="cp">}}</span>
+<span class="x">        </span><span class="cp">{%</span> <span class="k">endwith</span> <span class="cp">%}</span>
+<span class="x">    &lt;/div&gt;</span>
+
+<span class="x">    &lt;!-- نمایش کامنت ها --&gt;</span>
+<span class="x">    </span><span class="cp">{%</span> <span class="k">for</span> <span class="nv">cm</span> <span class="k">in</span> <span class="nv">comments</span> <span class="cp">%}</span>
+<span class="x">        &lt;div&gt;</span>
+<span class="x">            Name: </span><span class="cp">{{</span> <span class="nv">cm.name</span> <span class="cp">}}</span>
+<span class="x">            &lt;br&gt;</span>
+<span class="x">            </span><span class="cp">{{</span> <span class="nv">cm.letter</span><span class="o">|</span><span class="nf">linebreaks</span> <span class="cp">}}</span><span class="x"> </span>
+<span class="x">        &lt;/div&gt;</span>
+<span class="x">    </span><span class="cp">{%</span> <span class="k">empty</span> <span class="cp">%}</span>
+<span class="x">        کامنتی وجود ندارد</span>
+<span class="x">    </span><span class="cp">{%</span> <span class="k">endfor</span> <span class="cp">%}</span>
+<span class="x">    </span>
+<span class="cp">{%</span> <span class="k">endblock</span> <span class="cp">%}</span>
+</pre></div>
             <a href="https://github.com/mahd25/Django-E-booklet/edit/seasons-source/season-06.md" target="_blank" class="edit-icon">
                 <i class="fa-solid fa-pen-to-square"></i>
             </a>
