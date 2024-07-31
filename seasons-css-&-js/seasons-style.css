@@ -810,6 +810,7 @@ table {
     width: 100%;
     border-collapse: collapse;
     margin-bottom: 20px;
+    direction: ltr;
 }
 
 table th,
@@ -824,59 +825,17 @@ table th {
     color: #333;
 }
 
+
 /* Responsive Tables */
-@media (max-width: 600px) {
-    table,
-    thead,
-    tbody,
-    th,
-    td,
-    tr {
-        display: block;
+@media (max-width: 600px){
+    table th, table td {
+        font-size: 0.9rem;
     }
+}
 
-    thead tr {
-        position: absolute;
-        top: -9999px;
-        left: -9999px;
-    }
-
-    tr {
-        margin: 0 0 1rem 0;
-        border: 1px solid #ddd;
-        border-radius: 5px;
-        padding: 10px;
-        background-color: #fff;
-        box-shadow: 0 2px 2px rgba(0, 0, 0, 0.1);
-    }
-
-    tr:nth-child(odd) {
-        background: #f9f9f9;
-    }
-
-    td {
-        border: none;
-        border-bottom: 1px solid #eee;
-        position: relative;
-        padding-left: 50%;
-        text-align: left;
-        font-size: 0.875rem;
-    }
-
-    td:last-child {
-        border-bottom: none;
-    }
-
-    td:before {
-        content: attr(data-label);
-        position: absolute;
-        left: 10px;
-        width: calc(50% - 20px);
-        padding-right: 10px;
-        white-space: nowrap;
-        text-align: left;
-        font-weight: bold;
-        color: #555;
+@media (max-width: 400px){
+    table th, table td {
+        font-size: 0.8rem;
     }
 }
 /* --------------------------------------------------------------------------------------------------- */
