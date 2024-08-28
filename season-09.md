@@ -2096,23 +2096,21 @@ def ticket(request):
 
 **نصب پکیج django-debug-toolbar:**
 
-<ol> 
+a- **نصب کتابخانه django-debug-toolbar:**
 
-<li><strong>نصب کتابخانه django-debug-toolbar:</strong></li>
-
-<p><code>Terminal</code></p>
+`Terminal`
 
 ```terminal
 pip install django-debug-toolbar
 ```
 
-<li><strong>بررسی پیش نیازها و الزامات:</strong></li>
+b- **بررسی پیش نیازها و الزامات:**
 
-<strong>اول:</strong>
+**اول:**
 
 اطمینان حاصل کنید که 'django.contrib.staticfiles' در تنظیمات INSTALLED_APPS شما وجود دارد:
 
-<p><code>project directory/settings.py</code></p>
+`project directory/settings.py`
 
 ```python
 INSTALLED_APPS = [
@@ -2124,11 +2122,11 @@ INSTALLED_APPS = [
 STATIC_URL = "static/"
 ```
 
-<strong>دوم:</strong>
+**دوم:**
 
 بررسی کنید که تنظیمات TEMPLATES شامل یک backend از نوع DjangoTemplates با گزینه APP_DIRS برابر با True باشد:
 
-<p><code>project directory/settings.py</code></p>
+`project directory/settings.py`
 
 ```python
 TEMPLATES = [
@@ -2140,9 +2138,9 @@ TEMPLATES = [
 ]
 ```
 
-<li><strong>افزودن app آن به اپ های پروژه:</strong></li>
+c- **افزودن app آن به اپ های پروژه:**
 
-<p><code>project directory/settings.py</code></p>
+`project directory/settings.py`
 
 ```python
 INSTALLED_APPS = [
@@ -2152,11 +2150,11 @@ INSTALLED_APPS = [
 ]
 ```
 
-<li><strong>افزودن URL آن به urlهای پروژه:</strong></li>
+d- **افزودن URL آن به urlهای پروژه:**
 
-<p>URLهای django-debug-toolbar را به URLconf پروژه خود اضافه کنید:</p>
+URLهای django-debug-toolbar را به URLconf پروژه خود اضافه کنید:
 
-<p><code>project directory/urls.py</code></p>
+`project directory/urls.py`
 
 ```python
 urlpatterns = [
@@ -2165,11 +2163,11 @@ urlpatterns = [
 ]
 ```
 
-<li><strong>اضافه کردن middleware آن:</strong></li>
+e- **اضافه کردن middleware آن:**
 
-<p>Debug Toolbar به‌طور عمده در middleware پیاده‌سازی شده است. آن را به تنظیمات MIDDLEWARE اضافه کنید:</p>
+Debug Toolbar به‌طور عمده در middleware پیاده‌سازی شده است. آن را به تنظیمات MIDDLEWARE اضافه کنید:
 
-<p><code>project directory/settings.py</code></p>
+`project directory/settings.py`
 
 ```python
 MIDDLEWARE = [
@@ -2178,21 +2176,19 @@ MIDDLEWARE = [
 ]
 ```
 
-<p><strong>هشدار:</strong> ترتیب MIDDLEWARE مهم است. این middleware باید تا حد امکان در بالای لیست قرار گیرد، اما باید بعد از middlewareهایی که محتویات پاسخ را رمزگذاری می‌کنند، مانند GZipMiddleware، قرار گیرد. / در حال حاضر آنرا دربالاترین بخش قرار میدهیم.</p>
+**هشدار:** ترتیب MIDDLEWARE مهم است. این middleware باید تا حد امکان در بالای لیست قرار گیرد، اما باید بعد از middlewareهایی که محتویات پاسخ را رمزگذاری می‌کنند، مانند GZipMiddleware، قرار گیرد. / در حال حاضر آنرا دربالاترین بخش قرار میدهیم.
 
-<li><strong>پیکربندی IPs داخلی:</strong></li>
+f- **پیکربندی IPs داخلی:**
 
-<p>Debug Toolbar فقط در صورتی نمایش داده می‌شود که آدرس IP شما در تنظیمات INTERNAL_IPS در Django لیست شده باشد. برای توسعه محلی، باید "127.0.0.1" را به INTERNAL_IPS اضافه کنید:</p>
+Debug Toolbar فقط در صورتی نمایش داده می‌شود که آدرس IP شما در تنظیمات INTERNAL_IPS در Django لیست شده باشد. برای توسعه محلی، باید "127.0.0.1" را به INTERNAL_IPS اضافه کنید:
 
-<p><code>project directory/settings.py</code></p>
+`project directory/settings.py`
 
 ```python
 INTERNAL_IPS = [
     "127.0.0.1",
 ]
 ```
-
-</ol>
 
 > پس از این تنظیمات پنل مدیریتی آن به پروژه اضافه خواهد شد، میتوان از آن در صفحات مختلف استفاده کرد.
 
@@ -2356,11 +2352,9 @@ function_name.short_description = "اسم دلخواه"
 
 #### **T1- تیکتی که کاربر ارسال میکند، توسط ادمین پاسخ داده شود؛ صفحه ای وجود داشته باشد که تیکت و پاسخ آن قابل مشاهده باشد:**
 
-<ol>
+a- **لازم است تا برای ticket و reply_to_ticket مدل هایی ایجاد کنیم:**
 
-<li><strong>لازم است تا برای ticket و reply_to_ticket مدل هایی ایجاد کنیم:</strong></li>
-
-<p><code>app directory/models.py</code></p>
+`app directory/models.py`
 
 ```python
 class Ticket(models.Model):
@@ -2397,9 +2391,9 @@ class Reply(models.Model):
         return self.reply
 ```
 
-<li><strong>ایجاد فرم برای تیکت و پاسخ به تیکت:</strong></li>
+b- **ایجاد فرم برای تیکت و پاسخ به تیکت:**
 
-<p><code>app directory/forms.py</code></p>
+`app directory/forms.py`
 
 ```python
 class TicketForm(forms.ModelForm):
@@ -2414,9 +2408,9 @@ class ReplyForm(forms.ModelForm):
         fields = ['reply']
 ```
 
-<li><strong>ایجاد URL برای تیکت و پاسخ تیکت:</strong></li>
+c- **ایجاد URL برای تیکت و پاسخ تیکت:**
 
-<p><code>app directory/urls.py</code></p>
+`app directory/urls.py`
 
 ```python
 urlpatterns = [
@@ -2425,11 +2419,11 @@ urlpatterns = [
 ]
 ```
 
-<li><strong>ایجاد view برای ارسال تیکت:</strong></li>
+d- **ایجاد view برای ارسال تیکت:**
 
-<p>تیکت ارسال شده هم به ایمیل ادمین ارسال میشود و هم در دیتابیس ذخیره میشود.</p>
+تیکت ارسال شده هم به ایمیل ادمین ارسال میشود و هم در دیتابیس ذخیره میشود.
 
-<p><code>app directory/views.py</code></p>
+`app directory/views.py`
 
 ```python
 @login_required
@@ -2466,23 +2460,18 @@ def ticket(request):
     return render(request, 'forms/ticket_form.html', {"form": form})
 ```
 
-<strong>توضیحات:</strong>
+**توضیحات:**
 
-<p>
 1- اطلاعات فرم تیکت را دریافت کرده و در صورت معتبر بودن داده ها آنرا در دیتابیس ذخیره میکنیم.
-</p>
 
-<p>
 2- حالا باید متن ایمیل به ادمین را آماده کنیم، در متن ایمیل؛ اسم فرستنده تیکت(کاربر وبسایت) متن تیکتی که ارسال کرده است، ایمیل کاربر و لینکی که ادمین را به صفحه پاسخ به تیکت ها هدایت میکند را داریم.
-</p>
 
-<blockquote><p><span class="rtl-text">
-برای صفحه "پاسخ به تیکت" یک url ایجاد کردیم <span class="en-text">(reply/&lt;int:ticket_id&gt;/)</span>؛ برای آیدی تیکت از متغیر ticket_obj استفاده میکنیم، ولی نکته مهم این هست که باید آدرس url کامل و دقیق باشه، متد <span class="en-text">build_absolute_uri()</span> آدرس دقیق را به ما میدهد.(<span class="en-text">http://host/reply-to-ticket/&lt;ticket_id&gt;</span>)
-</span></p></blockquote>
+> <span class="rtl-text">برای صفحه "پاسخ به تیکت" یک url ایجاد کردیم <span class="en-text">(reply/<int:ticket_id\>/)</span>؛ برای آیدی تیکت از متغیر ticket_obj استفاده میکنیم، ولی نکته مهم این هست که باید آدرس url کامل و دقیق باشه، متد <span class="en-text">build_absolute_uri()</span> آدرس دقیق را به ما میدهد.(<span class="en-text">http://host/reply-to-ticket/<ticket_id\></span>)
+</span>
 
-<li><strong>ایجاد view برای پاسخ به تیکت:</strong></li>
+e- **ایجاد view برای پاسخ به تیکت:**
 
-<p><code>app directory/views.py</code></p>
+`app directory/views.py`
 
 ```python
 @staff_member_required()
@@ -2506,27 +2495,19 @@ def reply_to_ticket(request, ticket_id):
     return render(request, "forms/replies.html", {"form": form, "ticket": sent_ticket})
 ```
 
-<strong>توضیحات:</strong>
+**توضیحات:**
 
-<p>
 1- تیکتی که ادمین به آن پاسخ میدهد را از دیتابیس دریافت میکنیم.
-</p>
 
-<p>
 2- پاسخی که ادمین ثبت کرده است را از فرم دریافت کرده و به همراه، این تیکتی که مشخص کردیم؛ اطلاعات را در دیتابیس ذخیره میکنیم.
-</p>
 
-<p>
 3- با استفاده از ماژول messages، پیغام موفقیت آمیز بودن را به تمپلیت ارسال میکنیم.
-</p>
 
-<p>
 4- هر تیکتی یک فیلد برای مشخص کردن باز و یا بسته بودن آن دارد، پس از ثبت پاسخ ادمین تیکت بسته میشود بنابراین؛ آن تیکت را صدا زده و فیلد is_open را آپدیت میکنیم و برای ثبت در دیتابیس از متد <span class="en-text">save()</span> استفاده میکنیم.
-</p>
 
-<li><strong>ایجاد URL برای نمایش لیست تیکت ها و پاسخ آنها</strong></li>
+f- **ایجاد URL برای نمایش لیست تیکت ها و پاسخ آنها**
 
-<p><code>app directory/urls.py</code></p>
+`app directory/urls.py`
 
 ```python
 urlpatterns = [
@@ -2534,9 +2515,9 @@ urlpatterns = [
 ]
 ```
 
-<li><strong>ایجاد view برای نمایش لیست تیکت ها و پاسخ آنها</strong></li>
+g- **ایجاد view برای نمایش لیست تیکت ها و پاسخ آنها**
 
-<p><code>app directory/views.py</code></p>
+`app directory/views.py`
 
 ```python
 def tickets_list(request):
@@ -2550,9 +2531,9 @@ def tickets_list(request):
     return render(request, 'social/ticket_list.html', {'tickets': tickets})
 ```
 
-<li><strong>ایجاد URL برای نمایش جزئیات تیکت:</strong></li>
+h- **ایجاد URL برای نمایش جزئیات تیکت:**
 
-<p><code>app directory/urls.py</code></p>
+`app directory/urls.py`
 
 ```python
 urlpatterns = [
@@ -2560,9 +2541,9 @@ urlpatterns = [
 ]
 ```
 
-<li><strong>ایجاد view برای نمایش جزئیات تیکت:</strong></li>
+i- **ایجاد view برای نمایش جزئیات تیکت:**
 
-<p><code>app directory/views.py</code></p>
+`app directory/views.py`
 
 ```python
 def ticket_detail(request, ticket_id):
@@ -2571,11 +2552,11 @@ def ticket_detail(request, ticket_id):
     return render(request, "social/ticket_detail.html", {"ticket": ticket})
 ```
 
-<li><strong>ایجاد قالب های html:</strong></li>
+j- ***ایجاد قالب های html:***
 
-<strong>1- ticket_form.html:</strong>
+1- ticket_form.html:
 
-<p><code>templates/forms/ticket_form.html</code></p>
+`templates/forms/ticket_form.html`
 
 ```jinja
 <h2>create ticket</h2>
@@ -2603,9 +2584,9 @@ def ticket_detail(request, ticket_id):
 {% endif %} 
 ```
 
-<strong>2- replies.html:</strong>
+**2- replies.html:**
 
-<p><code>templates/forms/replies.html</code></p>
+`templates/forms/replies.html`
 
 ```jinja
 <h2>Reply to Ticket</h2>
@@ -2639,9 +2620,9 @@ def ticket_detail(request, ticket_id):
 {{ form.errors }}
 ```
 
-<strong>3- ticket_list.html:</strong>
+**3- ticket_list.html:**
 
-<p><code>templates/social/ticket_list.html</code></p>
+`templates/social/ticket_list.html`
 
 ```jinja
 <h2>tickets list</h2>
@@ -2663,9 +2644,9 @@ def ticket_detail(request, ticket_id):
 </ul>
 ```
 
-<strong>4- ticket_detail.html:</strong>
+**4- ticket_detail.html:**
 
-<p><code>templates/social/ticket_detail.html</code></p>
+`templates/social/ticket_detail.html`
 
 ```jinja
 <h2>ticket: {{ ticket.subject }}</h2>
@@ -2689,9 +2670,7 @@ def ticket_detail(request, ticket_id):
 </ul>
 ```
 
-</ol>
-
-------------------------------------------------------------------
+<hr>
 
 #### **T2- نمایش لیست followers با لیست following با کلیک روی آنها:**
 
@@ -2878,47 +2857,47 @@ hello I'm {{ user.get_full_name | default:user.username }}
 
 >برای قابلیت اشتراک گذاری از پکیج **django-social-share** استفاده میکنیم.
 
-1. نصب پکیج **django-social-share**:
+1\. نصب پکیج **django-social-share**:
 
-    `terminal`
+`terminal`
 
-    ```terminal
-    pip install django-social-share
-    ```
+```terminal
+pip install django-social-share
+```
 
-2. پیکربندی ها و تنظیمات لازم:
+2\. پیکربندی ها و تنظیمات لازم:
 
-    1- پس از نصب، نیاز است که این پکیج را به لیست اپلیکیشن‌های نصب‌شده اضافه کنید:
+Ⅰ- پس از نصب، نیاز است که این پکیج را به لیست اپلیکیشن‌های نصب‌شده اضافه کنید:
 
-    `project directory/settings.py`
+`project directory/settings.py`
 
-    ```python
-    INSTALLED_APPS = [
-        # ...
-        'django_social_share',
-    ]
-    ```
+```python
+INSTALLED_APPS = [
+    # ...
+    'django_social_share',
+]
+```
 
-    2- همچنین باید django.template.context_processors.request را به لیست context_processors اضافه کنید تا تگ‌ها بتوانند از scheme  و host_name به طور صحیح استفاده کنند:
+Ⅱ- همچنین باید django.template.context_processors.request را به لیست context_processors اضافه کنید تا تگ‌ها بتوانند از scheme  و host_name به طور صحیح استفاده کنند:
 
-    `project directory/settings.py`
+`project directory/settings.py`
 
-    ```python
-    TEMPLATES = [
-        {
-            'BACKEND': 'django.template.backends.django.DjangoTemplates',
-            'DIRS': [BASE_DIR / 'templates']
-            ,
-            'APP_DIRS': True,
-            'OPTIONS': {
-                'context_processors': [
-                    # ...
-                    'django.template.context_processors.request',
-                ],
-            },
+```python
+TEMPLATES = [
+    {
+        'BACKEND': 'django.template.backends.django.DjangoTemplates',
+        'DIRS': [BASE_DIR / 'templates']
+        ,
+        'APP_DIRS': True,
+        'OPTIONS': {
+            'context_processors': [
+                # ...
+                'django.template.context_processors.request',
+            ],
         },
-    ]
-    ```
+    },
+]
+```
 
 > **براساس توضیحات داکیومنت django-social-share:**
 >
@@ -2983,11 +2962,9 @@ hello I'm {{ user.get_full_name | default:user.username }}
 
 #### **T5- ارسال کامنت با AJAX:**
 
-<ol>
+a- **ایجاد مدل کامنت:**
 
-<li><strong>ایجاد مدل کامنت:</strong></li>
-
-<p><code>app directory/models.py</code></p>
+`app directory/models.py`
 
 ```python
 class Comment(models.Model):
@@ -3006,9 +2983,9 @@ class Comment(models.Model):
         return self.content
 ```
 
-<li><strong>ایجاد فرم کامنت:</strong></li>
+b- **ایجاد فرم کامنت:**
 
-<p><code>app directory/forms.py</code></p>
+`app directory/forms.py`
 
 ```python
 class CommentForm(forms.ModelForm):
@@ -3017,9 +2994,9 @@ class CommentForm(forms.ModelForm):
         fields = ['content']
 ```
 
-<li><strong>ایجاد URL برای افزودن کامنت:</strong></li>
+c- **ایجاد URL برای افزودن کامنت:**
 
-<p><code>app directory/urls.py</code></p>
+`app directory/urls.py`
 
 ```python
 urlpatterns = [
@@ -3027,9 +3004,9 @@ urlpatterns = [
 ]
 ```
 
-<li><strong>تغییر view برای post_detail و ایجاد view برای افزدن کامنت:</strong></li>
+d- **تغییر view برای post_detail و ایجاد view برای افزدن کامنت:**
 
-<p><code>app directory/views.py</code></p>
+`app directory/views.py`
 
 ```python
 def post_detail(request, post_id):
@@ -3077,11 +3054,11 @@ def add_comment(request, post_id):
         return JsonResponse({'status': 'error', 'errors': 'Invalid data!'})
 ```
 
-<li><strong>تغییر تمپلیت post_detail-ارسال کامنت با ajax:</strong></li>
+e- **تغییر تمپلیت post_detail-ارسال کامنت با ajax:**
 
-<p>ساختار کد post_detail.html طولانی هست، برای درک راحت تر فقط کد مربوط به کامنت را نمایش میدهیم؛ کدهای مربوط به کامنت بعد از پست های مشابه نوشته میشود.</p>
+ساختار کد post_detail.html طولانی هست، برای درک راحت تر فقط کد مربوط به کامنت را نمایش میدهیم؛ کدهای مربوط به کامنت بعد از پست های مشابه نوشته میشود.
 
-<p><code>templates/social/post_detail.html</code></p>
+`templates/social/post_detail.html`
 
 ```jinja
 <h3>Comment Form</h3>
@@ -3139,8 +3116,6 @@ def add_comment(request, post_id):
     });
 </script>
 ```
-
-</ol>
 
 #### **T6- تکمیل خودکار اطلاعات کاربر با مقادیر پیشفرض با استفاده از **signal**:**
 
@@ -3201,8 +3176,13 @@ class PostAdmin(admin.ModelAdmin):
 
     actions = [deactivate_post, activate_post, post_status]
 ```
+<center>
 
-------------------------------------------------------------------
+***پایان تمرینات***
+
+</center>
+
+<hr>
 
 ### نکات اضافی
 
