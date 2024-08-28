@@ -2285,6 +2285,8 @@ from shop.models import Product
 
 # Create your models here.
 class Order(models.Model):
+    buyer = models.ForeignKey(ShopUser, related_name='orders_buyer', on_delete=models.SET_NULL, null=True)
+    # ------------------------------------------
     firstname = models.CharField(max_length=50)
     lastname = models.CharField(max_length=50)
     phone = models.CharField(max_length=11)
@@ -2328,6 +2330,8 @@ class Order(models.Model):
 ```
 
 **توضیحات:**
+
+> در فیلد buyer که خریدار میباشد، برای آرگومان **on_delete** مقدار SET_NULL را مشخص میکنیم تا چنانچه کاربر پاک شد اطلاعات خرید آن پاک نشود.
 
 برای این مدل چند متد تعریف میکنیم؛ یکی برای نمایش مجموع قیمت محصولات، یکی برای هزینه پستی و دیگری برای مشخص کردن مبلغ قابل پرداخت سبد خرید.
 
@@ -2396,7 +2400,7 @@ class OrdersItemInline(admin.TabularInline):
 # Register your models here.
 @admin.register(Order)
 class OrderAdmin(admin.ModelAdmin):
-    list_display = ('id', 'firstname', 'lastname', 'phone', 'province', 'city', 'paid')
+    list_display = ('id', 'buyer', 'firstname', 'lastname', 'phone', 'province', 'city', 'paid')
     list_filter = ('paid', 'created', 'update')
 
     inlines = [OrdersItemInline]
