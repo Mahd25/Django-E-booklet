@@ -1097,10 +1097,8 @@ def post_search(request):
 from datetime import date
 
 
-Date = date.today().strftime("%B %d, %Y")
-
 class Image(models.Model):
-    image = ResizedImageField(upload_to=f"{Date}", size=[125, 125], scale=1, crop=['middle', 'center'], null=True, blank=True)
+    image = ResizedImageField(upload_to="%Y-%m-%d", size=[125, 125], scale=1, crop=['middle', 'center'], null=True, blank=True)
 
     # ...سایر فیلدها را برای سادگی حذف کردیم
     # ...
