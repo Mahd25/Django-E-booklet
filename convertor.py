@@ -1,9 +1,11 @@
-import markdown
-from pygments import highlight
-from pygments.lexers import get_lexer_by_name, TextLexer
-from pygments.formatters import HtmlFormatter
+import os
 import re
+import markdown
 from slugify import slugify
+from pygments import highlight
+from num2words import num2words
+from pygments.formatters import HtmlFormatter
+from pygments.lexers import get_lexer_by_name, TextLexer
 
 
 # Function to highlight code blocks
@@ -26,14 +28,16 @@ def highlight_code(code, language):
         </div>
     """
 
-    highlighted_code = re.sub(r'<div class="code-box">', f'<div class="code-box">{code_info}', highlighted_code)
+    highlighted_code = re.sub(
+        r'<div class="code-box">', f'<div class="code-box">{code_info}', highlighted_code)
     return highlighted_code
 
 
 # Function to convert markdown to HTML
 def markdown_to_html(md_text):
     # Regex to match code blocks with optional indentation
-    code_block_re = re.compile(r'```(\w*)\s*(.*?)\s*```', re.DOTALL | re.MULTILINE)
+    code_block_re = re.compile(
+        r'```(\w*)\s*(.*?)\s*```', re.DOTALL | re.MULTILINE)
 
     def code_block_replacer(match):
         language = match.group(1)
@@ -41,10 +45,12 @@ def markdown_to_html(md_text):
         return highlight_code(code, language)
 
     # Convert code blocks
-    html_with_highlighted_code = code_block_re.sub(code_block_replacer, md_text)
+    html_with_highlighted_code = code_block_re.sub(
+        code_block_replacer, md_text)
 
     # Convert markdown to HTML
-    html_content = markdown.markdown(html_with_highlighted_code, extensions=['fenced_code', 'codehilite', 'tables'])
+    html_content = markdown.markdown(html_with_highlighted_code, extensions=[
+                                     'fenced_code', 'codehilite', 'tables'])
 
     # Replace image tags to add class edu-img
     img_tag_re = re.compile(r'<img(.*?)>')
@@ -60,7 +66,8 @@ def generate_toc_and_add_links(html_content):
     toc_lines = ["<div class=\"toc\"><h3>فهرست مطالب</h3><ul>"]
 
     for heading in headings:
-        slug = slugify(heading, separator='-', replacements=[(" ", "-"), ("‌", "-")])
+        slug = slugify(heading, separator='-',
+                       replacements=[(" ", "-"), ("‌", "-")])
         toc_lines.append(f'<li><a href="#{slug}">{heading}</a></li>')
 
     toc_lines.append("</ul></div>")
@@ -69,7 +76,8 @@ def generate_toc_and_add_links(html_content):
     # Add id attributes to h3 tags and find the position to insert TOC
     def add_id_link(match):
         title = match.group(1).strip()
-        slug = slugify(title, separator='-', replacements=[(" ", "-"), ("‌", "-")])
+        slug = slugify(title, separator='-',
+                       replacements=[(" ", "-"), ("‌", "-")])
         return f'<h3 id="{slug}">{title}</h3>'
 
     updated_content = re.sub(r'<h3>(.*?)</h3>', add_id_link, html_content)
@@ -78,7 +86,8 @@ def generate_toc_and_add_links(html_content):
     toc_insert_pos = re.search(r'<h2>(.*?)</h2>', updated_content)
     if toc_insert_pos:
         insert_index = toc_insert_pos.end()
-        final_content = updated_content[:insert_index] + toc_content + updated_content[insert_index:]
+        final_content = updated_content[:insert_index] + \
+            toc_content + updated_content[insert_index:]
     else:
         final_content = toc_content + updated_content
 
@@ -108,8 +117,8 @@ def convert_markdown_file(input_file, output_file, title):
 <meta name="author" content="Mahdi Rezaie, Ali Ebrahimian">
 <link rel="icon" href="../Images/favicon.ico" type="image/ico">
 
-<link rel="stylesheet" type="text/css" href="../seasons-css-&-js/seasons-style.css">
-<link rel="stylesheet" type="text/css" href="../seasons-css-&-js/Footer-style.css">
+<link rel="stylesheet" type="text/css" href="https://mahd25.github.io/assets/CSS/seasons-style.css">
+<link rel="stylesheet" type="text/css" href="https://mahd25.github.io/assets/CSS/Footer-style.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
@@ -125,9 +134,9 @@ def convert_markdown_file(input_file, output_file, title):
 </main>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-<script src="../seasons-css-&-js/Django-seasons.js"></script>
-<script src="../seasons-css-&-js/copy-icon.js"></script>
-<script src="../seasons-css-&-js/Footer-Copyright.js"></script>
+<script src="https://mahd25.github.io/assets/JS/Django-seasons.js"></script>
+<script src="https://mahd25.github.io/assets/JS/copy-icon.js"></script>
+<script src="https://mahd25.github.io/assets/JS/Footer-Copyright.js"></script>
 </body>
 </html>
     """
@@ -139,12 +148,29 @@ def convert_markdown_file(input_file, output_file, title):
 
 
 # Request input and output file paths from user
-input_file = input("Please enter the path to the markdown file: ")
-output_file = input("Please enter the path to save the HTML file: ")
-title = input("Please enter the title of the HTML file(example:two): ")
 
-if not output_file.endswith(".html"):
-    output_file += ".html"
+# input_file = input("Please enter the path to the markdown file: ")
+# output_file = input("Please enter the path to save the HTML file: ")
+# title = input("Please enter the title of the HTML file(example:two): ")
+# Find current directory path
+direct = os.getcwd()
 
-# Convert the markdown file to HTML
-convert_markdown_file(input_file, output_file, title)
+# Get all season markdown files
+files = [f for f in os.listdir(direct) if os.path.isfile(
+    direct + "/" + f) and f.endswith(".md") and f.startswith("season-")]
+
+# Path of season markdown files
+file_path = [f"{direct}/{f}" for f in files]
+
+# Convert number to word
+file_num = [num2words(re.search(r"\d+", n).group(0)).capitalize()
+            for n in files]
+
+# Loop for convert all files
+for path, title in zip(file_path, file_num):
+
+    # Path of output file
+    output_file = path.replace(".md", ".html")
+
+    # Convert the markdown file to HTML
+    convert_markdown_file(path, output_file, title)
