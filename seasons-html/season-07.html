@@ -9,8 +9,8 @@
 <meta name="author" content="Mahdi Rezaie, Ali Ebrahimian">
 <link rel="icon" href="../Images/favicon.ico" type="image/ico">
 
-<link rel="stylesheet" type="text/css" href="../seasons-css-&-js/seasons-style.css">
-<link rel="stylesheet" type="text/css" href="../seasons-css-&-js/Footer-style.css">
+<link rel="stylesheet" type="text/css" href="https://mahd25.github.io/assets/CSS/seasons-style.css">
+<link rel="stylesheet" type="text/css" href="https://mahd25.github.io/assets/CSS/Footer-style.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
@@ -2282,8 +2282,8 @@
 </pre></div>
 
 <h3 id="tmrynt-fsl-hftm-w-nkhty-dr-mwrd-blg-mhm">تمرینات فصل هفتم و نکاتی در مورد بلاگ (مهم)</h3>
-<h4><strong>1- ایجاد صفحه ای که اطلاعات و بیوگرافی نویسنده پست را نمایش میدهد، در ضمن تمام پست های نویسنده هم نمایش دهد.</strong></h4>
-<h4>ایجاد URL برای صفحه ی پروفایل نویسنده:</h4>
+<h4><strong>T1- ایجاد صفحه ای که اطلاعات و بیوگرافی نویسنده پست را نمایش میدهد، در ضمن تمام پست های نویسنده هم نمایش دهد:</strong></h4>
+<p><strong>a- ایجاد URL برای صفحه ی پروفایل نویسنده:</strong></p>
 <p><code>app directory/urls.py</code></p>
 <div class="code-box">
         <div class="code-info">
@@ -2299,7 +2299,7 @@
 <span class="p">]</span>
 </pre></div>
 
-<h4>ایجاد view برای صفحه ی پروفایل نویسنده:</h4>
+<p><strong>b- ایجاد view برای صفحه ی پروفایل نویسنده:</strong></p>
 <p><code>app directory/views.py</code></p>
 <div class="code-box">
         <div class="code-info">
@@ -2321,7 +2321,7 @@
     <span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s1">&#39;blog/author_profile.html&#39;</span><span class="p">,</span> <span class="n">context</span><span class="o">=</span><span class="n">context</span><span class="p">)</span>
 </pre></div>
 
-<h4>ایجاد template برای صفحه ی پروفایل نویسنده:</h4>
+<p><strong>c- ایجاد template برای صفحه ی پروفایل نویسنده:</strong></p>
 <p><code>templates/blog/author_profile.html</code></p>
 <div class="code-box">
         <div class="code-info">
@@ -2379,7 +2379,7 @@
 <span class="x">...</span>
 </pre></div>
 
-<h4><strong>2- در صفحه پروفایل برای هر پست تمام کامنت هایش را نمایش دهد.</strong></h4>
+<h4><strong>T2- در صفحه پروفایل برای هر پست تمام کامنت هایش را نمایش دهد:</strong></h4>
 <p>میخواهیم کامنت های هر پست را به صورت پنجره modal در صفحه پروفایل نمایش دهیم.</p>
 <blockquote>
 <p>برای این کار:</p>
@@ -2387,7 +2387,7 @@
 2- برای هر پست یک دکمه ایجاد کرده تا با آن پنجره modal باز شود. <br />
 3- یک تمپلیت برای ساختار پنجره modal ایجاد میکنیم.</p>
 </blockquote>
-<p>برای درک بهتر فقط بخش های اصلی کد پروفایل را مینویسیم.</p>
+<p><strong>برای درک بهتر فقط بخش های اصلی کد پروفایل را مینویسیم.</strong></p>
 <p><code>templates/blog/profile.html</code></p>
 <div class="code-box">
         <div class="code-info">
@@ -2454,7 +2454,7 @@
 <span class="cp">{%</span> <span class="k">endblock</span> <span class="cp">%}</span>
 </pre></div>
 
-<p>تمپلیت برای پنجره modal:</p>
+<p><strong>تمپلیت برای پنجره modal:</strong></p>
 <p><code>templates/blog/modal_comment.html</code></p>
 <div class="code-box">
         <div class="code-info">
@@ -2492,7 +2492,7 @@
 <span class="x">&lt;/div&gt;</span>
 </pre></div>
 
-<p>برای نمایش بهتر کامنت ها در پنجره modal، میتوانید از استایل های زیر هم استفاده کنید.</p>
+<p><strong>برای نمایش بهتر کامنت ها در پنجره modal، میتوانید از استایل های زیر هم استفاده کنید.</strong></p>
 <p><code>css</code></p>
 <div class="code-box">
         <div class="code-info">
@@ -2517,7 +2517,7 @@
 <span class="w">    </span><span class="p">}</span>
 </pre></div>
 
-<h4><strong>3- در صفحه پروفایل برای نمایش پست ها صفحه بندی پیاده سازی کنید.</strong></h4>
+<h4><strong>T3- در صفحه پروفایل برای نمایش پست ها صفحه بندی پیاده سازی کنید:</strong></h4>
 <p>برای همه پست های کاربر، صفحه بندی را پیاده سازی میکینم:</p>
 <p><code>app directory/views.py</code></p>
 <div class="code-box">
@@ -2621,7 +2621,7 @@
 <span class="cp">{%</span> <span class="k">endblock</span> <span class="cp">%}</span>
 </pre></div>
 
-<h4><strong>4- برای سیستم احراز هویت class-based-view ها را شخصی سازی کنید.</strong></h4>
+<h4><strong>T4- برای سیستم احراز هویت class-based-view ها را شخصی سازی کنید:</strong></h4>
 <p>برای شخصی سازی، form, template را ایجاد کرده و در view به کلاس خود معرفی میکنیم.</p>
 <p><strong>در اینجا PasswordChangeView را شخصی سازی میکنیم:</strong></p>
 <h4>ایجاد فرم تغییر پسورد:</h4>
@@ -2738,7 +2738,7 @@
     <span class="n">template_name</span> <span class="o">=</span> <span class="s1">&#39;registration/password_change_done.html&#39;</span>
 </pre></div>
 
-<p>و حالا در urls.py از این view ها استفاده میکینم.</p>
+<p><strong>و حالا در urls.py از این view ها استفاده میکینم.</strong></p>
 <p><code>app directory/urls.py</code></p>
 <div class="code-box">
         <div class="code-info">
@@ -2798,7 +2798,7 @@
     <span class="n">success_url</span> <span class="o">=</span> <span class="n">reverse_lazy</span><span class="p">(</span><span class="s1">&#39;password_reset_complete&#39;</span><span class="p">)</span>  <span class="c1"># URL مقصد پس از بازنشانی رمز عبور را وارد کنید</span>
 </pre></div>
 
-<h4><strong>5- در صفحه ایندکس به صورت رندوم یکی از پست ها را نمایش دهید.</strong></h4>
+<h4><strong>T5- در صفحه ایندکس به صورت رندوم یکی از پست ها را نمایش دهید:</strong></h4>
 <p>از دو روش استاده میکنیم،1- یکی با استفاده از ماژول رندوم و 2- دیگری با استفاده از ORM جنگو (ساختار SQL)</p>
 <p>با استفاده از ماژول random یک پست را انتخاب کرده و در تمپلیت نمایش میدهیم.</p>
 <p><code>app directory/views.py</code></p>
@@ -2873,7 +2873,7 @@
     <span class="c1"># ...</span>
 <span class="p">]</span>
 </pre></div>
-            <a href="https://github.com/mahd25/Django-E-booklet/edit/seasons-source/season-07.md" target="_blank" class="edit-icon">
+            <a href="https://github.com/mahd25/Django-E-booklet/edit/seasons-source/Django-E-booklet-seasons-source/season-07.md" target="_blank" class="edit-icon">
                 <i class="fa-solid fa-pen-to-square"></i>
             </a>
         </div>
@@ -2881,9 +2881,8 @@
 </main>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-<script src="../seasons-css-&-js/Django-seasons.js"></script>
-<script src="../seasons-css-&-js/copy-icon.js"></script>
-<script src="../seasons-css-&-js/Footer-Copyright.js"></script>
+<script src="https://mahd25.github.io/assets/JS/Django-seasons.js"></script>
+<script src="https://mahd25.github.io/assets/JS/copy-icon.js"></script>
+<script src="https://mahd25.github.io/assets/JS/Footer-Copyright.js"></script>
 </body>
 </html>
-    
