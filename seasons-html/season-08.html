@@ -9,8 +9,8 @@
 <meta name="author" content="Mahdi Rezaie, Ali Ebrahimian">
 <link rel="icon" href="../Images/favicon.ico" type="image/ico">
 
-<link rel="stylesheet" type="text/css" href="../seasons-css-&-js/seasons-style.css">
-<link rel="stylesheet" type="text/css" href="../seasons-css-&-js/Footer-style.css">
+<link rel="stylesheet" type="text/css" href="https://mahd25.github.io/assets/CSS/seasons-style.css">
+<link rel="stylesheet" type="text/css" href="https://mahd25.github.io/assets/CSS/Footer-style.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
@@ -1216,7 +1216,7 @@
 </pre></div>
 
 <h3 id="tmrynt-fsl-hshtm-mhm">تمرینات فصل هشتم (مهم)</h3>
-<h4>1- پیاده سازی قابلیت جستجو(براساس توضیحات و تگ های پست):</h4>
+<h4><strong>T1- پیاده سازی قابلیت جستجو(براساس توضیحات و تگ های پست):</strong></h4>
 <p>همانند پروژه قبلی، تمپلیت پایه(base.html) را برای این پروژه نیز ایجاد میکنیم.</p>
 <p><strong>باید برای جستجو یک فرم ایجاد کنیم و آنرا در تمپلیت base.html قرار دهیم تا در همه صفحات دیده شود.</strong></p>
 <p><strong>ایجاد فرم برای جستجو:</strong></p>
@@ -1295,7 +1295,7 @@
 <span class="p">]</span>
 </pre></div>
 
-<h4>2- پیاده سازی قابلیت کامنت گذاشتن برای پست ها:</h4>
+<h4><strong>T2- پیاده سازی قابلیت کامنت گذاشتن برای پست ها:</strong></h4>
 <p>برای قابلیت کامنت گذاری لازم است، model, url, view, form ایجاد کنیم:</p>
 <p><strong>ایجاد مدل برای کامنت گذاشتن:</strong></p>
 <p><code>app directory/models.py</code></p>
@@ -1389,7 +1389,7 @@
     <span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s2">&quot;forms/comment.html&quot;</span><span class="p">,</span> <span class="n">context</span><span class="o">=</span><span class="n">context</span><span class="p">)</span>
 </pre></div>
 
-<h4>3- صفحه بندی برای پست ها</h4>
+<h4><strong>T3- صفحه بندی برای پست ها:</strong></h4>
 <p><strong>ایجاد ساختار تمپلیت صفحه بندی:</strong></p>
 <p><code>templates/partials/pagination.html</code></p>
 <div class="code-box">
@@ -1519,7 +1519,7 @@
 <blockquote>
 <p>همان طور که قبلا هم گفته شد؛ متغیر posts که در try, except ایجاد شده یک آبجکت از صفحه میباشد که اطلاعات صفحه و پست ها را در خود دارد.</p>
 </blockquote>
-<h4>4- پیاده سازی قابلیت ویرایش و حذف برای پست ها:</h4>
+<h4><strong>T4- پیاده سازی قابلیت ویرایش و حذف برای پست ها:</strong></h4>
 <p><strong>ویرایش اطلاعات پست:</strong></p>
 <p>برای ویرایش پست از فرم و تمپلیت ایجاد پست استفاده میکنیم.</p>
 <p><strong>ایجاد URL برای ویرایش پست:</strong></p>
@@ -1666,7 +1666,7 @@
 <span class="x">&lt;/form&gt;</span>
 </pre></div>
 
-<h4>5- قابلیت افزودن تصویر برای پست ها:</h4>
+<h4><strong>T5- قابلیت افزودن تصویر برای پست ها:</strong></h4>
 <p><strong>ایجاد مدل Images برای ذخیره تصاویر:</strong></p>
 <p><code>app directory/models.py</code></p>
 <div class="code-box">
@@ -1747,7 +1747,7 @@
 
     <span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s1">&#39;forms/create_post.html&#39;</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;form&#39;</span><span class="p">:</span> <span class="n">form</span><span class="p">})</span>
 </pre></div>
-            <a href="https://github.com/mahd25/Django-E-booklet/edit/seasons-source/season-08.md" target="_blank" class="edit-icon">
+            <a href="https://github.com/mahd25/Django-E-booklet/edit/seasons-source/Django-E-booklet-seasons-source/season-08.md" target="_blank" class="edit-icon">
                 <i class="fa-solid fa-pen-to-square"></i>
             </a>
         </div>
@@ -1755,9 +1755,8 @@
 </main>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-<script src="../seasons-css-&-js/Django-seasons.js"></script>
-<script src="../seasons-css-&-js/copy-icon.js"></script>
-<script src="../seasons-css-&-js/Footer-Copyright.js"></script>
+<script src="https://mahd25.github.io/assets/JS/Django-seasons.js"></script>
+<script src="https://mahd25.github.io/assets/JS/copy-icon.js"></script>
+<script src="https://mahd25.github.io/assets/JS/Footer-Copyright.js"></script>
 </body>
 </html>
-    
