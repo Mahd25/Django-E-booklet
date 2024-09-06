@@ -9,8 +9,8 @@
 <meta name="author" content="Mahdi Rezaie, Ali Ebrahimian">
 <link rel="icon" href="../Images/favicon.ico" type="image/ico">
 
-<link rel="stylesheet" type="text/css" href="../seasons-css-&-js/seasons-style.css">
-<link rel="stylesheet" type="text/css" href="../seasons-css-&-js/Footer-style.css">
+<link rel="stylesheet" type="text/css" href="https://mahd25.github.io/assets/CSS/seasons-style.css">
+<link rel="stylesheet" type="text/css" href="https://mahd25.github.io/assets/CSS/Footer-style.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
@@ -1268,7 +1268,7 @@ SearchQuery(&quot;...&quot;) ^ SearchQuery(&quot;...&quot;)
 </li>
 </ul>
 <h3 id="tmrynt-fsl-shshm-mhm">تمرینات فصل ششم (مهم)</h3>
-<h4>1- وقتی پست حذف شد، تصاویر مربوط به آن هم از پروژه حذف شوند:</h4>
+<h4><strong>T1- وقتی پست حذف شد، تصاویر مربوط به آن هم از پروژه حذف شوند:</strong></h4>
 <p><strong>برای این کار از دو روش پیشنهادی استفاده میکنیم:</strong></p>
 <p><strong>روش اول:</strong></p>
 <p>بازنویسی (override) متد <span class="en-text">delete()</span> برای کلاس مربوطه(Post):</p>
@@ -1338,7 +1338,7 @@ SearchQuery(&quot;...&quot;) ^ SearchQuery(&quot;...&quot;)
 </li>
 </ul>
 </blockquote>
-<h4>2- فیلد search براساس title و description تصویر هم جستجو را انجام دهد:</h4>
+<h4><strong>T2- فیلد search براساس title و description تصویر هم جستجو را انجام دهد:</strong></h4>
 <p>کافیست فیلد های مدل Image را به صورت &lt;related_name&gt;__&lt;field_name&gt; در ساختار search جایی که فیلدها را مشخص میکردیم بنویسیم.</p>
 <p><code>app directory/views.py</code></p>
 <div class="code-box">
@@ -1376,7 +1376,7 @@ SearchQuery(&quot;...&quot;) ^ SearchQuery(&quot;...&quot;)
 <blockquote>
 <p>در سایر روش های جستجو هم میتوان به همین روش عمل کرد.</p>
 </blockquote>
-<h4>3- دایرکتوری ذخیره تصاویر، براساس "تاریخ" آن روز ایجاد شود. | دایرکتوری ذخیره تصاویر، براساس "نام کاربری نویسنده پست" ایجاد شود:</h4>
+<h4><strong>T3- دایرکتوری ذخیره تصاویر، براساس "تاریخ" آن روز ایجاد شود. | دایرکتوری ذخیره تصاویر، براساس "نام کاربری نویسنده پست" ایجاد شود:</strong></h4>
 <p>میخواهیم برای آرگومان upload_to برای هر روزی که تصویری آپلود میشود یک دایرکتوری همنام با آن تاریخ ایجاد کنیم.</p>
 <p><code>app directory/models.py</code></p>
 <div class="code-box">
@@ -1390,10 +1390,8 @@ SearchQuery(&quot;...&quot;) ^ SearchQuery(&quot;...&quot;)
     <pre><span></span><span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">date</span>
 
 
-<span class="n">Date</span> <span class="o">=</span> <span class="n">date</span><span class="o">.</span><span class="n">today</span><span class="p">()</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;%B </span><span class="si">%d</span><span class="s2">, %Y&quot;</span><span class="p">)</span>
-
 <span class="k">class</span> <span class="nc">Image</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
-    <span class="n">image</span> <span class="o">=</span> <span class="n">ResizedImageField</span><span class="p">(</span><span class="n">upload_to</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">Date</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="p">[</span><span class="mi">125</span><span class="p">,</span> <span class="mi">125</span><span class="p">],</span> <span class="n">scale</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">crop</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;middle&#39;</span><span class="p">,</span> <span class="s1">&#39;center&#39;</span><span class="p">],</span> <span class="n">null</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">blank</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">image</span> <span class="o">=</span> <span class="n">ResizedImageField</span><span class="p">(</span><span class="n">upload_to</span><span class="o">=</span><span class="s2">&quot;%Y-%m-</span><span class="si">%d</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="p">[</span><span class="mi">125</span><span class="p">,</span> <span class="mi">125</span><span class="p">],</span> <span class="n">scale</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">crop</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;middle&#39;</span><span class="p">,</span> <span class="s1">&#39;center&#39;</span><span class="p">],</span> <span class="n">null</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">blank</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
     <span class="c1"># ...سایر فیلدها را برای سادگی حذف کردیم</span>
     <span class="c1"># ...</span>
@@ -1461,7 +1459,7 @@ SearchQuery(&quot;...&quot;) ^ SearchQuery(&quot;...&quot;)
 </pre></div>
 
 <p>پس از ایجاد تابع، آن تابع را برای آرگومان upload_to صدا میزنیم. | پرانتز لازم نیست خودش تشخیص میدهد.</p>
-<h4>4- برای متد __str__ عنوان(title) تصویر نمایش داده شود و در صورتی که title وجود نداشت اسم آن فایل نمایش داده شود:</h4>
+<h4><strong>T4- برای متد __str__ عنوان(title) تصویر نمایش داده شود و در صورتی که title وجود نداشت اسم آن فایل نمایش داده شود:</strong></h4>
 <p><code>app directory/models.py</code></p>
 <div class="code-box">
         <div class="code-info">
@@ -1478,7 +1476,7 @@ SearchQuery(&quot;...&quot;) ^ SearchQuery(&quot;...&quot;)
         <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;title: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">title</span><span class="si">}</span><span class="s2">&quot;</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">title</span> <span class="k">else</span> <span class="sa">f</span><span class="s2">&quot;image_name: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">img_file</span><span class="si">}</span><span class="s2">&quot;</span>
 </pre></div>
 
-<h4>5- در تمپلیت post_detail، تصاویر پست در مکان های مختلف نمایش داده شوند:</h4>
+<h4><strong>T5- در تمپلیت post_detail، تصاویر پست در مکان های مختلف نمایش داده شوند:</strong></h4>
 <p>برای اینکه تصاویر پست را در بخش های مختلف نمایش دهیم از ایندکس استفاده میکنیم:</p>
 <div class="code-box">
         <div class="code-info">
@@ -1577,7 +1575,7 @@ SearchQuery(&quot;...&quot;) ^ SearchQuery(&quot;...&quot;)
 <span class="x">    </span>
 <span class="cp">{%</span> <span class="k">endblock</span> <span class="cp">%}</span>
 </pre></div>
-            <a href="https://github.com/mahd25/Django-E-booklet/edit/seasons-source/season-06.md" target="_blank" class="edit-icon">
+            <a href="https://github.com/mahd25/Django-E-booklet/edit/seasons-source/Django-E-booklet-seasons-source/season-06.md" target="_blank" class="edit-icon">
                 <i class="fa-solid fa-pen-to-square"></i>
             </a>
         </div>
@@ -1585,9 +1583,8 @@ SearchQuery(&quot;...&quot;) ^ SearchQuery(&quot;...&quot;)
 </main>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-<script src="../seasons-css-&-js/Django-seasons.js"></script>
-<script src="../seasons-css-&-js/copy-icon.js"></script>
-<script src="../seasons-css-&-js/Footer-Copyright.js"></script>
+<script src="https://mahd25.github.io/assets/JS/Django-seasons.js"></script>
+<script src="https://mahd25.github.io/assets/JS/copy-icon.js"></script>
+<script src="https://mahd25.github.io/assets/JS/Footer-Copyright.js"></script>
 </body>
 </html>
-    
