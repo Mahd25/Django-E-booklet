@@ -1,9 +1,11 @@
-import markdown
-from pygments import highlight
-from pygments.lexers import get_lexer_by_name, TextLexer
-from pygments.formatters import HtmlFormatter
+import os
 import re
+import markdown
 from slugify import slugify
+from pygments import highlight
+from num2words import num2words
+from pygments.formatters import HtmlFormatter
+from pygments.lexers import get_lexer_by_name, TextLexer
 
 
 # Function to highlight code blocks
@@ -146,12 +148,29 @@ def convert_markdown_file(input_file, output_file, title):
 
 
 # Request input and output file paths from user
-input_file = input("Please enter the path to the markdown file: ")
-output_file = input("Please enter the path to save the HTML file: ")
-title = input("Please enter the title of the HTML file(example:two): ")
 
-if not output_file.endswith(".html"):
-    output_file += ".html"
+# input_file = input("Please enter the path to the markdown file: ")
+# output_file = input("Please enter the path to save the HTML file: ")
+# title = input("Please enter the title of the HTML file(example:two): ")
+# Find current directory path
+direct = os.getcwd()
 
-# Convert the markdown file to HTML
-convert_markdown_file(input_file, output_file, title)
+# Get all season markdown files
+files = [f for f in os.listdir(direct) if os.path.isfile(
+    direct + "/" + f) and f.endswith(".md") and f.startswith("season-")]
+
+# Path of season markdown files
+file_path = [f"{direct}/{f}" for f in files]
+
+# Convert number to word
+file_num = [num2words(re.search(r"\d+", n).group(0)).capitalize()
+            for n in files]
+
+# Loop for convert all files
+for path, title in zip(file_path, file_num):
+
+    # Path of output file
+    output_file = path.replace(".md", ".html")
+
+    # Convert the markdown file to HTML
+    convert_markdown_file(path, output_file, title)
