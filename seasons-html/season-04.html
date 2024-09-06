@@ -9,8 +9,8 @@
 <meta name="author" content="Mahdi Rezaie, Ali Ebrahimian">
 <link rel="icon" href="../Images/favicon.ico" type="image/ico">
 
-<link rel="stylesheet" type="text/css" href="../seasons-css-&-js/seasons-style.css">
-<link rel="stylesheet" type="text/css" href="../seasons-css-&-js/Footer-style.css">
+<link rel="stylesheet" type="text/css" href="https://mahd25.github.io/assets/CSS/seasons-style.css">
+<link rel="stylesheet" type="text/css" href="https://mahd25.github.io/assets/CSS/Footer-style.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
@@ -2287,7 +2287,7 @@
 </pre></div>
 
 <h3 id="tmrynt-fsl-chhrm-mhm">تمرینات فصل چهارم (مهم)</h3>
-<h4>1- نوشتن فرم برای ایجاد پست.</h4>
+<h4><strong>T1- نوشتن فرم برای ایجاد پست:</strong></h4>
 <p>بریم ساختار فرم خود را در forms.py ایجاد کنیم. | از هر دو روش استفاده میکنیم.</p>
 <blockquote>
 <p>در فرم ها PositiveIntegerField نداریم پس از IntegerField استفاده کرده و برایش min_value مشخص میکنیم تا مثل PositiveIntegerField عمل کند.</p>
@@ -2457,7 +2457,7 @@
 <span class="cp">{%</span> <span class="k">endblock</span> <span class="cp">%}</span>
 </pre></div>
 
-<h4>2- اعتبارسنجی فیلدهای فرم ایجاد پست.</h4>
+<h4><strong>T2- اعتبارسنجی فیلدهای فرم ایجاد پست:</strong></h4>
 <blockquote>
 <p>شیوه اعتبارسنجی در هردو فرم یکسان میباشد بنابراین فقط برای یکی اعتبارسنجی را انجام میدهیم.</p>
 </blockquote>
@@ -2501,7 +2501,7 @@
             <span class="k">return</span> <span class="n">reading_time</span>
 </pre></div>
 
-<h4>3- نمایش خطاهای فرم ایجاد پست.</h4>
+<h4><strong>T3- نمایش خطاهای فرم ایجاد پست:</strong></h4>
 <p>خب بریم خطاهای فرم را در تمپلیت نمایش دهیم:</p>
 <p><code>templates/forms/create_post.html</code></p>
 <div class="code-box">
@@ -2551,7 +2551,7 @@
 <span class="cp">{%</span> <span class="k">endblock</span> <span class="cp">%}</span>
 </pre></div>
 
-<h4>4- ایجاد تمپلیت تگ هایی که  بیشترترین و کمترین تایم مطالعه را دارند.</h4>
+<h4><strong>T4- ایجاد تمپلیت تگ هایی که  بیشترترین و کمترین تایم مطالعه را دارند:</strong></h4>
 <p>این کار را با هردو حالت ایجاد تمپلیت تگ انجام میدهیم.</p>
 <p><center></p>
 <h4><strong><em>"simple tag"</em></strong></h4>
@@ -2675,7 +2675,7 @@
     <pre><span></span><span class="x">shortest post: </span><span class="cp">{{</span> <span class="nv">min_time</span> <span class="cp">}}</span>
 </pre></div>
 
-<h4>5- تمپلیت تگی که فعال ترین کاربر را نشان میدهد.(کاربری که بیشترین تعداد پست را دارد).</h4>
+<h4><strong>T5- تمپلیت تگی که فعال ترین کاربر را نشان میدهد.(کاربری که بیشترین تعداد پست را دارد):</strong></h4>
 <p><code>app directory/templatetags/blog_tags.py</code></p>
 <div class="code-box">
         <div class="code-info">
@@ -2697,7 +2697,7 @@
     <span class="k">return</span> <span class="n">User</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="n">total_posts</span><span class="o">=</span><span class="n">Count</span><span class="p">(</span><span class="s1">&#39;user_posts&#39;</span><span class="p">))</span><span class="o">.</span><span class="n">order_by</span><span class="p">(</span><span class="s1">&#39;-total_posts&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">first</span><span class="p">()</span>
 </pre></div>
 
-<h4>6- تمپلیت فیلتر که متن را سانسور میکنه.</h4>
+<h4><strong>T6- تمپلیت فیلتر که متن را سانسور میکنه:</strong></h4>
 <p><code>app directory/templatetags/blog_tags.py</code></p>
 <div class="code-box">
         <div class="code-info">
@@ -2723,7 +2723,7 @@
 
     <span class="k">return</span> <span class="n">text</span>
 </pre></div>
-            <a href="https://github.com/mahd25/Django-E-booklet/edit/seasons-source/season-04.md" target="_blank" class="edit-icon">
+            <a href="https://github.com/mahd25/Django-E-booklet/edit/seasons-source/Django-E-booklet-seasons-source/season-04.md" target="_blank" class="edit-icon">
                 <i class="fa-solid fa-pen-to-square"></i>
             </a>
         </div>
@@ -2731,9 +2731,8 @@
 </main>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-<script src="../seasons-css-&-js/Django-seasons.js"></script>
-<script src="../seasons-css-&-js/copy-icon.js"></script>
-<script src="../seasons-css-&-js/Footer-Copyright.js"></script>
+<script src="https://mahd25.github.io/assets/JS/Django-seasons.js"></script>
+<script src="https://mahd25.github.io/assets/JS/copy-icon.js"></script>
+<script src="https://mahd25.github.io/assets/JS/Footer-Copyright.js"></script>
 </body>
 </html>
-    
