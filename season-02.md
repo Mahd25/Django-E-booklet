@@ -66,7 +66,9 @@ class TableName(models.Model):
 ```
 
 برای متن های طولانی تر از «TextField» بجای «CharField» استفاده میکنیم.
-هر صفحه ای از وبسایت دارای «url» خاص خودشه آن میشه slug.(قسمت اصلی آدرس بعد از نام دامنه است)
+
+هر صفحه ای از وبسایت دارای «url» خاص خودش می باشد که به آن slug می گویند.(قسمت اصلی آدرس بعد از نام دامنه است) برای ذخیره slug از فیلد «SlugField» استفاده میشود.
+
 برای زمان و تاریخ از فیلد «DateTimeField» استفاده میکنیم.
 
 مرتب سازی آبجکت ها در جدول:
@@ -243,6 +245,9 @@ class Post(models.Model):
 
 اتریبیوت labels: اسامی که به کاربر نمایش داده میشه را برمیگرداند
 
+یکی از بهترین راه های برقراری ارتباط با کد هایی که مینویسیم استفاده از shell می باشد.
+
+
 ``Terminal:``
 
 ```powershell
@@ -372,7 +377,9 @@ class Post(models.Model):
 برای اینکه جداول توی دیتابیس ذخیره بشن از «makemigrations» و «migrate» استفاده میکنیم
 
 دستور migrate : مسئول اعمال و عدم اعمال مهاجرت(migration) است.
+
 دستور makemigrations : مسئول ایجاد مهاجرت(migration) های جدید بر اساس تغییراتی است که در مدل های خود ایجاد کرده اید.
+
 دستور sqlmigrate، : دستورات SQL را برای یک مهاجرت(migration) نمایش می دهد.
 
 با استفاده از دستور «makemigrations» چنانچه تغییری توی مدل اعمال شده باشد میاد و یک (migration) حاوی تغییرات جهت اعمال روی دیتابیس ایجاد میکند با این حال تغییری روی دیتابیس نمیدهد / هنگامی که از دستور «migrate» استفاده کنیم تغییرات روی دیتابیس اعمال میشن.
@@ -571,11 +578,11 @@ class PostAdmin(admin.ModelAdmin):
 اینها چهار عملکرد اصلی برای کار با پایگاه داده هستند.
 
 مثلا یک داده به جدول اضافه کنیم،
-یک یا چند مورد از داده ها انتخاب کنیم(از روی دیتابیس بخوانیم)
-تغییراتی توی داده ایجاد کنیم
+یک یا چند مورد از داده ها انتخاب کنیم(از روی دیتابیس بخوانیم)،
+تغییراتی توی داده ایجاد کنیم،
 ویا داده هایی را از دیتابیس حذف کنیم.
 
-این عملکردها را با ORM» انجام میدهیم.
+این عملکردها را با (ORM) انجام میدهیم.
 
 ---
 
@@ -688,9 +695,28 @@ python manage.py shell
 
 ---
 
-ایجاد داده در جدول دیتابیس ، با استفاده از متد <span class="en-text">create()</span>
 
- برای «user» بهتره از متد خاص خودش یعنی <span class="en-text">create_user()</span> استفاده کنیم (در این روش دیگر نیازی به متد <span class="en-text">save()</span> نیست):
+با استفاده از متد <span class="en-text">create()</span> میتوان بدون استفاده از متد <span class="en-text">save()</span>، یک query به صورت مستقیم ایجاد و در دیتابیس ذخیره کرد
+
+خب حالا بریم یک پست جدید ایجاد کنیم:
+
+``shell:``
+
+```shell
+>>> Post.objects.all()
+<QuerySet [<Post: Python>]>
+>>> post1 = Post.objects.create(author=user2, title='Django', description='Django is a free and open source web-based software framework')
+>>> post1
+<Post: Django>
+>>> Post.objects.all()
+<QuerySet [<Post: Python>, <Post: Django>]>
+```
+
+چون فیلد (author) از نوع (ForeignKey) هست بهتره از (user) ایجاد کرده استفاده کنیم نه رشته / مابقی فیلد ها هم پر میکنیم.
+
+از متد create میتوان بدون ذخیره در یک متغیر نیز، استفاده کرد.
+
+برای «user» بهتره از متد خاص خودش یعنی <span class="en-text">create_user()</span> استفاده کنیم (در این روش دیگر نیازی به متد <span class="en-text">save()</span> نیست):
 
 ```python
 # structure
@@ -708,22 +734,6 @@ User.objects.create_user()
 >>> User.objects.all()
 <QuerySet [<User: Mahdi>, <User: Ali>, <User: Mr_milad>]>
 ```
-
-خب حالا بریم یک پست جدید ایجاد کنیم:
-
-``shell:``
-
-```shell
->>> Post.objects.all()
-<QuerySet [<Post: Python>]>
->>> post1 = Post.objects.create(author=user2, title='Django', description='Django is a free and open source web-based software framework')
->>> post1
-<Post: Django>
->>> Post.objects.all()
-<QuerySet [<Post: Python>, <Post: Django>]>
-```
-
-چون فیلد (author) از نوع (ForeignKey) هست بهتره از (user) ایجاد کرده استفاده کنیم نه رشته / مابقی فیلد ها هم پر میکنیم.
 
 ---
 
@@ -756,6 +766,8 @@ User.objects.create_user()
 
 **متد <span class="en-text">get_or_create()</span>:**
 
+``shell:``
+
 ```shell
 >>> Post.objects.get_or_create(author_id=1, title='C language')
 (<Post: C language>, True)
@@ -770,9 +782,29 @@ User.objects.create_user()
 
 خروجی آن (کوئری ست) هستش.
 
+``shell:``
+
 ```shell
 >>> Post.objects.filter(title='Django')
 <QuerySet [<Post: Django>]>
+```
+با استفاده از 2 تا underscore(__) میتوان فیلد های عناصر مشخص کننده در متد را مشخص کرد
+
+مثال ها
+
+``shell:``
+
+```shell
+>>> posts1 = Post.objects.filter(user__id=2)
+>>> posts1
+<QuerySet [<Post: Django>]>
+>>>posts2 = Post.object.filter(publish__year=2023)
+>>>posts2
+<QuerySet [<Post: Java>, <Post: C#>]>
+>>>Post.object.filter(publish__year=2022, author__username="reza")
+<QuerySet [<Post: Python>]>
+>>>Post.object.filter(publish__year=2024).filter(author__username="ali")
+<QuerySet [<Post: Html>]>
 ```
 
 ---
@@ -1160,6 +1192,8 @@ from . import views
 app_name = 'blog'
 
 urlpatterns = [
+    # path("URL-name-page+/",views.view-page-method,name='name for better access to URL')
+
     # URL For index page
     path('', views.index, name='index'),
     # URL For Post-Detail
@@ -1179,7 +1213,7 @@ urlpatterns = [
 
 #### کاربرد (app_name) و (name) در فایل (url)
 
-اگه خواستیم از (url) که ایجاد کرده ایم در جایی استفاده کنیم بجای نوشتن آن آدرس طولانی به صورت زیر عمل میکنیم:
+اگر در پروژه، چند اپلیکیشن داشتیم برای دسترسی راحت تر به urlهای هر اپلیکیشن میتوان برای فایل های (urls.py) آنها یک namespace (app_name) تعریف کنیم و بجای نوشتن آن آدرس طولانی به صورت زیر عمل میکنیم:
 
 app_name: (name in path)
 
@@ -1187,11 +1221,13 @@ blog: post_list
 
 ---
 
-الآن این (url)ها کار نمیکنند ما باید یکسری تغییرات توی فایل (urls.py) پروژه نه دایرکتوری اپ ایجاد کنیم (باید فایل urls.py اپ را بهش معرفی کنیم)
+الآن این (url)ها کار نمیکنند ما باید یکسری تغییرات توی فایل (urls.py) پروژه (نه دایرکتوری اپ) ایجاد کنیم (باید فایل urls.py اپ را بهش معرفی کنیم)
 
 ```python
 path('خالی یا یک آدرس', include('آدرس فایل url اپ', namespace="اسم اپ"))
 ```
+
+مقدار path بالا باید درون لیست urlpatterns فایل urls.py خود پروژه اضافه شود، همچنین باید include نیز به این فایل import شود.
 
 برای درک بیشتر به کد زیر توجه کنید.
 

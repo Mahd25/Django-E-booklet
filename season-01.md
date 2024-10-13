@@ -6,6 +6,7 @@
 2. نصب پکیج جنگو
 3. ایجاد پروژه
 4. دستور migrate
+5. اجرای سرور
 
 #### 1. ایجاد محیط مجازی
 
@@ -165,4 +166,19 @@ django-admin startproject project_name
 
 ```powershell
 python manage.py migrate
+```
+#### 5. اجرای سرور
+با استفاده از دستور runserver، سرور در IP و پورت پیش فرض(Localhost) اجرا می شود.
+
+``Terminal:``
+
+```powershell
+python manage.py runserver
+```
+در صورت اشفال بودن IP یا پورت، میتوان از دستور زیر نیز برای تعریف IP و پورت استفاده نمود.
+
+``Terminal:``
+
+```powershell
+python manage.py runserver 127.0.0.2:7000
 ```

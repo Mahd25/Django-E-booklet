@@ -212,12 +212,71 @@ class Post(models.Model):
 {% block content %}
     <h1>جزئیات پست</h1>
     <h3>{{ post.title }} توسط {{ post.author }}</h3>
-    <p>{{ post.description | linebreaks }}</p>
+    <p>{{ post.description |linebreaks }}</p>
     <hr>
-    <p>{{ post.publish | jformat }}</p>
+    <p>{{ post.publish |jformat|"%Y/%m/%d-%H:%M" }}</p>
 {% endblock %}
 ```
+
+مقادیر فرمت دهی جلالی براساس ماژول datetime پایتون می باشند(نه فیلترهای جنگو!!(date و time)).
+
+برای کامنت گذاری در تمپلیت های جنگو باید از تگ {# text #} استفاده کرد.
 
 ### نتیجه‌گیری
 
 با اعمال تغییرات ذکر شده، پنل ادمین پروژه جنگو به زبان فارسی قابل استفاده خواهد بود. همچنین تاریخ و زمان با تاریخ جلالی به شمسی تبدیل خواهد شد(به زبان فارسی)
+
+---
+
+## استفاده و فرمت دهی زمان در تمپلیت ها
+
+برای استفاده از ماژول datetime در پروژه کافیست این ماژول را در فایل "views.py" وارد کنیم و یک object در context برای آن ایجاد کنیم.
+
+
+برای مثال)
+
+``app directory/views.py:``
+
+```python
+...
+import datetime
+def post_detail(request, id):
+    post = get_object_or_404(Post, id=id, status=Post.Status.PUBLISHED)
+    context = {
+        "post": post,
+        "new_date": datetime.datetime.now(),
+    }
+    return render(request, "blog/post_detail.html", context)
+```
+
+حال میتوان از آن در تمپلیت ها نیز استفاده کرد
+
+``app directory/templates/blog/post_detail.html``
+
+```
+    ...
+    <p>{{ new_date }}</p>
+    ...
+```
+
+میتوان از فیلتر date و مقادیر آن، برای فرمت دهی تاریخ استفاده کرد.
+
+```jinja
+<p>{{ new_date |date }}</p>
+<p>{{ new_date |date:"DATE_FORMAT" }}</p>
+<p>{{ new_date |date:"DATETIME_FORMAT" }}</p>
+<p>{{ new_date |date:"SHORT_DATE_FORMAT" }}</p>
+<p>{{ new_date |date:"SHORT_DATETIME_FORMAT" }}</p>
+```
+فرمت های تعریف شده برای date
+
+```jinja
+<p>{{ new_date |date:"سال:Y ماه:m" }}</p>
+```
+
+
+میتوان برای date مقادیر دلخواهی را قرار داد.
+
+از فیلتر time و مقادیر آن هم میتوان برای فرمت دهی ساعت استفاده کرد.
+
+برای مطالعه بیشتر می توانید <a href="https://docs.djangoproject.com/en/5.1/ref/templates/builtins/#date">داکیومنت</a> این بخش را بخوانید.
